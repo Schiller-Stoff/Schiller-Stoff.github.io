@@ -7,11 +7,13 @@ const MyNav = () => {
   return (
       <Navbar collapseOnSelect expand="lg">
         <Container>
-          <Navbar.Brand>
+        <Nav>
+          <Nav.Link>
             <Link to="/">
               Sebastian Stoff
             </Link>
-          </Navbar.Brand>
+          </Nav.Link>
+          </Nav>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"

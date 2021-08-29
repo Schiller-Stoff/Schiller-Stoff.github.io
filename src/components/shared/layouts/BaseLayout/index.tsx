@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const BaseLayout: React.FC = (props) => (
   <>
     <MyNav></MyNav>
-    <Container className="min-vh-100" as="main">{props.children}</Container>
+    <Container className="min-vh-100 px-md-4" as="main">{props.children}</Container>
     <Footer></Footer>
   </>
 );
