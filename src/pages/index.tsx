@@ -1,11 +1,12 @@
 
 import React from "react";
+import BaseLayout from "../components/shared/layouts/BaseLayout";
 
 const IndexPage: React.FC = () => {
   return (
-    <main>
-      <h1>My Gatsby portfolio page!</h1>
-    </main>
+    <BaseLayout>
+      <h1>Home page!</h1>
+    </BaseLayout>
   )
 }
 
