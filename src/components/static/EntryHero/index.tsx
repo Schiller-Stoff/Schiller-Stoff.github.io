@@ -5,6 +5,7 @@ const StyleOverlay: React.FC = () => {
     <div
       style={{
         position:"absolute",
+        zIndex:-1,
         top:0,
         right:0,
         height: "90vh",
