@@ -18,5 +18,10 @@
     "gatsby": "^3.12.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.5",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9"
   }
 }
