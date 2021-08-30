@@ -1,6 +1,9 @@
 
 /**
  * Helper to fetch against orcid's public data. 
+ * 
+ * Take a look at the free to use ORCID SwaggerAPI 
+ * https://pub.orcid.org/v3.0/#!/Public_API_v2.1/viewRecordV21
  */
 const OrcidAPI = (() => {
   const ORCID_PUBLIC_ENDPOINT = "https://pub.orcid.org/v2.1/";
