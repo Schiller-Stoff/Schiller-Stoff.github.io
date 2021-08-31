@@ -1,4 +1,6 @@
 
+const fetch = require("node-fetch");
+
 /**
  * Helper to fetch against orcid's public data. 
  * 
@@ -31,6 +33,4 @@ const OrcidAPI = (() => {
   };
 })();
 
-module.exports = {
-  OrcidAPI,
-};
+module.exports = OrcidAPI
