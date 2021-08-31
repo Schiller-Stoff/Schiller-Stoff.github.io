@@ -3,16 +3,13 @@ import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import BaseLayout from "../components/shared/layouts/BaseLayout";
 import StyleOverlay from "../components/static/EntryHero";
-const orcid = require("../../api/orcid");
 
-const IndexPage: React.FC = () => {
+const IndexPage: React.FC = (props) => {
+
+  console.log(props);
+
   return (
     <>
-    
-    <Button onClick={() => {
-      orcid.OrcidAPI.fetchPubPerson("0000-0001-6941-113X");
-    }}>Test fetch</Button>
-
     <BaseLayout>
       <StyleOverlay></StyleOverlay>
       <Row>
