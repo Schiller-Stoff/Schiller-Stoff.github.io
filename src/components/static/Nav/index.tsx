@@ -9,7 +9,7 @@ const MyNav = () => {
         <Container>
         <Nav>
           <Nav.Link as="li">
-            <Link to="/">
+            <Link to="/" className="text-dark text-decoration-none">
               Sebastian Stoff
             </Link>
           </Nav.Link>
@@ -21,16 +21,16 @@ const MyNav = () => {
           >
             <Nav>
               <Nav.Link as="li">
-                <Link to="/about">About</Link>
+                <Link to="/about" className="text-dark text-decoration-none">About</Link>
               </Nav.Link>
               <Nav.Link
                 href="#features"
                 as="li"
               >
-                <Link to="/projects">Projects</Link>
+                <Link to="/projects" className="text-dark text-decoration-none">Projects</Link>
               </Nav.Link>
               <Nav.Link href="#features" as="li">
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact" className="text-dark text-decoration-none">Contact</Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
