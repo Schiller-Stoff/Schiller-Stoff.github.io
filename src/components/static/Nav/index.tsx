@@ -8,7 +8,7 @@ const MyNav = () => {
       <Navbar collapseOnSelect expand="lg">
         <Container>
         <Nav>
-          <Nav.Link>
+          <Nav.Link as="li">
             <Link to="/">
               Sebastian Stoff
             </Link>
