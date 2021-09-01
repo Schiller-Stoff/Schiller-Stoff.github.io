@@ -3,8 +3,9 @@ import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import BaseLayout from "../components/shared/layouts/BaseLayout";
 import StyleOverlay from "../components/static/EntryHero";
+import { Orcid } from "../types/orcid";
 
-const IndexPage: React.FC = (props) => {
+const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props) => {
 
   console.log(props);
 
@@ -18,7 +19,7 @@ const IndexPage: React.FC = (props) => {
           <br></br>
           <br></br>
           <br></br>
-          <h1>Hi, I'm Sebastian Stoff!</h1>
+          <h1>Hi, I'm {props.pageContext.persOrcid.person.name["family-name"].value}!</h1>
           <h2 className="text-secondary">Pleasure to meet you!</h2>
           <br></br>
           <Button variant="primary">Request meeting</Button>
