@@ -70,21 +70,8 @@ declare module OrcidPerson {
       path: string;
   }
 
-
-  export interface SourceOrcid2 {
-      uri: string;
-      path: string;
-      host: string;
-  }
-
-  export interface Source2 {
-      "source-orcid": SourceOrcid2;
-      "source-client-id"?: any;
-      "source-name": ValueObject;
-  }
-
   export interface ResearcherUrl extends VersionAble {
-      source: Source2;
+      source: Source;
       "url-name": string;
       url: ValueObject;
       visibility: string;
@@ -111,14 +98,8 @@ declare module OrcidPerson {
       host: string;
   }
 
-  export interface Source3 {
-      "source-orcid": SourceOrcid3;
-      "source-client-id"?: any;
-      "source-name": ValueObject;
-  }
-
   export interface Address extends VersionAble {
-      source: Source3;
+      source: Source;
       country: ValueObject;
       visibility: string;
       path: string;
@@ -132,21 +113,8 @@ declare module OrcidPerson {
       path: string;
   }
 
-
-  export interface SourceOrcid4 {
-      uri: string;
-      path: string;
-      host: string;
-  }
-
-  export interface Source4 {
-      "source-orcid": SourceOrcid4;
-      "source-client-id"?: any;
-      "source-name": ValueObject;
-  }
-
   export interface Keyword extends VersionAble {
-      source: Source4;
+      source: Source;
       content: string;
       visibility: string;
       path: string;
@@ -179,18 +147,6 @@ declare module OrcidPerson {
       path: string;
   }
 
-  export interface SourceOrcid5 {
-      uri: string;
-      path: string;
-      host: string;
-  }
-
-  export interface Source5 {
-      "source-orcid": SourceOrcid5;
-      "source-client-id"?: any;
-      "source-name": ValueObject;
-  }
-
   export interface StartDate {
       year: ValueObject;
       month: ValueObject;
@@ -221,7 +177,7 @@ declare module OrcidPerson {
   }
 
   export interface EducationSummary extends VersionAble {
-      source: Source5;
+      source: Source;
       "department-name": string;
       "role-title": string;
       "start-date": StartDate;
@@ -238,55 +194,13 @@ declare module OrcidPerson {
       path: string;
   }
 
-  export interface SourceOrcid6 {
-      uri: string;
-      path: string;
-      host: string;
-  }
-
-
-  export interface Source6 {
-      "source-orcid": SourceOrcid6;
-      "source-client-id"?: any;
-      "source-name": ValueObject;
-  }
-
-  export interface StartDate2 {
-      year: ValueObject;
-      month: ValueObject;
-      day?: any;
-  }
-
-  export interface EndDate2 {
-      year: ValueObject;
-      month: ValueObject;
-      day?: any;
-  }
-
-  export interface Address3 {
-      city: string;
-      region: string;
-      country: string;
-  }
-
-  export interface DisambiguatedOrganization2 {
-      "disambiguated-organization-identifier": string;
-      "disambiguation-source": string;
-  }
-
-  export interface Organization2 {
-      name: string;
-      address: Address3;
-      "disambiguated-organization": DisambiguatedOrganization2;
-  }
-
   export interface EmploymentSummary extends VersionAble {
-      source: Source6;
+      source: Source;
       "department-name": string;
       "role-title": string;
-      "start-date": StartDate2;
-      "end-date": EndDate2;
-      organization: Organization2;
+      "start-date": StartDate;
+      "end-date": EndDate;
+      organization: Organization;
       visibility: string;
       "put-code": number;
       path: string;
@@ -327,12 +241,6 @@ declare module OrcidPerson {
       host: string;
   }
 
-  export interface Source7 {
-      "source-orcid": SourceOrcid7;
-      "source-client-id"?: any;
-      "source-name": ValueObject;
-  }
-
   export interface Title {
       title: ValueObject;
       subtitle?: any;
@@ -361,7 +269,7 @@ declare module OrcidPerson {
       "put-code": number;
       "created-date": ValueObject;
       "last-modified-date": ValueObject;
-      source: Source7;
+      source: Source;
       title: Title;
       "external-ids": ExternalIds2;
       type: string;
