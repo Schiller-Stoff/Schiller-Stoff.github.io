@@ -19,7 +19,7 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
           <br></br>
           <br></br>
           <br></br>
-          <h1>Hi, I'm {props.pageContext.persOrcid.person.name["family-name"].value}!</h1>
+          <h1>Hi, I'm {props.pageContext.persOrcid.person.name["given-names"].value} {props.pageContext.persOrcid.person.name["family-name"].value}!</h1>
           <h2 className="text-secondary">Pleasure to meet you!</h2>
           <br></br>
           <Button variant="primary">Request meeting</Button>
