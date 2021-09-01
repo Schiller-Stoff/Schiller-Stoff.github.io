@@ -147,22 +147,10 @@ declare module OrcidPerson {
       path: string;
   }
 
-  export interface StartDate {
+  export interface Date {
       year: ValueObject;
       month: ValueObject;
       day: ValueObject;
-  }
-
-  export interface EndDate {
-      year: ValueObject;
-      month: ValueObject;
-      day: ValueObject;
-  }
-
-  export interface Address2 {
-      city: string;
-      region: string;
-      country: string;
   }
 
   export interface DisambiguatedOrganization {
@@ -172,7 +160,7 @@ declare module OrcidPerson {
 
   export interface Organization {
       name: string;
-      address: Address2;
+      address: Address;
       "disambiguated-organization": DisambiguatedOrganization;
   }
 
@@ -180,8 +168,8 @@ declare module OrcidPerson {
       source: Source;
       "department-name": string;
       "role-title": string;
-      "start-date": StartDate;
-      "end-date": EndDate;
+      "start-date": Date;
+      "end-date": Date;
       organization: Organization;
       visibility: string;
       "put-code": number;
@@ -198,8 +186,8 @@ declare module OrcidPerson {
       source: Source;
       "department-name": string;
       "role-title": string;
-      "start-date": StartDate;
-      "end-date": EndDate;
+      "start-date": Date;
+      "end-date": Date;
       organization: Organization;
       visibility: string;
       "put-code": number;
@@ -235,27 +223,10 @@ declare module OrcidPerson {
       "external-id": ExternalId[];
   }
 
-  export interface SourceOrcid7 {
-      uri: string;
-      path: string;
-      host: string;
-  }
-
   export interface Title {
       title: ValueObject;
       subtitle?: any;
       "translated-title"?: any;
-  }
-
-  export interface ExternalId2 {
-      "external-id-type": string;
-      "external-id-value": string;
-      "external-id-url": ValueObject;
-      "external-id-relationship": string;
-  }
-
-  export interface ExternalIds2 {
-      "external-id": ExternalId2[];
   }
 
   export interface PublicationDate {
@@ -271,7 +242,7 @@ declare module OrcidPerson {
       "last-modified-date": ValueObject;
       source: Source;
       title: Title;
-      "external-ids": ExternalIds2;
+      "external-ids": ExternalIds;
       type: string;
       "publication-date": PublicationDate;
       visibility: string;
