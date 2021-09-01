@@ -1,5 +1,10 @@
 declare module OrcidPerson {
 
+  interface VersionAble {
+    "created-date": ValueObject;
+    "last-modified-date": ValueObject;
+  }
+
   export interface ValueObject {
       value: number | string
   }  
@@ -22,9 +27,7 @@ declare module OrcidPerson {
       "verified-primary-email": boolean;
   }
 
-  export interface Name {
-      "created-date": ValueObject;
-      "last-modified-date": ValueObject;
+  export interface Name extends VersionAble {
       "given-names": ValueObject;
       "family-name": ValueObject;
       "credit-name"?: any;
@@ -46,9 +49,7 @@ declare module OrcidPerson {
       "source-name": ValueObject;
   }
 
-  export interface OtherName {
-      "created-date": ValueObject;
-      "last-modified-date": ValueObject;
+  export interface OtherName extends VersionAble {
       source: Source;
       content: string;
       visibility: string;
@@ -63,9 +64,7 @@ declare module OrcidPerson {
       path: string;
   }
 
-  export interface Biography {
-      "created-date": ValueObject;
-      "last-modified-date": ValueObject;
+  export interface Biography extends VersionAble {
       content: string;
       visibility: string;
       path: string;
@@ -84,9 +83,7 @@ declare module OrcidPerson {
       "source-name": ValueObject;
   }
 
-  export interface ResearcherUrl {
-      "created-date": ValueObject;
-      "last-modified-date": ValueObject;
+  export interface ResearcherUrl extends VersionAble {
       source: Source2;
       "url-name": string;
       url: ValueObject;
@@ -120,9 +117,7 @@ declare module OrcidPerson {
       "source-name": ValueObject;
   }
 
-  export interface Address {
-      "created-date": ValueObject;
-      "last-modified-date": ValueObject;
+  export interface Address extends VersionAble {
       source: Source3;
       country: ValueObject;
       visibility: string;
@@ -150,9 +145,7 @@ declare module OrcidPerson {
       "source-name": ValueObject;
   }
 
-  export interface Keyword {
-      "created-date": ValueObject;
-      "last-modified-date": ValueObject;
+  export interface Keyword extends VersionAble {
       source: Source4;
       content: string;
       visibility: string;
@@ -227,9 +220,7 @@ declare module OrcidPerson {
       "disambiguated-organization": DisambiguatedOrganization;
   }
 
-  export interface EducationSummary {
-      "created-date": ValueObject;
-      "last-modified-date": ValueObject;
+  export interface EducationSummary extends VersionAble {
       source: Source5;
       "department-name": string;
       "role-title": string;
@@ -289,9 +280,7 @@ declare module OrcidPerson {
       "disambiguated-organization": DisambiguatedOrganization2;
   }
 
-  export interface EmploymentSummary {
-      "created-date": ValueObject;
-      "last-modified-date": ValueObject;
+  export interface EmploymentSummary extends VersionAble {
       source: Source6;
       "department-name": string;
       "role-title": string;
