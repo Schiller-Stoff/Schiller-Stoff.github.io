@@ -1,4 +1,4 @@
-declare module OrcidPerson {
+export declare module Orcid {
 
   interface VersionAble {
     "created-date": ValueObject;
