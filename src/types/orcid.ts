@@ -22,23 +22,11 @@ declare module OrcidPerson {
       "verified-primary-email": boolean;
   }
 
-  export interface CreatedDate {
-      value: number;
-  }
-
-  export interface GivenNames {
-      value: string;
-  }
-
-  export interface FamilyName {
-      value: string;
-  }
-
   export interface Name {
-      "created-date": CreatedDate;
+      "created-date": ValueObject;
       "last-modified-date": ValueObject;
-      "given-names": GivenNames;
-      "family-name": FamilyName;
+      "given-names": ValueObject;
+      "family-name": ValueObject;
       "credit-name"?: any;
       source?: any;
       visibility: string;
@@ -51,18 +39,15 @@ declare module OrcidPerson {
       host: string;
   }
 
-  export interface SourceName {
-      value: string;
-  }
 
   export interface Source {
       "source-orcid": SourceOrcid;
       "source-client-id"?: any;
-      "source-name": SourceName;
+      "source-name": ValueObject;
   }
 
   export interface OtherName {
-      "created-date": CreatedDate;
+      "created-date": ValueObject;
       "last-modified-date": ValueObject;
       source: Source;
       content: string;
@@ -79,7 +64,7 @@ declare module OrcidPerson {
   }
 
   export interface Biography {
-      "created-date": CreatedDate;
+      "created-date": ValueObject;
       "last-modified-date": ValueObject;
       content: string;
       visibility: string;
@@ -93,26 +78,18 @@ declare module OrcidPerson {
       host: string;
   }
 
-  export interface SourceName2 {
-      value: string;
-  }
-
   export interface Source2 {
       "source-orcid": SourceOrcid2;
       "source-client-id"?: any;
-      "source-name": SourceName2;
-  }
-
-  export interface Url {
-      value: string;
+      "source-name": ValueObject;
   }
 
   export interface ResearcherUrl {
-      "created-date": CreatedDate;
+      "created-date": ValueObject;
       "last-modified-date": ValueObject;
       source: Source2;
       "url-name": string;
-      url: Url;
+      url: ValueObject;
       visibility: string;
       path: string;
       "put-code": number;
@@ -137,25 +114,17 @@ declare module OrcidPerson {
       host: string;
   }
 
-  export interface SourceName3 {
-      value: string;
-  }
-
   export interface Source3 {
       "source-orcid": SourceOrcid3;
       "source-client-id"?: any;
-      "source-name": SourceName3;
-  }
-
-  export interface Country {
-      value: string;
+      "source-name": ValueObject;
   }
 
   export interface Address {
-      "created-date": CreatedDate;
+      "created-date": ValueObject;
       "last-modified-date": ValueObject;
       source: Source3;
-      country: Country;
+      country: ValueObject;
       visibility: string;
       path: string;
       "put-code": number;
@@ -178,11 +147,11 @@ declare module OrcidPerson {
   export interface Source4 {
       "source-orcid": SourceOrcid4;
       "source-client-id"?: any;
-      "source-name": SourceName;
+      "source-name": ValueObject;
   }
 
   export interface Keyword {
-      "created-date": CreatedDate;
+      "created-date": ValueObject;
       "last-modified-date": ValueObject;
       source: Source4;
       content: string;
@@ -223,50 +192,22 @@ declare module OrcidPerson {
       host: string;
   }
 
-  export interface SourceName5 {
-      value: string;
-  }
-
   export interface Source5 {
       "source-orcid": SourceOrcid5;
       "source-client-id"?: any;
-      "source-name": SourceName5;
-  }
-
-  export interface Year {
-      value: string;
-  }
-
-  export interface Month {
-      value: string;
-  }
-
-  export interface Day {
-      value: string;
+      "source-name": ValueObject;
   }
 
   export interface StartDate {
-      year: Year;
-      month: Month;
-      day: Day;
-  }
-
-  export interface Year2 {
-      value: string;
-  }
-
-  export interface Month2 {
-      value: string;
-  }
-
-  export interface Day2 {
-      value: string;
+      year: ValueObject;
+      month: ValueObject;
+      day: ValueObject;
   }
 
   export interface EndDate {
-      year: Year2;
-      month: Month2;
-      day: Day2;
+      year: ValueObject;
+      month: ValueObject;
+      day: ValueObject;
   }
 
   export interface Address2 {
@@ -287,7 +228,7 @@ declare module OrcidPerson {
   }
 
   export interface EducationSummary {
-      "created-date": CreatedDate;
+      "created-date": ValueObject;
       "last-modified-date": ValueObject;
       source: Source5;
       "department-name": string;
@@ -306,59 +247,28 @@ declare module OrcidPerson {
       path: string;
   }
 
-  export interface LastModifiedDate16 {
-      value: number;
-  }
-
-  export interface CreatedDate8 {
-      value: any;
-  }
-
-  export interface LastModifiedDate17 {
-      value: any;
-  }
-
   export interface SourceOrcid6 {
       uri: string;
       path: string;
       host: string;
   }
 
-  export interface SourceName6 {
-      value: string;
-  }
 
   export interface Source6 {
       "source-orcid": SourceOrcid6;
       "source-client-id"?: any;
-      "source-name": SourceName6;
-  }
-
-  export interface Year3 {
-      value: string;
-  }
-
-  export interface Month3 {
-      value: string;
+      "source-name": ValueObject;
   }
 
   export interface StartDate2 {
-      year: Year3;
-      month: Month3;
+      year: ValueObject;
+      month: ValueObject;
       day?: any;
   }
 
-  export interface Year4 {
-      value: string;
-  }
-
-  export interface Month4 {
-      value: string;
-  }
-
   export interface EndDate2 {
-      year: Year4;
-      month: Month4;
+      year: ValueObject;
+      month: ValueObject;
       day?: any;
   }
 
@@ -380,8 +290,8 @@ declare module OrcidPerson {
   }
 
   export interface EmploymentSummary {
-      "created-date": CreatedDate8;
-      "last-modified-date": LastModifiedDate17;
+      "created-date": ValueObject;
+      "last-modified-date": ValueObject;
       source: Source6;
       "department-name": string;
       "role-title": string;
@@ -394,7 +304,7 @@ declare module OrcidPerson {
   }
 
   export interface Employments {
-      "last-modified-date": LastModifiedDate16;
+      "last-modified-date": ValueObject;
       "employment-summary": EmploymentSummary[];
       path: string;
   }
@@ -411,35 +321,15 @@ declare module OrcidPerson {
       path: string;
   }
 
-  export interface LastModifiedDate18 {
-      value: number;
-  }
-
-  export interface LastModifiedDate19 {
-      value: any;
-  }
-
-  export interface ExternalIdUrl {
-      value: string;
-  }
-
   export interface ExternalId {
       "external-id-type": string;
       "external-id-value": string;
-      "external-id-url": ExternalIdUrl;
+      "external-id-url": ValueObject;
       "external-id-relationship": string;
   }
 
   export interface ExternalIds {
       "external-id": ExternalId[];
-  }
-
-  export interface CreatedDate9 {
-      value: any;
-  }
-
-  export interface LastModifiedDate20 {
-      value: any;
   }
 
   export interface SourceOrcid7 {
@@ -448,34 +338,22 @@ declare module OrcidPerson {
       host: string;
   }
 
-  export interface SourceName7 {
-      value: string;
-  }
-
   export interface Source7 {
       "source-orcid": SourceOrcid7;
       "source-client-id"?: any;
-      "source-name": SourceName7;
-  }
-
-  export interface Title2 {
-      value: string;
+      "source-name": ValueObject;
   }
 
   export interface Title {
-      title: Title2;
+      title: ValueObject;
       subtitle?: any;
       "translated-title"?: any;
-  }
-
-  export interface ExternalIdUrl2 {
-      value: string;
   }
 
   export interface ExternalId2 {
       "external-id-type": string;
       "external-id-value": string;
-      "external-id-url": ExternalIdUrl2;
+      "external-id-url": ValueObject;
       "external-id-relationship": string;
   }
 
@@ -483,29 +361,17 @@ declare module OrcidPerson {
       "external-id": ExternalId2[];
   }
 
-  export interface Year5 {
-      value: string;
-  }
-
-  export interface Month5 {
-      value: string;
-  }
-
-  export interface Day3 {
-      value: string;
-  }
-
   export interface PublicationDate {
-      year: Year5;
-      month: Month5;
-      day: Day3;
+      year: ValueObject;
+      month: ValueObject;
+      day: ValueObject;
       "media-type"?: any;
   }
 
   export interface WorkSummary {
       "put-code": number;
-      "created-date": CreatedDate9;
-      "last-modified-date": LastModifiedDate20;
+      "created-date": ValueObject;
+      "last-modified-date": ValueObject;
       source: Source7;
       title: Title;
       "external-ids": ExternalIds2;
@@ -517,13 +383,13 @@ declare module OrcidPerson {
   }
 
   export interface Group {
-      "last-modified-date": LastModifiedDate19;
+      "last-modified-date": ValueObject;
       "external-ids": ExternalIds;
       "work-summary": WorkSummary[];
   }
 
   export interface Works {
-      "last-modified-date": LastModifiedDate18;
+      "last-modified-date": ValueObject;
       group: Group[];
       path: string;
   }
