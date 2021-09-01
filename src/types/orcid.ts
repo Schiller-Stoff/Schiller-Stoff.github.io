@@ -529,7 +529,7 @@ declare module OrcidPerson {
   }
 
   export interface ActivitiesSummary {
-      "last-modified-date": LastModifiedDate;
+      "last-modified-date": ValueObject;
       educations: Educations;
       employments: Employments;
       fundings: Fundings;
@@ -540,7 +540,7 @@ declare module OrcidPerson {
 
   export interface RootObject {
       "orcid-identifier": OrcidIdentifier;
-      preferences: Preferences;
+      preferences: ValueObject;
       history: History;
       person: Person;
       "activities-summary": ActivitiesSummary;
