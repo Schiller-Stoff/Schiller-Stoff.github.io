@@ -15,11 +15,7 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
       <StyleOverlay></StyleOverlay>
       <Row>
         <Col md={6}>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <h1>Hi, I'm <span className="text-decoration-underline">{props.pageContext.persOrcid.person.name["given-names"].value} {props.pageContext.persOrcid.person.name["family-name"].value}</span></h1>
+          <h1 className="pt-md-5 mt-4">Hi, I'm <span className="text-decoration-underline">{props.pageContext.persOrcid.person.name["given-names"].value} {props.pageContext.persOrcid.person.name["family-name"].value}</span></h1>
           <h2 className="text-secondary">{props.pageContext.persOrcid["activities-summary"].employments["employment-summary"][0]["role-title"]} at {props.pageContext.persOrcid["activities-summary"].employments["employment-summary"][0].organization.name}</h2>
           <br></br>
           <Row>
