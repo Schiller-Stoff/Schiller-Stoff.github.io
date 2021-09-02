@@ -19,10 +19,25 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
           <br></br>
           <br></br>
           <br></br>
-          <h1>Hi, I'm {props.pageContext.persOrcid.person.name["given-names"].value} {props.pageContext.persOrcid.person.name["family-name"].value}!</h1>
-          <h2 className="text-secondary">Pleasure to meet you!</h2>
+          <h1>Hi, I'm <span className="text-decoration-underline">{props.pageContext.persOrcid.person.name["given-names"].value} {props.pageContext.persOrcid.person.name["family-name"].value}</span>.</h1>
+          <h2 className="text-secondary">{props.pageContext.persOrcid["activities-summary"].employments["employment-summary"][0]["role-title"]} at {props.pageContext.persOrcid["activities-summary"].employments["employment-summary"][0].organization.name}</h2>
           <br></br>
-          <Button variant="primary">Request meeting</Button>
+          <Row>
+            <Col md={5}>
+              {/* <Button variant="secondary">Request meeting</Button> */}
+              <img src="/img/profile.jpg" width={200} height={200} style={{borderRadius: "100%", filter: "grayscale(150%)"}}></img>
+            </Col>
+            <Col md={7}>
+              <br></br>
+              <ul>
+              <li><small>This page is based on data provided by the ORCID public API and rendered by Gatsby.js based on React.</small></li>
+              <li><small>The CV template page is maintained by the DH-Frontend Group in Graz Austria.</small></li>
+              <li><small><a target="_blank" href={props.pageContext.persOrcid["orcid-identifier"].uri}>Find me on ORCID</a></small></li>
+              {/* <img src="/img/profile.jpg" width={150} height={150} style={{borderRadius: "100%", filter: "grayscale(150%)"}}></img> */}
+              </ul>
+            </Col>
+          </Row>
+          
         </Col>
         <Col md={6}>
           <br></br>
@@ -38,8 +53,7 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <h2>Projects</h2>
+      <h2>CV</h2>
     </BaseLayout>
     </>
   )
