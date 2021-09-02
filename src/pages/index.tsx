@@ -52,7 +52,6 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
       <h2>CV</h2>
     </BaseLayout>
     </>
