@@ -3,7 +3,7 @@ import Footer from "../../../static/Footer";
 import MyNav from "../../../static/Nav";
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import '../../../../styles/base.css';
 
 const BaseLayout: React.FC = (props) => (
   <>
