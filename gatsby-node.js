@@ -25,7 +25,7 @@ exports.onCreatePage = async ({ page, actions }) => {
   const { createPage, deletePage } = actions;
 
   // only index page will be supplied with orcid data
-  if (page.pathname === "/") {
+  if (page.path === "/") {
     deletePage(page);
     // fetch orcid data
     const persOrcid = await OrcidAPI.fetchPubPerson("0000-0001-6941-113X");
