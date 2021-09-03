@@ -1,7 +1,8 @@
 
 import React from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import BaseLayout from "../components/shared/layouts/BaseLayout";
+import Timeline from "../components/shared/Timeline";
 import StyleOverlay from "../components/static/EntryHero";
 import { Orcid } from "../types/orcid";
 
@@ -39,7 +40,7 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
           <br></br>
           <br></br>
           <br></br>
-          <img src="/illustrations/dev.svg" style={{maxWidth:"38vw"}}></img>
+          {/* <img src="/illustrations/dev.svg" style={{maxWidth:"20vw"}}></img> */}
         </Col>
       </Row>
       <br></br>
@@ -48,7 +49,21 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
       <br></br>
       <br></br>
       <br></br>
-      <h2>CV</h2>
+      <br></br>
+      <h2 className="h3">Experience</h2>
+      
+        <Row>
+          <Col md={6}>
+            <Timeline></Timeline>
+          </Col>
+          <Col>
+            <br></br>
+            <h3>About Myself</h3>
+            <p>I do really really really like chocolate, coffee, and additional stuff ...</p>
+          </Col>
+        </Row>
+        
+      
     </BaseLayout>
     </>
   )

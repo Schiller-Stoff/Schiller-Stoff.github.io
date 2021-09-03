@@ -3,3 +3,7 @@
 * {
   font-family: montserrat,sans-serif;
 }
+
+#timeline-main-wrapper {
+  padding:0;
+}
