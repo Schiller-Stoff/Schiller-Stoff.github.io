@@ -50,7 +50,7 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
       <br></br>
       <br></br>
       <br></br>
-      <h2 className="h3">Experience</h2>
+      <h2 className="h3">Curriculum Vitae</h2>
       
         <Row>
           <Col md={6}>
@@ -58,8 +58,8 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
           </Col>
           <Col>
             <br></br>
-            <h3>About Myself</h3>
-            <p>I do really really really like chocolate, coffee, and additional stuff ...</p>
+            <h3 className="h5">Biography</h3>
+            <p>{props.pageContext.persOrcid.person.biography.content}</p>
           </Col>
         </Row>
         
