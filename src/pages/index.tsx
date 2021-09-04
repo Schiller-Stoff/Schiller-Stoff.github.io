@@ -40,7 +40,16 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
           <br></br>
           <br></br>
           <br></br>
-          {/* <img src="/illustrations/dev.svg" style={{maxWidth:"20vw"}}></img> */}
+          <h2 className="h4">My background</h2>
+          <ul>
+          {props.pageContext.persOrcid.person.keywords.keyword.map(kword => <li>{kword.content}</li>)}  
+          </ul>
+          <br></br>
+          <h2 className="h4">Links</h2>
+          <ul>
+          {props.pageContext.persOrcid.person["researcher-urls"]["researcher-url"].map(rurl => <li><a target="_blank" href={rurl.url.value}>{rurl["url-name"]}</a></li>)}
+
+          </ul>
         </Col>
       </Row>
       <br></br>
