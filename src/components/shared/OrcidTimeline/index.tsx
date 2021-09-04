@@ -25,7 +25,7 @@ interface TimelineEntry {
  */
 const OrcidTimeline: React.FC<Props> = (props) => {
   /**
-   *
+   * Handles type casting -- calls correct transformer methods for given Orcid sequence-data.  
    * @param propData
    * @returns
    */
@@ -33,12 +33,13 @@ const OrcidTimeline: React.FC<Props> = (props) => {
     if (propData.orcidSequence["education-summary"]) {
       let eduSequence = propData.orcidSequence as Orcid.Educations;
       return handleEduData(eduSequence);
-    } else if (propData.orcidSequence["education-summary"]) {
+    } else if (propData.orcidSequence["employment-summary"]) {
       let emplSequence = propData.orcidSequence as Orcid.Employments;
+      return handleEmplData(emplSequence);
     } else {
       return [
         {
-          title: "WRONG!!!",
+          title: "DATA MODEL NOT IMPLEMENTED, SRY X-)",
         },
       ];
     }
@@ -56,6 +57,17 @@ const OrcidTimeline: React.FC<Props> = (props) => {
       };
     });
   };
+
+  const handleEmplData = (emplSequence: Orcid.Employments): TimelineEntry[] => {
+    return emplSequence["employment-summary"].map(empl => {
+      return {
+        title: "From: " + empl["start-date"].year.value.valueOf().toString(),
+        cardTitle: empl["role-title"],
+        cardSubtitle:empl.organization.name,
+        cardDetailedText: empl["department-name"]
+      }
+    })
+  }
 
   return (
     <div>
