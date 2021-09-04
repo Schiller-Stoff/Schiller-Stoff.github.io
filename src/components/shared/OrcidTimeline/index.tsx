@@ -9,6 +9,7 @@ interface Props {
     | Orcid.Fundings
     | Orcid.PeerReviews
     | Orcid.Works;
+  mode?: "VERTICAL" | "VERTICAL_ALTERNATING" | "HORIZONTAL"
 }
 
 interface TimelineEntry {
@@ -60,7 +61,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
     <div>
       <Chrono
         items={transformData(props)}
-        mode="VERTICAL"
+        mode={props.mode}
         theme={{ primary: "grey", secondary: "white" }}
         hideControls
         scrollable

@@ -85,7 +85,7 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
             <p>List of completed studies and related things to university...</p>
           </Col>
           <Col md={8}>
-            <OrcidTimeline orcidSequence={props.pageContext.persOrcid["activities-summary"].educations}></OrcidTimeline>
+            <OrcidTimeline mode="VERTICAL" orcidSequence={props.pageContext.persOrcid["activities-summary"].educations}></OrcidTimeline>
           </Col>
         </Row>
         <br></br>
