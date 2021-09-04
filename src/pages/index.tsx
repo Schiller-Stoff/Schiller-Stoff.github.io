@@ -2,6 +2,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import BaseLayout from "../components/shared/layouts/BaseLayout";
+import OrcidTimeline from "../components/shared/OrcidTimeline";
 import Timeline from "../components/shared/Timeline";
 import StyleOverlay from "../components/static/EntryHero";
 import { Orcid } from "../types/orcid";
@@ -71,6 +72,23 @@ const IndexPage: React.FC<{pageContext: {persOrcid: Orcid.RootObject}}> = (props
             <p>{props.pageContext.persOrcid.person.biography.content}</p>
           </Col>
         </Row>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <h2 className="h3">Academic education</h2>
+        <Row className="bg-light">
+          <Col md={4}>
+            <br/>
+            
+            <p>List of completed studies and related things to university...</p>
+          </Col>
+          <Col md={8}>
+            <OrcidTimeline orcidSequence={props.pageContext.persOrcid["activities-summary"].educations}></OrcidTimeline>
+          </Col>
+        </Row>
+        <br></br>
         
       
     </BaseLayout>
