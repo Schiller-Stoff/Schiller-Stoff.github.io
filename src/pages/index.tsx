@@ -136,7 +136,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <br />
         <br />
 
-        <h2 className="h3">Academic education</h2>
+        <h2 className="h3">Education and qualifications</h2>
         <Row className="bg-light">
           <Col md={4}>
             <br />
