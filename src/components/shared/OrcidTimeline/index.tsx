@@ -4,11 +4,11 @@ import { Chrono } from "react-chrono";
 
 interface Props {
   orcidSequence:
-    | Orcid.Educations
-    | Orcid.Employments
-    | Orcid.Fundings
-    | Orcid.PeerReviews
-    | Orcid.Works;
+  | Orcid.Educations
+  | Orcid.Employments
+  | Orcid.Fundings
+  | Orcid.PeerReviews
+  | Orcid.Works;
   mode?: "VERTICAL" | "VERTICAL_ALTERNATING" | "HORIZONTAL"
 }
 
@@ -17,6 +17,7 @@ interface TimelineEntry {
   cardTitle?: string;
   cardSubtitle?: string;
   cardDetailedText?: string;
+  children?: React.ReactElement
 }
 
 /**
@@ -36,7 +37,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
     } else if (propData.orcidSequence["employment-summary"]) {
       let emplSequence = propData.orcidSequence as Orcid.Employments;
       return handleEmplData(emplSequence);
-    } else if (propData.orcidSequence["group"]){
+    } else if (propData.orcidSequence["group"]) {
       let workSequence = propData.orcidSequence as Orcid.Works;
       return handleWorksData(workSequence);
     } else {
@@ -66,7 +67,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
       return {
         title: "From: " + empl["start-date"].year.value.valueOf().toString(),
         cardTitle: empl["role-title"],
-        cardSubtitle:empl.organization.name,
+        cardSubtitle: empl.organization.name,
         cardDetailedText: empl["department-name"]
       }
     })
@@ -83,19 +84,19 @@ const OrcidTimeline: React.FC<Props> = (props) => {
     return worksSequence.group.reduce((aggr, grp) => {
       aggr.push(grp["work-summary"][0])
       return aggr
-    // then map reduced data to timeline items
+      // then map reduced data to timeline items
     }, []).map((work: Orcid.WorkSummary) => {
       return {
         title: (work["publication-date"] && work["publication-date"].year.value.toString()),
         cardTitle: work.title.title.value.toString(),
         cardSubtitle: work.type,
-        cardDetailedText:work.source["source-name"].value.toString()
+        cardDetailedText: work["external-ids"]["external-id"][0] && work["external-ids"]["external-id"][0]["external-id-url"].value.toString()
       }
     })
 
   }
 
-  
+
   return (
     <div>
       <Chrono
@@ -104,7 +105,9 @@ const OrcidTimeline: React.FC<Props> = (props) => {
         theme={{ primary: "grey", secondary: "white" }}
         hideControls
         scrollable
-      />
+      >
+        {props.children as React.ReactElement}
+      </Chrono>
     </div>
   );
 };
