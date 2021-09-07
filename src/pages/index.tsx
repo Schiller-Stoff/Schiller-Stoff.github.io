@@ -153,6 +153,16 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           </Col>
         </Row>
         <br></br>
+        <br></br>
+        <br></br>
+
+        <h2>Things I have accomplished</h2>
+        <OrcidTimeline
+          orcidSequence={props.pageContext.persOrcid["activities-summary"].works}
+          mode="VERTICAL"
+        ></OrcidTimeline>
+
+
       </BaseLayout>
     </>
   );
