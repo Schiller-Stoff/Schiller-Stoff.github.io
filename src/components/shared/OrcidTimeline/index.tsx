@@ -36,6 +36,9 @@ const OrcidTimeline: React.FC<Props> = (props) => {
     } else if (propData.orcidSequence["employment-summary"]) {
       let emplSequence = propData.orcidSequence as Orcid.Employments;
       return handleEmplData(emplSequence);
+    } else if (propData.orcidSequence["group"]){
+      let workSequence = propData.orcidSequence as Orcid.Works;
+      return handleWorksData(workSequence);
     } else {
       return [
         {
@@ -69,6 +72,30 @@ const OrcidTimeline: React.FC<Props> = (props) => {
     })
   }
 
+  /**
+   * Handles transformation of data from Orcid.Works to suitable Timeline data
+   * @param worksSequence 
+   * @returns 
+   */
+  const handleWorksData = (worksSequence: Orcid.Works): TimelineEntry[] => {
+
+    // need to reduce to simple work-summary array first
+    return worksSequence.group.reduce((aggr, grp) => {
+      aggr.push(grp["work-summary"][0])
+      return aggr
+    // then map reduced data to timeline items
+    }, []).map((work: Orcid.WorkSummary) => {
+      return {
+        title: (work["publication-date"] && work["publication-date"].year.value.toString()),
+        cardTitle: work.title.title.value.toString(),
+        cardSubtitle: work.type,
+        cardDetailedText:work.source["source-name"].value.toString()
+      }
+    })
+
+  }
+
+  
   return (
     <div>
       <Chrono
