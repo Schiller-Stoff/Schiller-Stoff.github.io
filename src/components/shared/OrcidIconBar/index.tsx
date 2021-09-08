@@ -18,17 +18,17 @@ interface Props {
  */
 const OrcidIconBar: React.FC<Props> = (props) => {
 
-  const faIconStyle: React.CSSProperties =  {
-    height:30, 
-    width:30, 
-    marginRight:".5em", 
-    display:"inline-block"
+  const faIconStyle: React.CSSProperties = {
+    height: 30,
+    width: 30,
+    marginRight: ".5em",
+    display: "inline-block"
   }
 
   return (
     <div>
       {props.mail && <a style={faIconStyle} href={`mailTo:${props.mail}`}><FontAwesomeIcon icon={faEnvelope} size="2x"></FontAwesomeIcon></a>}
-    
+
       <a style={faIconStyle} href={props.orcidURL} target="_blank"><FontAwesomeIcon icon={faOrcid} size="2x"></FontAwesomeIcon></a>
       {props.researchURLs.map((rurl) => {
         if (rurl.url.value.toString().includes("github")) {
