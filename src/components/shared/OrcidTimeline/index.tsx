@@ -9,7 +9,7 @@ interface Props {
   | Orcid.Fundings
   | Orcid.PeerReviews
   | Orcid.Works;
-  mode?: "VERTICAL" | "VERTICAL_ALTERNATING" | "HORIZONTAL" 
+  mode?: "VERTICAL" | "VERTICAL_ALTERNATING" | "HORIZONTAL"
   // allows to pass through custom component to be displayed as TimelineEntry
   // gets data passed through via props
   children?: React.FC<{ data: TimelineEntry }>
@@ -20,6 +20,7 @@ export interface TimelineEntry {
   cardTitle?: string;
   cardSubtitle?: string;
   cardDetailedText?: string;
+  orcidWork?: Orcid.WorkSummary
 }
 
 /**
@@ -88,11 +89,13 @@ const OrcidTimeline: React.FC<Props> = (props) => {
       return aggr
       // then map reduced data to timeline items
     }, []).map((work: Orcid.WorkSummary) => {
+      console.log(work);
       return {
         title: (work["publication-date"] && work["publication-date"].year.value.toString()),
         cardTitle: work.title.title.value.toString(),
         cardSubtitle: work.type,
-        cardDetailedText: work["external-ids"]["external-id"][0] && work["external-ids"]["external-id"][0]["external-id-url"].value.toString()
+        cardDetailedText: work["external-ids"]["external-id"][0] && work["external-ids"]["external-id"][0]["external-id-url"].value.toString(),
+        orcidWork: work
       }
     })
 
