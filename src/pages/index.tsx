@@ -49,6 +49,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                 ></img>
               </Col>
               <Col md={7}>
+                <h3 className="h5">My page</h3>
                 <ul>
                   <li>
                     <small>
@@ -85,7 +86,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <ul>
               {props.pageContext.persOrcid.person.keywords.keyword.map(
                 (kword) => (
-                  <li>{kword.content}</li>
+                  <small><li>{kword.content}</li></small>
                 )
               )}
             </ul>
@@ -98,9 +99,9 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                 "researcher-url"
               ].map((rurl) => (
                 <li>
-                  <a target="_blank" href={rurl.url.value}>
+                  <small><a target="_blank" href={rurl.url.value}>
                     {rurl["url-name"]}
-                  </a>
+                  </a></small>
                 </li>
               ))}
             </ul>
