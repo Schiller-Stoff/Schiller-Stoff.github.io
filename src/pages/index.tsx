@@ -15,41 +15,40 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
     <>
       <BaseLayout>
         <StyleOverlay></StyleOverlay>
+        <h1 className="pt-md-5">
+          Hi, I'm{" "}
+          <span className="text-decoration-underline">
+            {props.pageContext.persOrcid.person.name["given-names"].value}{" "}
+            {props.pageContext.persOrcid.person.name["family-name"].value}
+          </span>
+        </h1>
+        <h2 className="text-secondary h3">
+          {
+            props.pageContext.persOrcid["activities-summary"].employments[
+            "employment-summary"
+            ][0]["role-title"]
+          }{" "}
+          at{" "}
+          {
+            props.pageContext.persOrcid["activities-summary"].employments[
+              "employment-summary"
+            ][0].organization.name
+          }
+        </h2>
+        <br></br>
         <Row>
           <Col md={6}>
-            <h1 className="pt-md-5">
-              Hi, I'm{" "}
-              <span className="text-decoration-underline">
-                {props.pageContext.persOrcid.person.name["given-names"].value}{" "}
-                {props.pageContext.persOrcid.person.name["family-name"].value}
-              </span>
-            </h1>
-            <h2 className="text-secondary h3">
-              {
-                props.pageContext.persOrcid["activities-summary"].employments[
-                "employment-summary"
-                ][0]["role-title"]
-              }{" "}
-              at{" "}
-              {
-                props.pageContext.persOrcid["activities-summary"].employments[
-                  "employment-summary"
-                ][0].organization.name
-              }
-            </h2>
-            <br></br>
             <Row>
               <Col md={5}>
                 {/* <Button variant="secondary">Request meeting</Button> */}
                 <img
                   src="/img/profile.jpg"
-                  width={200}
-                  height={200}
+                  width={250}
+                  height={250}
                   style={{ borderRadius: "100%", filter: "grayscale(150%)" }}
                 ></img>
               </Col>
               <Col md={7}>
-                <br></br>
                 <ul>
                   <li>
                     <small>
@@ -72,7 +71,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                         }
                       >
                         Find me on ORCID
-                        <img src="https://theme.zdassets.com/theme_assets/2284388/5f241602bd45df20fe02a537477dc62c1e1ed582.png" style={{paddingLeft:".5em"}}></img>
+                        <img src="https://theme.zdassets.com/theme_assets/2284388/5f241602bd45df20fe02a537477dc62c1e1ed582.png" style={{ paddingLeft: ".5em" }}></img>
                       </a>
                     </small>
                   </li>
@@ -81,11 +80,19 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               </Col>
             </Row>
           </Col>
-          <Col md={6}>
+          <Col md={3}>
+            <h3 className="h5">My background</h3>
+            <ul>
+              {props.pageContext.persOrcid.person.keywords.keyword.map(
+                (kword) => (
+                  <li>{kword.content}</li>
+                )
+              )}
+            </ul>
             <br />
-            <br />
-            <br />
-            <h2 className="h4">Links</h2>
+          </Col>
+          <Col md={3}>
+          <h3 className="h5">My links</h3>
             <ul>
               {props.pageContext.persOrcid.person["researcher-urls"][
                 "researcher-url"
@@ -97,15 +104,6 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                 </li>
               ))}
             </ul>
-            <h2 className="h5">My background</h2>
-            <ul>
-              {props.pageContext.persOrcid.person.keywords.keyword.map(
-                (kword) => (
-                  <li>{kword.content}</li>
-                )
-              )}
-            </ul>
-            <br></br>
           </Col>
         </Row>
 
