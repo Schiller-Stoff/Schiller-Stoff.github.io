@@ -110,6 +110,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <OrcidIconBar 
           orcidURL={props.pageContext.persOrcid["orcid-identifier"].uri} 
           researchURLs={props.pageContext.persOrcid.person["researcher-urls"]["researcher-url"]} 
+          mail={props.pageContext.persOrcid.person.emails.email[0].email}
         />
 
 
