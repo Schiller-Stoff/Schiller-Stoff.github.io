@@ -1,7 +1,8 @@
 
 
 * {
-  font-family: montserrat,sans-serif;
+  font-family: montserrat,sans-serif !important;
+  line-height: 2;
 }
 
 #timeline-main-wrapper {
