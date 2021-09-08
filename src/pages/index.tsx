@@ -90,7 +90,6 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                 )
               )}
             </ul>
-            <br />
           </Col>
           <Col md={3}>
           <h3 className="h5">My links</h3>
@@ -108,7 +107,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           </Col>
         </Row>
 
-
+        <br/>
         <Row>
           <Col md={8}>
             <h2 className="h3">CV / Biography</h2>
