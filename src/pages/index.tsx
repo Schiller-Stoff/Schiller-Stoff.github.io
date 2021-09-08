@@ -17,7 +17,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <StyleOverlay></StyleOverlay>
         <Row>
           <Col md={6}>
-            <h1 className="pt-md-5 mt-4">
+            <h1 className="pt-md-5">
               Hi, I'm{" "}
               <span className="text-decoration-underline">
                 {props.pageContext.persOrcid.person.name["given-names"].value}{" "}
@@ -72,6 +72,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                         }
                       >
                         Find me on ORCID
+                        <img src="https://theme.zdassets.com/theme_assets/2284388/5f241602bd45df20fe02a537477dc62c1e1ed582.png" style={{paddingLeft:".5em"}}></img>
                       </a>
                     </small>
                   </li>
@@ -81,18 +82,9 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             </Row>
           </Col>
           <Col md={6}>
-            <br></br>
-            <br></br>
-            <br></br>
-            <h2 className="h4">My background</h2>
-            <ul>
-              {props.pageContext.persOrcid.person.keywords.keyword.map(
-                (kword) => (
-                  <li>{kword.content}</li>
-                )
-              )}
-            </ul>
-            <br></br>
+            <br />
+            <br />
+            <br />
             <h2 className="h4">Links</h2>
             <ul>
               {props.pageContext.persOrcid.person["researcher-urls"][
@@ -105,79 +97,83 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                 </li>
               ))}
             </ul>
+            <h2 className="h5">My background</h2>
+            <ul>
+              {props.pageContext.persOrcid.person.keywords.keyword.map(
+                (kword) => (
+                  <li>{kword.content}</li>
+                )
+              )}
+            </ul>
+            <br></br>
           </Col>
         </Row>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <h2 className="h3">Curriculum Vitae</h2>
+
 
         <Row>
-          <Col md={6}>
+          <Col md={8}>
+            <h2 className="h3">CV / Biography</h2>
+            <p>{props.pageContext.persOrcid.person.biography.content}</p>
+            <br />
+            <h2 className="h3">Current and passed employments</h2>
+            <p>Defined by the ORCID ontology: Employment is a formal employment relationship with an organization, e.g. staff, intern, researcher, contractor. Employment can be paid or unpaid.</p>
             <OrcidTimeline
               orcidSequence={
                 props.pageContext.persOrcid["activities-summary"].employments
               }
               mode="VERTICAL_ALTERNATING"
             ></OrcidTimeline>
-          </Col>
-          <Col>
-            <br></br>
-            <h3 className="h5">Biography</h3>
-            <p>{props.pageContext.persOrcid.person.biography.content}</p>
-          </Col>
-        </Row>
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <h2 className="h3">Education and qualifications</h2>
-        <Row className="bg-light">
-          <Col md={4}>
+            <br />
+            <br />
             <br />
 
-            <p>List of completed studies and related things to university...</p>
-          </Col>
-          <Col md={8}>
+            <h2 className="h3">Education and qualifications</h2>
+            <p>Education is participation in an academic higher education program to receive an undergraduate, graduate, or other degree.
+              Qualification is participation in a professional or vocational accreditation, certification, or training program. Both may be in progress or unfinished.</p>
             <OrcidTimeline
               mode="VERTICAL"
               orcidSequence={
                 props.pageContext.persOrcid["activities-summary"].educations
               }
             ></OrcidTimeline>
+            <br></br>
+            <br></br>
+            <br></br>
+            <h2>Works: Things I have accomplished</h2>
+            <p>ORCID defines works as your research outputs, including publications, data sets, conference presentations, and more.</p>
+            <Container>
+              <OrcidTimeline
+                orcidSequence={props.pageContext.persOrcid["activities-summary"].works}
+                mode="VERTICAL"
+              >
+                {
+                  //passing through custom component to render link correctly
+                  (props) => {
+                    const orcidData = props.data.orcidData as Orcid.WorkSummary
+                    return (
+                      <Container style={{ position: "absolute" }}>
+                        <h4 className="h6 fw-bold">{props.data.cardTitle}</h4>
+                        <p>{props.data.cardSubtitle.replace("OTHER", "SOFTWARE").replace("DISSERTATION", "THESIS")}</p>
+                        <p style={{ position: "relative", left: "-110px", fontWeight: 600 }}>{props.data.title}</p>
+                        <br />
+                        <a className="text-secondary" target="_blank" href={orcidData && orcidData["external-ids"]["external-id"][0] && orcidData["external-ids"]["external-id"][0]["external-id-url"].value.toString()}>{orcidData["external-ids"]["external-id"][0] && "Visit related project page"}</a>
+                      </Container>
+                    )
+                  }}
+              </OrcidTimeline>
+            </Container>
+
+
+
+          </Col>
+          <Col>
+
+
           </Col>
         </Row>
-        <br></br>
-        <br></br>
-        <br></br>
 
-        <h2>Things I have accomplished</h2>
-        <Container className="bg-light">
-          <OrcidTimeline
-            orcidSequence={props.pageContext.persOrcid["activities-summary"].works}
-            mode="VERTICAL_ALTERNATING"
-          >
-            {
-              //passing through custom component to render link correctly
-              (props) => {
-                const orcidData = props.data.orcidData as Orcid.WorkSummary
-                return (
-                  <Container style={{ position: "absolute" }}>
-                    <h4 className="h6 fw-bold">{props.data.cardTitle}</h4>
-                    <p>{props.data.cardSubtitle.replace("OTHER", "SOFTWARE").replace("DISSERTATION", "THESIS")}</p>
-                    <p style={{ position: "relative", left: "-125px", fontWeight: 600 }}>{props.data.title}</p>
-                    <br />
-                    <a className="text-secondary" target="_blank" href={orcidData && orcidData["external-ids"]["external-id"][0] && orcidData["external-ids"]["external-id"][0]["external-id-url"].value.toString()}>{orcidData["external-ids"]["external-id"][0] && "Visit related project page"}</a>
-                  </Container>
-                )
-              }}
-          </OrcidTimeline>
-        </Container>
+
+
 
 
 
