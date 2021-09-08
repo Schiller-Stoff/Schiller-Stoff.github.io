@@ -6,8 +6,6 @@ interface Props {
   orcidSequence:
   | Orcid.Educations
   | Orcid.Employments
-  | Orcid.Fundings
-  | Orcid.PeerReviews
   | Orcid.Works;
   mode?: "VERTICAL" | "VERTICAL_ALTERNATING" | "HORIZONTAL"
   // allows to pass through custom component to be displayed as TimelineEntry
@@ -20,7 +18,10 @@ export interface TimelineEntry {
   cardTitle?: string;
   cardSubtitle?: string;
   cardDetailedText?: string;
-  orcidWork?: Orcid.WorkSummary
+  // original datapoint provided by ORCID
+  orcidData?: | Orcid.EducationSummary
+  | Orcid.EmploymentSummary
+  | Orcid.WorkSummary;
 }
 
 /**
@@ -60,7 +61,8 @@ const OrcidTimeline: React.FC<Props> = (props) => {
         title: "",
         cardTitle: edu["role-title"],
         cardSubtitle: edu.organization.name,
-        cardDetailedText: edu.organization["disambiguated-organization"]["disambiguated-organization-identifier"]
+        cardDetailedText: edu.organization["disambiguated-organization"]["disambiguated-organization-identifier"],
+        orcidData: edu
       };
     });
   };
@@ -71,7 +73,8 @@ const OrcidTimeline: React.FC<Props> = (props) => {
         title: "From: " + empl["start-date"].year.value.valueOf().toString(),
         cardTitle: empl["role-title"],
         cardSubtitle: empl.organization.name,
-        cardDetailedText: empl["department-name"]
+        cardDetailedText: empl["department-name"],
+        orcidData: empl
       }
     })
   }
@@ -95,7 +98,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
         cardTitle: work.title.title.value.toString(),
         cardSubtitle: work.type,
         cardDetailedText: work["external-ids"]["external-id"][0] && work["external-ids"]["external-id"][0]["external-id-url"].value.toString(),
-        orcidWork: work
+        orcidData: work
       }
     })
 
