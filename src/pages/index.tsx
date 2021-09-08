@@ -72,7 +72,6 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                         }
                       >
                         Find me on ORCID
-                        <img src="https://theme.zdassets.com/theme_assets/2284388/5f241602bd45df20fe02a537477dc62c1e1ed582.png" style={{ paddingLeft: ".5em" }}></img>
                       </a>
                     </small>
                   </li>
@@ -92,7 +91,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             </ul>
           </Col>
           <Col md={3}>
-          <h3 className="h5">My links</h3>
+            <h3 className="h5">My links</h3>
             <ul>
               {props.pageContext.persOrcid.person["researcher-urls"][
                 "researcher-url"
@@ -106,8 +105,24 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             </ul>
           </Col>
         </Row>
+        <br />
+        <div>
+        <a href={props.pageContext.persOrcid["orcid-identifier"].uri} target="_blank"><img width={48} height={40} src="https://theme.zdassets.com/theme_assets/2284388/5f241602bd45df20fe02a537477dc62c1e1ed582.png" style={{ paddingLeft: ".5em" }}></img></a>
+        {props.pageContext.persOrcid.person["researcher-urls"][
+          "researcher-url"
+        ].map((rurl) => {
+          const imgWidth = 50;
+          const imgHeight = 50;
+          if (rurl.url.value.toString().includes("github")) {
+            return <a href={rurl.url.value} target="_blank"><img width={imgWidth} height={imgHeight} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></img></a>
+          } else if(rurl.url.value.toString().includes("npmjs.com")){
+            return <a href={rurl.url.value} target="_blank"><img width={imgWidth} height={23} src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2560px-Npm-logo.svg.png"></img></a>
+          }
+        })}
+        </div>
 
-        <br/>
+        <br />
+        <br />
         <Row>
           <Col md={8}>
             <h2 className="h3">CV / Biography</h2>
