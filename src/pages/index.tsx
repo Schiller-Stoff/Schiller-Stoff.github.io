@@ -27,7 +27,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <h2 className="text-secondary h3">
               {
                 props.pageContext.persOrcid["activities-summary"].employments[
-                  "employment-summary"
+                "employment-summary"
                 ][0]["role-title"]
               }{" "}
               at{" "}
@@ -157,10 +157,28 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <br></br>
 
         <h2>Things I have accomplished</h2>
-        <OrcidTimeline
-          orcidSequence={props.pageContext.persOrcid["activities-summary"].works}
-          mode="VERTICAL"
-        ></OrcidTimeline>
+        <Container className="bg-light">
+          <OrcidTimeline
+            orcidSequence={props.pageContext.persOrcid["activities-summary"].works}
+            mode="VERTICAL_ALTERNATING"
+          >
+            {
+              //passing through custom component to render link correctly
+              (props) => {
+                const orcidData = props.data.orcidData as Orcid.WorkSummary
+                return (
+                  <Container style={{ position: "absolute" }}>
+                    <h4 className="h6 fw-bold">{props.data.cardTitle}</h4>
+                    <p>{props.data.cardSubtitle.replace("OTHER", "SOFTWARE").replace("DISSERTATION", "THESIS")}</p>
+                    <p style={{ position: "relative", left: "-125px", fontWeight: 600 }}>{props.data.title}</p>
+                    <br />
+                    <a className="text-secondary" target="_blank" href={orcidData && orcidData["external-ids"]["external-id"][0] && orcidData["external-ids"]["external-id"][0]["external-id-url"].value.toString()}>{orcidData["external-ids"]["external-id"][0] && "Visit related project page"}</a>
+                  </Container>
+                )
+              }}
+          </OrcidTimeline>
+        </Container>
+
 
 
       </BaseLayout>
