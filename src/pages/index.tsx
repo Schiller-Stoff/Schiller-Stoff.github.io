@@ -188,7 +188,9 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
 
           </Col>
         </Row>
-
+        <br></br>
+        <br></br>
+        <br></br>
 
 
 
