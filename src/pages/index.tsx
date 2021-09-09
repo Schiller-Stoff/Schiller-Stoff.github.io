@@ -38,7 +38,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           }
         </h2>
         <Row>
-          <Col md={6} className="border p-3">
+          <Col md={6} className="shadow p-3">
             <Row>
               <Col md={5}>
                 {/* <Button variant="secondary">Request meeting</Button> */}
@@ -81,7 +81,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               </Col>
             </Row>
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <h3 className="h5 mt-md-3">My background</h3>
             <ul style={{listStyle:"none", marginLeft: "-1em"}}>
               {props.pageContext.persOrcid.person.keywords.keyword.map(
@@ -91,7 +91,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               )}
             </ul>
           </Col>
-          <Col md={3}>
+          <Col>
             <h3 className="h5 mt-md-3">My links</h3>
             <ul style={{listStyle:"none", marginLeft: "-1em"}}>
               {props.pageContext.persOrcid.person["researcher-urls"][
