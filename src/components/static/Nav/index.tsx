@@ -4,13 +4,18 @@ import { Link } from "gatsby";
 
 const MyNav = () => {
 
+  const navStyle: React.CSSProperties = {
+    fontSize: "1.25em",
+    fontWeight: 600
+  }
+
   return (
       <Navbar collapseOnSelect expand="lg">
         <Container>
-        <Nav>
+        <Nav style={navStyle}>
           <Nav.Link as="li">
             <Link to="/" className="text-dark text-decoration-none">
-              Sebastian Stoff
+              Sebastian David Stoff
             </Link>
           </Nav.Link>
           </Nav>
@@ -19,7 +24,7 @@ const MyNav = () => {
             id="responsive-navbar-nav"
             className="justify-content-end px-4"
           >
-            <Nav>
+            <Nav style={navStyle}>
               <Nav.Link as="li">
                 <Link to="/about" className="text-dark text-decoration-none">About</Link>
               </Nav.Link>
