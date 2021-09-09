@@ -32,11 +32,11 @@ const OrcidIconBar: React.FC<Props> = (props) => {
       <a style={faIconStyle} href={props.orcidURL} target="_blank"><FontAwesomeIcon icon={faOrcid} size="2x"></FontAwesomeIcon></a>
       {props.researchURLs.map((rurl) => {
         if (rurl.url.value.toString().includes("github")) {
-          return <a style={faIconStyle} href={rurl.url.value} target="_blank"><FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon></a>
+          return <a style={faIconStyle} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon></a>
         } else if (rurl.url.value.toString().includes("npmjs.com")) {
-          return <a style={faIconStyle} href={rurl.url.value} target="_blank"><FontAwesomeIcon icon={faNpm} size="2x"></FontAwesomeIcon></a>
+          return <a style={faIconStyle} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faNpm} size="2x"></FontAwesomeIcon></a>
         } else if (rurl.url.value.toString().includes("twitter.com")) {
-          return <a style={faIconStyle} href={rurl.url.value} target="_blank"><FontAwesomeIcon icon={faTwitter} size="2x"></FontAwesomeIcon></a>
+          return <a style={faIconStyle} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faTwitter} size="2x"></FontAwesomeIcon></a>
         }
       })}
     </div>)
