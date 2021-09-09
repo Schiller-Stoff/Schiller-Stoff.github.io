@@ -114,6 +114,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
         theme={{ primary: "grey", secondary: "white" }}
         hideControls
         scrollable
+        useReadMore={false}
       >
         {props.children && transformData(props).map(dp => <props.children data={dp} />)}
       </Chrono>
