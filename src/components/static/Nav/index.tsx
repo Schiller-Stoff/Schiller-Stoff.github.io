@@ -16,7 +16,7 @@ const MyNav = () => {
         <Nav style={navStyle}>
           <Nav.Link as="li">
             <Link to="/" className="text-dark text-decoration-none">
-              Sebastian David Stoff
+              Sebastian David Stoff MMMA BBA
             </Link>
           </Nav.Link>
           </Nav>

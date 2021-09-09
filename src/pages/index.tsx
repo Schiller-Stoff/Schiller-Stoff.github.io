@@ -21,7 +21,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <StyleOverlay></StyleOverlay>
         <h1 className="pt-md-5" id="start">
           Hi, I'm{" "}
-          <span>
+          <span className="text-decoration-underline">
             {props.pageContext.persOrcid.person.name["given-names"].value}{" "}
             {props.pageContext.persOrcid.person.name["family-name"].value}
           </span>
@@ -120,7 +120,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <Link to="#employments"><Button variant="outline-dark me-2">Employments</Button></Link>
             <Link to="#educations"><Button variant="outline-dark me-2">Education</Button></Link>
             <Link to="#works"><Button variant="outline-dark me-2">Works</Button></Link>
-            <a href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}><Button variant="warning me-2">Hire me !</Button></a>
+            <a href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}><Button variant="warning me-2">Contact me !</Button></a>
         
         <br />
         <br />
