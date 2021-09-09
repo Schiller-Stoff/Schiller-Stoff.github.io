@@ -130,7 +130,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             </div>}
             <br />
             <br />
-            <h2 className="h3" id="employments">Current and passed employments</h2>
+            <h2 className="h3" id="employments">Current and past employments</h2>
             <p>Defined by the ORCID ontology: Employment is a formal employment relationship with an organization, e.g. staff, intern, researcher, contractor. Employment can be paid or unpaid.</p>
             <OrcidTimeline
               orcidSequence={
@@ -142,7 +142,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <br />
             <br />
 
-            <h2 className="h3" id="educations">Education and qualifications</h2>
+            {props.pageContext.persOrcid["activities-summary"].educations["last-modified-date"] && (<><h2 className="h3" id="educations">Education and qualifications</h2>
             <p>Education is participation in an academic higher education program to receive an undergraduate, graduate, or other degree.
               Qualification is participation in a professional or vocational accreditation, certification, or training program. Both may be in progress or unfinished.</p>
             <OrcidTimeline
@@ -153,7 +153,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             ></OrcidTimeline>
             <br></br>
             <br></br>
-            <br></br>
+            <br></br></>)}
             <h2 className="h3" id="works">Works: Things I have accomplished</h2>
             <p>ORCID defines works as your research outputs, including publications, data sets, conference presentations, and more.</p>
             <Container>
