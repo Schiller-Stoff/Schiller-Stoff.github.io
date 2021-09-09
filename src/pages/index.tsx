@@ -38,8 +38,8 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           }
         </h2>
         <Row>
-          <Col md={6} className="shadow p-3">
-            <Row>
+          <Col md={6}>
+            <Row className="shadow p-3">
               <Col md={5}>
                 {/* <Button variant="secondary">Request meeting</Button> */}
                 <img
@@ -123,8 +123,8 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <br />
         <Row>
           <Col md={7}>
-            <h2 id="cv" className="h3">CV / Biography</h2>
-            <p>{props.pageContext.persOrcid.person.biography.content}</p>
+            <div className="shadow p-3 bg-white"><h2 id="cv" className="h3">CV / Biography</h2>
+            <p>{props.pageContext.persOrcid.person.biography.content}</p></div>
             <br />
             <br />
             <h2 className="h3" id="employments">Current and passed employments</h2>
@@ -177,7 +177,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
 
 
           </Col>
-          <Col>
+          <Col >
 
 
           </Col>
