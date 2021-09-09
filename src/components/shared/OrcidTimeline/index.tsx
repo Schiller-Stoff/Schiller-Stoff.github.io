@@ -73,7 +73,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
         title: "From: " + empl["start-date"].year.value.valueOf().toString(),
         cardTitle: empl["role-title"],
         cardSubtitle: empl.organization.name,
-        cardDetailedText: empl["department-name"],
+        cardDetailedText: "",
         orcidData: empl
       }
     })
