@@ -94,14 +94,30 @@ const OrcidTimeline: React.FC<Props> = (props) => {
     }, []).map((work: Orcid.WorkSummary) => {
       console.log(work);
       return {
-        title: (work["publication-date"] && work["publication-date"].year.value.toString()),
+        title: catchToString(() => work["publication-date"].year.value.toString()),
         cardTitle: work.title.title.value.toString(),
         cardSubtitle: work.type,
-        cardDetailedText: work["external-ids"]["external-id"][0] && work["external-ids"]["external-id"][0]["external-id-url"].value.toString(),
+        cardDetailedText: catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString()),
         orcidData: work
       }
     })
 
+  }
+
+  /**
+   * 
+   * @param mightThrow function that might throw an error. 
+   * @returns Empty or succesful string 
+   */
+  const catchToString = (mightThrow: () => string): string => {
+    let string = "";
+    try {
+      string = mightThrow();
+    } catch(e){
+      string = ""
+    } finally {
+      return string;
+    }
   }
 
 
