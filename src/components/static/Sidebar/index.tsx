@@ -7,7 +7,8 @@ const Sidebar: React.FC = () => {
     top: 0,
     left: 0,
     padding: "20% .75em .75em .75em",
-    minHeight: "100vh"
+    minHeight: "100vh",
+    borderRight:"1px solid black"
   }
 
   return (

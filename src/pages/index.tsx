@@ -21,7 +21,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <StyleOverlay></StyleOverlay>
         <h1 className="pt-md-5" id="start">
           Hi, I'm{" "}
-          <span className="text-decoration-underline">
+          <span>
             {props.pageContext.persOrcid.person.name["given-names"].value}{" "}
             {props.pageContext.persOrcid.person.name["family-name"].value}
           </span>
@@ -116,18 +116,12 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           mail={props.pageContext.persOrcid.person.emails.email[0].email}
         />
         <br />
-        <Row>
-          <Col md={4}>
-            <Link to="#cv"><Button variant="outline-primary me-2">CV</Button></Link>
-            <Link to="#employments"><Button variant="outline-primary me-2">Employments</Button></Link>
-            <Link to="#educations"><Button variant="outline-primary me-2">Education</Button></Link>
-            <Link to="#works"><Button variant="outline-primary me-2">Works</Button></Link>
-          </Col>
-          <Col>
-            <br className="d-sm-none"/>
+        <Link to="#cv"><Button variant="outline-dark me-2">CV</Button></Link>
+            <Link to="#employments"><Button variant="outline-dark me-2">Employments</Button></Link>
+            <Link to="#educations"><Button variant="outline-dark me-2">Education</Button></Link>
+            <Link to="#works"><Button variant="outline-dark me-2">Works</Button></Link>
             <a href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}><Button variant="warning me-2">Hire me !</Button></a>
-          </Col>
-        </Row>
+        
         <br />
         <br />
         <Row>
