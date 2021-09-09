@@ -1,3 +1,5 @@
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
@@ -94,13 +96,13 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           </Col>
           <Col md={3}>
             <h3 className="h5">My links</h3>
-            <ul>
+            <ul style={{listStyle:"none", marginLeft: "-1em"}}>
               {props.pageContext.persOrcid.person["researcher-urls"][
                 "researcher-url"
               ].map((rurl) => (
                 <li>
-                  <small><a target="_blank" href={rurl.url.value.toString()}>
-                    {rurl["url-name"]}
+                  <small><FontAwesomeIcon color="grey" icon={faLink}></FontAwesomeIcon><a target="_blank" href={rurl.url.value.toString()}>
+                    {" " + rurl["url-name"]}
                   </a></small>
                 </li>
               ))}
