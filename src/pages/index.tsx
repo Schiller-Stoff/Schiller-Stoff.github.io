@@ -121,11 +121,11 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         
         <br />
         <br />
-        <br />
         <Row>
           <Col md={8}>
             <h2 id="cv" className="h3">CV / Biography</h2>
             <p>{props.pageContext.persOrcid.person.biography.content}</p>
+            <br />
             <br />
             <h2 className="h3" id="employments">Current and passed employments</h2>
             <p>Defined by the ORCID ontology: Employment is a formal employment relationship with an organization, e.g. staff, intern, researcher, contractor. Employment can be paid or unpaid.</p>
