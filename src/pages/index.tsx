@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import BaseLayout from "../components/shared/layouts/BaseLayout";
+import OrcidEntry from "../components/shared/OrcidEntry";
 import OrcidIconBar from "../components/shared/OrcidIconBar";
 import OrcidTimeline from "../components/shared/OrcidTimeline";
 import Timeline from "../components/shared/Timeline";
@@ -18,26 +19,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
     <>
       <BaseLayout>
         <StyleOverlay></StyleOverlay>
-        <h1 className="pt-md-5 h2" id="start">
-          Hi, I'm{" "}
-          <span className="text-decoration-underline">
-            {props.pageContext.persOrcid.person.name["given-names"].value}{" "}
-            {props.pageContext.persOrcid.person.name["family-name"].value}
-          </span>
-        </h1>
-        <h2 className="text-secondary h4">
-          {
-            props.pageContext.persOrcid["activities-summary"].employments[
-            "employment-summary"
-            ][0]["role-title"]
-          }{" "}
-          at{" "}
-          {
-            props.pageContext.persOrcid["activities-summary"].employments[
-              "employment-summary"
-            ][0].organization.name
-          }
-        </h2>
+        <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
         <Row>
           <Col md={6}>
             <Row className="shadow p-3">
