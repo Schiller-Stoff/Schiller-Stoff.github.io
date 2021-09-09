@@ -27,8 +27,9 @@ exports.onCreatePage = async ({ page, actions }) => {
   // only index page will be supplied with orcid data
   if (page.path === "/") {
     deletePage(page);
-    // fetch orcid data
-    const persOrcid = await OrcidAPI.fetchPubPerson("0000-0001-6941-113X");
+    // fetch orcid data using env variable
+    if(!process.env.ORCID_ID) throw new ReferenceError("Found no ORCID_ID in given dot env file. Please make sure to define ORCID_ID via standard dotenev workflow before starting Gatsby.");
+    const persOrcid = await OrcidAPI.fetchPubPerson(process.env.ORCID_ID);
 
     // You can access the variable "house" in your page queries now
     createPage({
