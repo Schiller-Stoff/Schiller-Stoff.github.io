@@ -12,7 +12,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <aside 
-      className="d-lg-block d-none"
+      className="d-lg-block d-none shadow"
       style={asideStyle}>
       <a target="_blank" href="https://informationsmodellierung.uni-graz.at/en/">
         <img width={25} src="https://static.uni-graz.at/fileadmin/_processed_/1/3/csm_2018-11-22_ZIM_schwarz_typo3_24124f9364.png"></img>
