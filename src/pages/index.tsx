@@ -122,7 +122,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <br />
         <br />
         <Row>
-          <Col md={8}>
+          <Col md={7}>
             <h2 id="cv" className="h3">CV / Biography</h2>
             <p>{props.pageContext.persOrcid.person.biography.content}</p>
             <br />
