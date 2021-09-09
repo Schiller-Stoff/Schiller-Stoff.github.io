@@ -114,10 +114,10 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           mail={props.pageContext.persOrcid.person.emails.email[0].email}
         />
         <br />
-        <Link to="#cv"><Button variant="outline-dark me-2">CV</Button></Link>
-            <Link to="#employments"><Button variant="outline-dark me-2">Employments</Button></Link>
-            <Link to="#educations"><Button variant="outline-dark me-2">Education</Button></Link>
-            <Link to="#works"><Button variant="outline-dark me-2">Works</Button></Link>
+        <Link to="#cv"><Button variant="dark me-2">CV</Button></Link>
+            <Link to="#employments"><Button variant="dark me-2">Employments</Button></Link>
+            <Link to="#educations"><Button variant="dark me-2">Education</Button></Link>
+            <Link to="#works"><Button variant="dark me-2">Works</Button></Link>
             <a href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}><Button variant="warning me-2">Contact me !</Button></a>
         
         <br />
