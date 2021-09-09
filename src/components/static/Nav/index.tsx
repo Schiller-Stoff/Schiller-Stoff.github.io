@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 const MyNav = () => {
 
   const navStyle: React.CSSProperties = {
-    fontSize: "1.25em",
+    fontSize: "1em",
     fontWeight: 600,
     color: "grey"
   }
