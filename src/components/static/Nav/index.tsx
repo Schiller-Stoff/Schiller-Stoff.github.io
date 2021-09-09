@@ -6,7 +6,8 @@ const MyNav = () => {
 
   const navStyle: React.CSSProperties = {
     fontSize: "1.25em",
-    fontWeight: 600
+    fontWeight: 600,
+    color: "grey"
   }
 
   return (
