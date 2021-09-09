@@ -123,8 +123,10 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <br />
         <Row>
           <Col md={7}>
-            <div className="shadow p-3 bg-white"><h2 id="cv" className="h3">CV / Biography</h2>
-            <p>{props.pageContext.persOrcid.person.biography.content}</p></div>
+            {props.pageContext.persOrcid.person.biography && <div className="shadow p-3 bg-white">
+              <h2 id="cv" className="h3">CV / Biography</h2>
+              <p>{props.pageContext.persOrcid.person.biography.content}</p>
+            </div>}
             <br />
             <br />
             <h2 className="h3" id="employments">Current and passed employments</h2>
