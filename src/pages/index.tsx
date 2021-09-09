@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import BaseLayout from "../components/shared/layouts/BaseLayout";
@@ -16,7 +17,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
     <>
       <BaseLayout>
         <StyleOverlay></StyleOverlay>
-        <h1 className="pt-md-5">
+        <h1 className="pt-md-5" id="start">
           Hi, I'm{" "}
           <span className="text-decoration-underline">
             {props.pageContext.persOrcid.person.name["given-names"].value}{" "}
@@ -115,13 +116,19 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
 
 
         <br />
+        <Link to="#cv"><Button variant="outline-primary me-md-2">CV</Button></Link>
+        <Link to="#employments"><Button variant="outline-secondary me-md-2">Employments</Button></Link>
+        <Link to="#educations"><Button variant="outline-secondary me-md-2">Education</Button></Link>
+        <Link to="#works"><Button variant="outline-secondary me-md-2">Works</Button></Link>
+        <br />
+        <br />
         <br />
         <Row>
           <Col md={8}>
-            <h2 className="h3">CV / Biography</h2>
+            <h2 id="cv" className="h3">CV / Biography</h2>
             <p>{props.pageContext.persOrcid.person.biography.content}</p>
             <br />
-            <h2 className="h3">Current and passed employments</h2>
+            <h2 className="h3" id="employments">Current and passed employments</h2>
             <p>Defined by the ORCID ontology: Employment is a formal employment relationship with an organization, e.g. staff, intern, researcher, contractor. Employment can be paid or unpaid.</p>
             <OrcidTimeline
               orcidSequence={
@@ -133,7 +140,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <br />
             <br />
 
-            <h2 className="h3">Education and qualifications</h2>
+            <h2 className="h3" id="educations">Education and qualifications</h2>
             <p>Education is participation in an academic higher education program to receive an undergraduate, graduate, or other degree.
               Qualification is participation in a professional or vocational accreditation, certification, or training program. Both may be in progress or unfinished.</p>
             <OrcidTimeline
@@ -145,7 +152,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <br></br>
             <br></br>
             <br></br>
-            <h2>Works: Things I have accomplished</h2>
+            <h2 className="h3" id="works">Works: Things I have accomplished</h2>
             <p>ORCID defines works as your research outputs, including publications, data sets, conference presentations, and more.</p>
             <Container>
               <OrcidTimeline
