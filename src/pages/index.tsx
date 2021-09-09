@@ -26,7 +26,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             {props.pageContext.persOrcid.person.name["family-name"].value}
           </span>
         </h1>
-        <h2 className="text-secondary h3">
+        <h2 className="text-secondary h4">
           {
             props.pageContext.persOrcid["activities-summary"].employments[
             "employment-summary"
