@@ -4,10 +4,12 @@ import MyNav from "../../../static/Nav";
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../../styles/base.css';
+import Sidebar from "../../../static/Sidebar";
 
 const BaseLayout: React.FC = (props) => (
   <>
     <MyNav></MyNav>
+    <Sidebar></Sidebar>
     <Container className="min-vh-100 px-md-5" as="main">{props.children}</Container>
     <Footer></Footer>
   </>
