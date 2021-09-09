@@ -44,7 +44,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               <Col md={5}>
                 {/* <Button variant="secondary">Request meeting</Button> */}
                 <img
-                  src="/img/profile.jpg"
+                  src={process.env.LINK_TO_PROFILE_IMG ? process.env.LINK_TO_PROFILE_IMG : "/img/profile.jpg"}
                   width={250}
                   height={250}
                   style={{ borderRadius: "100%", filter: "grayscale(150%)" }}
