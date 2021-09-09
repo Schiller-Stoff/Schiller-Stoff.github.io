@@ -89,7 +89,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <ul style={{listStyle:"none", marginLeft: "-1em"}}>
               {props.pageContext.persOrcid.person.keywords.keyword.map(
                 (kword) => (
-                  <li><small><FontAwesomeIcon color="grey" icon={faBook}></FontAwesomeIcon>{" " + kword.content}</small></li>
+                  <li><small><FontAwesomeIcon className="text-dark" icon={faBook}></FontAwesomeIcon>{" " + kword.content}</small></li>
                 )
               )}
             </ul>
@@ -101,7 +101,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                 "researcher-url"
               ].map((rurl) => (
                 <li>
-                  <small><FontAwesomeIcon color="grey" icon={faLink}></FontAwesomeIcon><a target="_blank" className="text-dark" href={rurl.url.value.toString()}>
+                  <small><FontAwesomeIcon className="text-dark" icon={faLink}></FontAwesomeIcon><a target="_blank" className="text-dark" href={rurl.url.value.toString()}>
                     {" " + rurl["url-name"]}
                   </a></small>
                 </li>
