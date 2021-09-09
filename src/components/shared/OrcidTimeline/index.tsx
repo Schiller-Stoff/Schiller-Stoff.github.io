@@ -1,6 +1,7 @@
 import React from "react";
 import { Orcid } from "../../../types/orcid";
 import { Chrono } from "react-chrono";
+import MyStringUtils from "../../../utils/MyStringUtils";
 
 interface Props {
   orcidSequence:
@@ -94,32 +95,15 @@ const OrcidTimeline: React.FC<Props> = (props) => {
     }, []).map((work: Orcid.WorkSummary) => {
       console.log(work);
       return {
-        title: catchToString(() => work["publication-date"].year.value.toString()),
+        title: MyStringUtils.catchToString(() => work["publication-date"].year.value.toString()),
         cardTitle: work.title.title.value.toString(),
         cardSubtitle: work.type,
-        cardDetailedText: catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString()),
+        cardDetailedText: MyStringUtils.catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString()),
         orcidData: work
       }
     })
 
   }
-
-  /**
-   * 
-   * @param mightThrow function that might throw an error. 
-   * @returns Empty or succesful string 
-   */
-  const catchToString = (mightThrow: () => string): string => {
-    let string = "";
-    try {
-      string = mightThrow();
-    } catch(e){
-      string = ""
-    } finally {
-      return string;
-    }
-  }
-
 
   return (
     <div>
