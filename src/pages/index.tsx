@@ -100,7 +100,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               ].map((rurl) => (
                 <li>
                   <small><FontAwesomeIcon className="text-dark" icon={faLink}></FontAwesomeIcon><a target="_blank" className="text-dark" href={rurl.url.value.toString()}>
-                    {" " + rurl["url-name"]}
+                    {" " + (rurl["url-name"] ? rurl["url-name"] : "Link")}
                   </a></small>
                 </li>
               ))}
