@@ -19,7 +19,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
     <>
       <BaseLayout>
         <StyleOverlay></StyleOverlay>
-        <h1 className="pt-md-5" id="start">
+        <h1 className="pt-md-5 h2" id="start">
           Hi, I'm{" "}
           <span className="text-decoration-underline">
             {props.pageContext.persOrcid.person.name["given-names"].value}{" "}
