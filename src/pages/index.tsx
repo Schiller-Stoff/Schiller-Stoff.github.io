@@ -1,4 +1,4 @@
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import React from "react";
@@ -86,10 +86,10 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           </Col>
           <Col md={3}>
             <h3 className="h5">My background</h3>
-            <ul>
+            <ul style={{listStyle:"none", marginLeft: "-1em"}}>
               {props.pageContext.persOrcid.person.keywords.keyword.map(
                 (kword) => (
-                  <small><li>{kword.content}</li></small>
+                  <li><small><FontAwesomeIcon color="grey" icon={faBook}></FontAwesomeIcon>{" " + kword.content}</small></li>
                 )
               )}
             </ul>
