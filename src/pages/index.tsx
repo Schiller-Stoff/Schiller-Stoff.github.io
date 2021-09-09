@@ -137,7 +137,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <p>Education is participation in an academic higher education program to receive an undergraduate, graduate, or other degree.
               Qualification is participation in a professional or vocational accreditation, certification, or training program. Both may be in progress or unfinished.</p>
             <OrcidTimeline
-              mode="VERTICAL"
+              mode="VERTICAL_ALTERNATING"
               orcidSequence={
                 props.pageContext.persOrcid["activities-summary"].educations
               }
@@ -150,7 +150,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <Container>
               <OrcidTimeline
                 orcidSequence={props.pageContext.persOrcid["activities-summary"].works}
-                mode="VERTICAL"
+                mode="VERTICAL_ALTERNATING"
               >
                 {
                   //passing through custom component to render link correctly
