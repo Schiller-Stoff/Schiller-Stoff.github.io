@@ -101,7 +101,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                 "researcher-url"
               ].map((rurl) => (
                 <li>
-                  <small><FontAwesomeIcon color="grey" icon={faLink}></FontAwesomeIcon><a target="_blank" href={rurl.url.value.toString()}>
+                  <small><FontAwesomeIcon color="grey" icon={faLink}></FontAwesomeIcon><a target="_blank" className="text-dark" href={rurl.url.value.toString()}>
                     {" " + rurl["url-name"]}
                   </a></small>
                 </li>
