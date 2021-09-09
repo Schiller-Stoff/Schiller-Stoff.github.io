@@ -13,8 +13,6 @@ import { Orcid } from "../types/orcid";
 const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
   props
 ) => {
-  console.log(props);
-
   return (
     <>
       <BaseLayout>
