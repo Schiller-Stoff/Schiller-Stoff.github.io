@@ -58,7 +58,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
   const handleEduData = (eduSequence: Orcid.Educations): TimelineEntry[] => {
     return eduSequence["education-summary"].map((edu) => {
       return {
-        title: "",
+        title: "Finished: " + edu["end-date"].year.value.toString(),
         cardTitle: edu["role-title"],
         cardSubtitle: edu.organization.name,
         cardDetailedText: edu.organization["disambiguated-organization"]["disambiguated-organization-identifier"],
