@@ -116,14 +116,14 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <br />
         <Row>
           <Col md={4}>
-            <Link to="#cv"><Button variant="outline-primary me-2 text-black">CV</Button></Link>
-            <Link to="#employments"><Button variant="outline-primary me-2 text-black">Employments</Button></Link>
-            <Link to="#educations"><Button variant="outline-primary me-2 text-black">Education</Button></Link>
-            <Link to="#works"><Button variant="outline-primary me-2 text-black">Works</Button></Link>
+            <Link to="#cv"><Button variant="outline-primary me-2">CV</Button></Link>
+            <Link to="#employments"><Button variant="outline-primary me-2">Employments</Button></Link>
+            <Link to="#educations"><Button variant="outline-primary me-2">Education</Button></Link>
+            <Link to="#works"><Button variant="outline-primary me-2">Works</Button></Link>
           </Col>
           <Col>
             <br className="d-sm-none"/>
-            <a href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}><Button variant="warning text-black me-2">Hire me !</Button></a>
+            <a href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}><Button variant="warning me-2">Hire me !</Button></a>
           </Col>
         </Row>
         <br />
