@@ -10,7 +10,7 @@ const BaseLayout: React.FC = (props) => (
   <>
     <MyNav></MyNav>
     <Sidebar></Sidebar>
-    <Container className="min-vh-100 px-md-5" as="main">{props.children}</Container>
+    <Container className="min-vh-100 px-md-3" as="main">{props.children}</Container>
     <Footer></Footer>
   </>
 );
