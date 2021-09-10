@@ -85,7 +85,15 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                         <h4 className="h6 fw-bold">{props.data.cardTitle}</h4>
                         <p>{props.data.cardSubtitle.replace("OTHER", "SOFTWARE").replace("DISSERTATION", "THESIS")}</p>
                         <p style={{ position: "relative", left: "-110px", fontWeight: 600 }}>{props.data.title}</p>
-                        <a className="text-secondary" target="_blank" href={ MyStringUtils.catchToString(() => orcidData["external-ids"]["external-id"][0]["external-id-url"].value.toString())}>{orcidData["external-ids"]["external-id"][0] && "Visit related project page"}</a>
+                        {() => {
+                          let href = MyStringUtils.catchToString(() => orcidData["external-ids"]["external-id"][0]["external-id-url"].value.toString());
+                          if(href){
+                            return <a className="text-secondary" target="_blank" href={href}>{href && "Visit related project page"}</a>
+                          } else {
+                            return null
+                          } 
+                        }}
+                        
                       </Container>
                     )
                   }}
