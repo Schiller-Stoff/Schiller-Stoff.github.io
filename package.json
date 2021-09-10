@@ -21,11 +21,13 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
     "gatsby": "^3.12.1",
+    "gatsby-plugin-react-helmet": "^4.13.0",
     "install": "^0.13.0",
     "npm": "^7.22.0",
     "react": "^17.0.1",
     "react-chrono": "^1.11.0",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "@types/node": "^16.7.5",
