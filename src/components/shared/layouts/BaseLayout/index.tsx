@@ -5,7 +5,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../../styles/base.css';
 import Sidebar from "../../../static/Sidebar";
-import Head from "../../Head/indext";
+import Head from "../../Head";
 
 const BaseLayout: React.FC = (props) => (
   <>
