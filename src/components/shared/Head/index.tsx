@@ -33,6 +33,8 @@ const Head: React.FC<Props> = (props) => {
       <meta property="og:type" content="website" />
       <meta property="dc:type" content="website" />
 
+      <meta name="apple-mobile-web-app-title" content={packageJson.description}/>
+
       {props.keywords && <meta name="keywords" content={props.keywords.toString().replace("[", "").replace("]", "").replace(/,/g, ", ")}></meta>}
 
       {
@@ -51,6 +53,8 @@ const Head: React.FC<Props> = (props) => {
       <meta property="dc:description" lang="en-us" content={packageJson.description}/>
 
       <link rel="canonical" href={baseUrl} />
+
+      <link rel="apple-touch-icon" href="/icons/icons8-apple-96.png"></link>
 
 
       {
