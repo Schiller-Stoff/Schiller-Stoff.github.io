@@ -94,7 +94,6 @@ const OrcidTimeline: React.FC<Props> = (props) => {
       return aggr
       // then map reduced data to timeline items
     }, []).map((work: Orcid.WorkSummary) => {
-      console.log(work);
       return {
         title: MyStringUtils.catchToString(() => work["publication-date"].year.value.toString()),
         cardTitle: work.title.title.value.toString(),
