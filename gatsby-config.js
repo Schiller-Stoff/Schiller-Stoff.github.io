@@ -18,6 +18,7 @@ module.exports = {
         jsxPragma: `jsx`, // defaults to "React"
         allExtensions: true, // defaults to false
       }
-    }
+    },
+    `gatsby-plugin-react-helmet`
   ]
 };

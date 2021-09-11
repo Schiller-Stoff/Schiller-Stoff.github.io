@@ -16,6 +16,7 @@ const OrcidProfileCard: React.FC<Props> = ({orcidRoot}) => {
           <Col md={5}>
             {/* <Button variant="secondary">Request meeting</Button> */}
             <img
+              alt="Main profile picture"
               src={
                 process.env.LINK_TO_PROFILE_IMG
                   ? process.env.LINK_TO_PROFILE_IMG
