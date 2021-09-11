@@ -60,7 +60,7 @@ const OrcidProfileCard: React.FC<Props> = ({orcidRoot}) => {
       <Col md={2}>
         {orcidRoot.person.keywords.keyword[0] && <><h3 className="h5 mt-md-3">My background</h3>
         <ul style={{ listStyle: "none", marginLeft: "-1em" }}>
-          {orcidRoot.person.keywords.keyword.map((kword) => (
+          {orcidRoot.person.keywords.keyword.slice(0,5).map((kword) => (
             <li>
               <small>
                 <FontAwesomeIcon
@@ -78,7 +78,7 @@ const OrcidProfileCard: React.FC<Props> = ({orcidRoot}) => {
         <ul style={{ listStyle: "none", marginLeft: "-1em" }}>
           {orcidRoot.person["researcher-urls"][
             "researcher-url"
-          ].map((rurl) => (
+          ].slice(0,5).map((rurl) => (
             <li>
               <small>
                 <FontAwesomeIcon
