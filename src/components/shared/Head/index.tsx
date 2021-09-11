@@ -3,12 +3,16 @@ import { Helmet } from "react-helmet";
 import packageJson from "../../../../package.json";
 
 
+interface Props {
+  keywords?: string[]
+}
+
 /**
  * Gatsby SEO component
  * https://www.gatsbyjs.com/docs/add-seo-component/
  * @returns 
  */
-const Head: React.FC = () => {
+const Head: React.FC<Props> = (props) => {
 
   const baseUrl = process.env.BASE_URL;
   if(!baseUrl)throw new ReferenceError("You need to specify BASE_URL as .env variable. Specify the base address of your website e.g. https://my-site.com/")
@@ -16,6 +20,10 @@ const Head: React.FC = () => {
   return (
     <Helmet>
       <html lang="en-us" prefix="og: https://ogp.me/ns# dc: http://purl.org/dc/terms"></html>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="copyright" content={packageJson.author} />
+      <meta name="robots" content="index, follow"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
       <meta charSet="utf-8" />
       <meta property="og:description" name="description" content={packageJson.description} />
       <meta property="og:locale" content="en-us" />
@@ -24,6 +32,8 @@ const Head: React.FC = () => {
       <meta property="og:url" content={baseUrl}/>
       <meta property="og:type" content="website" />
       <meta property="dc:type" content="website" />
+
+      {props.keywords && <meta name="keywords" content={props.keywords.toString().replace("[", "").replace("]", "").replace(/,/g, ", ")}></meta>}
 
       {
         // twitter tags
