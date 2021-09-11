@@ -30,6 +30,7 @@ export interface TimelineEntry {
  * @returns
  */
 const OrcidTimeline: React.FC<Props> = (props) => {
+  
   /**
    * Handles type casting -- calls correct transformer methods for given Orcid sequence-data.  
    * @param propData
@@ -105,6 +106,16 @@ const OrcidTimeline: React.FC<Props> = (props) => {
 
   }
 
+  /**
+   * Method for creating the timeline item keys.
+   * @param index 
+   * @returns 
+   */
+  const createTimelineKey = (index: number) => {
+    const baseStringId = "__OrcidTimelineChild__";
+    return baseStringId + index;
+  }
+
   return (
     <div>
       <Chrono
@@ -116,7 +127,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
         scrollable
         useReadMore={false}
       >
-        {props.children && transformData(props).map(dp => <props.children data={dp} />)}
+        {props.children && transformData(props).map((dp,index) => <props.children key={createTimelineKey(index)} data={dp} />)}
       </Chrono>
     </div>
   );
