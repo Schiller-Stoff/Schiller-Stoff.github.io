@@ -11,7 +11,7 @@ interface Props {
 const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
   return (
     <>
-      <h1 className="pt-md-5 h2" id="start">
+      <h1 className="pt-md-3 h2" id="start">
         Hi, I'm{" "}
         <span className="text-decoration-underline">
           {orcidRoot.person.name["given-names"].value}{" "}

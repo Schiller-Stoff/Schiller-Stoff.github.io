@@ -11,7 +11,7 @@ const MyNav = () => {
   }
 
   return (
-      <Navbar collapseOnSelect expand="lg" className="border" fixed="top" bg="white">
+      <Navbar collapseOnSelect expand="lg">
         <Container>
         <Nav style={navStyle}>
           <Nav.Link as="li">
