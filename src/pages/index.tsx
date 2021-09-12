@@ -38,7 +38,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           }
         />
         <br />
-        <Link to="#cv">
+        <Link to="#biography">
           <Button variant="dark me-2">CV</Button>
         </Link>
         <Link to="#employments">
@@ -64,7 +64,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           <Col md={7}>
             {props.pageContext.persOrcid.person.biography && (
               <div className="shadow p-3 bg-white">
-                <h2 id="cv" className="h3">
+                <h2 id="biography" className="h3">
                   CV / Biography
                 </h2>
                 <p>{props.pageContext.persOrcid.person.biography.content}</p>

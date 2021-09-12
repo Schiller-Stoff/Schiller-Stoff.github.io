@@ -42,6 +42,13 @@ const OrcidNav: React.FC<Props> = (props) => {
   const buildNavSideLinks = (root: Orcid.RootObject) => {
     let sideLinks: { label: string; href: string }[] = [];
 
+    if (root.person.biography.content){
+      sideLinks.push({
+        label: "Biography",
+        href: "#biography",
+      });
+    }
+
     if (root["activities-summary"].works.group[0]) {
       sideLinks.push({
         label: "Works",
