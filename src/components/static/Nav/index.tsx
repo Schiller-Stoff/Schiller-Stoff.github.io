@@ -2,7 +2,11 @@ import React from "react";
 import { Container, Navbar, NavDropdown, Nav } from "react-bootstrap";
 import { Link } from "gatsby";
 
-const MyNav = () => {
+interface Props {
+  title: string;
+}
+
+const MyNav: React.FC<Props> = (props) => {
 
   const navStyle: React.CSSProperties = {
     fontSize: "1em",
@@ -16,7 +20,7 @@ const MyNav = () => {
         <Nav style={navStyle}>
           <Nav.Link as="li">
             <Link to="/" className="text-dark text-decoration-none">
-              Sebastian David Stoff MMMA BBA
+              {props.title}
             </Link>
           </Nav.Link>
           </Nav>
