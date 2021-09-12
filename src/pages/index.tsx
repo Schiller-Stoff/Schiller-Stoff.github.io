@@ -38,14 +38,15 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           }
         />
         {props.pageContext.persOrcid.person.emails.email[0] && (
-          <a
-            href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}
-          >
-            <Button variant="warning me-2 mt-3">Get in touch</Button>
-          </a>
+          <>
+            <a
+              href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}
+            >
+              <Button variant="warning me-2 mt-3">Get in touch</Button>
+            </a>
+            <br />
+          </>
         )}
-
-        <br />
         <br />
         <Row>
           <Col md={7}>
