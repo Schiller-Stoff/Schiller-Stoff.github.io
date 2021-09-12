@@ -1,5 +1,3 @@
-import { faBook, faLink } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
@@ -9,7 +7,6 @@ import OrcidHead from "../components/shared/OrcidHead";
 import OrcidIconBar from "../components/shared/OrcidIconBar";
 import OrcidProfileCard from "../components/shared/OrcidProfileCard";
 import OrcidTimeline from "../components/shared/OrcidTimeline";
-import Timeline from "../components/shared/Timeline";
 import StyleOverlay from "../components/static/EntryHero";
 import { Orcid } from "../types/orcid";
 import MyStringUtils from "../utils/MyStringUtils";
