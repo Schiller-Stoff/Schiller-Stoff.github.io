@@ -5,6 +5,7 @@ import BaseLayout from "../components/shared/layouts/BaseLayout";
 import OrcidEntry from "../components/shared/OrcidEntry";
 import OrcidHead from "../components/shared/OrcidHead";
 import OrcidIconBar from "../components/shared/OrcidIconBar";
+import OrcidNav from "../components/shared/OrcidNav";
 import OrcidProfileCard from "../components/shared/OrcidProfileCard";
 import OrcidTimeline from "../components/shared/OrcidTimeline";
 import StyleOverlay from "../components/static/EntryHero";
@@ -18,6 +19,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
     <>
       <BaseLayout
         headComponent={<OrcidHead orcidRoot={props.pageContext.persOrcid} />}
+        nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
       >
         <StyleOverlay></StyleOverlay>
         <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
