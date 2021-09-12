@@ -19,7 +19,7 @@ const Head: React.FC<Props> = (props) => {
 
   return (
     <Helmet>
-      <html lang="en-us" prefix="og: https://ogp.me/ns# dc: http://purl.org/dc/terms"></html>
+      <html lang="en-us" prefix="og: https://ogp.me/ns# dc: http://purl.org/dc/terms schema_org: https://schema.org/"></html>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta name="copyright" content={packageJson.author} />
       <meta name="robots" content="index, follow"/>
@@ -43,7 +43,13 @@ const Head: React.FC<Props> = (props) => {
       <meta name="twitter:title" content={packageJson.description} />
       <meta name="twitter:description" content={packageJson.description} />
 
-
+      {
+        // schema.org things
+      }
+      <meta typeof="schema_org:Website" />
+      <meta property="schema_org:title" content={packageJson.description} />
+      <meta property="schema_org:description" content={packageJson.description} />
+      {/* <meta property="schema_org:Person" content={packageJson.author} /> */}
 
 
       <base href={baseUrl} />
