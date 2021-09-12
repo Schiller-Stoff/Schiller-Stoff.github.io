@@ -37,6 +37,8 @@ const Head: React.FC<Props> = (props) => {
 
       {props.keywords && <meta name="keywords" content={props.keywords.toString().replace("[", "").replace("]", "").replace(/,/g, ", ")}></meta>}
 
+      {props.keywords &&   <meta property="schema_org:keywords" content={props.keywords.toString().replace("[", "").replace("]", "")}></meta>}
+
       {
         // twitter tags
       }
