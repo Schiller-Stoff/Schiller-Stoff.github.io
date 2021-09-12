@@ -37,24 +37,11 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             props.pageContext.persOrcid.person.emails.email[0].email
           }
         />
-        <br />
-        <Link to="#biography">
-          <Button variant="dark me-2">CV</Button>
-        </Link>
-        <Link to="#employments">
-          <Button variant="dark me-2">Employments</Button>
-        </Link>
-        <Link to="#educations">
-          <Button variant="dark me-2">Education</Button>
-        </Link>
-        <Link to="#works">
-          <Button variant="dark me-2">Works</Button>
-        </Link>
         {props.pageContext.persOrcid.person.emails.email[0] && (
           <a
             href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}
           >
-            <Button variant="warning me-2">Contact me !</Button>
+            <Button variant="warning me-2 mt-3">Get in touch</Button>
           </a>
         )}
 
