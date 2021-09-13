@@ -60,14 +60,16 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             )}
             <br />
             <br />
-            <h2 className="h3" id="employments">
-              Current and past employments
-            </h2>
-            <p>
-              Defined by the ORCID ontology: Employment is a formal employment
-              relationship with an organization, e.g. staff, intern, researcher,
-              contractor. Employment can be paid or unpaid.
-            </p>
+            <div className="px-3">
+              <h2 className="h3" id="employments">
+                Current and past employments
+              </h2>
+              <p>
+                Defined by the ORCID ontology: Employment is a formal employment
+                relationship with an organization, e.g. staff, intern,
+                researcher, contractor. Employment can be paid or unpaid.
+              </p>
+            </div>
             <OrcidTimeline
               orcidSequence={
                 props.pageContext.persOrcid["activities-summary"].employments
@@ -81,7 +83,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             {props.pageContext.persOrcid["activities-summary"].educations[
               "last-modified-date"
             ] && (
-              <>
+              <div className="px-3">
                 <h2 className="h3" id="educations">
                   Education and qualifications
                 </h2>
@@ -101,7 +103,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                 <br></br>
                 <br></br>
                 <br></br>
-              </>
+              </div>
             )}
             <h2 className="h3" id="works">
               Works: Things I have accomplished
