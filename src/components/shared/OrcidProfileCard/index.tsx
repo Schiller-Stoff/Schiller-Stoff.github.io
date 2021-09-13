@@ -59,14 +59,10 @@ const OrcidProfileCard: React.FC<Props> = ({orcidRoot}) => {
       </Col>
       <Col md={5} xl={2}>
         {orcidRoot.person.keywords.keyword[0] && <><h3 className="h5 mt-md-3">My background</h3>
-        <ul style={{ listStyle: "none", marginLeft: "-1em" }}>
+        <ul>
           {orcidRoot.person.keywords.keyword.slice(0,5).map((kword, index) => (
             <li key={`kword_${index}`}>
               <small>
-                <FontAwesomeIcon
-                  className="text-dark"
-                  icon={faBook}
-                ></FontAwesomeIcon>
                 {" " + kword.content}
               </small>
             </li>
@@ -75,22 +71,18 @@ const OrcidProfileCard: React.FC<Props> = ({orcidRoot}) => {
       </Col>
       <Col className="d-none d-xl-block">
       {orcidRoot.person["researcher-urls"]["researcher-url"][0] && <><h3 className="h5 mt-md-3">My links</h3>
-        <ul style={{ listStyle: "none", marginLeft: "-1em" }}>
+        <ul>
           {orcidRoot.person["researcher-urls"][
             "researcher-url"
           ].slice(0,5).map((rurl, index) => (
             <li key={`url_${index}`}>
               <small>
-                <FontAwesomeIcon
-                  className="text-dark"
-                  icon={faLink}
-                ></FontAwesomeIcon>
                 <a
                   target="_blank"
                   className="text-dark"
                   href={rurl.url.value.toString()}
                 >
-                  {" " + (rurl["url-name"] ? rurl["url-name"] : "Link")}
+                  {(rurl["url-name"] ? rurl["url-name"] : "Link")}
                 </a>
               </small>
             </li>
