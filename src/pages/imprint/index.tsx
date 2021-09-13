@@ -12,6 +12,8 @@ const Imprint: React.FC = () => {
       <br/>
       <h1>Imprint</h1>
       <br/>
+      <h2>Data protection</h2>
+      <br/>
       <h2 className="h3">Acknowledgments</h2>
       <h3 className="h4">Apple Touch icons</h3>
       <p>by "Apple icon by <a href="https://icons8.com/" target="_blank">Icons8</a>"</p>
