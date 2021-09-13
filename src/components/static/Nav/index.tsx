@@ -32,7 +32,63 @@ const MyNav: React.FC<Props> = (props) => {
           id="responsive-navbar-nav"
           className="justify-content-end px-4"
         >
-          <Nav style={navStyle}>
+          <Nav.Link as="li">
+                  <Link to="/about" className="text-dark text-decoration-none">
+                    About
+                  </Link>
+                </Nav.Link>
+                <Nav.Link href="#features" as="li">
+                  <Link
+                    to="/contact"
+                    className="text-dark text-decoration-none"
+                  >
+                    Contact
+                  </Link>
+              </Nav.Link>
+            
+          
+          <NavDropdown title="Content" id="nav-dropdown">
+            {props.sideLinks ? (
+              props.sideLinks.map((linkObj, index) => (
+                <Nav.Link key={linkObj.href + index} as="li">
+                  <Link
+                    to={linkObj.href}
+                    className="text-dark text-decoration-none"
+                  >
+                    {linkObj.label}
+                  </Link>
+                </Nav.Link>
+              ))
+            ) : (
+              <>
+                <NavDropdown.Item as="li">
+                  <Link to="/about" className="text-dark text-decoration-none">
+                    About
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#features" as="li">
+                  <Link
+                    to="/projects"
+                    className="text-dark text-decoration-none"
+                  >
+                    Projects
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#features" as="li">
+                  <Link
+                    to="/contact"
+                    className="text-dark text-decoration-none"
+                  >
+                    Contact
+                  </Link>
+                </NavDropdown.Item>
+              </>
+            )}
+
+          </NavDropdown>
+
+
+          {/* <Nav style={navStyle}>
             {props.sideLinks ? (
               props.sideLinks.map((linkObj, index) => (
                 <Nav.Link key={linkObj.href + index} as="li">
@@ -69,7 +125,7 @@ const MyNav: React.FC<Props> = (props) => {
                 </Nav.Link>
               </>
             )}
-          </Nav>
+          </Nav> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
