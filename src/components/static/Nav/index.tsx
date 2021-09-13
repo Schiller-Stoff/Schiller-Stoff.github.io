@@ -32,21 +32,6 @@ const MyNav: React.FC<Props> = (props) => {
           id="responsive-navbar-nav"
           className="justify-content-end px-4"
         >
-          <Nav.Link as="li">
-                  <Link to="/about" className="text-dark text-decoration-none">
-                    About
-                  </Link>
-                </Nav.Link>
-                <Nav.Link href="#features" as="li">
-                  <Link
-                    to="/contact"
-                    className="text-dark text-decoration-none"
-                  >
-                    Contact
-                  </Link>
-              </Nav.Link>
-            
-          
           <NavDropdown title="Content" id="nav-dropdown">
             {props.sideLinks ? (
               props.sideLinks.map((linkObj, index) => (
@@ -86,6 +71,24 @@ const MyNav: React.FC<Props> = (props) => {
             )}
 
           </NavDropdown>
+          <Nav.Link as="li">
+            <Link to="/about" className="text-dark text-decoration-none">
+              About
+            </Link>
+          </Nav.Link>
+          <Nav.Link href="#features" as="li">
+            <Link
+              to="/contact"
+              className="text-dark text-decoration-none"
+            >
+              Contact
+            </Link>
+          </Nav.Link>
+          <Nav.Link as="li">
+            <Link to="/imprint" className="text-dark text-decoration-none">
+              Imprint
+            </Link>
+          </Nav.Link>
 
 
           {/* <Nav style={navStyle}>
