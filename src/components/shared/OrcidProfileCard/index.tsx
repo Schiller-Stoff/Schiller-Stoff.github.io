@@ -29,25 +29,22 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
               ></img>
             </Col>
             <Col>
-              <h3 className="h5">CV page</h3>
+              <h3 className="h5">I truly believe in...</h3>
               <ul>
                 <li>
                   <small>
-                    This page is based on data provided by the ORCID public API
-                    and rendered by Gatsby.js based on React.
+                    KISS - Keep it simple, stupid.
                   </small>
                 </li>
                 <li>
                   <small>
-                    The CV template page is maintained by the DH-Frontend Group
+                    Collaboration: This CV template page is maintained by the DH-Frontend Group
                     in Graz Austria.
                   </small>
                 </li>
                 <li>
                   <small>
-                    <a target="_blank" href={orcidRoot["orcid-identifier"].uri}>
-                      Find me on ORCID
-                    </a>
+                    Sustainable Architectures
                   </small>
                 </li>
               </ul>

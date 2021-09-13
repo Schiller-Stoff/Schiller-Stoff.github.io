@@ -25,7 +25,7 @@ const BaseLayout: React.FC<Props> = (props) => (
     {props.headComponent ? props.headComponent : <Head />}
     {props.nav ? props.nav : <MyNav {...props.navProps}/>}
     <Sidebar></Sidebar>
-    <Container className="min-vh-100 px-md-3" as="main">
+    <Container className="min-vh-100 px-lg-5" as="main">
       {props.children}
     </Container>
     <Footer></Footer>
