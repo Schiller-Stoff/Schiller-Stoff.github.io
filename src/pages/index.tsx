@@ -22,6 +22,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
       >
         <StyleOverlay></StyleOverlay>
+        <br/>
         <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
         <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />
         <br />
@@ -29,7 +30,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           orcidURL={props.pageContext.persOrcid["orcid-identifier"].uri}
           researchURLs={
             props.pageContext.persOrcid.person["researcher-urls"][
-              "researcher-url"
+            "researcher-url"
             ]
           }
           mail={
@@ -47,23 +48,23 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <br />
           </>
         )}
-        <br />
         <Row>
           <Col md={7}>
             {props.pageContext.persOrcid.person.biography && (
-              <div className="border border-dark p-3 bg-white">
-                <h2 id="biography" className="h3">
+              <>
+                <h2 id="biography" className="h3 mt-md-5">
                   CV / Biography
                 </h2>
-                <p>{props.pageContext.persOrcid.person.biography.content}</p>
-              </div>
+                <p className="">{props.pageContext.persOrcid.person.biography.content}</p>
+              </>
             )}
             <br />
             <br />
-            <div className="px-3">
-              <h2 className="h3" id="employments">
+            <h2 className="h3" id="employments">
                 Current and past employments
               </h2>
+            <div>
+              
               <p>
                 Defined by the ORCID ontology: Employment is a formal employment
                 relationship with an organization, e.g. staff, intern,
@@ -83,28 +84,28 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             {props.pageContext.persOrcid["activities-summary"].educations[
               "last-modified-date"
             ] && (
-              <div className="px-3">
-                <h2 className="h3" id="educations">
-                  Education and qualifications
-                </h2>
-                <p>
-                  Education is participation in an academic higher education
-                  program to receive an undergraduate, graduate, or other
-                  degree. Qualification is participation in a professional or
-                  vocational accreditation, certification, or training program.
-                  Both may be in progress or unfinished.
-                </p>
-                <OrcidTimeline
-                  mode="VERTICAL_ALTERNATING"
-                  orcidSequence={
-                    props.pageContext.persOrcid["activities-summary"].educations
-                  }
-                ></OrcidTimeline>
-                <br></br>
-                <br></br>
-                <br></br>
-              </div>
-            )}
+                <div className="px-3">
+                  <h2 className="h3" id="educations">
+                    Education and qualifications
+                  </h2>
+                  <p>
+                    Education is participation in an academic higher education
+                    program to receive an undergraduate, graduate, or other
+                    degree. Qualification is participation in a professional or
+                    vocational accreditation, certification, or training program.
+                    Both may be in progress or unfinished.
+                  </p>
+                  <OrcidTimeline
+                    mode="VERTICAL_ALTERNATING"
+                    orcidSequence={
+                      props.pageContext.persOrcid["activities-summary"].educations
+                    }
+                  ></OrcidTimeline>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                </div>
+              )}
             <h2 className="h3" id="works">
               Works: Things I have accomplished
             </h2>
