@@ -25,6 +25,8 @@ const OrcidBiography: React.FC<Props> = (props) => {
           CV / Biography
         </h2>
         <p className="">{bioOrcid}</p>
+        <br />
+        <img src="/illustrations/dev.svg" className="w-50" loading="lazy"></img>
       </div>)
     };
   }
