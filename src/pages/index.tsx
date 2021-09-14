@@ -57,6 +57,9 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               <Col md={12} lg={10} xl={8}>
                 <OrcidBiography orcidRoot={props.pageContext.persOrcid} />
                 <br />
+                <img src="/illustrations/dev.svg" className="w-50" loading="lazy"></img>
+                <br />
+                <br />
                 <br />
                 <h2 className="h3" id="employments">
                   Current and past employments
