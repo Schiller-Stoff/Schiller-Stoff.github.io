@@ -59,14 +59,14 @@ const MyNav: React.FC<Props> = (props) => {
                     Projects
                   </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#features" as="li">
+                {/* <NavDropdown.Item href="#features" as="li">
                   <Link
                     to="/contact"
                     className="text-dark text-decoration-none"
                   >
                     Contact
                   </Link>
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
               </>
             )}
 
@@ -76,59 +76,19 @@ const MyNav: React.FC<Props> = (props) => {
               Home
             </Link>
           </Nav.Link>
-          <Nav.Link href="#features" as="li">
+          {/* <Nav.Link href="#features" as="li">
             <Link
               to="/contact"
               className="text-dark text-decoration-none"
             >
               Contact
             </Link>
-          </Nav.Link>
+          </Nav.Link> */}
           <Nav.Link as="li">
             <Link to="/imprint" className="text-dark text-decoration-none">
               Imprint
             </Link>
           </Nav.Link>
-
-
-          {/* <Nav style={navStyle}>
-            {props.sideLinks ? (
-              props.sideLinks.map((linkObj, index) => (
-                <Nav.Link key={linkObj.href + index} as="li">
-                  <Link
-                    to={linkObj.href}
-                    className="text-dark text-decoration-none"
-                  >
-                    {linkObj.label}
-                  </Link>
-                </Nav.Link>
-              ))
-            ) : (
-              <>
-                <Nav.Link as="li">
-                  <Link to="/about" className="text-dark text-decoration-none">
-                    About
-                  </Link>
-                </Nav.Link>
-                <Nav.Link href="#features" as="li">
-                  <Link
-                    to="/projects"
-                    className="text-dark text-decoration-none"
-                  >
-                    Projects
-                  </Link>
-                </Nav.Link>
-                <Nav.Link href="#features" as="li">
-                  <Link
-                    to="/contact"
-                    className="text-dark text-decoration-none"
-                  >
-                    Contact
-                  </Link>
-                </Nav.Link>
-              </>
-            )}
-          </Nav> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
