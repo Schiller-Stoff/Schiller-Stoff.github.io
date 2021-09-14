@@ -47,8 +47,8 @@ const MyNav: React.FC<Props> = (props) => {
             ) : (
               <>
                 <NavDropdown.Item as="li">
-                  <Link to="/about" className="text-dark text-decoration-none">
-                    About
+                  <Link to="/" className="text-dark text-decoration-none">
+                    Home
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#features" as="li">
@@ -72,8 +72,8 @@ const MyNav: React.FC<Props> = (props) => {
 
           </NavDropdown>
           <Nav.Link as="li">
-            <Link to="/about" className="text-dark text-decoration-none">
-              About
+            <Link to="/" className="text-dark text-decoration-none">
+              Home
             </Link>
           </Nav.Link>
           <Nav.Link href="#features" as="li">
