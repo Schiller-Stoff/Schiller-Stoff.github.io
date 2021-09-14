@@ -8,7 +8,6 @@ import OrcidIconBar from "../components/shared/OrcidIconBar";
 import OrcidNav from "../components/shared/OrcidNav";
 import OrcidProfileCard from "../components/shared/OrcidProfileCard";
 import OrcidTimeline from "../components/shared/OrcidTimeline";
-import StyleOverlay from "../components/static/EntryHero";
 import { Orcid } from "../types/orcid";
 import MyStringUtils from "../utils/MyStringUtils";
 
