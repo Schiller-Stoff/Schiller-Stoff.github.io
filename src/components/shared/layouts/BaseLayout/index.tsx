@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../../../styles/base.css";
 import Sidebar from "../../../static/Sidebar";
 import Head from "../../Head";
+import StyleOverlay from "../../../static/EntryHero";
 
 interface Props {
   headComponent?: JSX.Element;
@@ -26,6 +27,7 @@ const BaseLayout: React.FC<Props> = (props) => (
     {props.nav ? props.nav : <MyNav {...props.navProps}/>}
     <Sidebar></Sidebar>
     <Container className="min-vh-100 px-lg-5" as="main">
+      <StyleOverlay></StyleOverlay>
       {props.children}
     </Container>
     <Footer></Footer>

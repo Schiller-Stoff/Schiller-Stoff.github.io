@@ -21,7 +21,6 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         headComponent={<OrcidHead orcidRoot={props.pageContext.persOrcid} />}
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
       >
-        <StyleOverlay></StyleOverlay>
         <br/>
         <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3 w-50">
           <Tab eventKey="home" title="Academic Style">
