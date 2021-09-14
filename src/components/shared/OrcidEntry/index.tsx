@@ -13,7 +13,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
     <>
       <h1 className="pt-md-3 h2" id="start">
         Hi, I'm{" "}
-        <span className="text-decoration-underline">
+        <span className="">
           {orcidRoot.person.name["given-names"].value}{" "}
           {orcidRoot.person.name["family-name"].value}
         </span>
