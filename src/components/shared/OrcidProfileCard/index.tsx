@@ -25,6 +25,8 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
                 height={250}
                 style={{ borderRadius: "100%", filter: "grayscale(150%)" }}
               ></img>
+              <br/>
+              <br/>
             </Col>
             <Col>
               <h3 className="h5">About me...</h3>
@@ -45,7 +47,8 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
         </div>
       </Col>
       <Col md={5} xl={6}>
-        <Accordion flush>
+        <br className="d-lg-none"/>
+        <Accordion flush defaultActiveKey="0" className="border">
           <Accordion.Item eventKey="0">
             <Accordion.Header>My Background</Accordion.Header>
             <Accordion.Body>
