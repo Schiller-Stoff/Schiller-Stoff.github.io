@@ -21,7 +21,7 @@ const MyNav: React.FC<Props> = (props) => {
     <Navbar collapseOnSelect expand="lg">
       <Container>
         <Nav style={navStyle}>
-          <Nav.Link as="li">
+          <Nav.Link as="li" className="h5">
             <Link to="/" className="text-dark text-decoration-none">
               {props.title}
             </Link>
