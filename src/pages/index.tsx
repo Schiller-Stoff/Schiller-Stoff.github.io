@@ -50,6 +50,9 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <br />
           </>
         )}
+        <br />
+        <br />
+        <hr className="w-50"/>
         <Row>
           <Col md={12} lg={10} xl={8}>
             {props.pageContext.persOrcid.person.biography && (
