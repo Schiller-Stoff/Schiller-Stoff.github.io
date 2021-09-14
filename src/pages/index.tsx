@@ -22,7 +22,10 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
       >
         <br />
-        <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3 w-50">
+        {
+          // temporarily set display none to tabs view!
+        }
+        <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" style={{display:"none"}} className="mb-3 w-50">
           <Tab eventKey="home" title="Academic Style">
             <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
             <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />
