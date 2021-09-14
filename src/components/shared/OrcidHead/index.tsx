@@ -1,6 +1,5 @@
 import React from "react";
 import { Orcid } from "../../../types/orcid";
-import MyStringUtils from "../../../utils/MyStringUtils";
 import Head from "../Head";
 
 interface Props {
@@ -33,7 +32,9 @@ const OrcidHead: React.FC<Props> = (props) => {
   return (
     <Head
       keywords={reduceOrcidKeywords(props.orcidRoot)}
-    />
+    >
+      <meta property="schema_org:sameAs" content={props.orcidRoot["orcid-identifier"].uri} />
+    </Head>
   );
 };
 

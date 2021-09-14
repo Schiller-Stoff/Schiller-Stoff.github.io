@@ -4,7 +4,8 @@ import packageJson from "../../../../package.json";
 
 
 interface Props {
-  keywords?: string[]
+  keywords?: string[];
+  children?: JSX.Element[] | JSX.Element;
 }
 
 /**
@@ -53,10 +54,12 @@ const Head: React.FC<Props> = (props) => {
       <meta property="schema_org:description" content={packageJson.description} />
       {/* <meta property="schema_org:Person" content={packageJson.author} /> */}
 
+      {props.children}
 
       <base href={baseUrl} />
 
       <title property="og:title" lang="en-us">{packageJson.description}</title>
+      <title property="og:site_name" lang="en-us">{packageJson.description}</title>
       <meta property="dc:title" lang="en-us" content={packageJson.description}/>
       <meta property="dc:description" lang="en-us" content={packageJson.description}/>
 
