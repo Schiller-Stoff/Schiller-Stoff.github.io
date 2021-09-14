@@ -23,7 +23,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
       >
         <StyleOverlay></StyleOverlay>
         <br/>
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3 w-50">
+        <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3 w-50">
           <Tab eventKey="home" title="Academic Style">
           <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
         <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />

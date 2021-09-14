@@ -44,8 +44,8 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
           </Row>
         </div>
       </Col>
-      <Col md={5} xl={3}>
-        <Accordion defaultActiveKey="0" flush>
+      <Col md={5} xl={6}>
+        <Accordion flush>
           <Accordion.Item eventKey="0">
             <Accordion.Header>My Background</Accordion.Header>
             <Accordion.Body>
