@@ -29,22 +29,16 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
               ></img>
             </Col>
             <Col>
-              <h3 className="h5">I truly believe in...</h3>
+              <h3 className="h5">About me...</h3>
               <ul>
                 <li>
                   <small>
-                    KISS - Keep it simple, stupid.
+                    I'm a Digital Humanist and Software Developer.
                   </small>
                 </li>
                 <li>
                   <small>
-                    Collaboration: This CV template page is maintained by the DH-Frontend Group
-                    in Graz Austria.
-                  </small>
-                </li>
-                <li>
-                  <small>
-                    Sustainable Architectures
+                    I'm specialized in Frontend Development, Digital Archiving and Sustainable Architectures.
                   </small>
                 </li>
               </ul>
