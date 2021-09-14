@@ -1,7 +1,5 @@
-import { faBook, faLink } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Accordion } from "react-bootstrap";
 import { Orcid } from "../../../types/orcid";
 
 interface Props {
@@ -46,26 +44,31 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
           </Row>
         </div>
       </Col>
-      <Col md={5} xl={2}>
-        {orcidRoot.person.keywords.keyword[0] && (
+      <Col md={5} xl={3}>
+        <Accordion defaultActiveKey="0" flush>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>My Background</Accordion.Header>
+            <Accordion.Body>
+              {orcidRoot.person.keywords.keyword[0] && (
+                <>
+                  <ul>
+                    {orcidRoot.person.keywords.keyword
+                      .slice(0, 5)
+                      .map((kword, index) => (
+                        <li key={`kword_${index}`}>
+                          <small>{" " + kword.content}</small>
+                        </li>
+                      ))}
+                  </ul>
+                </>
+              )}
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>My Links</Accordion.Header>
+            <Accordion.Body>
+            {orcidRoot.person["researcher-urls"]["researcher-url"][0] && (
           <>
-            <h3 className="h5 mt-md-3">My background</h3>
-            <ul>
-              {orcidRoot.person.keywords.keyword
-                .slice(0, 5)
-                .map((kword, index) => (
-                  <li key={`kword_${index}`}>
-                    <small>{" " + kword.content}</small>
-                  </li>
-                ))}
-            </ul>
-          </>
-        )}
-      </Col>
-      <Col className="d-none d-xl-block">
-        {orcidRoot.person["researcher-urls"]["researcher-url"][0] && (
-          <>
-            <h3 className="h5 mt-md-3">My links</h3>
             <ul>
               {orcidRoot.person["researcher-urls"]["researcher-url"]
                 .slice(0, 5)
@@ -85,6 +88,10 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
             </ul>
           </>
         )}
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+
       </Col>
     </Row>
   );
