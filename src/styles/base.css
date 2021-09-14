@@ -17,3 +17,8 @@ p {
 #timeline-main-wrapper {
   padding:0;
 }
+
+.nav-tabs button {
+  color: grey;
+  font-weight: 600;
+}

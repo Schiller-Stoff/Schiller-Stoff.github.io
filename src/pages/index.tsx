@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
 import BaseLayout from "../components/shared/layouts/BaseLayout";
 import OrcidEntry from "../components/shared/OrcidEntry";
 import OrcidHead from "../components/shared/OrcidHead";
@@ -23,7 +23,9 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
       >
         <StyleOverlay></StyleOverlay>
         <br/>
-        <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
+        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3 w-50">
+          <Tab eventKey="home" title="Academic Style">
+          <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
         <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />
         <br />
         <OrcidIconBar
@@ -48,6 +50,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <br />
           </>
         )}
+        <br />
         <Row>
           <Col md={12} lg={10} xl={8}>
             {props.pageContext.persOrcid.person.biography && (
@@ -173,6 +176,16 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <br></br>
         <br></br>
         <br></br>
+          </Tab>
+          <Tab eventKey="profile" title="Developer Style">
+            <p>Test</p>
+          </Tab>
+          <Tab eventKey="contact" title="Conventional Style">
+            <p>Test</p>
+          </Tab>
+        </Tabs>
+
+        
       </BaseLayout>
     </>
   );
