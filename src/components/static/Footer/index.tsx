@@ -8,16 +8,16 @@ const Footer: React.FC = () => {
       <Container className="p-md-5">
         <Row>
           <Col md={6}>
-            <h4>Weitere Information</h4>
-            <Link to="/imprint">Impressum</Link>
+            <h4>Additional information</h4>
+            <br />
+            <Link to="/imprint">Imprint</Link>
             <br></br>
-            <Link to="/dataprotection">Datenschutz</Link>
+            <Link to="/imprint">Data protection</Link>
             <br></br>
             <br></br>
-            <p>Sebastian Stoff | © 2017 | All Rights Reserved</p>
           </Col>
           <Col md={6}>
-            <h4>Kontakt</h4>
+            {/* <h4>Contact</h4> */}
            
           </Col>
         </Row>
