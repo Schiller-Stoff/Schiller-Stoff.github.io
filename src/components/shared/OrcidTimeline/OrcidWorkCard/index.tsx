@@ -24,7 +24,7 @@ const OrcidWorkCard: React.FC<Props> = (props) => {
     if (href) {
       return (
         <a
-          className="text-secondary"
+          className="text-secondary float-end"
           target="_blank"
           href={href}
         >
@@ -45,10 +45,11 @@ const OrcidWorkCard: React.FC<Props> = (props) => {
           .replace("DISSERTATION", "THESIS")}
       </p>
       <p
+        className="float-start"
         style={{
           position: "relative",
           left: "-110px",
-          fontWeight: 600,
+          fontWeight: 600
         }}
       >
         {props.data.title}
