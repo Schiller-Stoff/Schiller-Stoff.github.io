@@ -30,14 +30,14 @@ const OrcidIconBar: React.FC<Props> = (props) => {
     <div>
       {props.mail && <a style={faIconStyle} href={`mailTo:${props.mail}`}><FontAwesomeIcon icon={faEnvelope} size="2x"></FontAwesomeIcon></a>}
 
-      <a style={faIconStyle} href={props.orcidURL} target="_blank"><FontAwesomeIcon icon={faOrcid} size="2x"></FontAwesomeIcon></a>
+      <a rel="noopener" style={faIconStyle} href={props.orcidURL} target="_blank"><FontAwesomeIcon icon={faOrcid} size="2x"></FontAwesomeIcon></a>
       {props.researchURLs.map((rurl, index) => {
         if (rurl.url.value.toString().includes("github")) {
-          return <a style={faIconStyle} key={index} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon></a>
+          return <a rel="noopener" style={faIconStyle} key={index} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faGithub} size="2x"></FontAwesomeIcon></a>
         } else if (rurl.url.value.toString().includes("npmjs.com")) {
-          return <a style={faIconStyle} key={index} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faNpm} size="2x"></FontAwesomeIcon></a>
+          return <a rel="noopener" style={faIconStyle} key={index} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faNpm} size="2x"></FontAwesomeIcon></a>
         } else if (rurl.url.value.toString().includes("twitter.com")) {
-          return <a style={faIconStyle} key={index} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faTwitter} size="2x"></FontAwesomeIcon></a>
+          return <a rel="noopener" style={faIconStyle} key={index} href={rurl.url.value.toString()} target="_blank"><FontAwesomeIcon icon={faTwitter} size="2x"></FontAwesomeIcon></a>
         }
       })}
     </div>)

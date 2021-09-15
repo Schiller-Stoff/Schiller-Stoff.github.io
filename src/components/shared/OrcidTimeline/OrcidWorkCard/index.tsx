@@ -24,6 +24,7 @@ const OrcidWorkCard: React.FC<Props> = (props) => {
     if (href) {
       return (
         <a
+          rel="noopener"
           className="text-secondary float-end"
           target="_blank"
           href={href}
