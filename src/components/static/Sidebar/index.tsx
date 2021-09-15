@@ -15,11 +15,12 @@ const Sidebar: React.FC = () => {
       className="d-lg-block d-none"
       style={asideStyle}>
       <a rel="noopener" target="_blank" href="https://informationsmodellierung.uni-graz.at/en/">
-        <img alt="ZIM Graz logo" width={32} height={25} src="https://static.uni-graz.at/fileadmin/_processed_/1/3/csm_2018-11-22_ZIM_schwarz_typo3_24124f9364.png"></img>
+        <img alt="ZIM Graz logo" width={62} height={25} src="https://static.uni-graz.at/fileadmin/_processed_/1/3/csm_2018-11-22_ZIM_schwarz_typo3_24124f9364.png"></img>
       </a>
       <br/>
       <a rel="noopener" target="_blank" href="https://www.uni-graz.at/en/">
-        <img alt="University of Graz logo" style={{border: "1px solid lightgrey"}} width={32} height={25} src="https://static.uni-graz.at/fileadmin/grafik/logos_vorschau/logo_uni_graz_sw_ohne.jpg"></img>
+        {/* <img alt="University of Graz logo" style={{border: "1px solid lightgrey"}} width={32} height={25} src="https://static.uni-graz.at/fileadmin/grafik/logos_vorschau/logo_uni_graz_sw_ohne.jpg"></img> */}
+        <img alt="University of Graz logo" style={{border: "1px solid lightgrey"}} width={32} height={22} src="https://static.uni-graz.at/fileadmin/grafik/logos_vorschau/logo_uni_graz_sw_ohne.jpg"></img>
       </a>
       <br/>
 
