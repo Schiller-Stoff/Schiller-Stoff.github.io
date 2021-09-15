@@ -11,7 +11,7 @@ interface Props {
   mode?: "VERTICAL" | "VERTICAL_ALTERNATING" | "HORIZONTAL"
   // allows to pass through custom component to be displayed as TimelineEntry
   // gets data passed through via props
-  children?: React.FC<{ data: TimelineEntry }>
+  CardComp?: React.FC<{ data: TimelineEntry }>
 }
 
 export interface TimelineEntry {
@@ -105,28 +105,18 @@ const OrcidTimeline: React.FC<Props> = (props) => {
 
   }
 
-  /**
-   * Method for creating the timeline item keys.
-   * @param index 
-   * @returns 
-   */
-  const createTimelineKey = (index: number) => {
-    const baseStringId = "__OrcidTimelineChild__";
-    return baseStringId + index;
-  }
-
   return (
     <div>
       <Chrono
         // will render default timeline only when no CardComponent was defined as prop
-        items={props.children ? null : transformData(props)}
+        items={props.CardComp ? null : transformData(props)}
         mode={props.mode}
         theme={{ primary: "grey", secondary: "white" }}
         hideControls
         scrollable
         useReadMore={false}
       >
-        {props.children && transformData(props).map((dp,index) => <props.children key={createTimelineKey(index)} data={dp} />)}
+        {props.CardComp && transformData(props).map((dp,index) => <props.CardComp key={index} data={dp} />)}
       </Chrono>
     </div>
   );
