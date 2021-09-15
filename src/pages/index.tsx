@@ -57,7 +57,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               <Col md={12} lg={10} xl={8}>
                 <OrcidBiography orcidRoot={props.pageContext.persOrcid} />
                 <br />
-                <img alt="Programmer sitting on the floor" src="/illustrations/dev.svg" className="w-50" loading="lazy"></img>
+                <img height={300} width={400} alt="Programmer sitting on the floor" src="/illustrations/dev.svg" className="w-50" loading="lazy"></img>
                 <br />
                 <br />
                 <br />
