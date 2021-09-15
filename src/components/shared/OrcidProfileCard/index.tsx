@@ -79,6 +79,7 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
                   <li key={`url_${index}`}>
                     <small>
                       <a
+                        rel="noopener"
                         target="_blank"
                         className="text-dark"
                         href={rurl.url.value.toString()}
