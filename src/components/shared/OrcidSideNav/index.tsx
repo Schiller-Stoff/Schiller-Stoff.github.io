@@ -59,7 +59,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
     </Nav>
 
     <hr />
-    <Button variant="outline-warning" style={{ textAlign: "left" }}>Get in Touch</Button>
+    <a aria-label="Write a mail to the author of the page" className="btn btn-outline-warning" href={`mailto:${props.orcidRoot.person.emails.email}`}>Get in Touch</a>
   </div>
 
 }
