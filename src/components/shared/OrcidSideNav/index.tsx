@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Nav } from "react-bootstrap";
 import { Orcid } from "../../../types/orcid";
 import MyStringUtils from "../../../utils/MyStringUtils";
 import OrcidIconBar from "../OrcidIconBar";
@@ -16,7 +16,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
     return foreName + " " + familyName;
   }
 
-  return <div style={{ position: "fixed", top: 0, left: 0, width: "15%", height: "100vh", padding: "1.5em" }} className="text-center text-light bg-secondary">
+  return <div id="sideNav" style={{position: "fixed", top: 0, left: 0, width: "280px", height: "100vh", padding: "1.5em" }} className="text-center text-light bg-secondary d-none d-lg-block">
     <br />
     <h2 className="h5 fw-bold">
       {resolvePersName(props.orcidRoot)}
@@ -58,6 +58,15 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       <li>Educations</li>
       <li>Works</li>
     </ul>
+
+    <Nav defaultActiveKey="/home" className="flex-column text-start">
+      <Nav.Link href="/home" className="text-light">Active</Nav.Link>
+      <Nav.Link eventKey="link-1" className="text-light">Link</Nav.Link>
+      <Nav.Link eventKey="link-2" className="text-light">Link</Nav.Link>
+      <Nav.Link eventKey="disabled" disabled>
+        Disabled
+      </Nav.Link>
+    </Nav>
 
     <hr />
     <Button variant="outline-warning" style={{ textAlign: "left" }}>Get in Touch</Button>

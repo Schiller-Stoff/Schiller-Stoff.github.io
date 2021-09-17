@@ -27,17 +27,11 @@ const BaseLayout: React.FC<Props> = (props) => (
     {props.headComponent ? props.headComponent : <Head />}
     {/* {props.nav ? props.nav : <MyNav {...props.navProps}/>} */}
     {/* <Sidebar></Sidebar> */}
-      <StyleOverlay></StyleOverlay>
-      <Row>
-        <Col lg={2} className="d-none d-lg-block" as="aside">
-          <Container>{props.left}</Container>
-        </Col>
-        <Col sm={12} lg={10} as="main">
-          <Container>
-          {props.children}
-          </Container>
-        </Col>
-      </Row>
+    <StyleOverlay></StyleOverlay>
+    <Container>{props.left}</Container>
+    <Container id="baseLayout_mainContainer">
+      {props.children}
+    </Container>
     <Footer></Footer>
   </>
 );

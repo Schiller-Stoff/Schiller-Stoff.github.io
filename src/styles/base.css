@@ -28,3 +28,13 @@ p {
   color: #212529;
   font-family: montserrat,sans-serif;
 }
+
+
+@media (min-width: 976px) {
+
+  #baseLayout_mainContainer {
+    margin-left: 320px;
+    width:calc(100% - 320px);
+  }
+
+}
