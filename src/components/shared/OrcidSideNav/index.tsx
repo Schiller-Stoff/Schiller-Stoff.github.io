@@ -16,7 +16,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
     return foreName + " " + familyName;
   }
 
-  return <div className="text-center text-light">
+  return <div style={{ position: "fixed", top: 0, left: 0, width: "15%", height: "100vh", padding: "1.5em" }} className="text-center text-light bg-secondary">
     <br />
     <h2 className="h5 fw-bold">
       {resolvePersName(props.orcidRoot)}
@@ -30,12 +30,13 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       }
       width={150}
       height={150}
-      style={{ borderRadius: "100%", filter: "grayscale(150%)" }}
+      style={{ borderRadius: "100%", filter: "grayscale(150%)", margin: "1em 0" }}
     ></img>
-    <p className="text-light">
-      <small>Hi, my name is {resolvePersName(props.orcidRoot)} and I'm {props.orcidRoot["activities-summary"].employments["employment-summary"][0][
+    <br />
+    <p className="text-light" style={{ lineHeight: 1.35 }}>
+      <small>Hi, my name is {resolvePersName(props.orcidRoot)} and I'm a {props.orcidRoot["activities-summary"].employments["employment-summary"][0][
         "role-title"
-      ]}. Welcome to my personal page!</small>
+      ].toLowerCase()}. Welcome to my personal page!</small>
     </p>
     <OrcidIconBar
       orcidURL={props.orcidRoot["orcid-identifier"].uri}
@@ -59,7 +60,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
     </ul>
 
     <hr />
-    <Button variant="warning" style={{ textAlign: "left" }}>Get in Touch</Button>
+    <Button variant="outline-warning" style={{ textAlign: "left" }}>Get in Touch</Button>
   </div>
 
 }
