@@ -7,6 +7,7 @@ import "../../../../styles/base.css";
 import Sidebar from "../../../static/Sidebar";
 import Head from "../../Head";
 import StyleOverlay from "../../../static/EntryHero";
+import OrcidSideNav from "../../OrcidSideNav";
 
 interface Props {
   headComponent?: JSX.Element;
