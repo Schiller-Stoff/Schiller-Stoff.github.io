@@ -16,8 +16,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
     return foreName + " " + familyName;
   }
 
-  return <div id="sideNav" style={{position: "fixed", top: 0, left: 0, width: "280px", height: "100vh", padding: "1.5em" }} className="text-center text-light bg-secondary d-none d-lg-block">
-    <br />
+  return <div id="sideNav" style={{ position: "fixed", top: 0, left: 0, width: "280px", height: "100vh", padding: "1.25em" }} className="text-center text-light bg-secondary d-none d-lg-block">
     <h2 className="h5 fw-bold">
       {resolvePersName(props.orcidRoot)}
     </h2>
@@ -51,21 +50,12 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       }
     />
     <hr />
-    <ul style={{ listStyle: "none", padding: 0, textAlign: "left" }}>
-      <li>Home</li>
-      <li>Biography</li>
-      <li>Emmployments</li>
-      <li>Educations</li>
-      <li>Works</li>
-    </ul>
-
     <Nav defaultActiveKey="/home" className="flex-column text-start">
-      <Nav.Link href="/home" className="text-light">Active</Nav.Link>
-      <Nav.Link eventKey="link-1" className="text-light">Link</Nav.Link>
-      <Nav.Link eventKey="link-2" className="text-light">Link</Nav.Link>
-      <Nav.Link eventKey="disabled" disabled>
-        Disabled
-      </Nav.Link>
+      <Nav.Link href="/" className="text-light p-0">Home</Nav.Link>
+      <Nav.Link eventKey="link-1" className="text-light p-0">Biography</Nav.Link>
+      <Nav.Link eventKey="link-2" className="text-light p-0">Employment</Nav.Link>
+      <Nav.Link eventKey="link-3" className="text-light p-0">Works</Nav.Link>
+      <Nav.Link eventKey="link-4" className="text-light p-0">Education</Nav.Link>
     </Nav>
 
     <hr />
