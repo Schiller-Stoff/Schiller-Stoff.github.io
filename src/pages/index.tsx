@@ -33,11 +33,10 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" style={{ display: "none" }} className="mb-3 w-50">
           <Tab eventKey="home" title="Academic Style">
             <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
-
+            <br />
+            <hr />
 
             {/* <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} /> */}
-            <br />
-
             <br />
             <Row>
               <Col md={12} lg={12} xl={12}>
