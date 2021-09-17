@@ -39,6 +39,9 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
 
             <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />
             <br />
+            <br />
+            <hr />
+            <br />
             <Row>
               <Col md={12} lg={12} xl={12}>
                 {/* <img height={300} width={400} alt="Programmer sitting on the floor" src="/illustrations/dev.svg" className="w-50" loading="lazy"></img> */}
