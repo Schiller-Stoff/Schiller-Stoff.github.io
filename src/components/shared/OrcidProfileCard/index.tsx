@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Accordion } from "react-bootstrap";
+import { Row, Col, Accordion, Button } from "react-bootstrap";
 import { Orcid } from "../../../types/orcid";
 
 interface Props {
@@ -12,23 +12,13 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
       <Col lg={6}>
         {/* <Button variant="secondary">Request meeting</Button> */}
         <div className="border border p-3">
-          <Row>
-            <Col>
-              <h3 className="h5">About me...</h3>
-              <ul>
-                <li>
-                  <small>
-                    I'm a Digital Humanist and Software Developer.
-                  </small>
-                </li>
-                <li>
-                  <small>
-                    I'm specialized in Frontend Development, Digital Archiving and Sustainable Architectures.
-                  </small>
-                </li>
-              </ul>
-            </Col>
-          </Row>
+          
+              <h3 className="h5">Skills</h3>
+              {orcidRoot.person.keywords.keyword
+                      .map((kword, index) => (
+                        <Button className="m-1" variant="outline-dark" key={`kword_${index}`}>{" " + kword.content}</Button>
+                      ))}
+
         </div>
       </Col>
       <Col md={5} xl={6}>
@@ -59,7 +49,6 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
           <>
             <ul>
               {orcidRoot.person["researcher-urls"]["researcher-url"]
-                .slice(0, 5)
                 .map((rurl, index) => (
                   <li key={`url_${index}`}>
                     <small>
