@@ -13,21 +13,6 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
         {/* <Button variant="secondary">Request meeting</Button> */}
         <div className="border border p-3">
           <Row>
-            <Col xl={5}>
-              <img
-                alt="Main profile picture"
-                src={
-                  process.env.LINK_TO_PROFILE_IMG
-                    ? process.env.LINK_TO_PROFILE_IMG
-                    : "/img/profile.jpg"
-                }
-                width={250}
-                height={250}
-                style={{ borderRadius: "100%", filter: "grayscale(150%)" }}
-              ></img>
-              <br/>
-              <br/>
-            </Col>
             <Col>
               <h3 className="h5">About me...</h3>
               <ul>
@@ -48,9 +33,9 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
       </Col>
       <Col md={5} xl={6}>
         <br className="d-lg-none"/>
-        <Accordion flush defaultActiveKey="0">
+        <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
-            <Accordion.Header>My Background</Accordion.Header>
+            <Accordion.Header>My primary background</Accordion.Header>
             <Accordion.Body>
               {orcidRoot.person.keywords.keyword[0] && (
                 <>
