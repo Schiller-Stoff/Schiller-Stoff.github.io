@@ -22,8 +22,8 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         headComponent={<OrcidHead orcidRoot={props.pageContext.persOrcid} />}
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
         left={
-          
-          <OrcidSideNav orcidRoot={props.pageContext.persOrcid}/>
+
+          <OrcidSideNav orcidRoot={props.pageContext.persOrcid} />
         }
       >
         <br />
@@ -33,38 +33,15 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" style={{ display: "none" }} className="mb-3 w-50">
           <Tab eventKey="home" title="Academic Style">
             <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
-            <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />
+
+
+            {/* <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} /> */}
             <br />
-            <OrcidIconBar
-              orcidURL={props.pageContext.persOrcid["orcid-identifier"].uri}
-              researchURLs={
-                props.pageContext.persOrcid.person["researcher-urls"][
-                "researcher-url"
-                ]
-              }
-              mail={
-                props.pageContext.persOrcid.person.emails.email[0] &&
-                props.pageContext.persOrcid.person.emails.email[0].email
-              }
-            />
-            {props.pageContext.persOrcid.person.emails.email[0] && (
-              <>
-                <a
-                  href={`mailto:${props.pageContext.persOrcid.person.emails.email[0].email}`}
-                >
-                  <Button variant="warning me-2 mt-3">Get in touch</Button>
-                </a>
-                <br />
-              </>
-            )}
+
             <br />
             <Row>
-              <Col md={12} lg={10} xl={8}>
-                <OrcidBiography orcidRoot={props.pageContext.persOrcid} />
-                <br />
-                <img height={300} width={400} alt="Programmer sitting on the floor" src="/illustrations/dev.svg" className="w-50" loading="lazy"></img>
-                <br />
-                <br />
+              <Col md={12} lg={12} xl={12}>
+                {/* <img height={300} width={400} alt="Programmer sitting on the floor" src="/illustrations/dev.svg" className="w-50" loading="lazy"></img> */}
                 <br />
                 <h2 className="h3" id="employments">
                   Current and past employments
@@ -77,12 +54,14 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                     researcher, contractor. Employment can be paid or unpaid.
                   </p>
                 </div>
-                <OrcidTimeline
-                  orcidSequence={
-                    props.pageContext.persOrcid["activities-summary"].employments
-                  }
-                  mode="VERTICAL_ALTERNATING"
-                ></OrcidTimeline>
+                <div style={{ maxWidth: "900px" }}>
+                  <OrcidTimeline
+                    orcidSequence={
+                      props.pageContext.persOrcid["activities-summary"].employments
+                    }
+                    mode="VERTICAL_ALTERNATING"
+                  ></OrcidTimeline>
+                </div>
                 <br />
                 <br />
                 <br />
@@ -101,12 +80,14 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                         vocational accreditation, certification, or training program.
                         Both may be in progress or unfinished.
                       </p>
-                      <OrcidTimeline
-                        mode="VERTICAL_ALTERNATING"
-                        orcidSequence={
-                          props.pageContext.persOrcid["activities-summary"].educations
-                        }
-                      ></OrcidTimeline>
+                      <div style={{ maxWidth: "900px" }}>
+                        <OrcidTimeline
+                          mode="VERTICAL_ALTERNATING"
+                          orcidSequence={
+                            props.pageContext.persOrcid["activities-summary"].educations
+                          }
+                        ></OrcidTimeline>
+                      </div>
                       <br></br>
                       <br></br>
                       <br></br>
@@ -120,13 +101,15 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                   publications, data sets, conference presentations, and more.
                 </p>
                 <Container>
-                  <OrcidTimeline
-                    orcidSequence={
-                      props.pageContext.persOrcid["activities-summary"].works
-                    }
-                    mode="VERTICAL_ALTERNATING"
-                    CardComp={OrcidWorkCard}
-                  />
+                  <div style={{ maxWidth: "900px" }}>
+                    <OrcidTimeline
+                      orcidSequence={
+                        props.pageContext.persOrcid["activities-summary"].works
+                      }
+                      mode="VERTICAL_ALTERNATING"
+                      CardComp={OrcidWorkCard}
+                    />
+                  </div>
                 </Container>
               </Col>
               <Col></Col>

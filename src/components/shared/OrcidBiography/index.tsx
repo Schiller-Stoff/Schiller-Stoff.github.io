@@ -21,9 +21,6 @@ const OrcidBiography: React.FC<Props> = (props) => {
       return null
     } else {
       return (<div className={props.className}>
-        <h2 id="biography" className="h3 mt-md-5">
-          CV / Biography
-        </h2>
         <p className="">{bioOrcid}</p>
       </div>)
     };

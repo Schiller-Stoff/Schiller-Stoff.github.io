@@ -11,7 +11,7 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
     <Row>
       <Col lg={6}>
         {/* <Button variant="secondary">Request meeting</Button> */}
-        <div className="border border-2 border-dark p-3">
+        <div className="border border p-3">
           <Row>
             <Col xl={5}>
               <img

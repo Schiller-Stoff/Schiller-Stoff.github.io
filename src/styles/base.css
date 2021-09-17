@@ -1,15 +1,15 @@
 
 * {
-  line-height: 2;
+  line-height: 1.75;
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: montserrat,sans-serif;
+  /* font-family: montserrat,sans-serif; */
   
 }
 
 p {
-  font-family: montserrat,sans-serif;
+  /* font-family: montserrat,sans-serif; */
   color: #343a40;
   /* font-weight: 600; */
 }
