@@ -41,7 +41,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
           <Button variant="secondary">View resume</Button>
         </Col>
         <Col>
-          <div className="mt-md-4 m-0 border bg-dark">
+          <div className="mt-md-4 m-0 border border-2 bg-light">
             
                 <img
                   alt="Main profile picture"
