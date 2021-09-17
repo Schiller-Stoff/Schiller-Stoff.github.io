@@ -56,6 +56,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       <Nav.Link eventKey="link-2" className="text-light p-0">Employment</Nav.Link>
       <Nav.Link eventKey="link-3" className="text-light p-0">Works</Nav.Link>
       <Nav.Link eventKey="link-4" className="text-light p-0">Education</Nav.Link>
+      <Nav.Link href="/imprint/" eventKey="link-5" className="text-light p-0">Imprint</Nav.Link>
     </Nav>
 
     <hr />

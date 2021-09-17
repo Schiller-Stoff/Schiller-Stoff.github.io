@@ -8,9 +8,11 @@ import Sidebar from "../../../static/Sidebar";
 import Head from "../../Head";
 import StyleOverlay from "../../../static/EntryHero";
 import OrcidSideNav from "../../OrcidSideNav";
+import { Orcid } from "../../../../types/orcid";
 
 interface Props {
   headComponent?: JSX.Element;
+  orcidRoot?: Orcid.RootObject;
   nav?: JSX.Element;
   left?: JSX.Element;
   navProps?: {
@@ -29,11 +31,12 @@ const BaseLayout: React.FC<Props> = (props) => (
     {/* {props.nav ? props.nav : <MyNav {...props.navProps}/>} */}
     {/* <Sidebar></Sidebar> */}
     {/* <StyleOverlay></StyleOverlay> */}
-    <Container>{props.left}</Container>
+    {props.orcidRoot && <OrcidSideNav orcidRoot={props.orcidRoot}/>}
     <Container id="baseLayout_mainContainer">
       {props.children}
+      <Footer></Footer>
     </Container>
-    <Footer></Footer>
+    
   </>
 );
 

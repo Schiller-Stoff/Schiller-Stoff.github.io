@@ -11,7 +11,7 @@ const Imprint: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
   props
 ) => {
   return (
-    <BaseLayout>
+    <BaseLayout orcidRoot={props.pageContext.persOrcid}>
       <br />
       <br />
       <h1>Imprint and Data protection</h1>

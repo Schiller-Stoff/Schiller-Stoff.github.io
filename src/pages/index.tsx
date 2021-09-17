@@ -19,12 +19,9 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
   return (
     <>
       <BaseLayout
+        orcidRoot={props.pageContext.persOrcid}
         headComponent={<OrcidHead orcidRoot={props.pageContext.persOrcid} />}
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
-        left={
-
-          <OrcidSideNav orcidRoot={props.pageContext.persOrcid} />
-        }
       >
         <br />
         {
