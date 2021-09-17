@@ -5,7 +5,8 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <footer className="border-top">
-      <Container className="p-md-5">
+      <Container>
+        <br />
         <Row>
           <Col md={6}>
             <h4>Additional information</h4>

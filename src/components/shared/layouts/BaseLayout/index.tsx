@@ -33,6 +33,7 @@ const BaseLayout: React.FC<Props> = (props) => (
     {/* <StyleOverlay></StyleOverlay> */}
     {props.orcidRoot && <OrcidSideNav orcidRoot={props.orcidRoot}/>}
     <Container id="baseLayout_mainContainer">
+      <br />
       {props.children}
       <Footer></Footer>
     </Container>
