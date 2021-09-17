@@ -38,3 +38,13 @@ p {
   }
 
 }
+
+
+@media (min-width: 1400px) {
+
+  #baseLayout_mainContainer {
+    margin-left: 430px;
+    width:calc(100% - 430px);
+  }
+
+}
