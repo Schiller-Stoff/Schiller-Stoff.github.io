@@ -33,14 +33,14 @@ p {
 @media (min-width: 976px) {
 
   #baseLayout_mainContainer {
-    margin-left: 320px;
-    width:calc(100% - 320px);
+    margin-left: 325px;
+    width:calc(100% - 325px);
   }
 
 }
 
 
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
 
   #baseLayout_mainContainer {
     margin-left: 430px;
