@@ -8,6 +8,7 @@ import OrcidHead from "../components/shared/OrcidHead";
 import OrcidIconBar from "../components/shared/OrcidIconBar";
 import OrcidNav from "../components/shared/OrcidNav";
 import OrcidProfileCard from "../components/shared/OrcidProfileCard";
+import OrcidSideNav from "../components/shared/OrcidSideNav";
 import OrcidTimeline from "../components/shared/OrcidTimeline";
 import OrcidWorkCard from "../components/shared/OrcidTimeline/OrcidWorkCard";
 import { Orcid } from "../types/orcid";
@@ -20,12 +21,16 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
       <BaseLayout
         headComponent={<OrcidHead orcidRoot={props.pageContext.persOrcid} />}
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
+        left={
+          
+          <OrcidSideNav orcidRoot={props.pageContext.persOrcid}/>
+        }
       >
         <br />
         {
           // temporarily set display none to tabs view!
         }
-        <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" style={{display:"none"}} className="mb-3 w-50">
+        <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" style={{ display: "none" }} className="mb-3 w-50">
           <Tab eventKey="home" title="Academic Style">
             <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
             <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />

@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Footer from "../../../static/Footer";
 import MyNav from "../../../static/Nav";
 import React from "react";
@@ -11,6 +11,7 @@ import StyleOverlay from "../../../static/EntryHero";
 interface Props {
   headComponent?: JSX.Element;
   nav?: JSX.Element;
+  left?: JSX.Element;
   navProps?: {
     title: string
   }
@@ -24,12 +25,19 @@ interface Props {
 const BaseLayout: React.FC<Props> = (props) => (
   <>
     {props.headComponent ? props.headComponent : <Head />}
-    {props.nav ? props.nav : <MyNav {...props.navProps}/>}
-    <Sidebar></Sidebar>
-    <Container className="min-vh-100 px-lg-5" as="main">
+    {/* {props.nav ? props.nav : <MyNav {...props.navProps}/>} */}
+    {/* <Sidebar></Sidebar> */}
       <StyleOverlay></StyleOverlay>
-      {props.children}
-    </Container>
+      <Row>
+        <Col lg={2} className="d-none d-lg-block bg-secondary" as="aside">
+          <Container>{props.left}</Container>
+        </Col>
+        <Col sm={12} lg={10} as="main">
+          <Container>
+          {props.children}
+          </Container>
+        </Col>
+      </Row>
     <Footer></Footer>
   </>
 );
