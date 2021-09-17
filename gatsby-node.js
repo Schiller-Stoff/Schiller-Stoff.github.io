@@ -25,7 +25,7 @@ exports.onCreatePage = async ({ page, actions }) => {
   const { createPage, deletePage } = actions;
 
   // only index page will be supplied with orcid data
-  if (page.path === "/") {
+  if ((page.path === "/") || (page.path === "/imprint/")) {
     deletePage(page);
     // fetch orcid data using env variable
     if(!process.env.ORCID_ID) throw new ReferenceError("Found no ORCID_ID in given dot env file. Please make sure to define ORCID_ID via standard dotenev workflow before starting Gatsby.");
