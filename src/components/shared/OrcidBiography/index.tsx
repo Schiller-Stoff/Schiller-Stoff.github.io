@@ -10,6 +10,32 @@ interface Props {
 const OrcidBiography: React.FC<Props> = (props) => {
 
   /**
+   * Adds breaks between different sentences in given text via ORCID.
+   * @param bio 
+   * @returns 
+   */
+  const increaseReadability = (bio: string) => {
+    const split = bio.split(".");
+    if(split.length < 3)return <p>{bio}</p>;
+
+    let elems = [];
+    split.forEach((bioSentence, index) => {
+      if((index % 2) === 0 && (index > 1)){
+        elems.push(bioSentence);
+        elems.push(".")
+        elems.push(<br/>)
+        elems.push(<br/>)
+      } else {
+        elems.push(bioSentence);
+        elems.push(".");
+      }
+      
+    });
+
+    return elems;
+  }
+
+  /**
    * Renders content conditionally according to given orcid API response.
    * @param root orcidRoot object
    * @returns either valid JSX or null when no biography was given.
@@ -21,7 +47,7 @@ const OrcidBiography: React.FC<Props> = (props) => {
       return null
     } else {
       return (<div id="biography" className={props.className}>
-        <p className="">{bioOrcid}</p>
+        <div className="">{ increaseReadability(bioOrcid)}</div>
       </div>)
     };
   }
