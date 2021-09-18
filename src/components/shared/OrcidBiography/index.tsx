@@ -23,8 +23,8 @@ const OrcidBiography: React.FC<Props> = (props) => {
       if((index % 2) === 0 && (index > 1)){
         elems.push(bioSentence);
         elems.push(".")
-        elems.push(<br/>)
-        elems.push(<br/>)
+        elems.push(<br key={index + "br" + "1"}/>)
+        elems.push(<br key={index + "br" + "2"}/>)
       } else {
         elems.push(bioSentence);
         elems.push(".");
