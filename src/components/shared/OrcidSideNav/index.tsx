@@ -52,12 +52,12 @@ const OrcidSideNav: React.FC<Props> = (props) => {
     />
     <hr />
     <Nav defaultActiveKey="/home" className="flex-column text-start">
-      <Nav.Link className="text-light p-0"><Link className="text-light text-decoration-none" to="/">Home</Link> </Nav.Link>
-      <Nav.Link eventKey="link-1" className="text-light p-0"><Link className="text-light text-decoration-none" to="/#biography">Biography</Link></Nav.Link>
-      <Nav.Link eventKey="link-2" className="text-light p-0"><Link className="text-light text-decoration-none" to="/#employments">Employment</Link></Nav.Link>
-      <Nav.Link eventKey="link-3" className="text-light p-0"><Link className="text-light text-decoration-none" to="/">Works</Link></Nav.Link>
-      <Nav.Link eventKey="link-4" className="text-light p-0"><Link className="text-light text-decoration-none" to="/">Education</Link></Nav.Link>
-      <Nav.Link eventKey="link-5" className="text-light p-0"><Link className="text-light text-decoration-none" to="/imprint">Imprint</Link></Nav.Link>
+      <Nav.Link as="div" className="text-light p-0"><Link className="text-light text-decoration-none" to="/">Home</Link> </Nav.Link>
+      <Nav.Link as="div" eventKey="link-1" className="text-light p-0"><Link className="text-light text-decoration-none" to="/#biography">Biography</Link></Nav.Link>
+      <Nav.Link as="div" eventKey="link-2" className="text-light p-0"><Link className="text-light text-decoration-none" to="/#employments">Employment</Link></Nav.Link>
+      <Nav.Link as="div" eventKey="link-3" className="text-light p-0"><Link className="text-light text-decoration-none" to="/">Works</Link></Nav.Link>
+      <Nav.Link as="div" eventKey="link-4" className="text-light p-0"><Link className="text-light text-decoration-none" to="/">Education</Link></Nav.Link>
+      <Nav.Link as="div" eventKey="link-5" className="text-light p-0"><Link className="text-light text-decoration-none" to="/imprint">Imprint</Link></Nav.Link>
     </Nav>
 
     <hr />

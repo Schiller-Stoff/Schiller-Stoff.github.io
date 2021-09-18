@@ -21,7 +21,7 @@ const MyNav: React.FC<Props> = (props) => {
     <Navbar collapseOnSelect expand="lg" className="d-lg-none">
       <Container>
         <Nav style={navStyle}>
-          <Nav.Link className="h6">
+          <Nav.Link className="h6" as="div">
             <Link to="/" className="text-dark text-decoration-none">
               {props.title}
             </Link>
@@ -47,11 +47,11 @@ const MyNav: React.FC<Props> = (props) => {
             ) : (
               <>
                 <NavDropdown.Item>
-                  <Link to="/" className="text-dark text-decoration-none">
+                  <Link to="/" className="text-dark text-decoration-none" as="div">
                     Home
                   </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#features">
+                <NavDropdown.Item href="#features" as="div">
                   <Link
                     to="/projects"
                     className="text-dark text-decoration-none"
@@ -71,7 +71,7 @@ const MyNav: React.FC<Props> = (props) => {
             )}
 
           </NavDropdown>
-          <Nav.Link>
+          <Nav.Link as="div">
             <Link to="/" className="text-dark text-decoration-none">
               Home
             </Link>
@@ -84,7 +84,7 @@ const MyNav: React.FC<Props> = (props) => {
               Contact
             </Link>
           </Nav.Link> */}
-          <Nav.Link>
+          <Nav.Link as="div">
             <Link to="/imprint" className="text-dark text-decoration-none">
               Imprint
             </Link>
