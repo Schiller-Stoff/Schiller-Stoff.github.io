@@ -20,7 +20,7 @@ const OrcidBiography: React.FC<Props> = (props) => {
     if(!bioOrcid){
       return null
     } else {
-      return (<div className={props.className}>
+      return (<div id="biography" className={props.className}>
         <p className="">{bioOrcid}</p>
       </div>)
     };
