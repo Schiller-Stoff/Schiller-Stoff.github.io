@@ -1,4 +1,5 @@
 
+import { Link } from "gatsby";
 import React from "react";
 import { Col, Row, Button } from "react-bootstrap";
 import { propTypes } from "react-bootstrap/esm/Image";
@@ -36,9 +37,9 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             }
           </h2>
           <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography>
-          <Button variant="warning">View portfolio</Button>
+          <Link className="btn btn-warning" to="/#works">View portfolio</Link>
           {" "}
-          <Button variant="secondary">View resume</Button>
+          <Link className="btn btn-secondary" to="/#employments">View resume</Link>
         </Col>
         <Col>
           <div className="mt-md-4 m-0 border border-2">
