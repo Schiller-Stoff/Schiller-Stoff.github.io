@@ -13,7 +13,7 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
         {/* <Button variant="secondary">Request meeting</Button> */}
         <div className="border border p-3">
           
-              <h3 className="h5">Skills</h3>
+              <h3 className="h5">Interests &amp; skills</h3>
               {orcidRoot.person.keywords.keyword
                       .map((kword, index) => (
                         <Button className="m-1" variant="outline-dark" key={`kword_${index}`}>{" " + kword.content}</Button>
