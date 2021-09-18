@@ -9,6 +9,7 @@ import Head from "../../Head";
 import StyleOverlay from "../../../static/EntryHero";
 import OrcidSideNav from "../../OrcidSideNav";
 import { Orcid } from "../../../../types/orcid";
+import OrcidNav from "../../OrcidNav";
 
 interface Props {
   headComponent?: JSX.Element;
@@ -31,7 +32,13 @@ const BaseLayout: React.FC<Props> = (props) => (
     {/* {props.nav ? props.nav : <MyNav {...props.navProps}/>} */}
     {/* <Sidebar></Sidebar> */}
     {/* <StyleOverlay></StyleOverlay> */}
-    {props.orcidRoot && <OrcidSideNav orcidRoot={props.orcidRoot}/>}
+    
+    {props.orcidRoot && (
+      <>
+        <OrcidSideNav orcidRoot={props.orcidRoot}/>
+        <OrcidNav orcidRoot={props.orcidRoot}></OrcidNav>
+      </>
+    )}
     <Container id="baseLayout_mainContainer">
       <br />
       {props.children}
