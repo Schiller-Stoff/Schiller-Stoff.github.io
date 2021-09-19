@@ -42,7 +42,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
           <Link className="btn btn-secondary" to="/#employments">View resume</Link>
         </Col>
         <Col>
-          <div className="mt-md-4 m-0 border border-2">
+          <div className="mt-md-4 m-0">
             
                 <img
                   alt="Main profile picture"
