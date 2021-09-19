@@ -49,11 +49,10 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
                   src={
                     process.env.LINK_TO_PROFILE_IMG
                       ? process.env.LINK_TO_PROFILE_IMG
-                      : "/img/profile.jpg"
+                      : "/img/sebi_snow_quer.PNG"
                   }
-                  width={300}
+                  width={410}
                   height={300}
-                  style={{filter: "grayscale(150%)" }}
                 ></img>
                 
               
