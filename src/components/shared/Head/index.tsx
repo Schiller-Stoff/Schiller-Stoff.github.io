@@ -59,7 +59,7 @@ const Head: React.FC<Props> = (props) => {
       <base href={baseUrl} />
 
       <title property="og:title" lang="en-us">{packageJson.author}</title>
-      <title property="og:site_name" lang="en-us">{packageJson.description}</title>
+      <title property="og:site_name" lang="en-us">{packageJson.author}</title>
       <meta property="dc:title" lang="en-us" content={packageJson.author}/>
       <meta property="dc:description" lang="en-us" content={packageJson.description}/>
 
