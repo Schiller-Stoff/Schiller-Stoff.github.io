@@ -27,7 +27,7 @@ interface Props {
  * @returns
  */
 const BaseLayout: React.FC<Props> = (props) => (
-  <div className="bg-light">
+  <>
     {props.headComponent ? props.headComponent : <Head />}
     {/* {props.nav ? props.nav : <MyNav {...props.navProps}/>} */}
     {/* <Sidebar></Sidebar> */}
@@ -45,7 +45,7 @@ const BaseLayout: React.FC<Props> = (props) => (
       <Footer></Footer>
     </Container>
     
-  </div>
+  </>
 );
 
 export default BaseLayout;
