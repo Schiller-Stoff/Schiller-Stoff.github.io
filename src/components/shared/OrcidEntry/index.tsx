@@ -15,7 +15,7 @@ interface Props {
  */
 const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
   return (
-    <>
+    <section>
       <Row>
         <Col md={12} xl={7}>
           <h1 className="pt-md-2 m-0" id="start" style={{fontSize:"3em"}}>
@@ -61,7 +61,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
         </Col>
       </Row>
 
-    </>
+    </section>
   );
 };
 
