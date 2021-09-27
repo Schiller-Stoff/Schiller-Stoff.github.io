@@ -93,6 +93,13 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         >
           Additional
         </h2> */}
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </BaseLayout>
     </>
   );
