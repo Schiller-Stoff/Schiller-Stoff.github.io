@@ -24,7 +24,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
               {orcidRoot.person.name["family-name"].value}
             </strong>
           </h1>
-          <h2 className="text-secondary h5">
+          <h2 className="text-dark h5 mb-4" style={{fontWeight:300, fontSize: "1.35em"}}>
             {
               orcidRoot["activities-summary"].employments["employment-summary"][0][
               "role-title"
