@@ -18,7 +18,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
     <>
       <Row>
         <Col md={12} xl={7}>
-          <h1 className="pt-md-2 m-0 text-decoration-underline" id="start">
+          <h1 className="pt-md-2 m-0" id="start" style={{fontSize:"3em"}}>
             <strong>
               {orcidRoot.person.name["given-names"].value}{" "}
               {orcidRoot.person.name["family-name"].value}
