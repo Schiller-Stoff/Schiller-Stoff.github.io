@@ -46,7 +46,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             
                 <img
                   alt="Main profile picture"
-                  style={{filter:"grayscale(100%) brightness(150%)"}}
+                  style={{filter:"grayscale(100%) brightness(150%)", border:"5px solid grey"}}
                   src={
                     process.env.LINK_TO_PROFILE_IMG
                       ? process.env.LINK_TO_PROFILE_IMG
