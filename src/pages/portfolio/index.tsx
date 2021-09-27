@@ -9,6 +9,39 @@ import MyStringUtils from "../../utils/MyStringUtils";
 const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
   props
 ) => {
+
+  const renderBadge = (workType: "string") => {
+    let colorClassName = "";
+    switch(workType){
+      case "RESEARCH_TOOL":
+        colorClassName = "primary";
+        break;
+      case "CONFERENCE_ABSTRACT":
+        colorClassName = "warning";
+        break;
+      case "CONFERENCE_POSTER":
+        colorClassName = "secondary";
+        break;
+      case "WEBSITE":
+        colorClassName = "danger";
+        break;
+      case "ONLINE_RESOURCE":
+        colorClassName = "danger";
+        break;
+      case "JOURNAL_ARTICLE":
+        colorClassName = "success";
+        break;
+      case "DISSERTATION":
+        colorClassName = "dark";
+        workType = "MASTER_THESIS"
+        break;
+      default:
+        colorClassName = "secondary";
+        break;
+    }
+    return <Badge bg={colorClassName}><small>{workType}</small></Badge>
+  }
+
   return (
     <>
       <BaseLayout
@@ -24,7 +57,7 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           className="text-dark h5 mb-4"
           style={{ fontWeight: 300, fontSize: "1.35em" }}
         >
-          Completed research and development projects 
+          Completed research and software projects 
         </h2>
 
         <Row xs={1} md={2} lg={3} className="g-4">
@@ -34,46 +67,32 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               return aggr;
               // then map reduced data to timeline items
             }, []).map((work: Orcid.WorkSummary) => {
-              console.log(work)
               return (
                 <Col>
                   <Card className="text-dark text-decoration-none border-2" target="_blank" rel="no-referrer" as="a" href={MyStringUtils.catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString())}>
                     {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                     <Card.Body>
-                      <Card.Title>
+                      <Card.Title as="h3" className="h6">
                         {work.title.title.value.toString()}
                       </Card.Title>
                       <Card.Text>
                         {/* <small>{MyStringUtils.catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString())}</small> */}
                         <br />
-                        <Badge><small>{work.type}</small></Badge>
+                        {renderBadge(work.type)}
                       </Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>
               );
             })}
-
-          {/* <Col>
-            <Card>
-              <Card.Img variant="top" src="holder.js/100px160" />
-              <Card.Body>
-                <Card.Title>Cantus</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit longer.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col> */}
         </Row>
 
-        <h2
+        {/* <h2
           className="text-dark h5 mb-4"
           style={{ fontWeight: 300, fontSize: "1.35em" }}
         >
           Additional
-        </h2>
+        </h2> */}
       </BaseLayout>
     </>
   );
