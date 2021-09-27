@@ -1,3 +1,5 @@
+import { faHome, faStamp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import React from "react";
 import { Button, Nav } from "react-bootstrap";
@@ -72,10 +74,10 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         }
       />
       <hr />
-      <Nav defaultActiveKey="/home" className="flex-column text-start">
+      <Nav defaultActiveKey="/home" className="flex-column text-start ms-5">
         <Nav.Link as="div" className="text-light p-0">
           <Link className="text-light text-decoration-none" to="/">
-            Home
+            <FontAwesomeIcon icon={faHome} /> Home
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-1" className="text-light p-0">
@@ -100,7 +102,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-5" className="text-light p-0">
           <Link className="text-light text-decoration-none" to="/imprint">
-            Imprint
+          <FontAwesomeIcon icon={faStamp} /> Imprint
           </Link>
         </Nav.Link>
       </Nav>
