@@ -50,6 +50,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         style={{
           borderRadius: "100%",
           margin: "1em 0",
+          filter:"grayscale(150%)"
         }}
       ></img>
       <br />
