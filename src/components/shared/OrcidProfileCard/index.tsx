@@ -11,7 +11,7 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
     <Row>
       <Col lg={6}>
         {/* <Button variant="secondary">Request meeting</Button> */}
-        <div className="border border p-3">
+        <div>
           
               <h3 className="h5">Interests &amp; skills</h3>
               {orcidRoot.person.keywords.keyword
@@ -23,7 +23,8 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
       </Col>
       <Col md={5} xl={6}>
         <br className="d-lg-none"/>
-        <Accordion defaultActiveKey="0">
+        <h3 className="h5 invisible">Active networks &amp; working groups</h3>
+        <Accordion defaultActiveKey="0" flush className="border">
           <Accordion.Item eventKey="0">
             <Accordion.Header>My primary background</Accordion.Header>
             <Accordion.Body>
