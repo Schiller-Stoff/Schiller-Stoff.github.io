@@ -86,7 +86,7 @@ const OrcidBiography: React.FC<Props> = (props) => {
   return (
   <> 
     <div>
-      <input checked={bioLength === "shortest"} type="radio" id="orcid_bio_radio1" name="fav_language" onClick={() => setBioLength("shortest")}></input>
+      <input defaultChecked={bioLength === "shortest"} type="radio" id="orcid_bio_radio1" name="fav_language" onClick={() => setBioLength("shortest")}></input>
       <input className="ms-1" type="radio" id="orcid_bio_radio2" name="fav_language" onClick={() => setBioLength("short")}></input>
       <input className="ms-1" type="radio" id="orcid_bio_radio3" name="fav_language" onClick={() => setBioLength("medium")}></input>
       <input className="ms-1" type="radio" id="orcid_bio_radio4" name="fav_language" onClick={() => setBioLength("full")}></input>
