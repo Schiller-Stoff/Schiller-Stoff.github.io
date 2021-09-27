@@ -43,14 +43,14 @@ const Head: React.FC<Props> = (props) => {
       {
         // twitter tags
       }
-      <meta name="twitter:title" content={packageJson.description} />
+      <meta name="twitter:title" content={packageJson.author} />
       <meta name="twitter:description" content={packageJson.description} />
 
       {
         // schema.org things
       }
       <meta typeof="schema_org:Website" />
-      <meta property="schema_org:title" content={packageJson.description} />
+      <meta property="schema_org:title" content={packageJson.author} />
       <meta property="schema_org:description" content={packageJson.description} />
       {/* <meta property="schema_org:Person" content={packageJson.author} /> */}
 
@@ -58,9 +58,9 @@ const Head: React.FC<Props> = (props) => {
 
       <base href={baseUrl} />
 
-      <title property="og:title" lang="en-us">{packageJson.description}</title>
+      <title property="og:title" lang="en-us">{packageJson.author}</title>
       <title property="og:site_name" lang="en-us">{packageJson.description}</title>
-      <meta property="dc:title" lang="en-us" content={packageJson.description}/>
+      <meta property="dc:title" lang="en-us" content={packageJson.author}/>
       <meta property="dc:description" lang="en-us" content={packageJson.description}/>
 
       <link rel="canonical" href={baseUrl} />
