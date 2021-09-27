@@ -47,6 +47,10 @@ p {
   background: #4f4f4f !important;
 }
 
+.bg-primary {
+  background: #54B689 !important;
+}
+
 
 
 @media (min-width: 976px) {
