@@ -9,7 +9,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .h2, .h3, .h4 {
-  border-left: 5px solid #ffc107;
+  border-left: 5px solid #54B689;
   padding-left: .5em;
 }
 
@@ -33,6 +33,20 @@ p {
   color: #212529;
   font-family: montserrat,sans-serif;
 }
+
+
+/*****
+  Bootstrap overrides
+*****/
+
+.btn-success {
+  background: #54B689 !important;
+}
+
+.btn-dark {
+  background: #4f4f4f !important;
+}
+
 
 
 @media (min-width: 976px) {
