@@ -1,4 +1,4 @@
-import { faHome, faStamp } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faPuzzlePiece, faStamp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import React from "react";
@@ -80,6 +80,11 @@ const OrcidSideNav: React.FC<Props> = (props) => {
             <FontAwesomeIcon icon={faHome} /> Home
           </Link>{" "}
         </Nav.Link>
+        <Nav.Link as="div" className="text-light p-0">
+          <Link className="text-light text-decoration-none" to="/">
+            <FontAwesomeIcon icon={faPuzzlePiece} /> Portfolio
+          </Link>{" "}
+        </Nav.Link>
         <Nav.Link as="div" eventKey="link-1" className="text-light p-0">
           <Link className="text-light text-decoration-none" to="/#biography">
             Biography
@@ -91,12 +96,12 @@ const OrcidSideNav: React.FC<Props> = (props) => {
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-3" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/">
-            Works
+          <Link className="text-light text-decoration-none" to="/#works">
+            Projects &amp; works
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-4" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/">
+          <Link className="text-light text-decoration-none" to="/#educations">
             Education
           </Link>
         </Nav.Link>
