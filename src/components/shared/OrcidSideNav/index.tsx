@@ -49,7 +49,6 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         height={150}
         style={{
           borderRadius: "100%",
-          filter: "grayscale(150%)",
           margin: "1em 0",
         }}
       ></img>
