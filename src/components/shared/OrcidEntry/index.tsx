@@ -1,4 +1,6 @@
 
+import { faAlignJustify, faTh } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import React from "react";
 import { Col, Row, Button } from "react-bootstrap";
@@ -37,9 +39,9 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             }
           </h2>
           <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography>
-          <Link className="btn btn-success" to="/#works">View portfolio</Link>
+          <Link className="btn btn-success" to="/#works"><FontAwesomeIcon icon={faTh} size="1x"/> View portfolio</Link>
           {" "}
-          <Link className="btn btn-dark" to="/#employments">View resume</Link>
+          <Link className="btn btn-dark" to="/#employments"><FontAwesomeIcon icon={faAlignJustify} size="1x"/> View resume</Link>
         </Col>
         <Col>
           <div className="mt-md-4 m-0">
