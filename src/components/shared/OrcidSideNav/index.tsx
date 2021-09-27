@@ -122,7 +122,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         className="btn btn-outline-light"
         href={`mailto:${props.orcidRoot.person.emails.email}`}
       >
-        Get in Touch
+        Get in touch
       </a>
     </div>
   );
