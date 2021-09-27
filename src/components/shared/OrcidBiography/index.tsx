@@ -90,7 +90,7 @@ const OrcidBiography: React.FC<Props> = (props) => {
       <input className="ms-1" type="radio" id="orcid_bio_radio2" name="fav_language" onClick={() => setBioLength("short")}></input>
       <input className="ms-1" type="radio" id="orcid_bio_radio3" name="fav_language" onClick={() => setBioLength("medium")}></input>
       <input className="ms-1" type="radio" id="orcid_bio_radio4" name="fav_language" onClick={() => setBioLength("full")}></input>
-      <small style={{color: "lightgrey"}}> | Choose length</small>
+      <small style={{color: "lightgrey"}}> | Chosen length: {bioLength}</small>
     </div>
     {renderConditional(props.orcidRoot)}
   </>)
