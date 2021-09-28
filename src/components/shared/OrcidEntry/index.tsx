@@ -39,7 +39,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             }
           </h2>
           <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography>
-          <Link className="btn btn-success" to="/#works"><FontAwesomeIcon icon={faTh} size="1x"/> View portfolio</Link>
+          <Link className="btn btn-success" to="/portfolio"><FontAwesomeIcon icon={faTh} size="1x"/> View portfolio</Link>
           {" "}
           <Link className="btn btn-dark" to="/#employments"><FontAwesomeIcon icon={faAlignJustify} size="1x"/> View resume</Link>
         </Col>
