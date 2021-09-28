@@ -80,8 +80,8 @@ const OrcidSideNav: React.FC<Props> = (props) => {
             <FontAwesomeIcon icon={faHome} /> Home
           </Link>{" "}
         </Nav.Link>
-        {/* <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/">
+        <Nav.Link as="div" className="text-light p-0">
+          <Link className="text-light text-decoration-none" to="/portfolio">
             <FontAwesomeIcon icon={faPuzzlePiece} /> Portfolio
           </Link>{" "}
         </Nav.Link>
@@ -89,7 +89,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
           <Link className="text-light text-decoration-none" to="/">
             <FontAwesomeIcon icon={faBlog} /> Blog
           </Link>{" "}
-        </Nav.Link> */}
+        </Nav.Link>
         <Nav.Link as="div" eventKey="link-1" className="text-light p-0">
           <Link className="text-light text-decoration-none" to="/#biography">
             Biography
