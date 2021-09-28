@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Card, Badge } from "react-bootstrap";
+import { Row, Col, Card, Badge, Nav } from "react-bootstrap";
 import BaseLayout from "../../components/shared/layouts/BaseLayout";
 import OrcidHead from "../../components/shared/OrcidHead";
 import OrcidNav from "../../components/shared/OrcidNav";
@@ -9,6 +9,8 @@ import MyStringUtils from "../../utils/MyStringUtils";
 const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
   props
 ) => {
+
+  const [filterValue, setFilterValue] = React.useState<string>("");
 
   /**
    * Returns specific colored badges according to given orcid work type. 
@@ -49,6 +51,27 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
 
   const trimTitle = (title: string) => (title.length >= 70) ? title.slice(0,70) + " ..." : title;
 
+  /**
+   * Used as filter function. Handles filtering of orcid works according to it's work types.
+   * @param work Orcid work
+   * @param index index of iteration from calling filter function
+   * @returns boolean for filtering
+   */
+  const handleFilter = (work: Orcid.WorkSummary, index: number) => {
+    if(!filterValue)return true;
+
+    if((filterValue === "WEBSITE")){
+      return (work.type === "WEBSITE") || (work.type === "ONLINE_RESOURCE")
+    }
+
+    if((filterValue === "JOURNAL_ARTICLE")){
+      return (work.type.includes("CONFERENCE")) || (work.type === "JOURNAL_ARTICLE") || (work.type === "DISSERTATION")
+    }
+
+    return work.type === filterValue;
+
+  }
+
   return (
     <>
       <BaseLayout
@@ -64,8 +87,18 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
           className="text-dark h5 mb-4"
           style={{ fontWeight: 300, fontSize: "1.35em" }}
         >
-          Completed research and software projects 
+          Completed research, software projects and publications 
         </h2>
+
+
+        <ul className="m-0 p-0 portfolio_nav">
+          <li className={`d-inline ${ filterValue === "" ? "text-danger text-decoration-underline" : ''}`} onClick={() => setFilterValue("")}>All</li>
+          <li className={`d-inline ms-2 ${ filterValue === "RESEARCH_TOOL" ? "text-danger text-decoration-underline" : ''}`} onClick={() => setFilterValue("RESEARCH_TOOL")}>Research-software</li>
+          <li className={`d-inline ms-2 ${ filterValue === "WEBSITE" ? "text-danger text-decoration-underline" : ''}`} onClick={() => setFilterValue("WEBSITE")}>Web-projects</li>
+          <li className={`d-inline ms-2 ${ filterValue === "JOURNAL_ARTICLE" ? "text-danger text-decoration-underline" : ''}`} onClick={() => setFilterValue("JOURNAL_ARTICLE")}>Publications</li>
+        </ul>
+
+        <br />
 
         <Row xs={1} md={2} lg={3} className="g-4">
           {props.pageContext.persOrcid["activities-summary"].works.group
@@ -73,7 +106,7 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
               aggr.push(grp["work-summary"][0]);
               return aggr;
               // then map reduced data to timeline items
-            }, []).map((work: Orcid.WorkSummary, index: number) => {
+            }, []).filter(handleFilter).map((work: Orcid.WorkSummary, index: number) => {
               return (
                 <Col key={index}>
                   <Card className="text-dark text-decoration-none border-2" target="_blank" rel="no-referrer" as="a" href={MyStringUtils.catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString())}>
