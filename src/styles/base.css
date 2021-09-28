@@ -30,7 +30,7 @@ p {
 
 .accordion-button:not(.collapsed){
   background: white;
-  color: #212529;
+  color: #0e0f11;
   font-family: montserrat,sans-serif;
 }
 
@@ -58,8 +58,6 @@ a.card, .card-body {
 a.card:hover {
   cursor: pointer;
   box-shadow: inset 1px 1px 10px 1px lightgrey;
-  /* padding-top: 5px; */
-  /* padding-bottom: 2px; */
 }
 
 a.card:hover .card-body {

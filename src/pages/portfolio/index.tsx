@@ -47,6 +47,8 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
     return <Badge bg={colorClassName}><small>{workType}</small></Badge>
   }
 
+  const trimTitle = (title: string) => (title.length >= 70) ? title.slice(0,70) + " ..." : title;
+
   return (
     <>
       <BaseLayout
@@ -78,10 +80,9 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
                     {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                     <Card.Body>
                       <Card.Title as="h3" className="h6">
-                        {work.title.title.value.toString()}
+                        { trimTitle(work.title.title.value.toString())}
                       </Card.Title>
                       <Card.Text>
-                        {/* <small>{MyStringUtils.catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString())}</small> */}
                         <br />
                         {renderBadge(work.type)}
                       </Card.Text>
