@@ -40,6 +40,9 @@ const Imprint: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
       </p>
       <h3 className="h4">Themes and icons</h3>
       <p>
+        <a href="https://themes.3rdwavemedia.com/devcard/bs5/portfolio.html" target="_blank">Bootstrap Dev Card theme</a>
+      </p>
+      <p>
         <a href="https://gatsby-theme-portfolio.netlify.app/" target="_blank">
           Smakosh gatsby theme
         </a>
