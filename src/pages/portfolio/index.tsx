@@ -10,7 +10,12 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
   props
 ) => {
 
-  const renderBadge = (workType: "string") => {
+  /**
+   * Returns specific colored badges according to given orcid work type. 
+   * @param workType Type of the work as defined by orcid.
+   * @returns bs badge element with assigned background value.
+   */
+  const renderBadge = (workType: Orcid.WorkType) => {
     let colorClassName = "";
     switch(workType){
       case "RESEARCH_TOOL":
@@ -33,7 +38,7 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         break;
       case "DISSERTATION":
         colorClassName = "dark";
-        workType = "MASTER_THESIS"
+        (workType as string) = "MASTER_THESIS"
         break;
       default:
         colorClassName = "secondary";
