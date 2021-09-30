@@ -55,7 +55,7 @@ p {
   background: #54B689 !important;
 }
 
-a.card, .card-body {
+.card, .card-body {
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .25s;
 }
 

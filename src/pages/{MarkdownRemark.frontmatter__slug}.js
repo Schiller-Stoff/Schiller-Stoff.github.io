@@ -9,7 +9,6 @@ export default function Template({
 }) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html, headings } = markdownRemark;
-  console.log(markdownRemark);
   return (
     <BaseLayout orcidRoot={pageContext.persOrcid}>
       <div className="blog-post-container" style={{ minHeight: "75vh" }}>
