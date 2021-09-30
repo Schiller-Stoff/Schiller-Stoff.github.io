@@ -12,7 +12,7 @@ const Imprint: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
 ) => {
   return (
     <BaseLayout orcidRoot={props.pageContext.persOrcid}>
-      <h1 className="pt-md-2 m-0 text-decoration-underline" id="start"><strong>Imprint and Data protection</strong></h1>
+      <h1 className="pt-md-2 m-0" id="start"><strong>Imprint and Data protection</strong></h1>
       <h2 className="text-secondary h5">Publisher, development and implementation</h2>
       <br />
       <h3 className="h4">Publisher, development and implementation</h3>
@@ -28,8 +28,7 @@ const Imprint: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         the website stated on home-page
       </p>
       <br />
-      <h2 className="h1">Acknowledgments</h2>
-      <br />
+      <h2>Acknowledgments</h2>
       <h3 className="h4">Apple Touch icons</h3>
       <p>
         by "Apple icon by{" "}
