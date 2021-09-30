@@ -8,7 +8,8 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark;
+  const { frontmatter, html, headings } = markdownRemark;
+  console.log(markdownRemark);
   return (
     <BaseLayout orcidRoot={pageContext.persOrcid}>
       <div className="blog-post-container" style={{ minHeight: "75vh" }}>
@@ -25,6 +26,11 @@ export default function Template({
                 dangerouslySetInnerHTML={{ __html: html }}
               />
             </Col>
+            <Col>
+              <ul className="sticky-top pt-lg-5 text-secondary list-style-none">
+                {headings.map(hObj => <li><small>{hObj.value}</small></li>)}
+              </ul>  
+            </Col>
           </Row>
         </div>
       </div>
@@ -34,13 +40,17 @@ export default function Template({
 
 export const pageQuery = graphql`
   query ($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        slug
-        title
-      }
+  markdownRemark(id: {eq: $id}) {
+    html
+    frontmatter {
+      date(formatString: "MMMM DD, YYYY")
+      slug
+      title
+    }
+    headings {
+      value
     }
   }
+}
+
 `;
