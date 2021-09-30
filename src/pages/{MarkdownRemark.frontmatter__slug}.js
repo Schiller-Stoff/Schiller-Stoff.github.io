@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import BaseLayout from "../components/shared/layouts/BaseLayout";
-import OrcidNav from "../components/shared/OrcidNav";
 
 export default function Template({
   pageContext,
@@ -13,7 +12,7 @@ export default function Template({
     <BaseLayout
       orcidRoot={pageContext.persOrcid}
     >
-    <div className="blog-post-container">
+    <div className="blog-post-container" style={{minHeight:"75vh"}}>
       <div className="blog-post">
         <p><strong>{frontmatter.title}</strong> | {frontmatter.date}</p>
         <hr/>
