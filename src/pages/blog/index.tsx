@@ -19,7 +19,7 @@ const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) 
         </h2>
     <hr/>
     <ul>
-      {data.allMarkdownRemark.edges.map(edge => <li>{edge.node.excerpt} | <Link to={edge.node.frontmatter.slug}>{edge.node.frontmatter.title}</Link></li>)}
+      {data.allMarkdownRemark.edges.map(edge => <li><Link to={edge.node.frontmatter.slug}>{edge.node.frontmatter.title}</Link></li>)}
 
     </ul>
     <br />
