@@ -1,7 +1,7 @@
 ---
 slug: "/blog/my-first-post"
 date: "2021-09-30"
-title: "Dissertation first draft"
+title: "Frontends in the DH (de) - dissertation exposé"
 ---
 
 # Exposé
