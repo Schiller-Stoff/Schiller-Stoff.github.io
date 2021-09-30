@@ -1,7 +1,7 @@
 import React from "react";
 import BaseLayout from "../../components/shared/layouts/BaseLayout";
 import { Orcid } from "../../types/orcid";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) => {
 
@@ -11,6 +11,17 @@ const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) 
     orcidRoot={props.pageContext.persOrcid}
   >
     <h1>Blog</h1>
+    <h2
+          className="text-dark h5 mb-4"
+          style={{ fontWeight: 300, fontSize: "1.35em" }}
+        >
+          Overview of posts
+        </h2>
+    <hr/>
+    <ul>
+      {data.allMarkdownRemark.edges.map(edge => <li>{edge.node.excerpt} | <Link to={edge.node.frontmatter.slug}>{edge.node.frontmatter.title}</Link></li>)}
+
+    </ul>
     <br />
     <br />
     <br />
