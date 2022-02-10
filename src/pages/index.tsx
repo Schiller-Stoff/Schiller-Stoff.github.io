@@ -39,7 +39,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             <hr />
             <br />
             <Row>
-              <Col md={12} lg={12} xl={12}>
+              <Col md={12} lg={10} xl={10}>
                 {/* <img height={300} width={400} alt="Programmer sitting on the floor" src="/illustrations/dev.svg" className="w-50" loading="lazy"></img> */}
                 <br />
                 <h2 className="h3" id="employments">

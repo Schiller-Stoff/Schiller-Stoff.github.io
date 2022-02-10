@@ -47,7 +47,6 @@ const BaseLayout: React.FC<Props> = (props) => (
       </>
     )}
     <Container id="baseLayout_mainContainer">
-      <br />
       {props.children}
       <Footer></Footer>
     </Container>

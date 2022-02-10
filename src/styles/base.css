@@ -1,15 +1,15 @@
 
 * {
   line-height: 1.75;
+  font-family: Raleway,Helvetica,Tahoma,Geneva,Arial,sans-serif!important;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  /* font-family: montserrat,sans-serif; */
-  
+hr {
+  opacity: 1;
 }
 
 .h2, .h3, .h4 {
-  border-left: 5px solid #54B689;
+  border-left: 5px solid black;
   padding-left: .5em;
 }
 

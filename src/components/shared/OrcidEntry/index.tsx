@@ -1,4 +1,3 @@
-
 import { faAlignJustify, faTh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
@@ -19,34 +18,56 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
   return (
     <section>
       <Row>
-        <Col md={12} xl={7}>
-          <h1 className="pt-md-2 m-0" id="start" style={{fontSize:"3em"}}>
+        <Col md={12} xl={10}>
+          <h1 className="pt-md-2 m-0" id="start" style={{ fontSize: "3em" }}>
             <strong>
               {orcidRoot.person.name["given-names"].value}{" "}
               {orcidRoot.person.name["family-name"].value}
             </strong>
           </h1>
-          <h2 className="text-dark h5 mb-4" style={{fontWeight:300, fontSize: "1.35em"}}>
+          <h2
+            className="text-dark h5 mb-4"
+            style={{ fontWeight: 300, fontSize: "1.35em" }}
+          >
             {
-              orcidRoot["activities-summary"].employments["employment-summary"][0][
-              "role-title"
-              ]
+              orcidRoot["activities-summary"].employments[
+                "employment-summary"
+              ][0]["role-title"]
             }{" "}
             at{" "}
             {
-              orcidRoot["activities-summary"].employments["employment-summary"][0]
-                .organization.name
+              orcidRoot["activities-summary"].employments[
+                "employment-summary"
+              ][0].organization.name
             }
           </h2>
+          {/* <hr></hr> */}
           <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography>
-          <Link className="btn btn-success" to="/portfolio"><FontAwesomeIcon icon={faTh} size="1x"/> View portfolio</Link>
-          {" "}
-          <Link className="btn btn-dark" to="/#employments"><FontAwesomeIcon icon={faAlignJustify} size="1x"/> View resume</Link>
+          <Link className="btn btn-light" to="/portfolio">
+            <FontAwesomeIcon icon={faTh} size="1x" /> View portfolio
+          </Link>{" "}
+          <Link className="btn btn-light" to="/#employments">
+            <FontAwesomeIcon icon={faAlignJustify} size="1x" /> View resume
+          </Link>
         </Col>
         <Col>
           <div className="mt-md-4 m-0">
-            
-                <img
+            <img
+              alt="Main profile picture"
+              src={
+                process.env.LINK_TO_PROFILE_IMG
+                  ? process.env.LINK_TO_PROFILE_IMG
+                  : "/img/profile.jpg"
+              }
+              width={150}
+              height={150}
+              style={{
+                borderRadius: "100%",
+                margin: "1em 0",
+                filter: "grayscale(150%)",
+              }}
+            ></img>
+            {/* <img
                   alt="Main profile picture"
                   style={{filter:"grayscale(100%) brightness(150%)", border:"5px solid grey"}}
                   src={
@@ -56,13 +77,10 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
                   }
                   width={410}
                   height={300}
-                ></img>
-                
-              
+                ></img> */}
           </div>
         </Col>
       </Row>
-
     </section>
   );
 };

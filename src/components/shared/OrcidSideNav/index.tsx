@@ -32,13 +32,13 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         width: "280px",
         height: "100vh",
         padding: "1.25em",
-        background:"#54B689",
-        borderRight: "6px solid #43916d"
+        //background:"#54B689",
+        borderRight: "3px solid black"
       }}
-      className="text-center text-light d-none d-lg-block"
+      className="text-center text-black d-none d-lg-block"
     >
-      <h2 className="h5 fw-bold">{resolvePersName(props.orcidRoot)}</h2>
-      <img
+      {/* <h2 className="h5 fw-bold">{resolvePersName(props.orcidRoot)}</h2> */}
+      {/* <img
         alt="Main profile picture"
         src={
           process.env.LINK_TO_PROFILE_IMG
@@ -52,9 +52,9 @@ const OrcidSideNav: React.FC<Props> = (props) => {
           margin: "1em 0",
           filter:"grayscale(150%)"
         }}
-      ></img>
-      <br />
-      <p className="text-light" style={{ lineHeight: 1.35 }}>
+      ></img> */}
+      {/* <br /> */}
+      <p className="text-black" style={{ lineHeight: 1.35 }}>
         <small>
           Hi, my name is {resolvePersName(props.orcidRoot)} and I'm a{" "}
           {props.orcidRoot["activities-summary"].employments[
@@ -73,58 +73,58 @@ const OrcidSideNav: React.FC<Props> = (props) => {
           props.orcidRoot.person.emails.email[0].email
         }
       />
-      <hr />
+      <hr/>
       <Nav defaultActiveKey="/home" className="flex-column text-start ms-5">
-        <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/">
-            <FontAwesomeIcon icon={faHome} /> Home
+        <Nav.Link as="div" className="text-black p-0">
+          <Link className="text-black text-decoration-none" to="/">
+            Home
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/portfolio">
-            <FontAwesomeIcon icon={faPuzzlePiece} /> Portfolio
+          <Link className="text-black text-decoration-none" to="/portfolio">
+            Portfolio
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/blog">
-            <FontAwesomeIcon icon={faBlog} /> Blog
+          <Link className="text-black text-decoration-none" to="/blog">
+            Blog
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-1" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/#biography">
+          <Link className="text-black text-decoration-none" to="/#biography">
             Biography
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-2" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/#employments">
+          <Link className="text-black text-decoration-none" to="/#employments">
             Employment
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-3" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/#works">
+          <Link className="text-black text-decoration-none" to="/#works">
             Projects &amp; works
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-4" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/#educations">
+          <Link className="text-black text-decoration-none" to="/#educations">
             Education
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-5" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/imprint">
-          <FontAwesomeIcon icon={faStamp} /> Imprint
+          <Link className="text-black text-decoration-none" to="/imprint">
+          Imprint
           </Link>
         </Nav.Link>
       </Nav>
 
       <hr />
-      <a
+      {/* <a
         aria-label="Write a mail to the author of the page"
-        className="btn btn-outline-light"
+        className="btn btn-secondary"
         href={`mailto:${props.orcidRoot.person.emails.email}`}
       >
         Get in touch
-      </a>
+      </a> */}
     </div>
   );
 };
