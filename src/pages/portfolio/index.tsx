@@ -92,10 +92,10 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
 
 
         <ul className="m-0 p-0 portfolio_nav">
-          <li className={`d-inline ${ filterValue === "" ? "text-danger text-decoration-underline" : ''}`} onClick={() => setFilterValue("")}>All</li>
-          <li className={`d-inline ms-2 ${ filterValue === "RESEARCH_TOOL" ? "text-danger text-decoration-underline" : ''}`} onClick={() => setFilterValue("RESEARCH_TOOL")}>Research-software</li>
-          <li className={`d-inline ms-2 ${ filterValue === "WEBSITE" ? "text-danger text-decoration-underline" : ''}`} onClick={() => setFilterValue("WEBSITE")}>Web-projects</li>
-          <li className={`d-inline ms-2 ${ filterValue === "JOURNAL_ARTICLE" ? "text-danger text-decoration-underline" : ''}`} onClick={() => setFilterValue("JOURNAL_ARTICLE")}>Publications</li>
+          <li className={`d-inline ${ filterValue === "" ? "text-decoration-underline" : ''}`} onClick={() => setFilterValue("")}>All</li>
+          <li className={`d-inline ms-2 ${ filterValue === "RESEARCH_TOOL" ? "text-decoration-underline" : ''}`} onClick={() => setFilterValue("RESEARCH_TOOL")}>Research-software</li>
+          <li className={`d-inline ms-2 ${ filterValue === "WEBSITE" ? "text-decoration-underline" : ''}`} onClick={() => setFilterValue("WEBSITE")}>Web-projects</li>
+          <li className={`d-inline ms-2 ${ filterValue === "JOURNAL_ARTICLE" ? "text-decoration-underline" : ''}`} onClick={() => setFilterValue("JOURNAL_ARTICLE")}>Publications</li>
         </ul>
 
         <br />
