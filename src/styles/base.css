@@ -9,8 +9,8 @@ hr {
 }
 
 .h2, .h3, .h4 {
-  border-left: 5px solid black;
-  padding-left: .5em;
+  /* border-left: 5px solid black; */
+  /* padding-left: .5em; */
 }
 
 p {

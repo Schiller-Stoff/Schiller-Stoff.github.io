@@ -46,7 +46,7 @@ const BaseLayout: React.FC<Props> = (props) => (
         <OrcidNav orcidRoot={props.orcidRoot}></OrcidNav>
       </>
     )}
-    <Container id="baseLayout_mainContainer">
+    <Container id="baseLayout_mainContainer" className="pt-3">
       {props.children}
       <Footer></Footer>
     </Container>

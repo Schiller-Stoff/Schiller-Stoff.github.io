@@ -19,11 +19,11 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
     <section>
       <Row>
         <Col md={12} xl={10}>
-          <h1 className="pt-md-2 m-0" id="start" style={{ fontSize: "3em" }}>
-            <strong>
+          <h1 className="m-0" id="start" style={{ fontSize: "3em" }}>
+            
               {orcidRoot.person.name["given-names"].value}{" "}
               {orcidRoot.person.name["family-name"].value}
-            </strong>
+            
           </h1>
           <h2
             className="text-dark h5 mb-4"
@@ -67,17 +67,6 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
                 filter: "grayscale(150%)",
               }}
             ></img>
-            {/* <img
-                  alt="Main profile picture"
-                  style={{filter:"grayscale(100%) brightness(150%)", border:"5px solid grey"}}
-                  src={
-                    process.env.LINK_TO_PROFILE_IMG
-                      ? process.env.LINK_TO_PROFILE_IMG
-                      : "/img/sebi_snow_quer.PNG"
-                  }
-                  width={410}
-                  height={300}
-                ></img> */}
           </div>
         </Col>
       </Row>

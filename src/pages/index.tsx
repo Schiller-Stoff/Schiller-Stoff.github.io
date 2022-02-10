@@ -29,7 +29,7 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" style={{ display: "none" }} className="mb-3 w-50">
           <Tab eventKey="home" title="Academic Style">
             <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
-            <br />
+            {/* <br /> */}
             <br />
             {/* <hr /> */}
 
