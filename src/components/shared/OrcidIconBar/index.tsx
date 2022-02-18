@@ -25,7 +25,6 @@ const OrcidIconBar: React.FC<Props> = (props) => {
     display: "inline-block",
     color:"black",
     background:"whitesmoke",
-    borderRadius:"50px"
   }
 
   return (
