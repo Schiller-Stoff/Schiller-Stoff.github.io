@@ -32,37 +32,11 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         width: "280px",
         height: "100vh",
         padding: "1.25em",
-        //background:"#54B689",
-        borderRight: "3px solid black"
+        background:"black",
+        // borderRight: "3px solid black"
       }}
       className="text-center text-black d-none d-lg-block"
     >
-      {/* <h2 className="h5 fw-bold">{resolvePersName(props.orcidRoot)}</h2> */}
-      {/* <img
-        alt="Main profile picture"
-        src={
-          process.env.LINK_TO_PROFILE_IMG
-            ? process.env.LINK_TO_PROFILE_IMG
-            : "/img/profile.jpg"
-        }
-        width={150}
-        height={150}
-        style={{
-          borderRadius: "100%",
-          margin: "1em 0",
-          filter:"grayscale(150%)"
-        }}
-      ></img> */}
-      {/* <br /> */}
-      <p className="text-black" style={{ lineHeight: 1.35 }}>
-        <small>
-          Hi, my name is {resolvePersName(props.orcidRoot)} and I'm a{" "}
-          {props.orcidRoot["activities-summary"].employments[
-            "employment-summary"
-          ][0]["role-title"].toLowerCase()}
-          . Welcome to my personal page!
-        </small>
-      </p>
       <OrcidIconBar
         orcidURL={props.orcidRoot["orcid-identifier"].uri}
         researchURLs={
@@ -73,51 +47,52 @@ const OrcidSideNav: React.FC<Props> = (props) => {
           props.orcidRoot.person.emails.email[0].email
         }
       />
-      <hr/>
-      <Nav defaultActiveKey="/home" className="flex-column text-start ms-5">
-        <Nav.Link as="div" className="text-black p-0">
-          <Link className="text-black text-decoration-none" to="/">
+      <hr style={{borderTop: "2px solid grey"}}/>
+      {/* <br /> */}
+      <Nav defaultActiveKey="/home" className="flex-column text-start ms-4">
+        <Nav.Link as="div" className="text-light p-0">
+          <Link className="text-light text-decoration-none" to="/">
             Home
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-black text-decoration-none" to="/portfolio">
+          <Link className="text-light text-decoration-none" to="/portfolio">
             Portfolio
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-black text-decoration-none" to="/blog">
+          <Link className="text-light text-decoration-none" to="/blog">
             Blog
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-1" className="text-light p-0">
-          <Link className="text-black text-decoration-none" to="/#biography">
+          <Link className="text-light text-decoration-none" to="/#biography">
             Biography
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-2" className="text-light p-0">
-          <Link className="text-black text-decoration-none" to="/#employments">
+          <Link className="text-light text-decoration-none" to="/#employments">
             Employment
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-3" className="text-light p-0">
-          <Link className="text-black text-decoration-none" to="/#works">
+          <Link className="text-light text-decoration-none" to="/#works">
             Projects &amp; works
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-4" className="text-light p-0">
-          <Link className="text-black text-decoration-none" to="/#educations">
+          <Link className="text-light text-decoration-none" to="/#educations">
             Education
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-5" className="text-light p-0">
-          <Link className="text-black text-decoration-none" to="/imprint">
+          <Link className="text-light text-decoration-none" to="/imprint">
           Imprint
           </Link>
         </Nav.Link>
       </Nav>
 
-      <hr />
+      {/* <hr style={{borderTop: "5px dotted whitesmoke"}}/> */}
       {/* <a
         aria-label="Write a mail to the author of the page"
         className="btn btn-secondary"
