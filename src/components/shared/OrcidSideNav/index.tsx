@@ -37,7 +37,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       }}
       className="text-center text-black d-none d-lg-block"
     >
-      <OrcidIconBar
+      {/* <OrcidIconBar
         orcidURL={props.orcidRoot["orcid-identifier"].uri}
         researchURLs={
           props.orcidRoot.person["researcher-urls"]["researcher-url"]
@@ -47,9 +47,9 @@ const OrcidSideNav: React.FC<Props> = (props) => {
           props.orcidRoot.person.emails.email[0].email
         }
       />
-      <hr style={{borderTop: "2px solid grey"}}/>
+      <hr style={{borderTop: "2px solid grey"}}/> */}
       {/* <br /> */}
-      <Nav defaultActiveKey="/home" className="flex-column text-start ms-4">
+      <Nav defaultActiveKey="/home" className="flex-column text-center">
         <Nav.Link as="div" className="text-light p-0">
           <Link className="text-light text-decoration-none" to="/">
             Home
