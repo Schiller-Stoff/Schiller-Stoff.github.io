@@ -7,6 +7,7 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import { Orcid } from "../../../types/orcid";
 import OrcidBiography from "../OrcidBiography";
 import Typed from "react-typed";
+import ContentHeading from "../ContentHeading";
 
 interface Props {
   orcidRoot: Orcid.RootObject;
@@ -52,6 +53,18 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             className="self-typed"
             cursorChar="|"
           />
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <ContentHeading>About me</ContentHeading>
+          <br></br>
+          <br></br>
           {/* <h2
             className="text-dark h5 mb-4"
             style={{ fontWeight: 300, fontSize: "1.35em" }}
@@ -68,14 +81,8 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
               ][0].organization.name
             }
           </h2> */}
-          {/* <hr></hr> */}
-          {/* <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography> */}
-          {/* <Link className="btn btn-light" to="/portfolio">
-            <FontAwesomeIcon icon={faTh} size="1x" /> View portfolio
-          </Link>{" "}
-          <Link className="btn btn-light" to="/#employments">
-            <FontAwesomeIcon icon={faAlignJustify} size="1x" /> View resume
-          </Link> */}
+          <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography>
+          <br></br>
         </Col>
         <Col>
           <div className="mt-md-4 m-0">
