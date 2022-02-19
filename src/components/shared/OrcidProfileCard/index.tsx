@@ -8,6 +8,22 @@ interface Props {
 
 const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
   return (
+    <>
+    <img
+              alt="Main profile picture"
+              src={
+                process.env.LINK_TO_PROFILE_IMG
+                  ? process.env.LINK_TO_PROFILE_IMG
+                  : "/img/profile.jpg"
+              }
+              width={250}
+              height={250}
+              style={{
+                borderRadius: "2%",
+                margin: "1em 0",
+                filter: "grayscale(150%)",
+              }}
+            ></img>
     <Row>
       <Col lg={6}>
         {/* <Button variant="secondary">Request meeting</Button> */}
@@ -73,6 +89,7 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
 
       </Col>
     </Row>
+    </>
   );
 };
 
