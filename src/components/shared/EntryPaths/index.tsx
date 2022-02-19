@@ -24,7 +24,7 @@ const EntryPaths = () => {
       <Row xs={1} md={3} className="g-4 mt-1">
         {cards.map((card, idx) => (
           <Col>
-            <Card bg="white" className="border-1 rounded-0 border-dark">
+            <Card bg="white" className="border-0 rounded-0 border-dark">
               {/* <Card.Img variant="top" src={
                 process.env.LINK_TO_PROFILE_IMG
                   ? process.env.LINK_TO_PROFILE_IMG
