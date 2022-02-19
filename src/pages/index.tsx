@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import { Button, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import EntryPaths from "../components/shared/EntryPaths";
 import BaseLayout from "../components/shared/layouts/BaseLayout";
 import OrcidBiography from "../components/shared/OrcidBiography";
 import OrcidEntry from "../components/shared/OrcidEntry";
@@ -24,10 +25,19 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
       >
             <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
-            {/* <br /> */}
             <br />
-            {/* <hr /> */}
 
+            <EntryPaths></EntryPaths>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />
             <br />
             <br />
