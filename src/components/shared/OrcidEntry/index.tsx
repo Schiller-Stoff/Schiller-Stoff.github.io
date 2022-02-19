@@ -60,6 +60,24 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
           <br></br>
           <br></br>
           <br></br>
+          <ContentHeading>Whoami?</ContentHeading>
+          <br />
+          <img
+              alt="Main profile picture"
+              src={
+                process.env.LINK_TO_PROFILE_IMG
+                  ? process.env.LINK_TO_PROFILE_IMG
+                  : "/img/profile.jpg"
+              }
+              width={150}
+              height={150}
+              style={{
+                borderRadius: "100%",
+                margin: "1em 0",
+                filter: "grayscale(150%)",
+              }}
+            ></img>
+          <br></br>
           <br></br>
           <br></br>
           <ContentHeading>About me</ContentHeading>
