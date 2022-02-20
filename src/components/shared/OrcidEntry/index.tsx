@@ -96,44 +96,8 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
           <br></br>
           <ContentHeading>About me</ContentHeading>
           <br></br>
-          
           <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography>
           <br></br>
-        </Col>
-        <Col>
-          <div className="mt-md-4 m-0">
-            {/* <img
-              alt="Main profile picture"
-              src={
-                process.env.LINK_TO_PROFILE_IMG
-                  ? process.env.LINK_TO_PROFILE_IMG
-                  : "/img/profile.jpg"
-              }
-              width={150}
-              height={150}
-              style={{
-                // borderRadius: "100%",
-                margin: "1em 0",
-                filter: "grayscale(150%)",
-              }}
-            ></img> */}
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-          </div>
         </Col>
       </Row>
     </section>
