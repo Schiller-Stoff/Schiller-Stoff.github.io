@@ -10,28 +10,13 @@ interface Props {
 const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
   return (
     <>
-      <ContentHeading>Whoami?</ContentHeading>
+      <ContentHeading>Interests and skills</ContentHeading>
       <br></br>
-      <img
-        alt="Main profile picture"
-        src={
-          process.env.LINK_TO_PROFILE_IMG
-            ? process.env.LINK_TO_PROFILE_IMG
-            : "/img/profile.jpg"
-        }
-        width={250}
-        height={250}
-        style={{
-          borderRadius: "2%",
-          margin: "1em 0",
-          filter: "grayscale(150%)",
-        }}
-      ></img>
+      <br></br>
       <Row>
         <Col lg={6}>
           {/* <Button variant="secondary">Request meeting</Button> */}
           <div>
-            <h3 className="h5">Interests &amp; skills</h3>
             {orcidRoot.person.keywords.keyword.map((kword, index) => (
               <Button
                 className="m-1"
@@ -44,8 +29,6 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
           </div>
         </Col>
         <Col md={5} xl={6}>
-          <br className="d-lg-none" />
-          <h3 className="h5 invisible">Active networks &amp; working groups</h3>
           <Accordion defaultActiveKey="0" flush className="border">
             <Accordion.Item eventKey="0">
               <Accordion.Header>My primary background</Accordion.Header>
