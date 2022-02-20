@@ -51,42 +51,42 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       {/* <br /> */}
       <Nav defaultActiveKey="/home" className="flex-column text-center">
         <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/">
+          <Link activeClassName="active" className="text-light text-decoration-none" to="/">
             Home
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/portfolio">
+          <Link activeClassName="active" className="text-light text-decoration-none" to="/portfolio/">
             Portfolio
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/blog">
+          <Link activeClassName="active" className="text-light text-decoration-none" to="/blog/">
             Blog
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-1" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/#biography">
+          <Link activeClassName="active" className="text-light text-decoration-none" to="/#biography">
             Biography
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-2" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/#employments">
+          <Link activeClassName="active" className="text-light text-decoration-none" to="/#employments">
             Employment
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-3" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/#works">
+          <Link activeClassName="active" className="text-light text-decoration-none" to="/#works">
             Projects &amp; works
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-4" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/#educations">
+          <Link activeClassName="active" className="text-light text-decoration-none" to="/#educations">
             Education
           </Link>
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-5" className="text-light p-0">
-          <Link className="text-light text-decoration-none" to="/imprint">
+          <Link activeClassName="active" className="text-light text-decoration-none" to="/imprint">
           Imprint
           </Link>
         </Nav.Link>

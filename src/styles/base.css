@@ -50,6 +50,11 @@ p {
   cursor: pointer;
 }
 
+.active {
+  /* color: red !important; */
+  text-decoration: underline !important;
+}
+
 
 /*****
   Bootstrap overrides
