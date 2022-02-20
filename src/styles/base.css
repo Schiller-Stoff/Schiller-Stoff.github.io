@@ -52,7 +52,10 @@ p {
 
 .active {
   /* color: red !important; */
-  text-decoration: underline !important;
+  /* text-decoration: underline !important; */
+  background: whitesmoke !important;
+  color: black !important;
+  padding: .15em;
 }
 
 
