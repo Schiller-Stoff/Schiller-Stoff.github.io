@@ -61,7 +61,22 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
           <br></br>
           <br></br>
           <ContentHeading>Whoami?</ContentHeading>
-          <br />
+          <h3
+            className="text-dark h5"
+            style={{ fontWeight: 300, fontSize: "1.35em" }}
+          >
+            {
+              orcidRoot["activities-summary"].employments[
+                "employment-summary"
+              ][0]["role-title"]
+            }{" "}
+            at{" "}
+            {
+              orcidRoot["activities-summary"].employments[
+                "employment-summary"
+              ][0].organization.name
+            }
+          </h3>
           <img
               alt="Main profile picture"
               src={
@@ -79,26 +94,9 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             ></img>
           <br></br>
           <br></br>
-          <br></br>
           <ContentHeading>About me</ContentHeading>
           <br></br>
-          <br></br>
-          {/* <h2
-            className="text-dark h5 mb-4"
-            style={{ fontWeight: 300, fontSize: "1.35em" }}
-          >
-            {
-              orcidRoot["activities-summary"].employments[
-                "employment-summary"
-              ][0]["role-title"]
-            }{" "}
-            at{" "}
-            {
-              orcidRoot["activities-summary"].employments[
-                "employment-summary"
-              ][0].organization.name
-            }
-          </h2> */}
+          
           <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography>
           <br></br>
         </Col>

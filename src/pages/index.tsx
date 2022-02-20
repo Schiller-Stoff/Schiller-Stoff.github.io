@@ -25,7 +25,6 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
       >
             <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
-            <br />
 
             <EntryPaths></EntryPaths>
 
