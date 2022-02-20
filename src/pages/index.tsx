@@ -30,23 +30,8 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
 
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
             <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />
-            <br />
-            <br />
-            <hr />
-            <br />
-            
             <br></br>
-            <br></br>
-            <br></br>
-          
         
 
 
