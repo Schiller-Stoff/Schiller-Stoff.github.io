@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import ContentHeading from "../ContentHeading";
@@ -7,13 +8,16 @@ const EntryPaths = () => {
 
   const cards = [
     {
-      title: "Portfolio"
+      title: "Portfolio",
+      to:"/portfolio/"
     },
     {
-      title: "Biography"
+      title: "Biography",
+      to:"/bio/"
     },
     {
-      title: "Contact"
+      title: "Contact",
+      to:"/contact/"
     }
   ]
 
@@ -24,6 +28,7 @@ const EntryPaths = () => {
       <Row xs={1} md={3} className="g-4 mt-1">
         {cards.map((card, idx) => (
           <Col>
+            <Link to={card.to}>
             <Card bg="white" className="border-0 rounded-0 border-dark">
               {/* <Card.Img variant="top" src={
                 process.env.LINK_TO_PROFILE_IMG
@@ -39,6 +44,7 @@ const EntryPaths = () => {
                 </Card.Text>
               </Card.Body>
             </Card>
+            </Link>
           </Col>
         ))}
       </Row>
