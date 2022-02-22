@@ -25,15 +25,18 @@
     "gatsby-source-filesystem": "^3.14.0",
     "gatsby-transformer-remark": "^4.11.0",
     "install": "^0.13.0",
+    "leaflet": "^1.7.1",
     "npm": "^7.22.0",
     "react": "^17.0.1",
     "react-chrono": "^1.11.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-leaflet": "^3.2.5",
     "react-scrollama": "^2.3.0",
     "react-typed": "^1.2.0"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.7.9",
     "@types/node": "^16.7.5",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
