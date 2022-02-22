@@ -9,7 +9,7 @@ import { Orcid } from "../../types/orcid";
  * Because of client only calculations that breaks SSR.
  */
 const ClientSideOnlyLazy = React.lazy(
-  () => import("../../components/static/ScrollamaTest")
+  () => import("../../components/static/stories/DerlaStory")
 );
 
 const StoriesPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> =
