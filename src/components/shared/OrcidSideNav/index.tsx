@@ -32,8 +32,8 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         width: "280px",
         height: "100vh",
         padding: "1.25em",
-        background:"#f2f5f4",
-        // borderRight: "3px solid black"
+        background:"#f2f5f4"
+        // borderRight: "3px solid lightgrey" 
       }}
       className="text-center text-black d-none d-lg-block"
     >
