@@ -32,7 +32,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         width: "280px",
         height: "100vh",
         padding: "1.25em",
-        background:"black",
+        background:"#f2f5f4",
         // borderRight: "3px solid black"
       }}
       className="text-center text-black d-none d-lg-block"
@@ -50,48 +50,48 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       <hr style={{borderTop: "2px solid grey"}}/> */}
       {/* <br /> */}
       <Nav defaultActiveKey="/home" className="flex-column text-center">
-        <Nav.Link as="div" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/">
+        <Nav.Link as="div" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/">
             Home
           </Link>{" "}
         </Nav.Link>
-        <Nav.Link as="div" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/stories/">
+        <Nav.Link as="div" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/stories/">
             Stories
           </Link>
         </Nav.Link>
-        <Nav.Link as="div" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/portfolio/">
+        <Nav.Link as="div" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/portfolio/">
             Portfolio
           </Link>{" "}
         </Nav.Link>
-        <Nav.Link as="div" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/blog/">
+        <Nav.Link as="div" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/blog/">
             Blog
           </Link>{" "}
         </Nav.Link>
-        <Nav.Link as="div" eventKey="link-1" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/#biography">
+        <Nav.Link as="div" eventKey="link-1" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/#biography">
             Biography
           </Link>
         </Nav.Link>
-        <Nav.Link as="div" eventKey="link-2" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/#employments">
+        <Nav.Link as="div" eventKey="link-2" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/#employments">
             Employment
           </Link>
         </Nav.Link>
-        <Nav.Link as="div" eventKey="link-3" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/#works">
+        <Nav.Link as="div" eventKey="link-3" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/#works">
             Projects &amp; works
           </Link>
         </Nav.Link>
-        <Nav.Link as="div" eventKey="link-4" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/#educations">
+        <Nav.Link as="div" eventKey="link-4" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/#educations">
             Education
           </Link>
         </Nav.Link>
-        <Nav.Link as="div" eventKey="link-5" className="text-light p-0">
-          <Link activeClassName="active" className="text-light text-decoration-none" to="/imprint">
+        <Nav.Link as="div" eventKey="link-5" className="text-dark p-0">
+          <Link activeClassName="active" className="text-dark text-decoration-none" to="/imprint">
           Imprint
           </Link>
         </Nav.Link>
