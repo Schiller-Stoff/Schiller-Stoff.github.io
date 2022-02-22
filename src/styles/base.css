@@ -107,3 +107,11 @@ a.card:hover .card-body {
   }
 
 }
+
+/* Leaflet styles */
+
+.request-popup .leaflet-popup-content-wrapper {
+  border-radius: 0px;
+  box-shadow: none;
+  border: 5px solid #789283;
+}

@@ -29,11 +29,7 @@ const DerlaStory = () => {
 
   return (
     <>
-      <div style={{ border: "2px dashed skyblue" }}>
-        <div style={{ position: "sticky", top: 0, border: "1px solid orchid" }}>
-          I'm sticky. The current triggered step index is: {currentStepIndex}
-        </div>
-
+      <div>
         <Scrollama
           onStepEnter={onStepEnter}
           // debug
@@ -50,7 +46,7 @@ const DerlaStory = () => {
             <Step data={stepIndex} key={stepIndex}>
               <div
                 style={{
-                  margin: "50vh 0",
+                  margin: "40vh 0",
                   border: "1px solid gray",
                   opacity: currentStepIndex === stepIndex ? 1 : 0.2,
                 }}
