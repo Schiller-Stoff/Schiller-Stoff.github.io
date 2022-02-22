@@ -7,13 +7,13 @@ import "leaflet/dist/leaflet.css";
 /**
  * Repairs the invisible leaflet icons for react-leaflet!
  */
-import L from 'leaflet';
+import L from "leaflet";
 //@ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png').default,
-  iconUrl: require('leaflet/dist/images/marker-icon.png').default,
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png").default,
+  iconUrl: require("leaflet/dist/images/marker-icon.png").default,
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png").default,
 });
 
 const ScrollamaTest = () => {
@@ -28,29 +28,28 @@ const ScrollamaTest = () => {
 
   return (
     <>
-      <div id="map" style={{ height: "600px", width: "600px" }}>
-        <MapContainer
-          center={[51.505, -0.09]}
-          zoom={13}
-          style={{
-            height: "400px",
-            backgroundColor: "red",
-            marginTop: "80px",
-            marginBottom: "90px",
-          }}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker position={[51.505, -0.09]} >
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        </MapContainer>
-      </div>
-      {/* <div style={{ border: "2px dashed skyblue" }}>
+      <MapContainer
+        center={[51.505, -0.09]}
+        zoom={13}
+        style={{
+          height: "400px",
+          backgroundColor: "red",
+          marginTop: "80px",
+          marginBottom: "90px",
+        }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[51.505, -0.09]}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
+
+      <div style={{ border: "2px dashed skyblue" }}>
         <div style={{ position: "sticky", top: 0, border: "1px solid orchid" }}>
           I'm sticky. The current triggered step index is: {currentStepIndex}
         </div>
@@ -76,7 +75,7 @@ const ScrollamaTest = () => {
             </Step>
           ))}
         </Scrollama>
-      </div> */}
+      </div>
     </>
   );
 };
