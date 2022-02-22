@@ -46,7 +46,7 @@ const TheMap: React.FC<Props> = (props) => {
         </Popup>
       </Marker> */}
       <CustomMarker
-        isActive={props.currentStepIndex <= 1}
+        isActive={props.currentStepIndex === 1}
         data={{
           position: [47.449358, 15.297192],
         }}
@@ -64,9 +64,27 @@ const TheMap: React.FC<Props> = (props) => {
         </div>
       </CustomMarker>
       <CustomMarker
-        isActive={props.currentStepIndex >= 2}
+        isActive={props.currentStepIndex === 2}
         data={{
           position: [46.681457, 15.074161],
+        }}
+      >
+        <div style={{filter:"grayscale(1)"}}>
+          <p>... or this one</p>
+          <a
+            href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
+            target="_blank"
+          >
+            <p className="h5">Grave site for partisans killed in action against German units</p>
+            <img src="https://gams.uni-graz.at/archive/objects/o:derla.sty20/datastreams/IMAGE.1/content" width={100} height={100} loading="lazy"></img>
+          </a>
+          
+        </div>
+      </CustomMarker>
+      <CustomMarker
+        isActive={props.currentStepIndex === 3}
+        data={{
+          position: [42.681457, 15.074161],
         }}
       >
         <div style={{filter:"grayscale(1)"}}>

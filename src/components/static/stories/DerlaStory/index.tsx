@@ -42,11 +42,11 @@ const DerlaStory = () => {
               <TheMap currentStepIndex={currentStepIndex}></TheMap>
             </div>
           </Step>
-          {[1, 2, 3, 4].map((_, stepIndex) => (
+          {[1, 2, 3, 4, 5].map((_, stepIndex) => (
             <Step data={stepIndex} key={stepIndex}>
               <div
                 style={{
-                  margin: "40vh 0",
+                  margin: "100vh 0",
                   border: "1px solid gray",
                   opacity: currentStepIndex === stepIndex ? 1 : 0.2,
                 }}
