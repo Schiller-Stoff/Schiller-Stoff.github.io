@@ -4,6 +4,18 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Scrollama, Step } from "react-scrollama";
 import "leaflet/dist/leaflet.css";
 
+/**
+ * Repairs the invisible leaflet icons for react-leaflet!
+ */
+import L from 'leaflet';
+//@ts-ignore
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png').default,
+  iconUrl: require('leaflet/dist/images/marker-icon.png').default,
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
+});
+
 const ScrollamaTest = () => {
   const [currentStepIndex, setCurrentStepIndex] = React.useState(null);
 
