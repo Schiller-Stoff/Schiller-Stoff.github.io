@@ -84,17 +84,17 @@ const TheMap: React.FC<Props> = (props) => {
       <CustomMarker
         isActive={props.currentStepIndex === 3}
         data={{
-          position: [42.681457, 15.074161],
+          position: [46.823364, 15.059047],
         }}
       >
         <div style={{filter:"grayscale(1)"}}>
           <p>... or this one</p>
           <a
-            href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
+            href="https://gams.uni-graz.at/archive/objects/o:derla.sty21/methods/sdef:TEI/get?locale=de"
             target="_blank"
           >
-            <p className="h5">Grave site for partisans killed in action against German units</p>
-            <img src="https://gams.uni-graz.at/archive/objects/o:derla.sty20/datastreams/IMAGE.1/content" width={100} height={100} loading="lazy"></img>
+            <p className="h5">Tomb in memory of Karl Spindler</p>
+            <img src="https://gams.uni-graz.at/archive/objects/o:derla.sty21/datastreams/IMAGE.1/content" width={100} height={100} loading="lazy"></img>
           </a>
           
         </div>
