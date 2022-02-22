@@ -20,9 +20,9 @@ const TheMap: React.FC<Props> = (props) => {
   return (
     <MapContainer
       center={[47.449358, 15.297192]}
-      zoom={6}
+      zoom={8}
       style={{
-        height: "85vh",
+        height: "100vh",
         backgroundColor: "whitesmoke",
         marginTop: "80px",
         marginBottom: "90px",
@@ -66,9 +66,21 @@ const TheMap: React.FC<Props> = (props) => {
       <CustomMarker
         isActive={props.currentStepIndex >= 2}
         data={{
-          position: [41.505, -0.09],
+          position: [46.681457, 15.074161],
         }}
-      ></CustomMarker>
+      >
+        <div style={{filter:"grayscale(1)"}}>
+          <p>... or this one</p>
+          <a
+            href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
+            target="_blank"
+          >
+            <p className="h5">Grave site for partisans killed in action against German units</p>
+            <img src="https://gams.uni-graz.at/archive/objects/o:derla.sty20/datastreams/IMAGE.1/content" width={100} height={100} loading="lazy"></img>
+          </a>
+          
+        </div>
+      </CustomMarker>
     </MapContainer>
   );
 };
