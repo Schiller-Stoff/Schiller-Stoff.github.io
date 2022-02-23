@@ -156,18 +156,19 @@ const TheMap: React.FC<Props> = (props) => {
         {/* <CustomGeoJson data={geojsonFeatureComplex}></CustomGeoJson> */}
       </MapContainer>
       <p
-        className="p-1 ps-3 pe-3 text-white"
+        className="p-1 ps-3 pe-3 text-white m-0"
         style={{
           position: "fixed",
           bottom: 0,
           zIndex: 9999,
-          right: "5%",
+          right: "0%",
           background:"#789283",
-          maxWidth:"40%"
+          maxWidth:"40%",
+          // opacity:.95
         }}
       >
         <strong>{props.currentStepIndex >= 1 ? "Example places of remembrance" : "DERLA's area of research"}</strong>
-        <p className="text-dark"><small>DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</small></p>
+        {/* <p className="text-dark"><small>DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</small></p> */}
       </p>
     </>
   );
