@@ -39,6 +39,7 @@ const CustomMarker: React.FC<Props> = ({ isActive, data,zoom, children}) => {
   return (
     <Marker position={data.position}>
       <Popup
+        zoomAnimation={false}
         className="request-popup"
         ref={popupRef}
       >
