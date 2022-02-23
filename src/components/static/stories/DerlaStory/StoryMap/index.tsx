@@ -46,7 +46,7 @@ const TheMap: React.FC<Props> = (props) => {
   return (
     <>
       <MapContainer
-        center={[47.449358, 15.297192]}
+        center={[52.449358, 15.297192]}
         zoom={5}
         style={{
           height: "100vh",
