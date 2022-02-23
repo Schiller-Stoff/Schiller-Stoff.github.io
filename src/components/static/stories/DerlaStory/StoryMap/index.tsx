@@ -93,8 +93,8 @@ const TheMap: React.FC<Props> = (props) => {
               <p className="h5">Platz benannt nach Maximilian Haitzmann</p>
               <img
                 src="https://gams.uni-graz.at/archive/objects/o:derla.sty12/datastreams/IMAGE.2/content"
-                width={100}
-                height={100}
+                width={200}
+                height={200}
                 loading="lazy"
               ></img>
             </a>
@@ -116,8 +116,8 @@ const TheMap: React.FC<Props> = (props) => {
               </p>
               <img
                 src="https://gams.uni-graz.at/archive/objects/o:derla.sty20/datastreams/IMAGE.1/content"
-                width={100}
-                height={100}
+                width={200}
+                height={200}
                 loading="lazy"
               ></img>
             </a>
@@ -137,8 +137,8 @@ const TheMap: React.FC<Props> = (props) => {
               <p className="h5">Tomb in memory of Karl Spindler</p>
               <img
                 src="https://gams.uni-graz.at/archive/objects/o:derla.sty21/datastreams/IMAGE.1/content"
-                width={100}
-                height={100}
+                width={200}
+                height={200}
                 loading="lazy"
               ></img>
             </a>
