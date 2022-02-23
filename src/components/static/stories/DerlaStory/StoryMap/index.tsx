@@ -10,6 +10,7 @@ import {
 import { derlaData } from "../../../../../data/derla";
 import CustomGeoJson from "./CustomGeoJson";
 import CustomMarker from "./CustomMarker";
+import LegendBox from "./LegendBox";
 
 interface Props {
   currentStepIndex: number;
@@ -63,9 +64,15 @@ const TheMap: React.FC<Props> = (props) => {
           url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         />
 
-        {!props.currentStepIndex && <CustomGeoJson data={derlaData.overviewGEOJSON as any} style={style} zoom={5}>
-          <Popup>German Reich in 1941</Popup>
-        </CustomGeoJson>}
+        {!props.currentStepIndex && (
+          <CustomGeoJson
+            data={derlaData.overviewGEOJSON as any}
+            style={style}
+            zoom={5}
+          >
+            <Popup>German Reich in 1941</Popup>
+          </CustomGeoJson>
+        )}
 
         {/* {!props.currentStepIndex && <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
           <Popup>German Reich in 1941</Popup>
@@ -137,25 +144,8 @@ const TheMap: React.FC<Props> = (props) => {
             </a>
           </div>
         </CustomMarker>
-
-        
-        
       </MapContainer>
-      <p
-        className="p-1 ps-3 pe-3 text-white m-0"
-        style={{
-          position: "fixed",
-          bottom: 0,
-          zIndex: 9999,
-          right: "0%",
-          background:"#789283",
-          maxWidth:"20%",
-          // opacity:.95
-        }}
-      >
-        <strong>{props.currentStepIndex >= 1 ? "Example places of remembrance" : "DERLA's area of research"}</strong>
-        <p className="text-dark"><small>DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</small></p>
-      </p>
+      <LegendBox currentStepIndex={props.currentStepIndex}></LegendBox>
     </>
   );
 };
