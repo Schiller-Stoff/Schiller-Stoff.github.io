@@ -74,6 +74,7 @@ const TheMap: React.FC<Props> = (props) => {
       </Marker> */}
         <CustomMarker
           isActive={props.currentStepIndex === 1}
+          zoom={7}
           data={{
             position: [47.449358, 15.297192],
           }}

@@ -3,20 +3,21 @@ import { Marker, Popup, useMap, useMapEvent } from "react-leaflet";
 
 interface Props {
   isActive?: boolean;
+  zoom?: number;
   data: any;
   children?: any
 }
 
-const CustomMarker: React.FC<Props> = ({ isActive, data, children}) => {
+const CustomMarker: React.FC<Props> = ({ isActive, data,zoom, children}) => {
   let popupRef = React.useRef(null);
 
   const map = useMap();
   const lmap = useMapEvent('popupopen', (e) => {
     console.log("POPUP OPEN")
-    var px = lmap.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
-    px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
     setTimeout(() => {
-      lmap.panTo(lmap.unproject(px),{animate: true})
+      var px = lmap.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+      px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+      lmap.setView(lmap.unproject(px),zoom, {animate: false});
     },1); // pan to new center
     return false;
   });
