@@ -7,14 +7,15 @@ interface Props {
 const LegendBox: React.FC<Props> = (props) => {
   return (
     <p
-      className="p-1 ps-3 pe-3 text-white m-0"
+      className="p-1 ps-3 pe-3 text-dark m-0"
       style={{
         position: "fixed",
         bottom: 0,
         zIndex: 9999,
         right: "0%",
-        background: "#789283",
+        background: "white",
         maxWidth: "20%",
+        border:"5px solid #789283"
         // opacity:.95
       }}
     >
