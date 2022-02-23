@@ -63,11 +63,13 @@ const TheMap: React.FC<Props> = (props) => {
           url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         />
 
-        {/* <CustomGeoJson data={derlaData.overviewGEOJSON as any}></CustomGeoJson> */}
-
-        {!props.currentStepIndex && <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
+        {!props.currentStepIndex && <CustomGeoJson data={derlaData.overviewGEOJSON as any} style={style} zoom={5}>
           <Popup>German Reich in 1941</Popup>
-        </GeoJSON>}
+        </CustomGeoJson>}
+
+        {/* {!props.currentStepIndex && <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
+          <Popup>German Reich in 1941</Popup>
+        </GeoJSON>} */}
 
         <CustomMarker
           isActive={props.currentStepIndex === 1}
