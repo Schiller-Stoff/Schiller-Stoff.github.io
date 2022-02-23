@@ -24,7 +24,6 @@ const TheMap: React.FC<Props> = (props) => {
     }
   }, [props.currentStepIndex]);
 
-
   const style = (feature) => {
     switch (feature.properties.title) {
       case "Reich":
@@ -32,7 +31,7 @@ const TheMap: React.FC<Props> = (props) => {
           // fillColor: "black",
           weight: 6,
           // opacity: 1,
-          color: 'black',
+          color: "black",
           // dashArray: '3',
           fillOpacity: 0,
         };
@@ -41,32 +40,33 @@ const TheMap: React.FC<Props> = (props) => {
           fillColor: "red",
           weight: 4,
           opacity: 1,
-          color: 'red',
-          dashArray: '3',
+          color: "red",
+          dashArray: "3",
           fillOpacity: 0,
         };
     }
   };
 
   return (
-    <MapContainer
-      center={[47.449358, 15.297192]}
-      zoom={5}
-      style={{
-        height: "100vh",
-        backgroundColor: "whitesmoke",
-        marginTop: "80px",
-        marginBottom: "90px",
-      }}
-      touchZoom={false}
-      zoomControl={true}
-      scrollWheelZoom={false}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
-      />
-      {/* <Marker position={[51.505, -0.09]}>
+    <>
+      <MapContainer
+        center={[47.449358, 15.297192]}
+        zoom={5}
+        style={{
+          height: "100vh",
+          backgroundColor: "whitesmoke",
+          //marginTop: "80px",
+          //marginBottom: "90px",
+        }}
+        touchZoom={false}
+        zoomControl={true}
+        scrollWheelZoom={false}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
+        />
+        {/* <Marker position={[51.505, -0.09]}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
@@ -76,85 +76,100 @@ const TheMap: React.FC<Props> = (props) => {
           Another marker. <br /> Easily customizable.
         </Popup>
       </Marker> */}
-      <CustomMarker
-        isActive={props.currentStepIndex === 1}
-        data={{
-          position: [47.449358, 15.297192],
-        }}
-      >
-        <div style={{ filter: "grayscale(1)" }}>
-          <p>... like this one</p>
-          <a
-            href="https://gams.uni-graz.at/archive/objects/o:derla.sty12/methods/sdef:TEI/get?locale=de"
-            target="_blank"
-          >
-            <p className="h5">Platz benannt nach Maximilian Haitzmann</p>
-            <img
-              src="https://gams.uni-graz.at/archive/objects/o:derla.sty12/datastreams/IMAGE.2/content"
-              width={100}
-              height={100}
-              loading="lazy"
-            ></img>
-          </a>
-        </div>
-      </CustomMarker>
-      <CustomMarker
-        isActive={props.currentStepIndex === 2}
-        data={{
-          position: [46.681457, 15.074161],
-        }}
-      >
-        <div style={{ filter: "grayscale(1)" }}>
-          <p>... or this one</p>
-          <a
-            href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
-            target="_blank"
-          >
-            <p className="h5">
-              Grave site for partisans killed in action against German units
-            </p>
-            <img
-              src="https://gams.uni-graz.at/archive/objects/o:derla.sty20/datastreams/IMAGE.1/content"
-              width={100}
-              height={100}
-              loading="lazy"
-            ></img>
-          </a>
-        </div>
-      </CustomMarker>
-      <CustomMarker
-        isActive={props.currentStepIndex === 3}
-        data={{
-          position: [46.823364, 15.059047],
-        }}
-      >
-        <div style={{ filter: "grayscale(1)" }}>
-          <p>... or this one</p>
-          <a
-            href="https://gams.uni-graz.at/archive/objects/o:derla.sty21/methods/sdef:TEI/get?locale=de"
-            target="_blank"
-          >
-            <p className="h5">Tomb in memory of Karl Spindler</p>
-            <img
-              src="https://gams.uni-graz.at/archive/objects/o:derla.sty21/datastreams/IMAGE.1/content"
-              width={100}
-              height={100}
-              loading="lazy"
-            ></img>
-          </a>
-        </div>
-      </CustomMarker>
+        <CustomMarker
+          isActive={props.currentStepIndex === 1}
+          data={{
+            position: [47.449358, 15.297192],
+          }}
+        >
+          <div style={{ filter: "grayscale(1)" }}>
+            <p>... like this one</p>
+            <a
+              href="https://gams.uni-graz.at/archive/objects/o:derla.sty12/methods/sdef:TEI/get?locale=de"
+              target="_blank"
+            >
+              <p className="h5">Platz benannt nach Maximilian Haitzmann</p>
+              <img
+                src="https://gams.uni-graz.at/archive/objects/o:derla.sty12/datastreams/IMAGE.2/content"
+                width={100}
+                height={100}
+                loading="lazy"
+              ></img>
+            </a>
+          </div>
+        </CustomMarker>
+        <CustomMarker
+          isActive={props.currentStepIndex === 2}
+          data={{
+            position: [46.681457, 15.074161],
+          }}
+        >
+          <div style={{ filter: "grayscale(1)" }}>
+            <p>... or this one</p>
+            <a
+              href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
+              target="_blank"
+            >
+              <p className="h5">
+                Grave site for partisans killed in action against German units
+              </p>
+              <img
+                src="https://gams.uni-graz.at/archive/objects/o:derla.sty20/datastreams/IMAGE.1/content"
+                width={100}
+                height={100}
+                loading="lazy"
+              ></img>
+            </a>
+          </div>
+        </CustomMarker>
+        <CustomMarker
+          isActive={props.currentStepIndex === 3}
+          data={{
+            position: [46.823364, 15.059047],
+          }}
+        >
+          <div style={{ filter: "grayscale(1)" }}>
+            <p>... or this one</p>
+            <a
+              href="https://gams.uni-graz.at/archive/objects/o:derla.sty21/methods/sdef:TEI/get?locale=de"
+              target="_blank"
+            >
+              <p className="h5">Tomb in memory of Karl Spindler</p>
+              <img
+                src="https://gams.uni-graz.at/archive/objects/o:derla.sty21/datastreams/IMAGE.1/content"
+                width={100}
+                height={100}
+                loading="lazy"
+              ></img>
+            </a>
+          </div>
+        </CustomMarker>
 
-      {/* <GeoJSON
+        {/* <GeoJSON
       data={derlaData.overviewGEOJSON as any} onEachFeature={onEachCountry} attribution="nice" key="1" style={style}></GeoJSON> */}
 
-      {/* <GeoJSON data={geojsonFeatureComplex as any} style={style}></GeoJSON> */}
+        {/* <GeoJSON data={geojsonFeatureComplex as any} style={style}></GeoJSON> */}
 
-      <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
-        <Popup>German Reich in 1941</Popup>
-      </GeoJSON>
-      {/* <CustomGeoJson data={geojsonFeatureComplex}></CustomGeoJson> */}
-    </MapContainer>
+        <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
+          <Popup>German Reich in 1941</Popup>
+        </GeoJSON>
+        {/* <CustomGeoJson data={geojsonFeatureComplex}></CustomGeoJson> */}
+      </MapContainer>
+      <p
+        className="p-1 ps-3 pe-3 text-white"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          zIndex: 9999,
+          right: "5%",
+          background:"#789283",
+          maxWidth:"40%"
+        }}
+      >
+        <strong>{props.currentStepIndex >= 1 ? "Example places of remembrance" : "DERLA's area of research"}</strong>
+        <p className="text-dark"><small>DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</small></p>
+      </p>
+    </>
   );
 };
 

@@ -40,6 +40,7 @@ const DerlaStory = () => {
           <Step key="123">
             <div className="sticky-top">
               <TheMap currentStepIndex={currentStepIndex}></TheMap>
+              
             </div>
           </Step>
           {[1, 2, 3, 4, 5].map((_, stepIndex) => (
