@@ -26,6 +26,12 @@ const CustomMarker: React.FC<Props> = ({ isActive, data, children}) => {
       // map.zoomIn();
       if(!popupRef.current)return;
       setTimeout(() => map.openPopup(popupRef.current), 1)
+    
+      // ensures that popups are closed when component unmounts
+      return () => {
+        if(!popupRef.current)return;
+        map.closePopup(popupRef.current)
+      }
     }
   }, [isActive]);
 
