@@ -17,11 +17,7 @@ interface Props {
 
 const TheMap: React.FC<Props> = (props) => {
   React.useEffect(() => {
-    if (!props.currentStepIndex) return;
-
-    if (props.currentStepIndex === 2) {
-      // popupRef.current.openOn(map);
-    }
+    console.log(props.currentStepIndex);
   }, [props.currentStepIndex]);
 
   const style = (feature) => {
@@ -105,7 +101,6 @@ const TheMap: React.FC<Props> = (props) => {
           }}
         >
           <div style={{ filter: "grayscale(1)" }}>
-            <p>... or this one</p>
             <a
               href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
               target="_blank"
@@ -129,7 +124,6 @@ const TheMap: React.FC<Props> = (props) => {
           }}
         >
           <div style={{ filter: "grayscale(1)" }}>
-            <p>... or this one</p>
             <a
               href="https://gams.uni-graz.at/archive/objects/o:derla.sty21/methods/sdef:TEI/get?locale=de"
               target="_blank"
@@ -150,9 +144,9 @@ const TheMap: React.FC<Props> = (props) => {
 
         {/* <GeoJSON data={geojsonFeatureComplex as any} style={style}></GeoJSON> */}
 
-        <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
+        {!props.currentStepIndex && <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
           <Popup>German Reich in 1941</Popup>
-        </GeoJSON>
+        </GeoJSON>}
         {/* <CustomGeoJson data={geojsonFeatureComplex}></CustomGeoJson> */}
       </MapContainer>
       <p
@@ -163,12 +157,12 @@ const TheMap: React.FC<Props> = (props) => {
           zIndex: 9999,
           right: "0%",
           background:"#789283",
-          maxWidth:"40%",
+          maxWidth:"20%",
           // opacity:.95
         }}
       >
         <strong>{props.currentStepIndex >= 1 ? "Example places of remembrance" : "DERLA's area of research"}</strong>
-        {/* <p className="text-dark"><small>DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</small></p> */}
+        <p className="text-dark"><small>DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</small></p>
       </p>
     </>
   );
