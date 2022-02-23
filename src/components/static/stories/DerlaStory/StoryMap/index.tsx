@@ -62,16 +62,13 @@ const TheMap: React.FC<Props> = (props) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         />
-        {/* <Marker position={[51.505, -0.09]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
-      <Marker position={[51.205, -0.09]}>
-        <Popup ref={popupRef}>
-          Another marker. <br /> Easily customizable.
-        </Popup>
-      </Marker> */}
+
+        {/* <CustomGeoJson data={derlaData.overviewGEOJSON as any}></CustomGeoJson> */}
+
+        {!props.currentStepIndex && <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
+          <Popup>German Reich in 1941</Popup>
+        </GeoJSON>}
+
         <CustomMarker
           isActive={props.currentStepIndex === 1}
           zoom={7}
@@ -80,7 +77,6 @@ const TheMap: React.FC<Props> = (props) => {
           }}
         >
           <div style={{ filter: "grayscale(1)" }}>
-            <p>... like this one</p>
             <a
               href="https://gams.uni-graz.at/archive/objects/o:derla.sty12/methods/sdef:TEI/get?locale=de"
               target="_blank"
@@ -140,15 +136,8 @@ const TheMap: React.FC<Props> = (props) => {
           </div>
         </CustomMarker>
 
-        {/* <GeoJSON
-      data={derlaData.overviewGEOJSON as any} onEachFeature={onEachCountry} attribution="nice" key="1" style={style}></GeoJSON> */}
-
-        {/* <GeoJSON data={geojsonFeatureComplex as any} style={style}></GeoJSON> */}
-
-        {!props.currentStepIndex && <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
-          <Popup>German Reich in 1941</Popup>
-        </GeoJSON>}
-        {/* <CustomGeoJson data={geojsonFeatureComplex}></CustomGeoJson> */}
+        
+        
       </MapContainer>
       <p
         className="p-1 ps-3 pe-3 text-white m-0"
