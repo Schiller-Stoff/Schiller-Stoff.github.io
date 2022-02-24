@@ -94,22 +94,11 @@ const TheMap: React.FC<Props> = (props) => {
             position: [46.681457, 15.074161],
           }}
         >
-          <div style={{ filter: "grayscale(1)" }}>
-            <a
-              href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
-              target="_blank"
-            >
-              <p className="h5">
-                Grave site for partisans killed in action against German units
-              </p>
-              <img
-                src="https://gams.uni-graz.at/archive/objects/o:derla.sty20/datastreams/IMAGE.1/content"
-                width={200}
-                height={200}
-                loading="lazy"
-              ></img>
-            </a>
-          </div>
+          <CustomPopup
+            href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
+            label="Grave site for partisans killed in action against German units"
+            imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.sty20/datastreams/IMAGE.1/content"
+          />
         </CustomMarker>
         <CustomMarker
           isActive={props.currentStepIndex === 3}
@@ -117,20 +106,11 @@ const TheMap: React.FC<Props> = (props) => {
             position: [46.823364, 15.059047],
           }}
         >
-          <div style={{ filter: "grayscale(1)" }}>
-            <a
-              href="https://gams.uni-graz.at/archive/objects/o:derla.sty21/methods/sdef:TEI/get?locale=de"
-              target="_blank"
-            >
-              <p className="h5">Tomb in memory of Karl Spindler</p>
-              <img
-                src="https://gams.uni-graz.at/archive/objects/o:derla.sty21/datastreams/IMAGE.1/content"
-                width={200}
-                height={200}
-                loading="lazy"
-              ></img>
-            </a>
-          </div>
+          <CustomPopup
+            href="https://gams.uni-graz.at/archive/objects/o:derla.sty21/methods/sdef:TEI/get?locale=de"
+            label="Tomb in memory of Karl Spindler"
+            imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.sty21/datastreams/IMAGE.1/content"
+          />
         </CustomMarker>
       </MapContainer>
       <LegendBox
