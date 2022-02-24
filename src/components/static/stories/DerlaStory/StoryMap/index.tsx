@@ -10,6 +10,7 @@ import {
 import { derlaData } from "../../../../../data/derla";
 import CustomGeoJson from "./CustomGeoJson";
 import CustomMarker from "./CustomMarker";
+import CustomPopup from "./CustomPopup";
 import LegendBox from "./LegendBox";
 
 interface Props {
@@ -85,20 +86,11 @@ const TheMap: React.FC<Props> = (props) => {
             position: [47.449358, 15.297192],
           }}
         >
-          <div style={{ filter: "grayscale(1)" }}>
-            <a
-              href="https://gams.uni-graz.at/archive/objects/o:derla.sty12/methods/sdef:TEI/get?locale=de"
-              target="_blank"
-            >
-              <p className="h5">Platz benannt nach Maximilian Haitzmann</p>
-              <img
-                src="https://gams.uni-graz.at/archive/objects/o:derla.sty12/datastreams/IMAGE.2/content"
-                width={200}
-                height={200}
-                loading="lazy"
-              ></img>
-            </a>
-          </div>
+          <CustomPopup
+            href="https://gams.uni-graz.at/archive/objects/o:derla.sty12/methods/sdef:TEI/get?locale=de"
+            label="Platz benannt nach Maximilian Haitzmann"
+            imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.sty12/datastreams/IMAGE.2/content"
+          ></CustomPopup>
         </CustomMarker>
         <CustomMarker
           isActive={props.currentStepIndex === 2}
