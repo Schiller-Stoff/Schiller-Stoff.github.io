@@ -9,6 +9,7 @@ import {
 } from "react-leaflet";
 import { derlaData } from "../../../../../data/derla";
 import CustomGeoJson from "./CustomGeoJson";
+import CustomMap from "./CustomMap";
 import CustomMarker from "./CustomMarker";
 import CustomPopup from "./CustomPopup";
 import LegendBox from "./LegendBox";
@@ -47,24 +48,21 @@ const TheMap: React.FC<Props> = (props) => {
 
   return (
     <>
-      <MapContainer
-        center={[52.449358, 15.297192]}
-        zoom={5}
-        style={{
-          height: "100vh",
-          backgroundColor: "whitesmoke",
-          //marginTop: "80px",
-          //marginBottom: "90px",
-        }}
-        touchZoom={false}
-        zoomControl={true}
-        scrollWheelZoom={false}
+      <CustomMap
+        legendBox={
+          <LegendBox
+            currentStepIndex={props.currentStepIndex}
+            // render content conditionally via switch statement and generate content object
+            content={{
+              heading:
+                props.currentStepIndex >= 1
+                  ? "Example places of remembrance"
+                  : "DERLA's area of research",
+              text: "DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941",
+            }}
+          />
+        }
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
-        />
-
         {!props.currentStepIndex && (
           <CustomGeoJson
             data={derlaData.overviewGEOJSON as any}
@@ -74,7 +72,6 @@ const TheMap: React.FC<Props> = (props) => {
             <Popup>German Reich in 1941</Popup>
           </CustomGeoJson>
         )}
-
         <CustomMarker
           isActive={props.currentStepIndex === 1}
           zoom={7}
@@ -112,18 +109,7 @@ const TheMap: React.FC<Props> = (props) => {
             imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.sty21/datastreams/IMAGE.1/content"
           />
         </CustomMarker>
-      </MapContainer>
-      <LegendBox
-        currentStepIndex={props.currentStepIndex}
-        // render content conditionally via switch statement and generate content object
-        content={{
-          heading:
-            props.currentStepIndex >= 1
-              ? "Example places of remembrance"
-              : "DERLA's area of research",
-          text: "DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941",
-        }}
-      />
+      </CustomMap>
     </>
   );
 };
