@@ -75,10 +75,6 @@ const TheMap: React.FC<Props> = (props) => {
           </CustomGeoJson>
         )}
 
-        {/* {!props.currentStepIndex && <GeoJSON data={derlaData.overviewGEOJSON as any} style={style}>
-          <Popup>German Reich in 1941</Popup>
-        </GeoJSON>} */}
-
         <CustomMarker
           isActive={props.currentStepIndex === 1}
           zoom={7}
