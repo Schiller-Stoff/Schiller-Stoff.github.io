@@ -1,14 +1,15 @@
+import { LatLngExpression } from "leaflet";
 import React from "react";
 import { Marker, Popup, useMap, useMapEvent } from "react-leaflet";
 
 interface Props {
   isActive?: boolean;
   zoom?: number;
-  data: any;
+  position: LatLngExpression;
   children?: any
 }
 
-const CustomMarker: React.FC<Props> = ({ isActive, data,zoom, children}) => {
+const CustomMarker: React.FC<Props> = ({ isActive, position, zoom, children}) => {
   let popupRef = React.useRef(null);
 
   const map = useMap();
@@ -37,7 +38,7 @@ const CustomMarker: React.FC<Props> = ({ isActive, data,zoom, children}) => {
   }, [isActive]);
 
   return (
-    <Marker position={data.position}>
+    <Marker position={position}>
       <Popup
         zoomAnimation={false}
         className="request-popup"

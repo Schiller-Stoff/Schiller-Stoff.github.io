@@ -74,9 +74,7 @@ const TheMap: React.FC<Props> = (props) => {
         <CustomMarker
           isActive={props.currentStepIndex === 1}
           zoom={7}
-          data={{
-            position: [47.449358, 15.297192],
-          }}
+          position={[47.449358, 15.297192]}
         >
           <CustomPopup
             href="https://gams.uni-graz.at/archive/objects/o:derla.sty12/methods/sdef:TEI/get?locale=de"
@@ -86,9 +84,7 @@ const TheMap: React.FC<Props> = (props) => {
         </CustomMarker>
         <CustomMarker
           isActive={props.currentStepIndex === 2}
-          data={{
-            position: [46.681457, 15.074161],
-          }}
+          position={[46.681457, 15.074161]}
         >
           <CustomPopup
             href="https://gams.uni-graz.at/archive/objects/o:derla.sty20/methods/sdef:TEI/get?locale=de"
@@ -98,9 +94,7 @@ const TheMap: React.FC<Props> = (props) => {
         </CustomMarker>
         <CustomMarker
           isActive={props.currentStepIndex === 3}
-          data={{
-            position: [46.823364, 15.059047],
-          }}
+          position = {[46.823364, 15.059047]}
         >
           <CustomPopup
             href="https://gams.uni-graz.at/archive/objects/o:derla.sty21/methods/sdef:TEI/get?locale=de"
