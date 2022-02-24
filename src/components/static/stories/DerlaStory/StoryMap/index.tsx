@@ -49,7 +49,7 @@ const TheMap: React.FC<Props> = (props) => {
   return (
     <>
       <CustomMap
-        tileLayerUrl = "https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
+        tileLayerUrl="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         legendBox={
           <LegendBox
             currentStepIndex={props.currentStepIndex}
@@ -69,8 +69,7 @@ const TheMap: React.FC<Props> = (props) => {
             data={derlaData.overviewGEOJSON as any}
             style={style}
             zoom={5}
-          >
-          </CustomGeoJson>
+          ></CustomGeoJson>
         )}
         <CustomMarker
           isActive={props.currentStepIndex === 1}
