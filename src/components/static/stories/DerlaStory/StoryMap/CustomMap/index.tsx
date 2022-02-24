@@ -3,32 +3,43 @@ import { MapContainer, TileLayer } from "react-leaflet";
 
 interface Props {
   children?: any;
+  center?: [number, number];
   legendBox?: any;
+  style?: React.CSSProperties;
+  tileLayerUrl?: string;
+  zoom?: number;
 }
 
-const CustomMap: React.FC<Props> = (props) => {
+const CustomMap: React.FC<Props> = ({ 
+  children, 
+  center = [52.449358, 15.297192], 
+  legendBox, 
+  style = {
+    height: "100vh",
+    backgroundColor: "whitesmoke",
+    //marginTop: "80px",
+    //marginBottom: "90px",
+  },
+  tileLayerUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  zoom = 5
+}) => {
   return (
     <>
-    <MapContainer
-      center={[52.449358, 15.297192]}
-      zoom={5}
-      style={{
-        height: "100vh",
-        backgroundColor: "whitesmoke",
-        //marginTop: "80px",
-        //marginBottom: "90px",
-      }}
-      touchZoom={false}
-      zoomControl={true}
-      scrollWheelZoom={false}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
-      />
-      {props.children}
-    </MapContainer>
-    {props.legendBox}
+      <MapContainer
+        center={center}
+        zoom={zoom}
+        style={style}
+        touchZoom={false}
+        zoomControl={true}
+        scrollWheelZoom={false}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url={tileLayerUrl}
+        />
+        {children}
+      </MapContainer>
+      {legendBox}
     </>
   );
 };

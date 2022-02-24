@@ -49,6 +49,7 @@ const TheMap: React.FC<Props> = (props) => {
   return (
     <>
       <CustomMap
+        tileLayerUrl = "https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         legendBox={
           <LegendBox
             currentStepIndex={props.currentStepIndex}
@@ -69,7 +70,6 @@ const TheMap: React.FC<Props> = (props) => {
             style={style}
             zoom={5}
           >
-            <Popup>German Reich in 1941</Popup>
           </CustomGeoJson>
         )}
         <CustomMarker
