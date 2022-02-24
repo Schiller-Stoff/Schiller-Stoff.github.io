@@ -2,6 +2,10 @@ import React from "react";
 
 interface Props {
   currentStepIndex?: number;
+  content: {
+    heading: string;
+    text?: string
+  }
 }
 
 const LegendBox: React.FC<Props> = (props) => {
@@ -9,7 +13,7 @@ const LegendBox: React.FC<Props> = (props) => {
   const [isExpanded, setIsExpanded] = React.useState<boolean>(false)
 
   return (
-    <p
+    <div
       onClick={() => setIsExpanded(!isExpanded)}
       className="p-1 ps-3 pe-3 text-dark m-0 btn text-start"
       style={{
@@ -21,22 +25,13 @@ const LegendBox: React.FC<Props> = (props) => {
         maxWidth: "20%",
         border:"3px solid #789283",
         borderBottom:"none"
-        // opacity:.95
       }}
     >
-      <strong>
-        {props.currentStepIndex >= 1
-          ? "Example places of remembrance"
-          : "DERLA's area of research"}
-      </strong>
+      <strong>{props.content.heading}</strong>
       {isExpanded && <p className="text-dark">
-        <small>
-          DERLA documents places of remembrances in the red areas. (Styria and
-          Vorarlberg in today's Austria) Additionally this map shows the borders
-          of the German Reich in 1941
-        </small>
+        <small>{props.content.text}</small>
       </p>}
-    </p>
+    </div>
   );
 };
 

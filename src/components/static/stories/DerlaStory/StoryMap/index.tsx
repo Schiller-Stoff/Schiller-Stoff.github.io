@@ -145,7 +145,17 @@ const TheMap: React.FC<Props> = (props) => {
           </div>
         </CustomMarker>
       </MapContainer>
-      <LegendBox currentStepIndex={props.currentStepIndex}></LegendBox>
+      <LegendBox
+        currentStepIndex={props.currentStepIndex}
+        // render content conditionally via switch statement and generate content object
+        content={{
+          heading:
+            props.currentStepIndex >= 1
+              ? "Example places of remembrance"
+              : "DERLA's area of research",
+          text: "DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941",
+        }}
+      />
     </>
   );
 };
