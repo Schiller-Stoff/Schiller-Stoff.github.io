@@ -31,6 +31,14 @@ const DerlaStory = () => {
   return (
     <>
       <div>
+        <div
+          id="sticky-map-container"
+          style={{ top: currentStepIndex > 4 ? "-101%" : "" }}
+          className={currentStepIndex < 5 ? `sticky-top` : "sticky-top"}
+        >
+          <TheMap currentStepIndex={currentStepIndex}></TheMap>
+        </div>
+
         <Scrollama
           onStepEnter={onStepEnter}
           // debug
@@ -38,14 +46,6 @@ const DerlaStory = () => {
           // How far from the top of the viewport to trigger a step (as a proportion of view height)
           offset={0.3}
         >
-          <Step data={0} key="123">
-            <div id="sticky-map-container" style={{top: currentStepIndex > 4 ? "-101%" : ""}} className={(currentStepIndex < 5) ? `sticky-top` : 'sticky-top'}>
-              <TheMap 
-                currentStepIndex={currentStepIndex}
-                
-                ></TheMap>
-            </div>
-          </Step>
           {[1, 2, 3, 4, 5].map((_, stepIndex) => (
             <Step data={stepIndex} key={stepIndex}>
               <div
@@ -69,7 +69,6 @@ const DerlaStory = () => {
           </Step>
         </Scrollama>
 
-        
         <br />
         <br />
         <br />
