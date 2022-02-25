@@ -47,7 +47,6 @@ const TheMap: React.FC<Props> = (props) => {
   };
 
   return (
-    <>
       <CustomMap
         tileLayerUrl="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         legendBox={
@@ -103,7 +102,6 @@ const TheMap: React.FC<Props> = (props) => {
           />
         </CustomMarker>
       </CustomMap>
-    </>
   );
 };
 
