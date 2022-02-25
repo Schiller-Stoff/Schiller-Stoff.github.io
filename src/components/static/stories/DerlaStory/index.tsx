@@ -30,14 +30,10 @@ const DerlaStory = () => {
 
   return (
     <>
-      <div>
-        <div
-          id="sticky-map-container"
-          style={{ top: currentStepIndex > 4 ? "-101%" : "" }}
-          className="sticky-top"
-        >
-          <TheMap currentStepIndex={currentStepIndex}></TheMap>
-        </div>
+      
+        <TheMap 
+          currentStepIndex={currentStepIndex}/>
+      
 
         <Scrollama
           onStepEnter={onStepEnter}
@@ -88,7 +84,6 @@ const DerlaStory = () => {
         <br />
         <br />
         <p>~~~END OF SCROLLAMA TRACKING~~~</p>
-      </div>
     </>
   );
 };

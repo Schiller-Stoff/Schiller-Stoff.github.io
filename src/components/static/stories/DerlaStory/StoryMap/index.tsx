@@ -1,12 +1,4 @@
 import React from "react";
-import {
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-  useMap,
-  GeoJSON,
-} from "react-leaflet";
 import { derlaData } from "../../../../../data/derla";
 import CustomGeoJson from "./CustomGeoJson";
 import CustomMap from "./CustomMap";
@@ -47,6 +39,11 @@ const TheMap: React.FC<Props> = (props) => {
   };
 
   return (
+    <div
+      id="sticky-map-container"
+      style={{ top: props.currentStepIndex > 4 ? "-101%" : "" }}
+      className="sticky-top"
+    >
       <CustomMap
         tileLayerUrl="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         legendBox={
@@ -93,7 +90,7 @@ const TheMap: React.FC<Props> = (props) => {
         </CustomMarker>
         <CustomMarker
           isActive={props.currentStepIndex === 3}
-          position = {[46.823364, 15.059047]}
+          position={[46.823364, 15.059047]}
         >
           <CustomPopup
             href="https://gams.uni-graz.at/archive/objects/o:derla.sty21/methods/sdef:TEI/get?locale=de"
@@ -102,6 +99,7 @@ const TheMap: React.FC<Props> = (props) => {
           />
         </CustomMarker>
       </CustomMap>
+    </div>
   );
 };
 
