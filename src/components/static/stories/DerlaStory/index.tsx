@@ -34,7 +34,7 @@ const DerlaStory = () => {
         <div
           id="sticky-map-container"
           style={{ top: currentStepIndex > 4 ? "-101%" : "" }}
-          className={currentStepIndex < 5 ? `sticky-top` : "sticky-top"}
+          className="sticky-top"
         >
           <TheMap currentStepIndex={currentStepIndex}></TheMap>
         </div>
