@@ -14,7 +14,6 @@ const CustomMarker: React.FC<Props> = ({ isActive, position, zoom, children}) =>
 
   const map = useMap();
   const lmap = useMapEvent('popupopen', (e) => {
-    console.log("POPUP OPEN")
     setTimeout(() => {
       var px = lmap.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
       px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
