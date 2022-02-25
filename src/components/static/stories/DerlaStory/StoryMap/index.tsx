@@ -47,7 +47,7 @@ const TheMap: React.FC<Props> = (props) => {
       <CustomMap
         tileLayerUrl="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         legendBox={
-          <LegendBox
+          props.currentStepIndex <= 5 && <LegendBox
             currentStepIndex={props.currentStepIndex}
             // render content conditionally via switch statement and generate content object
             content={{
