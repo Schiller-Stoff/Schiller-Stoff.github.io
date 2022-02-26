@@ -113,6 +113,16 @@ const TheMap: React.FC<Props> = (props) => {
             imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.sty21/datastreams/IMAGE.1/content"
           />
         </CustomMarker>
+        <CustomMarker
+          isActive={props.currentStepIndex === 4}
+          position={[46.969346, 10.061606]}
+        >
+          <CustomPopup
+            href="https://gams.uni-graz.at/archive/objects/o:derla.vor111/methods/sdef:TEI/get?mode=view:object:default&amp;locale=de"
+            label="Audiostation Energieraum Illwerke Partenen"
+            imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.vor111/datastreams/IMAGE.1/content"
+          />
+        </CustomMarker>
       </CustomMap>
     </div>
   );
