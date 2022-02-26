@@ -75,7 +75,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
             Biography
           </Link>
         </Nav.Link>
-        <Nav.Link as="div" eventKey="link-2" className="text-dark p-0">
+        {/* <Nav.Link as="div" eventKey="link-2" className="text-dark p-0">
           <Link activeClassName="active" className="text-dark text-decoration-none" to="/#employments">
             Employment
           </Link>
@@ -94,7 +94,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
           <Link activeClassName="active" className="text-dark text-decoration-none" to="/imprint">
           Imprint
           </Link>
-        </Nav.Link>
+        </Nav.Link> */}
       </Nav>
 
       {/* <hr style={{borderTop: "5px dotted whitesmoke"}}/> */}
