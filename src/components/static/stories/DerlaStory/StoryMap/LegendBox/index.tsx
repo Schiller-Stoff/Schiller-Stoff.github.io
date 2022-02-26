@@ -2,15 +2,20 @@ import React from "react";
 
 interface Props {
   currentStepIndex?: number;
+  isInitExpanded?: boolean; 
   content: {
     heading: string;
     text?: string
   }
 }
 
-const LegendBox: React.FC<Props> = (props) => {
+const LegendBox: React.FC<Props> = ({
+  currentStepIndex,
+  isInitExpanded = false,
+  content
+}) => {
 
-  const [isExpanded, setIsExpanded] = React.useState<boolean>(false)
+  const [isExpanded, setIsExpanded] = React.useState<boolean>(isInitExpanded)
 
   return (
     <div
@@ -27,9 +32,9 @@ const LegendBox: React.FC<Props> = (props) => {
         borderBottom:"none"
       }}
     >
-      <strong>{props.content.heading}</strong>
+      <strong>{content.heading}</strong>
       {isExpanded && <p className="text-dark">
-        <small>{props.content.text}</small>
+        <small>{content.text}</small>
       </p>}
     </div>
   );

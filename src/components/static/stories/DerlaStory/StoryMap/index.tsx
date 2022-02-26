@@ -49,13 +49,14 @@ const TheMap: React.FC<Props> = (props) => {
         legendBox={
           props.currentStepIndex <= 5 && <LegendBox
             currentStepIndex={props.currentStepIndex}
+            isInitExpanded={true}
             // render content conditionally via switch statement and generate content object
             content={{
               heading:
                 props.currentStepIndex >= 1
                   ? "Example places of remembrance"
                   : "DERLA's area of research",
-              text: "DERLA documents places of remembrances in the red areas. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941",
+              text: "The red areas mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941",
             }}
           />
         }
