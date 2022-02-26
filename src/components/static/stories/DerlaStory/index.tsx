@@ -42,7 +42,7 @@ const DerlaStory = () => {
           // How far from the top of the viewport to trigger a step (as a proportion of view height)
           offset={0.3}
         >
-          {[1, 2, 3, 4, 5].map((_, stepIndex) => (
+          {[1, 2, 3, 4, 5,6,7].map((_, stepIndex) => (
             <Step data={stepIndex} key={stepIndex}>
               <div
                 style={{
@@ -55,12 +55,12 @@ const DerlaStory = () => {
               </div>
             </Step>
           ))}
-          <Step data={6}>
+          <Step data={8}>
             <div>
               <ContentHeading>Quantitative analysis</ContentHeading>
             </div>
           </Step>
-          <Step data={7}>
+          <Step data={9}>
             <p>hi</p>
           </Step>
         </Scrollama>

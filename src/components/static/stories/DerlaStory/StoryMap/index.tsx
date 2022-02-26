@@ -54,6 +54,11 @@ const TheMap: React.FC<Props> = (props) => {
         heading: "Example places of remembrance",
         text: "DERLA documents around 600 places in Austria via providing geographical information, photos and biographical backgrounds. A click on a place heading will lead you to the detailed description on the DERLA platform.",
       }
+    } else if (step >= 5){
+      return {
+        heading: "Documentation and education",
+        text: "DERLA provides extensive teaching material for each documented place of remembrance.",
+      }
     }
 
   }
@@ -61,13 +66,13 @@ const TheMap: React.FC<Props> = (props) => {
   return (
     <div
       id="sticky-map-container"
-      style={{ top: props.currentStepIndex > 4 ? "-101%" : "" }}
+      style={{ top: props.currentStepIndex > 7 ? "-101%" : "" }}
       className="sticky-top"
     >
       <CustomMap
         tileLayerUrl="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         legendBox={
-          props.currentStepIndex <= 5 && <LegendBox
+          props.currentStepIndex <= 7 && <LegendBox
             currentStepIndex={props.currentStepIndex}
             isInitExpanded={true}
             // render content conditionally via switch statement and generate content object
@@ -121,6 +126,16 @@ const TheMap: React.FC<Props> = (props) => {
             href="https://gams.uni-graz.at/archive/objects/o:derla.vor111/methods/sdef:TEI/get?mode=view:object:default&amp;locale=de"
             label="Audiostation Energieraum Illwerke Partenen"
             imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.vor111/datastreams/IMAGE.1/content"
+          />
+        </CustomMarker>
+        <CustomMarker
+          isActive={props.currentStepIndex === 5}
+          position={[47.346979, 9.672991]}
+        >
+          <CustomPopup
+            href="https://gams.uni-graz.at/archive/objects/o:derla.vor67/methods/sdef:TEI/get?mode=view:object:default&amp;locale=de"
+            label="Grabstein für Familie Weil im Jüdischen Friedhof Hohenems"
+            imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.vor67/datastreams/IMAGE.1/content"
           />
         </CustomMarker>
       </CustomMap>
