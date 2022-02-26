@@ -38,6 +38,26 @@ const TheMap: React.FC<Props> = (props) => {
     }
   };
 
+  /**
+   * Provides content to the legendbox according to given stepcount
+   * @returns 
+   */
+  const switchLegendContent = (step: number) => {
+
+    if(step < 1){
+      return {
+        heading: "DERLA's area of research",
+        text: "The red areas mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941",
+      }
+    } else if((step >= 1) && (step < 5)){
+      return {
+        heading: "Example places of remembrance",
+        text: "DERLA documents around 600 places in Austria via providing geographical information, photos and biographical backgrounds. A click on a place heading will lead you to the detailed description on the DERLA platform.",
+      }
+    }
+
+  }
+
   return (
     <div
       id="sticky-map-container"
@@ -51,13 +71,7 @@ const TheMap: React.FC<Props> = (props) => {
             currentStepIndex={props.currentStepIndex}
             isInitExpanded={true}
             // render content conditionally via switch statement and generate content object
-            content={{
-              heading:
-                props.currentStepIndex >= 1
-                  ? "Example places of remembrance"
-                  : "DERLA's area of research",
-              text: "The red areas mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941",
-            }}
+            content={switchLegendContent(props.currentStepIndex)}
           />
         }
       >
