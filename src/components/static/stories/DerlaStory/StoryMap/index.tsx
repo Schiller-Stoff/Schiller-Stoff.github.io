@@ -57,7 +57,7 @@ const TheMap: React.FC<Props> = (props) => {
     } else if (step >= 5){
       return {
         heading: "Documentation and education",
-        text: "DERLA provides extensive teaching material for each documented place of remembrance.",
+        text: "For each place DERLA provides various teaching materials like stories or original source-material",
       }
     }
 
