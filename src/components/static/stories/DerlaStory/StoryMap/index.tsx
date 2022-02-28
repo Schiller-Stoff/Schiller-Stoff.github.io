@@ -49,11 +49,18 @@ const TheMap: React.FC<Props> = (props) => {
         heading: "DERLA's area of research",
         text: <p>The <b className="text-danger">red areas</b> mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</p>,
       }
-    } else if((step >= 1) && (step < 5)){
+    } else if((step >= 1) && (step < 3)){
       return {
         heading: "Example places of remembrance",
         text: <p>DERLA documents around <b className="text-danger">600 places in Austria</b> via providing geographical information, photos and biographical backgrounds. A <b>click on a place</b> heading will lead you to the detailed description on the DERLA platform.</p>,
       }
+    } else if(step < 5) {
+
+      return {
+        heading: "Material and background",
+        text:"... (More text) ... "
+      }
+
     } else if (step >= 5){
       return {
         heading: "Documentation and education",
