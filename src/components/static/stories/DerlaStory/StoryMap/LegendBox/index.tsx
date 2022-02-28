@@ -4,8 +4,8 @@ interface Props {
   currentStepIndex?: number;
   isInitExpanded?: boolean; 
   content: {
-    heading: string;
-    text?: string
+    heading: string | JSX.Element;
+    text?: string | JSX.Element
   }
 }
 

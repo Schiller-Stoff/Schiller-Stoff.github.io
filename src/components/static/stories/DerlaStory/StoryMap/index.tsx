@@ -47,17 +47,25 @@ const TheMap: React.FC<Props> = (props) => {
     if(step < 1){
       return {
         heading: "DERLA's area of research",
-        text: "The red areas mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941",
+        text: <p>The <b className="text-danger">red areas</b> mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</p>,
       }
     } else if((step >= 1) && (step < 5)){
       return {
         heading: "Example places of remembrance",
-        text: "DERLA documents around 600 places in Austria via providing geographical information, photos and biographical backgrounds. A click on a place heading will lead you to the detailed description on the DERLA platform.",
+        text: <p>DERLA documents around <b className="text-danger">600 places in Austria</b> via providing geographical information, photos and biographical backgrounds. A <b>click on a place</b> heading will lead you to the detailed description on the DERLA platform.</p>,
       }
     } else if (step >= 5){
       return {
         heading: "Documentation and education",
-        text: "For each place DERLA provides various teaching materials like stories or original source-material",
+        text: (
+          <>
+            <p>For each place DERLA provides various <b>teaching materials</b> like stories or original source-material.</p>
+            <ul>
+              <li><a className="text-secondary" target="_blank" href="https://gams.uni-graz.at/archive/objects/context:derladidactics/methods/sdef:Context/get?locale=de">Overview of the teaching material on DERLA</a></li>
+              <li><a className="text-secondary" target="_blank" href="https://gams.uni-graz.at/o:derla.fixsty5">Singular teaching material for one school lesson</a></li>
+            </ul>
+          </>
+        )
       }
     }
 
