@@ -58,7 +58,12 @@ const TheMap: React.FC<Props> = (props) => {
 
       return {
         heading: "Material and background",
-        text:""
+        text:<><p>Each digital place mark lists victims and dedicated URIs to a centralized register on DERLA. ("The Archive of Names") </p>
+          <ul>
+            <li><a target="_blank" href="https://gams.uni-graz.at/archive/objects/context:derlapers/methods/sdef:Context/get?locale=de">Archive of Names</a></li>
+            <li><a target="_blank" href="https://gams.uni-graz.at/archive/objects/o:derla.persvor/methods/sdef:TEI/get?locale=de">Overview of victims of the state Vorarlberg</a></li>
+          </ul>
+        </>
       }
 
     } else if (step >= 5){
@@ -66,7 +71,7 @@ const TheMap: React.FC<Props> = (props) => {
         heading: "Documentation and education",
         text: (
           <>
-            <p>For each place DERLA provides various <b>teaching materials</b> like stories or original source-material.</p>
+            <p>... DERLA also provides various <b>teaching materials</b> like stories or original source-material.</p>
             <ul>
               <li><a className="text-secondary" target="_blank" href="https://gams.uni-graz.at/archive/objects/context:derladidactics/methods/sdef:Context/get?locale=de">Overview of the teaching material on DERLA</a></li>
               <li><a className="text-secondary" target="_blank" href="https://gams.uni-graz.at/o:derla.fixsty5">Singular teaching material for one school lesson</a></li>
