@@ -66,7 +66,7 @@ const TheMap: React.FC<Props> = (props) => {
         </>
       }
 
-    } else if (step >= 5){
+    } else if (step <= 5){
       return {
         heading: "Documentation and education",
         text: (
@@ -78,6 +78,11 @@ const TheMap: React.FC<Props> = (props) => {
             </ul>
           </>
         )
+      }
+    } else if (step <= 11){
+      return {
+        heading:"Future progress",
+        text:"some text"
       }
     }
 
@@ -92,7 +97,7 @@ const TheMap: React.FC<Props> = (props) => {
       <CustomMap
         tileLayerUrl="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         legendBox={
-          props.currentStepIndex <= 7 && <LegendBox
+          props.currentStepIndex <= 11 && <LegendBox
             currentStepIndex={props.currentStepIndex}
             isInitExpanded={true}
             // render content conditionally via switch statement and generate content object
