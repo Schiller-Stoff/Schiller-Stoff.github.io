@@ -86,7 +86,7 @@ const TheMap: React.FC<Props> = (props) => {
   return (
     <div
       id="sticky-map-container"
-      style={{ top: props.currentStepIndex > 7 ? "-101%" : "" }}
+      style={{ top: props.currentStepIndex > 10 ? "-101%" : "" }}
       className="sticky-top"
     >
       <CustomMap
@@ -158,6 +158,32 @@ const TheMap: React.FC<Props> = (props) => {
             imgSrc="https://gams.uni-graz.at/archive/objects/o:derla.vor67/datastreams/IMAGE.1/content"
           />
         </CustomMarker>
+        {(props.currentStepIndex >= 6) && (
+          <CustomGeoJson
+            data={derlaData.researchStateGEOJSON as any}
+            style={(feature) => {
+              switch(feature.properties.title){
+                case "Austria":
+                  return {
+                    fillColor: "lightgreen",
+                    weight: 0,
+                    opacity: .1,
+                    color: "red",
+                    dashArray: "3",
+                    fillOpacity: .5,
+                  }
+                default:
+                  return {
+                    weight: 2,
+                    color:"black",
+                    fillOpacity: 0,
+                    dashArray: "3"
+                  }
+              }
+            }}
+            zoom={6}
+          ></CustomGeoJson>
+        )}
       </CustomMap>
     </div>
   );
