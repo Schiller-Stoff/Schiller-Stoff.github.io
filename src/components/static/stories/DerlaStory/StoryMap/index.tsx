@@ -47,7 +47,7 @@ const TheMap: React.FC<Props> = (props) => {
     if(step < 1){
       return {
         heading: "DERLA's area of research",
-        text: <p>The <b className="text-danger">red areas</b> mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941</p>,
+        text: <p>The <b className="text-danger">red areas</b> mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941 and a small section of the documented places.</p>,
       }
     } else if((step >= 1) && (step < 3)){
       return {
@@ -58,7 +58,7 @@ const TheMap: React.FC<Props> = (props) => {
 
       return {
         heading: "Material and background",
-        text:"... (More text) ... "
+        text:""
       }
 
     } else if (step >= 5){
