@@ -23,7 +23,13 @@ const StoriesPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> =
         headComponent={<OrcidHead orcidRoot={props.pageContext.persOrcid} />}
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
       >
-        <h1><strong>DERLA-project</strong></h1>
+        <h1>Derla</h1>
+        <h2
+          className="text-dark h5 mb-4"
+          style={{ fontWeight: 300, fontSize: "1.35em" }}
+        >
+          A research project at University of Graz  
+        </h2>
         <p className="w-75 mb-0">The <a href="https://gams.uni-graz.at/context:derla" target="blank">Digital Landscape of Remembrance Austria (DERLA)</a> is a scientific documentation and mediation project. It documents Austrian <strong>places and signs</strong> of remembrance for the victims as well as the places of terror of National Socialism.</p>
         <br></br>
         <ContentHeading>Places of remembrance</ContentHeading>
