@@ -109,7 +109,7 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
             }, []).filter(handleFilter).map((work: Orcid.WorkSummary, index: number) => {
               return (
                 <Col key={index}>
-                  <Card className="text-dark text-decoration-none border-2" target="_blank" rel="no-referrer" as="a" href={MyStringUtils.catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString())}>
+                  <Card className="text-dark text-decoration-none border-2 rounded-0 border-grey shadow-sm" target="_blank" rel="no-referrer" as="a" href={MyStringUtils.catchToString(() => work["external-ids"]["external-id"][0]["external-id-url"].value.toString())}>
                     {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                     <Card.Body>
                       <Card.Title as="h3" className="h6">

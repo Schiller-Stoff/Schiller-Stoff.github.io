@@ -26,14 +26,14 @@ const EntryPaths = () => {
         {cards.map((card, idx) => (
           <Col>
             <Link to={card.to} className="text-decoration-none text-dark">
-              <Card bg="white" className="border-0 rounded-0 border-dark">
+              <Card bg="white" className="border-2 rounded-0 border-grey shadow-sm pb-5">
                 <Card.Body>
-                  <Card.Title>{card.title}</Card.Title>
-                  <Card.Text>
+                  <Card.Title className="h6">{card.title}</Card.Title>
+                  {/* <Card.Text>
                     This is a longer card with supporting text below as a
                     natural lead-in to additional content. This content is a
                     little bit longer.
-                  </Card.Text>
+                  </Card.Text> */}
                 </Card.Body>
               </Card>
             </Link>
