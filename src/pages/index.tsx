@@ -23,15 +23,24 @@ const IndexPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         orcidRoot={props.pageContext.persOrcid}
         headComponent={<OrcidHead orcidRoot={props.pageContext.persOrcid} />}
         nav={<OrcidNav orcidRoot={props.pageContext.persOrcid} />}
-      >
+      >   
+            <OrcidIconBar
+              orcidURL={props.pageContext.persOrcid["orcid-identifier"].uri}
+              researchURLs={props.pageContext.persOrcid.person["researcher-urls"]["researcher-url"]}
+              mail={
+                props.pageContext.persOrcid.person.emails.email[0] &&
+                props.pageContext.persOrcid.person.emails.email[0].email
+              }
+            ></OrcidIconBar>
+            <br></br>
             <OrcidEntry orcidRoot={props.pageContext.persOrcid}></OrcidEntry>
+            
             <EntryPaths></EntryPaths>
 
             <br />
             <br />
             <OrcidProfileCard orcidRoot={props.pageContext.persOrcid} />
             <br></br>
-        
 
 
       </BaseLayout>

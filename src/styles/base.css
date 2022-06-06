@@ -110,6 +110,16 @@ a.card:hover {
   border: none;
 }
 
+path {
+  color: #8892b0;
+  transition: color cubic-bezier(0.075, 0.82, 0.165, 1) .25s;
+}
+
+svg:hover path {
+  color: #64ffda;
+  cursor: pointer;
+}
+
 @media (min-width: 976px) {
 
   #baseLayout_mainContainer {
