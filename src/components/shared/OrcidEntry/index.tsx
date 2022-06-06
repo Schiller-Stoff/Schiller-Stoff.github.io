@@ -46,10 +46,10 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             cursorChar="|"
           />
           <br/>
-          <br/>
+          {/* <br/> */}
           <hr/>
-          <br/>
-          <ContentHeading>Whoami?</ContentHeading>
+          {/* <br/> */}
+          {/* <ContentHeading>Whoami?</ContentHeading> */}
           <h3
             className="h5"
             style={{ fontWeight: 300, fontSize: "1.35em" }}
@@ -81,6 +81,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
                 filter: "grayscale(150%)",
               }}
             ></img>
+          <br></br>
           <br></br>
           <ContentHeading>About me</ContentHeading>
           <br></br>
