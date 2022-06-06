@@ -93,6 +93,16 @@ a.card:hover {
   cursor: pointer;
 }
 
+.btn-outline-light {
+  color: #64ffda !important;
+  border-color: #64ffda !important;
+}
+
+.btn-outline-light:hover {
+  background: initial;
+  opacity: .75;
+}
+
 .card {
   background: #233554;
   box-shadow: none;
