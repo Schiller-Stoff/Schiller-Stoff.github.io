@@ -67,6 +67,11 @@ const OrcidSideNav: React.FC<Props> = (props) => {
             Biography
           </Link>
         </Nav.Link>
+        <Nav.Link as="div" eventKey="link-2" className="text-dark p-0">
+          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/contact">
+          Contact
+          </Link>
+        </Nav.Link>
         <Nav.Link as="div" eventKey="link-5" className="text-dark p-0">
           <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/imprint">
           Imprint
