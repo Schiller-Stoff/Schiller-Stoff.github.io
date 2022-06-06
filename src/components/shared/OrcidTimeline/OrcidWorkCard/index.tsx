@@ -39,7 +39,7 @@ const OrcidWorkCard: React.FC<Props> = (props) => {
 
   return (
     <Container style={{ position: "absolute" }}>
-      <h3 className="h6 fw-bold">{props.data.cardTitle}</h3>
+      <h3 className="h6 fw-bold text-light">{props.data.cardTitle}</h3>
       <p>
         {props.data.cardSubtitle
           .replace("OTHER", "SOFTWARE")

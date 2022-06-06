@@ -120,6 +120,18 @@ svg:hover path {
   cursor: pointer;
 }
 
+.timeline-card-content {
+  background:#233554 !important;
+}
+
+.timeline-card-content p {
+  color: #ccd6f6 !important;
+}
+
+.timeline-main-wrapper div:first-child {
+  padding:0 !important;
+}
+
 @media (min-width: 976px) {
 
   #baseLayout_mainContainer {

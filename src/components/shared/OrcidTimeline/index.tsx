@@ -111,7 +111,7 @@ const OrcidTimeline: React.FC<Props> = (props) => {
         // will render default timeline only when no CardComponent was defined as prop
         items={props.CardComp ? null : transformData(props)}
         mode={props.mode}
-        theme={{ primary: "grey", secondary: "white" }}
+        theme={{ primary: "#233554", secondary: "#233554" }} 
         hideControls
         scrollable
         useReadMore={false}
