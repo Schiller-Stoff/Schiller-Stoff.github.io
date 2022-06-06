@@ -20,7 +20,7 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
             {orcidRoot.person.keywords.keyword.map((kword, index) => (
               <Button
                 className="m-1"
-                variant="outline-dark"
+                variant="outline-light"
                 key={`kword_${index}`}
               >
                 {" " + kword.content}
