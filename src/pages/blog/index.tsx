@@ -13,7 +13,7 @@ const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) 
   >
     <h1>Blog</h1>
     <h2
-          className="text-dark h5 mb-4"
+          className="h5 mb-4"
           style={{ fontWeight: 300, fontSize: "1.35em" }}
         >
           Overview of posts

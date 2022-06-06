@@ -90,6 +90,12 @@ a.card:hover {
   cursor: pointer;
 }
 
+.card {
+  background: #233554;
+  box-shadow: none;
+  border: none;
+}
+
 @media (min-width: 976px) {
 
   #baseLayout_mainContainer {
