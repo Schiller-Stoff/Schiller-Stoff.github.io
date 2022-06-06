@@ -36,6 +36,10 @@ p {
   /* font-weight: 600; */
 }
 
+a {
+  color: #64ffda;
+}
+
 #timeline-main-wrapper {
   padding:0;
 }
