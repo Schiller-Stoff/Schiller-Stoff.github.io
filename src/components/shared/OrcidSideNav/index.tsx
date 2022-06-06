@@ -47,24 +47,29 @@ const OrcidSideNav: React.FC<Props> = (props) => {
             Home
           </Link>{" "}
         </Nav.Link>
-        <Nav.Link as="div" className="text-dark p-0">
+        {/* <Nav.Link as="div" className="text-dark p-0">
           <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/stories/">
             Stories
           </Link>
-        </Nav.Link>
+        </Nav.Link> */}
         <Nav.Link as="div" className="text-dark p-0">
           <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/portfolio/">
             Portfolio
           </Link>{" "}
         </Nav.Link>
-        <Nav.Link as="div" className="text-dark p-0">
+        {/* <Nav.Link as="div" className="text-dark p-0">
           <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/blog/">
             Blog
           </Link>{" "}
-        </Nav.Link>
+        </Nav.Link> */}
         <Nav.Link as="div" eventKey="link-1" className="text-dark p-0">
           <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/#biography">
             Biography
+          </Link>
+        </Nav.Link>
+        <Nav.Link as="div" eventKey="link-5" className="text-dark p-0">
+          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/imprint">
+          Imprint
           </Link>
         </Nav.Link>
         {/* <Nav.Link as="div" eventKey="link-2" className="text-dark p-0">
@@ -82,11 +87,7 @@ const OrcidSideNav: React.FC<Props> = (props) => {
             Education
           </Link>
         </Nav.Link>
-        <Nav.Link as="div" eventKey="link-5" className="text-dark p-0">
-          <Link activeClassName="active" className="text-dark text-decoration-none" to="/imprint">
-          Imprint
-          </Link>
-        </Nav.Link> */}
+         */}
       </Nav>
 
       {/* <hr style={{borderTop: "5px dotted whitesmoke"}}/> */}
