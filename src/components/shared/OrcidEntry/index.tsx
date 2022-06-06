@@ -46,13 +46,8 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             className="self-typed"
             cursorChar="|"
           />
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
+          <br/>
+          <br/>
           <ContentHeading>Whoami?</ContentHeading>
           <h3
             className="h5"
@@ -85,7 +80,6 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
                 filter: "grayscale(150%)",
               }}
             ></img>
-          <br></br>
           <br></br>
           <ContentHeading>About me</ContentHeading>
           <br></br>
