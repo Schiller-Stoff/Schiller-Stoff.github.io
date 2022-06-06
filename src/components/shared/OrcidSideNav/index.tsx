@@ -1,11 +1,8 @@
-import { faBlog, faHome, faPuzzlePiece, faStamp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import React from "react";
 import { Button, Nav } from "react-bootstrap";
 import { Orcid } from "../../../types/orcid";
 import MyStringUtils from "../../../utils/MyStringUtils";
-import OrcidIconBar from "../OrcidIconBar";
 
 interface Props {
   orcidRoot: Orcid.RootObject;
@@ -44,18 +41,6 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       }}
       className="text-center text-black d-none d-lg-block"
     >
-      {/* <OrcidIconBar
-        orcidURL={props.orcidRoot["orcid-identifier"].uri}
-        researchURLs={
-          props.orcidRoot.person["researcher-urls"]["researcher-url"]
-        }
-        mail={
-          props.orcidRoot.person.emails.email[0] &&
-          props.orcidRoot.person.emails.email[0].email
-        }
-      />
-      <hr style={{borderTop: "2px solid grey"}}/> */}
-      {/* <br /> */}
       <Nav defaultActiveKey="/home" className="flex-column text-center">
         <Nav.Link as="div" className="text-dark p-0">
           <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/">
