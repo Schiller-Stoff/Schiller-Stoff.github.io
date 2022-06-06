@@ -25,7 +25,7 @@ const StoriesPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> =
       >
         <h1>Derla</h1>
         <h2
-          className="text-dark h5 mb-4"
+          className="h5 mb-4"
           style={{ fontWeight: 300, fontSize: "1.35em" }}
         >
           A research project at University of Graz  
