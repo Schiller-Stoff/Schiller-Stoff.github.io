@@ -29,8 +29,8 @@ const OrcidProfileCard: React.FC<Props> = ({ orcidRoot }) => {
           </div>
         </Col>
         <Col md={5} xl={6}>
-          <Accordion defaultActiveKey="0" flush className="border">
-            <Accordion.Item eventKey="0">
+          <Accordion defaultActiveKey="0" flush>
+            <Accordion.Item background="dark" eventKey="0">
               <Accordion.Header>My primary background</Accordion.Header>
               <Accordion.Body>
                 {orcidRoot.person.keywords.keyword[0] && (

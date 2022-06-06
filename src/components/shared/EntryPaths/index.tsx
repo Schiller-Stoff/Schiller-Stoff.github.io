@@ -23,17 +23,12 @@ const EntryPaths = () => {
     <>
       <ContentHeading>Select or scroll</ContentHeading>
       <Row xs={1} md={3} className="g-4 mt-1">
-        {cards.map((card, idx) => (
+        {cards.map((card) => (
           <Col>
-            <Link to={card.to} className="text-decoration-none text-dark">
-              <Card bg="white" className="border-2 rounded-0 border-grey shadow-sm pb-5">
+            <Link to={card.to} className="text-decoration-none">
+              <Card className="pb-5">
                 <Card.Body>
                   <Card.Title className="h6">{card.title}</Card.Title>
-                  {/* <Card.Text>
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
-                  </Card.Text> */}
                 </Card.Body>
               </Card>
             </Link>
