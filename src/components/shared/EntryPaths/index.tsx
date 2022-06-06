@@ -23,8 +23,8 @@ const EntryPaths = () => {
     <>
       {/* <ContentHeading>Select or scroll</ContentHeading> */}
       <Row xs={1} md={3} className="g-4">
-        {cards.map((card) => (
-          <Col>
+        {cards.map((card, i) => (
+          <Col key={i}>
             <Link to={card.to} className="text-decoration-none">
               <Card className="pb-5">
                 <Card.Body>
