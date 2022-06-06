@@ -21,8 +21,8 @@ const EntryPaths = () => {
 
   return (
     <>
-      <ContentHeading>Select or scroll</ContentHeading>
-      <Row xs={1} md={3} className="g-4 mt-1">
+      {/* <ContentHeading>Select or scroll</ContentHeading> */}
+      <Row xs={1} md={3} className="g-4">
         {cards.map((card) => (
           <Col>
             <Link to={card.to} className="text-decoration-none">
