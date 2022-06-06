@@ -23,6 +23,9 @@ body {
 
 hr {
   opacity: 1;
+  background: #8892b0;
+  border-radius: 50px;
+  padding: 1px
 }
 
 p {
@@ -61,7 +64,7 @@ a {
 }
 
 .active {
-  border-bottom: 2px solid #64ffda;
+  /* border-bottom: 2px solid #64ffda; */
   color: #64ffda !important;
 }
 

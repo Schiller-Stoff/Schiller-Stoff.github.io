@@ -89,6 +89,7 @@ const Portfolio: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         >
           Completed research, software projects and publications 
         </h2>
+        <hr/>
 
 
         <ul className="m-0 p-0 portfolio_nav">

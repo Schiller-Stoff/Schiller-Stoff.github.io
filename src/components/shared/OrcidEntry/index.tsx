@@ -19,8 +19,7 @@ interface Props {
 const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
   return (
     <section>
-      <Row className="mt-2">
-        <Col md={12} xl={10}>
+      
           <p style={{marginBottom: "-.75em", fontSize:".75em"}}>DEV</p>
           <p style={{marginBottom: "-.75em", fontSize:".75em"}}>RESEARCH</p>
           <p style={{marginBottom: "-.75em", fontSize:".75em"}}>SOFTWARE SOLUTIONS</p>
@@ -47,6 +46,8 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
             cursorChar="|"
           />
           <br/>
+          <br/>
+          <hr/>
           <br/>
           <ContentHeading>Whoami?</ContentHeading>
           <h3
@@ -85,8 +86,6 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
           <br></br>
           <OrcidBiography orcidRoot={orcidRoot}></OrcidBiography>
           <br></br>
-        </Col>
-      </Row>
     </section>
   );
 };
