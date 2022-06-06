@@ -1,7 +1,24 @@
 
+/**
+Base colors
+
+main: #8892b0
+main(light): #ccd6f6 
+active: #64ffda
+
+dark: #0a192f
+lightdark: #112240
+*/
+
+
 * {
   line-height: 1.75;
-  font-family: Raleway,Helvetica,Tahoma,Geneva,Arial,sans-serif!important;
+  font-family: "Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
+  color:#ccd6f6;
+}
+
+body {
+  background: #0a192f;
 }
 
 hr {
@@ -15,7 +32,7 @@ hr {
 
 p {
   /* font-family: montserrat,sans-serif; */
-  color: #343a40;
+  color: #8892b0;
   /* font-weight: 600; */
 }
 
@@ -24,13 +41,13 @@ p {
 }
 
 .nav-tabs button {
-  color: grey;
+  /* color: grey; */
   font-weight: 600;
 }
 
 .accordion-button:not(.collapsed){
-  background: white;
-  color: #0e0f11;
+  /* background: white; */
+  /* color: #0e0f11; */
   font-family: montserrat,sans-serif;
 }
 
@@ -51,12 +68,8 @@ p {
 }
 
 .active {
-  /* color: red !important; */
-  /* text-decoration: underline !important; */
-  /* background: white !important; */
-  border-bottom: 3px solid lightgrey;
-  color: black !important;
-  /* padding: .25em; */
+  border-bottom: 2px solid #64ffda;
+  color: #64ffda !important;
 }
 
 
