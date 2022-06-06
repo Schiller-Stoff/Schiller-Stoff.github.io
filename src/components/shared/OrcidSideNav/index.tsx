@@ -34,10 +34,11 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         position: "fixed",
         top: 0,
         left: 0,
-        width: "280px",
+        width: "200px",
         height: "100vh",
         padding: "1.25em",
-        color:"#ccd6f6"
+        color:"#ccd6f6",
+        fontSize:".9em"
         //background:"#f2f5f4"
         // borderRight: "3px solid lightgrey" 
       }}

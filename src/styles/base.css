@@ -110,7 +110,7 @@ a.card:hover .card-body {
 @media (min-width: 976px) {
 
   #baseLayout_mainContainer {
-    margin-left: 325px;
+    margin-left: 200px;
     width:calc(100% - 325px);
   }
 
