@@ -26,7 +26,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
           <p style={{marginBottom: "-.75em", fontSize:".75em"}}>SOFTWARE SOLUTIONS</p>
           <h1 className="p-0" id="start" style={{ fontSize: "5em", marginTop:"-.4em", marginBottom:"-.4em", color:"#ccd6f6" }}><strong>
             {orcidRoot.person.name["given-names"].value}{" "}
-            {orcidRoot.person.name["family-name"].value}</strong>
+            {orcidRoot.person.name["family-name"].value}.</strong>
           </h1>
 
           <span style={{fontSize:"1.5em"}}>... </span> <Typed
