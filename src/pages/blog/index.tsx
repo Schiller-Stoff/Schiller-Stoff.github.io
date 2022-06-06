@@ -19,10 +19,6 @@ const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) 
           Overview of posts
         </h2>
     <hr/>
-    <ul>
-      {data.allMarkdownRemark.edges.map((edge, i) => <li key={`li_${i}`}><Link to={edge.node.frontmatter.slug}>{edge.node.frontmatter.title}</Link></li>)}
-
-    </ul>
 
     <Row xs={1} md={2} lg={2} className="g-4">
           {data.allMarkdownRemark.edges.map((edge, index) => {
