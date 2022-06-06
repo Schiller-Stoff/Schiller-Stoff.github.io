@@ -22,6 +22,11 @@ const OrcidSideNav: React.FC<Props> = (props) => {
     return foreName + " " + familyName;
   };
 
+  const linkStyle = {
+    fontFamily: '"SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace',
+    color:"#ccd6f6"
+  }
+
   return (
     <div
       id="sideNav"
@@ -32,7 +37,8 @@ const OrcidSideNav: React.FC<Props> = (props) => {
         width: "280px",
         height: "100vh",
         padding: "1.25em",
-        background:"#f2f5f4"
+        color:"#ccd6f6"
+        //background:"#f2f5f4"
         // borderRight: "3px solid lightgrey" 
       }}
       className="text-center text-black d-none d-lg-block"
@@ -51,27 +57,27 @@ const OrcidSideNav: React.FC<Props> = (props) => {
       {/* <br /> */}
       <Nav defaultActiveKey="/home" className="flex-column text-center">
         <Nav.Link as="div" className="text-dark p-0">
-          <Link activeClassName="active" className="text-dark text-decoration-none" to="/">
+          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/">
             Home
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-dark p-0">
-          <Link activeClassName="active" className="text-dark text-decoration-none" to="/stories/">
+          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/stories/">
             Stories
           </Link>
         </Nav.Link>
         <Nav.Link as="div" className="text-dark p-0">
-          <Link activeClassName="active" className="text-dark text-decoration-none" to="/portfolio/">
+          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/portfolio/">
             Portfolio
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-dark p-0">
-          <Link activeClassName="active" className="text-dark text-decoration-none" to="/blog/">
+          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/blog/">
             Blog
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" eventKey="link-1" className="text-dark p-0">
-          <Link activeClassName="active" className="text-dark text-decoration-none" to="/#biography">
+          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/#biography">
             Biography
           </Link>
         </Nav.Link>
