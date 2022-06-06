@@ -45,8 +45,9 @@ a {
   font-weight: 600;
 }
 
-.accordion-button:not(.collapsed){
-  font-family: montserrat,sans-serif;
+.accordion-button {
+  background: #233554 !important;
+  color:#ccd6f6 !important;
 }
 
 .portfolio_nav li {
