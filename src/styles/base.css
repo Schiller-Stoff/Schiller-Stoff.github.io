@@ -25,15 +25,8 @@ hr {
   opacity: 1;
 }
 
-.h2, .h3, .h4 {
-  /* border-left: 5px solid black; */
-  /* padding-left: .5em; */
-}
-
 p {
-  /* font-family: montserrat,sans-serif; */
   color: #8892b0;
-  /* font-weight: 600; */
 }
 
 a {
@@ -50,8 +43,6 @@ a {
 }
 
 .accordion-button:not(.collapsed){
-  /* background: white; */
-  /* color: #0e0f11; */
   font-family: montserrat,sans-serif;
 }
 
@@ -59,13 +50,11 @@ a {
   cursor: pointer;
 }
 
-.card{
+.card {
   transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-  box-shadow: 0 5px 10px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
 .card:hover{
-  /* background: white !important; */
   transform: scale(1.075);
   box-shadow: 0 5px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
   cursor: pointer;
@@ -99,13 +88,7 @@ a {
 
 a.card:hover {
   cursor: pointer;
-  box-shadow: inset 1px 1px 10px 1px lightgrey;
 }
-
-a.card:hover .card-body {
-  padding-top: .125em;
-}
-
 
 @media (min-width: 976px) {
 
