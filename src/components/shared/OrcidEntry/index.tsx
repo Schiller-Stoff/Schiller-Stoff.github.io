@@ -19,19 +19,12 @@ interface Props {
 const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
   return (
     <section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Row>
+      <Row className="mt-2">
         <Col md={12} xl={10}>
           <p style={{marginBottom: "-.75em", fontSize:".75em"}}>DEV</p>
           <p style={{marginBottom: "-.75em", fontSize:".75em"}}>RESEARCH</p>
           <p style={{marginBottom: "-.75em", fontSize:".75em"}}>SOFTWARE SOLUTIONS</p>
-          <h1 className="p-0" id="start" style={{ fontSize: "4em", marginTop:"-.4em", marginBottom:"-.4em" }}><strong>
+          <h1 className="p-0" id="start" style={{ fontSize: "5em", marginTop:"-.4em", marginBottom:"-.4em", color:"#ccd6f6" }}><strong>
             {orcidRoot.person.name["given-names"].value}{" "}
             {orcidRoot.person.name["family-name"].value}</strong>
           </h1>
@@ -45,8 +38,8 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
               "worries about #SoftwareQuality"
               //"writes his dissertation about the role #SoftwareArchitecture and #SoftwareDesign have to play in the field of #DigitalHumanities to ensure #SoftwareQuality in scientific research."
             ]}
-            typeSpeed={10}
-            backSpeed={20}
+            typeSpeed={20}
+            backSpeed={30}
             backDelay={1000}
             style={{ fontSize: "1.5em"}}
             showCursor={true}
@@ -62,7 +55,7 @@ const OrcidEntry: React.FC<Props> = ({ orcidRoot }) => {
           <br></br>
           <ContentHeading>Whoami?</ContentHeading>
           <h3
-            className="text-dark h5"
+            className="h5"
             style={{ fontWeight: 300, fontSize: "1.35em" }}
           >
             {
