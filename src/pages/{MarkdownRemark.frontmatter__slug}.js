@@ -17,6 +17,7 @@ export default function Template({
             <strong>{frontmatter.title}</strong> | {frontmatter.date}
           </p>
           <hr />
+          <p><i>Summary:</i> {frontmatter.short}</p>
           <br />
           <Row>
             <Col lg={10}>
@@ -33,6 +34,8 @@ export default function Template({
           </Row>
         </div>
       </div>
+      <br></br>
+      <br></br>
     </BaseLayout>
   );
 }
@@ -45,6 +48,7 @@ export const pageQuery = graphql`
       date(formatString: "MMMM DD, YYYY")
       slug
       title
+      short
     }
     headings {
       value
