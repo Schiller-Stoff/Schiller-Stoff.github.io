@@ -2,6 +2,9 @@
 slug: "/blog/react-leaflet"
 date: "2022-02-22"
 title: "How to setup react-leaflet with gatsby"
+draft: true
+short: ""
+language: "english"
 ---
 
 have avoided the gatsby plugin because only for v2 available

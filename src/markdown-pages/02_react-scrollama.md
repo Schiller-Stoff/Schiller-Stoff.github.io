@@ -2,6 +2,9 @@
 slug: "/blog/react-scrollama"
 date: "2022-02-22"
 title: "How to setup react-scrollama with gatsby"
+draft: true
+short: ""
+language: "english"
 ---
 
 # Used versions and dependencies
