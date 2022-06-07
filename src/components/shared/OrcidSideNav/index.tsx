@@ -48,14 +48,14 @@ const OrcidSideNav: React.FC<Props> = (props) => {
           </Link>{" "}
         </Nav.Link>
         <Nav.Link as="div" className="text-dark p-0">
-          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/stories/">
-            Stories
-          </Link>
-        </Nav.Link>
-        <Nav.Link as="div" className="text-dark p-0">
           <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/portfolio/">
             Portfolio
           </Link>{" "}
+        </Nav.Link>
+        <Nav.Link as="div" className="text-dark p-0">
+          <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/stories/">
+            Stories
+          </Link>
         </Nav.Link>
         {/* <Nav.Link as="div" className="text-dark p-0">
           <Link style={linkStyle} activeClassName="active" className="text-decoration-none" to="/blog/">
