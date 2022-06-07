@@ -91,11 +91,6 @@ const DerlaStory = () => {
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <p>~~~END OF SCROLLAMA TRACKING~~~</p>
     </>
   );
 };

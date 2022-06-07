@@ -47,21 +47,21 @@ const TheMap: React.FC<Props> = (props) => {
     if(step < 1){
       return {
         heading: "DERLA's area of research",
-        text: <p>The <b className="text-danger">red areas</b> mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941 and a small section of the documented places.</p>,
+        text: <p className="text-dark">The <b className="text-danger">red areas</b> mark the project's geographical focus. (Styria and Vorarlberg in today's Austria) Additionally this map shows the borders of the German Reich in 1941 and a small section of the documented places.</p>,
       }
     } else if((step >= 1) && (step < 3)){
       return {
         heading: "Example places of remembrance",
-        text: <p>DERLA documents around <b className="text-danger">600 places in Austria</b> via providing geographical information, photos and biographical backgrounds. A <b>click on a place</b> heading will lead you to the detailed description on the DERLA platform.</p>,
+        text: <p className="text-dark">DERLA documents around <b className="text-dark">600 places in Austria</b> via providing geographical information, photos and biographical backgrounds. A <b className="text-dark">click on a place</b> heading will lead you to the detailed description on the DERLA platform.</p>,
       }
     } else if(step < 5) {
 
       return {
         heading: "Material and background",
-        text:<><p>Each digital place mark lists victims and dedicated URIs to a centralized register on DERLA. ("The Archive of Names") </p>
+        text:<><p className="text-dark">Each digital place mark lists victims and dedicated URIs to a centralized register on DERLA. ("The Archive of Names") </p>
           <ul>
-            <li><a target="_blank" href="https://gams.uni-graz.at/archive/objects/context:derlapers/methods/sdef:Context/get?locale=de">Archive of Names</a></li>
-            <li><a target="_blank" href="https://gams.uni-graz.at/archive/objects/o:derla.persvor/methods/sdef:TEI/get?locale=de">Overview of victims of the state Vorarlberg</a></li>
+            <li><a className="text-dark" target="_blank" href="https://gams.uni-graz.at/archive/objects/context:derlapers/methods/sdef:Context/get?locale=de">Archive of Names</a></li>
+            <li><a className="text-dark" target="_blank" href="https://gams.uni-graz.at/archive/objects/o:derla.persvor/methods/sdef:TEI/get?locale=de">Overview of victims of the state Vorarlberg</a></li>
           </ul>
         </>
       }
@@ -71,7 +71,7 @@ const TheMap: React.FC<Props> = (props) => {
         heading: "Documentation and education",
         text: (
           <>
-            <p>... DERLA also provides various <b>teaching materials</b> like stories or original source-material.</p>
+            <p className="text-dark">... DERLA also provides various <b className="text-dark">teaching materials</b> like stories or original source-material.</p>
             <ul>
               <li><a className="text-secondary" target="_blank" href="https://gams.uni-graz.at/archive/objects/context:derladidactics/methods/sdef:Context/get?locale=de">Overview of the teaching material on DERLA</a></li>
               <li><a className="text-secondary" target="_blank" href="https://gams.uni-graz.at/o:derla.fixsty5">Singular teaching material for one school lesson</a></li>
