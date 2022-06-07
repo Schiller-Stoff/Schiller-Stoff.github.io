@@ -22,6 +22,7 @@ const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) 
 
     <Row xs={1} md={2} lg={2} className="g-4">
           {data.allMarkdownRemark.edges.map((edge, index) => {
+              if(edge.node.frontmatter.draft)return null;
               return (
                 <Col key={index}>
                   <Link className="text-decoration-none" to={edge.node.frontmatter.slug} rel="no-referrer">
@@ -67,6 +68,9 @@ const query = graphql`
             date(fromNow: true)
             title
             slug
+            draft
+            language
+            short
           }
           excerpt
         }
@@ -81,6 +85,9 @@ declare module QueryResult {
       date: string;
       title: string;
       slug: string;
+      draft: boolean;
+      short: string;
+      language: string;
   }
 
   export interface Node {
