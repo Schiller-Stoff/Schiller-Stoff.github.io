@@ -1,7 +1,7 @@
 ---
 slug: "/blog/my-first-post"
 date: "2021-09-30"
-title: "Frontends in the DH (de) - dissertation exposé"
+title: "Frontends in the DH - dissertation exposé"
 short: "Short description of my dissertation draft in german."
 language: "german"
 draft: false
