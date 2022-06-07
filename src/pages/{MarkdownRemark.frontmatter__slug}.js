@@ -19,16 +19,16 @@ export default function Template({
           <hr />
           <br />
           <Row>
-            <Col lg={8}>
+            <Col lg={10}>
               <div
                 className="blog-post-content"
                 dangerouslySetInnerHTML={{ __html: html }}
               />
             </Col>
-            <Col>
-              <ul className="sticky-top pt-lg-5 text-secondary list-style-none">
-                {headings.map(hObj => <li><small>{hObj.value}</small></li>)}
-              </ul>  
+            <Col lg={2}>
+              <ol style={{fontSize:".85em"}} className="sticky-top pt-lg-5 text-secondary list-style-none">
+                {headings.map(hObj => <li><small><a className="text-decoration-none">{hObj.value}</a></small></li>)}
+              </ol>  
             </Col>
           </Row>
         </div>
