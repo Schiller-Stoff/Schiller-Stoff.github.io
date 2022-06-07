@@ -30,6 +30,8 @@ const StoriesPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> =
                   </Card.Title>
                   <Card.Text style={{fontSize:".85em"}}>
                   together with ZIM Graz, CJS - Center for Jewish Studies, _erinnern.at_
+                    <br></br>
+                    <br></br>
                   </Card.Text>
                 </Card.Body>
               </Card>
