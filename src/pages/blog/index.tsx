@@ -2,7 +2,7 @@ import React from "react";
 import BaseLayout from "../../components/shared/layouts/BaseLayout";
 import { Orcid } from "../../types/orcid";
 import { graphql, Link, useStaticQuery } from "gatsby";
-import { Card, Col, Row } from "react-bootstrap";
+import { Badge, Card, Col, Row } from "react-bootstrap";
 
 const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) => {
 
@@ -33,9 +33,12 @@ const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) 
                         {edge.node.frontmatter.title}
                       </Card.Title>
                       <Card.Text>
-                        <small>{edge.node.excerpt}</small>
+                        <small>{edge.node.frontmatter.short}</small>
+                        <br/>
+                        <i>Excerpt: </i><small>{edge.node.excerpt}</small>
                         <br />
                         <br />
+                        <Badge bg={edge.node.frontmatter.language === "english" ? "success" : "dark"} ><small>{edge.node.frontmatter.language}</small></Badge>
                       </Card.Text>
                     </Card.Body>
                   </Card>
