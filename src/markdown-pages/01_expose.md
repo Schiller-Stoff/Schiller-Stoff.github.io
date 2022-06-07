@@ -2,7 +2,7 @@
 slug: "/blog/diss-expose-draft"
 date: "2021-09-30"
 title: "Frontends in the DH - dissertation exposé"
-short: "Short description of my dissertation draft in german."
+short: "Short description of my dissertation draft in german. Trying to connect frontend development if humanities' research."
 language: "german"
 draft: false
 ---
