@@ -156,7 +156,7 @@ svg:hover path {
 .request-popup .leaflet-popup-content-wrapper {
   border-radius: 0px;
   box-shadow: none;
-  border: 5px solid #789283;
+  border: 5px solid #8892b0;
 }
 
 #sticky-map-container {

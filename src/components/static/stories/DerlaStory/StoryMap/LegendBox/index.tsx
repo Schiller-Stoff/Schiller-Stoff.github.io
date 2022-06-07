@@ -20,7 +20,7 @@ const LegendBox: React.FC<Props> = ({
   return (
     <div
       onClick={() => setIsExpanded(!isExpanded)}
-      className="p-1 ps-3 pe-3 text-dark m-0 btn text-start"
+      className="p-1 ps-3 pe-3 m-0 btn text-start text-black"
       style={{
         position: "fixed",
         bottom: 0,
@@ -28,13 +28,14 @@ const LegendBox: React.FC<Props> = ({
         right: "0%",
         background: "white",
         maxWidth: "20%",
-        border:"3px solid #789283",
-        borderBottom:"none"
+        border:"5px solid #8892b0",
+        borderBottom:"none",
+        borderRadius: 0
       }}
     >
-      <strong>{content.heading}</strong>
-      {isExpanded && <p className="text-dark">
-        <small>{content.text}</small>
+      <strong className="text-dark">{content.heading}</strong>
+      {isExpanded && <p>
+        <small style={{color:"black"}}>{content.text}</small>
       </p>}
     </div>
   );

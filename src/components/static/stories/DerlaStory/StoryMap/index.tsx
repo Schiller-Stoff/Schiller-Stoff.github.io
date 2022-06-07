@@ -82,7 +82,7 @@ const TheMap: React.FC<Props> = (props) => {
     } else if (step <= 11){
       return {
         heading:"Future progress",
-        text:"some text"
+        text:"... in the end DERLA tries to document all places of remembrance in today's Austria."
       }
     }
 

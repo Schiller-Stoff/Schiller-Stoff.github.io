@@ -57,11 +57,23 @@ const DerlaStory = () => {
           ))}
           <Step data={11}>
             <div>
-              <ContentHeading>Quantitative analysis</ContentHeading>
+              <ContentHeading>Thank you for your attention!</ContentHeading>
+              <p>Check out the links down below for more details about DERLA.</p>
+              <ul>
+                <li>
+                  <a href="https://gams.uni-graz.at/context:derla" target="_blank">DERLA homepage</a>
+                </li>
+                <li>
+                  <a href="https://gams.uni-graz.at/archive/objects/context:derla/methods/sdef:Context/get?mode=about" target="_blank">DERLA project description</a>
+                </li>
+                <li>
+                  <a href="https://gams.uni-graz.at/" target="_blank">GAMS</a>
+                </li>
+              </ul>
             </div>
           </Step>
           <Step data={12}>
-            <p>hi</p>
+            <br></br>
           </Step>
         </Scrollama>
 
