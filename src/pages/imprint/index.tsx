@@ -42,8 +42,8 @@ const Imprint: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> = (
         <a href="https://themes.3rdwavemedia.com/devcard/bs5/portfolio.html" target="_blank">Bootstrap Dev Card theme</a>
       </p>
       <p>
-        <a href="https://gatsby-theme-portfolio.netlify.app/" target="_blank">
-          Smakosh gatsby theme
+        <a href="https://brittanychiang.com/#projects" target="_blank">
+        Brittany Chiang gatsby theme
         </a>
       </p>
       <p>
