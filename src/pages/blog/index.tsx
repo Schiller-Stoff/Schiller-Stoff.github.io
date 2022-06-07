@@ -35,8 +35,7 @@ const Blog: React.FC<{ pageContext: { persOrcid: Orcid.RootObject }}> = (props) 
                       <Card.Text>
                         <small>{edge.node.frontmatter.short}</small>
                         <br/>
-                        <i>Excerpt: </i><small>{edge.node.excerpt}</small>
-                        <br />
+                        {/* <i>Excerpt: </i><small>{edge.node.excerpt}</small> */}
                         <br />
                         <Badge bg={edge.node.frontmatter.language === "english" ? "success" : "dark"} ><small>{edge.node.frontmatter.language}</small></Badge>
                       </Card.Text>
