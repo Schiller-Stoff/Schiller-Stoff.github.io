@@ -11,7 +11,7 @@ const EntryPaths = () => {
     },
     {
       title: "Biography",
-      to: "/bio/",
+      to: "/",
     },
     {
       title: "Contact",
