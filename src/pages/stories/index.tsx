@@ -26,10 +26,10 @@ const StoriesPage: React.FC<{ pageContext: { persOrcid: Orcid.RootObject } }> =
               <Card>
                 <Card.Body>
                   <Card.Title as="h3" className="h6">
-                    DERLA
+                    DERLA - A research project at the University of Graz  
                   </Card.Title>
                   <Card.Text style={{fontSize:".85em"}}>
-                    A research project at the University of Graz (together with ZIM Graz | CJS - Center for Jewish Studies) 
+                  together with ZIM Graz, CJS - Center for Jewish Studies, _erinnern.at_
                   </Card.Text>
                 </Card.Body>
               </Card>
