@@ -70,7 +70,7 @@
     <div class="site-mobile-menu-body"></div>
   </div>
   
-  <nav style="position: fixed; background: white; box-shadow: 1px 1px 5px 2px whitesmoke;" class="site-nav dark mb-5 site-navbar-target">
+  <nav style="position: fixed; background: white; box-shadow: 1px 1px 5px 2px whitesmoke; z-index: 100000000;" class="site-nav dark mb-5 site-navbar-target">
     <div class="container">
       <div class="site-navigation">
         <a href="index.html" class="logo m-0">Schiller-Stoff BBA MMMA<span class="text-primary">.</span></a>
@@ -78,10 +78,10 @@
           <a href="index.html#services-section" class="nav-link-active" style="margin-right: 1em; font-weight: 600;">Services</a>
           <a href="index.html#pricing" style="margin-right: 1em; font-weight: 600;">Pricing</a>
           <a href="index.html#portfolio-section" style="margin-right: 1em;font-weight: 600;">Portfolio</a>
+          <a href="index.html#teaching-section" style="margin-right: 1em;font-weight: 600;">Teaching</a>
           <a href="index.html#cv-section" style="margin-right: 1em;font-weight: 600;">CV</a>
-          <a href="workshops.html" style="margin-right: 1em;font-weight: 600;">Teaching</a>
-          <a href="imprint.html" style="margin-right: 1em;font-weight: 600;">Imprint</a>
-          <a href="contact.html" style="margin-right: 1em;font-weight: 600;">Contact</a>
+          <a href="index.html#imprint-section" style="margin-right: 1em;font-weight: 600;">Imprint</a>
+          <a href="index.html#contact-section" style="margin-right: 1em;font-weight: 600;">Contact</a>
         </span>  
         <ul class="js-clone-nav d-none d-lg-inline-none site-menu float-right site-nav-wrap">
           <li><a href="index.html" class="nav-link active">Home</a></li>
@@ -129,7 +129,7 @@
             <!-- With a focus on projects within cultural heritage and digital humanities, I bring a unique blend of technical expertise and a deep understanding of these specialized domains. Explore my portfolio to see how I've contributed to impactful projects, and feel free to reach out to discuss how I can bring your ideas to life. -->
 
             <!-- I provide solutions for <strong>web and mobile app development</strong>, <strong>software engineering</strong> and <strong>AI assisted business processes</strong>. -->
-            <span style="font-size: .8em;">With a focus on projects within <i>cultural heritage</i> and <i>digital humanities</i>, I bring a unique blend of technical expertise and a deep understanding of these specialized domains.  Explore my <a href="#portfolio-section">portfolio</a> to see how I've contributed to impactful projects, and feel free to <a href="contact.html">reach out</a> to discuss how I can bring your ideas to life.</span>
+            <span style="font-size: .8em;">With a focus on projects within cultural heritage and digital humanities, I bring a unique blend of technical expertise and a deep understanding of these specialized domains.  Explore my <a href="#portfolio-section">portfolio</a> to see how I've contributed to impactful projects, and feel free to <a href="index.html#contact-section">reach out</a> to discuss how I can bring your ideas to life.</span>
             <!-- I focus on projects within <strong>cultural heritage</strong> and <strong>digital humanities</strong>. -->
             <!-- I focus on projects within cultural heritage and digital humanities. -->
             <!-- <strong>Senior developer</strong> (full-stack engineer) at ZIM Centre for Information Modelling | <a href="https://www.uni-graz.at" target="_blank">University of Graz</a>: Graz, Steiermark, AT -->
@@ -482,6 +482,204 @@
       </div>
     </div>
 
+    <div id="teaching-section"></div>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-lg-7 text-center mx-auto">
+          <h2 class="section-heading gsap-reveal-hero mb-0"><strong>Teaching material</strong></h2>
+          <p class="gsap-reveal-hero">Slides, code repositories and additional material for my workshops, presentations etc.</p>
+          <div class="wave gsap-reveal-hero" >
+            <svg>
+              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-wrapper">
+
+        <div id="posts" class="row">
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a target="_blank" href="https://doi.org/10.5281/zenodo.10288101" class="portfolio-item isotope-item gsap-reveal-img" data-id="1">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Copilot technologies in the DH</h3>
+                  <p>workshop, 04.12.2023</p>
+                </div>
+              </div>
+              <img src="images/copilot.png" class="lazyload img-fluid border" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a target="_blank" href="https://doi.org/10.5281/zenodo.8386446" class="portfolio-item isotope-item gsap-reveal-img" data-id="2">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Presentation at FORGE 2023</h3>
+                  <p>conference presentation, 06.10.2023</p>
+                </div>
+              </div>
+              <img src="images/02_conway.png" class="lazyload  img-fluid border" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a target="_blank" href="https://gams.uni-graz.at/context:lipfa" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Literaturpfade des Mittelalters</h3>
+                  <p>presentation, 21.06.2023</p>
+                </div>
+              </div>
+              <img src="images/03_literaturpfade.png" class="lazyload  img-fluid border" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="https://doi.org/10.5281/zenodo.10340362" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Digital Mapping – Digital History: DERLA – Digitale Erinnerungslandschaft</h3>
+                  <p>presentation, 30.06.2022</p>
+                </div>
+              </div>
+              <img src="images/teaching/03_age_tagung.png" class="lazyload  img-fluid border" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="https://doi.org/10.5281/zenodo.10340488" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Werkzeuge und Architekturen für digitale Editionen: React als Frontendwerkzeug</h3>
+                  <p>presentation, 13.06.222</p>
+                </div>
+              </div>
+              <img src="images/teaching/04_teaching_wuppertal.png" class="lazyload  img-fluid border" alt="Images" />
+            </a>
+          </div>
+
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="https://doi.org/10.5281/zenodo.10340675" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="1">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Abschlusspräsentation des ÖAW-Projekts "Nuns and Monks – Prosopographical Interfaces (NAMPI)"</h3>
+                  <p>presentation, 03.11.2021</p>
+                </div>
+              </div>
+              <img src="images/teaching/05_teaching_nampi.png" class="lazyload  img-fluid border" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="https://doi.org/10.5281/zenodo.5379569" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="2">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>A long-term archiving and dissemination ecosystem for Humanities' research data</h3>
+                  <p>conference presentation, 09.09.2021</p>
+                </div>
+              </div>
+              <img src="images/teaching/06_teaching_forge.png" class="lazyload  img-fluid border" alt="Images" />
+            </a>
+          </div>
+
+          <!-- <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.html" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Old Typewriter</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="images/img_8.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div> -->
+
+          <!-- <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.html" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Walking Man</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="images/img_9.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div> -->
+
+          <!-- <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.html" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Progress Journal</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="images/img_10.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div> -->
+
+          <!-- <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.html" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>The Dog</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="images/img_11.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div> -->
+
+          <!-- <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.html" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Beautiful Woman</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="images/img_12.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div> -->
+
+          <!-- <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.html" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Book Binding</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="images/img_2.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div> -->
+
+
+        </div>
+      </div>
+      </div>
+    </div>
+
     <div class="untree_co-section untree_co-section-4 pb-0"  id="cv-section">
       <div class="container">
         <div class="row mb-4">
@@ -786,6 +984,84 @@
           </div>
         </div>
       </div> -->
+    </div>
+
+    <br id="imprint-section"/>
+    <br/>
+    <br/>
+
+
+    <div class="container">
+
+      <div class="row mb-4">
+        <div class="col-lg-7 text-center mx-auto">
+          <h2 id="services" class="section-heading gsap-reveal-hero mb-0"><strong>Imprint</strong></h2>
+          <p class="gsap-reveal-hero">Imprint and data protection.</p>
+          <div class="wave gsap-reveal-hero" >
+            <svg>
+              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <br/>
+
+        <p>Company name: Sebastian David Schiller-Stoff</p>
+        <p>GLN: 9110032223467</p>
+        <p>Wegenergasse 7/2/4 / 8010 Graz</p>
+        <p>Phone: <a href="tel:+4367761371551">+4367761371551</a></p>
+        <p>E-Mail: <a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a></p>
+        <p>Web: https://schiller-stoff.github.io/</p>
+        <br/>
+        <p>Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik</p>
+        <p>Berufszweig: IT-Dienstleistung</p>
+        <p>GISA-Zahl: 34945216</p>
+        <p>Behörde gem. ECG (E-Commerce Gesetz): Magistrat der Stadt Graz</p>
+
+        <br/>
+      <b>Publisher, development and implementation</b>
+      <p>
+        Personal project. (Legal responsibilities according to CV information on
+        the main page)
+      </p>
+      <b>The following technologies form an integral part of the website</b>
+      <p>HTML / CSS / JS </p>
+      <b>Information according to § 5 E-Commerce Law</b>
+      <p>
+        All content and services on this website are provided by the owner of
+        the website stated on home-page
+      </p>
+      <br />
+
+      </div>
+    </div>
+
+    <br id="contact-section"/>
+    <br/>
+    <br/>
+
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-lg-7 text-center mx-auto">
+          <h2 id="services" class="section-heading gsap-reveal-hero mb-0"><strong>Contact</strong></h2>
+          <p class="gsap-reveal-hero">Contact information.</p>
+          <div class="wave gsap-reveal-hero" >
+            <svg>
+              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+        <ul>
+            <li>Mail: sebi.stoff@gmail.com</li>
+            <li>Phone: <a href="tel:+4367761371551">+4367761371551</a></li>
+            <li><a href="https://www.linkedin.com/in/sebastian-schiller-stoff-305514152/">LinkedIn</a></li>
+            <li><a target="_blank" href="https://orcid.org/0000-0001-6941-113X">ORCID</a></li>
+        </ul>
+
+      </div>
+    </div>
     </div>
 
     <div class="site-footer">
