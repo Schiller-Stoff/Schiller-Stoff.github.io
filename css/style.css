@@ -4,6 +4,12 @@
 * Author URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */
+
+html {
+  scroll-padding-top: 4rem;
+}
+
+
 body {
   font-family: "PT Mono", monospace;
   line-height: 1.6;
