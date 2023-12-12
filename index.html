@@ -53,7 +53,7 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
 
-  <a class="btn" style="position: fixed; right: 2%; top: 90%; border-radius: 5px; background: rgba(3, 137, 255, 0.2); z-index: 1000000;" id="TEST" href="contact.html">Get in touch</a>
+  <a class="btn" style="position: fixed; right: 2%; top: 90%; border-radius: 5px; background: rgba(3, 137, 255, 0.2); z-index: 1000000;" id="TEST" href="index.html#contact-section">Get in touch</a>
 
   <div class="lines-wrap">
     <div class="lines-inner">
@@ -70,7 +70,7 @@
     <div class="site-mobile-menu-body"></div>
   </div>
   
-  <nav style="position: fixed; background: white; box-shadow: 1px 1px 5px 2px whitesmoke; z-index: 100000000;" class="site-nav dark mb-5 site-navbar-target">
+  <nav style="position: fixed; background: white; box-shadow: 1px 1px 3px 1px whitesmoke; z-index: 100000000;" class="site-nav dark mb-5 site-navbar-target">
     <div class="container">
       <div class="site-navigation">
         <a href="index.html" class="logo m-0">Schiller-Stoff BBA MMMA<span class="text-primary">.</span></a>
@@ -303,47 +303,40 @@
       <div class="portfolio-wrapper">
 
         <div id="posts" class="row">
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-            <a target="_blank" href="https://gams.uni-graz.at/derla" class="portfolio-item isotope-item gsap-reveal-img" data-id="1">
-              <div class="overlay">
-                <span class="wrap-icon icon-link2"></span>
-                <div class="portfolio-item-content">
-                  <h3>DERLA - Digitale Erinnerungslandschaft</h3>
-                  <p>digital edition, 22.09.2022</p>
-                </div>
-              </div>
-              <img src="images/portfolio/01_portfolio_derla.png" class="lazyload img-fluid border" alt="Images" />
+          
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <a class="text-black" target="_blank" href="https://gams.uni-graz.at/derla">
+              <p style="font-weight: 600;">DERLA - Digitale Erinnerungslandschaft</p>
+              <hr/>
+              <span class="isotope-item gsap-reveal-img" data-id="1">
+                <img src="images/portfolio/01_portfolio_derla.png" class="lazyload img-fluid" alt="Images" />
+              </span>
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-            <a target="_blank" href="https://gams.uni-graz.at/derla" class="portfolio-item isotope-item gsap-reveal-img" data-id="2">
-              <div class="overlay">
-                <span class="wrap-icon icon-link2"></span>
-                <div class="portfolio-item-content">
-                  <h3>LIPFA - Literaturpfade-Doku</h3>
-                  <p>digital edition, 01.03.2023</p>
-                </div>
-              </div>
-              <img src="images/portfolio/02_portfolio_lipfa.png" class="lazyload  img-fluid border" alt="Images" />
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <a class="text-black" target="_blank" href="https://gams.uni-graz.at/lipfa">
+              <p style="font-weight: 600;">LIPFA - Literaturpfade-Doku</p>
+              <hr/>
+              <span class="isotope-item gsap-reveal-img" data-id="2">
+                <img src="images/portfolio/02_portfolio_lipfa.png" class="lazyload  img-fluid" alt="Images" />
+              </span>
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-            <a target="_blank" href="https://gams.uni-graz.at/archive/objects/context:konde/methods/sdef:Context/get?mode=graph" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
-              <div class="overlay">
-                <span class="wrap-icon icon-link2"></span>
-                <div class="portfolio-item-content">
-                  <h3>ZIM-Graphviz: React component library for generalized generation of networks (e.g. directed graphs or not) </h3>
-                  <p>software, 21.06.2023</p>
-                </div>
-              </div>
-              <img src="images/portfolio/03_portfolio_graphviz.png" class="lazyload  img-fluid" alt="Images" />
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <a class="text-black" target="_blank" href="https://gams.uni-graz.at/archive/objects/context:konde/methods/sdef:Context/get?mode=graph">
+              <p style="font-weight: 600;">ZIM-Graphviz: A React component library</p>
+              <hr/>
+              <span class="isotope-item gsap-reveal-img" data-id="3">
+                <img src="images/portfolio/03_portfolio_graphviz.png" class="lazyload  img-fluid" alt="Images" />
+              </span>
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">ZIM-fuzzysearch: A client side fuzzy search</p>
+            <hr/>
             <a target="_blank" href="https://gams.uni-graz.at/archive/objects/context:corema/methods/sdef:Context/get?mode=fuzzy-recipe-search#/" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -352,11 +345,13 @@
                   <p>software, 2021</p>
                 </div>
               </div>
-              <img src="images/portfolio/04_portfolio_fuzzy.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/04_portfolio_fuzzy.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">CANTUS NETWORK - A semantically enriched digital edition</p>
+            <hr/>
             <a href="https://gams.uni-graz.at/cantus" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -365,12 +360,14 @@
                   <p>digital edition, 2019</p>
                 </div>
               </div>
-              <img src="images/portfolio/05_portfolio_cantus.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/05_portfolio_cantus.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">ReInHerit Digital Hub</p>
+            <hr/>
             <a href="https://reinherit-hub.eu/" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="1">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -379,11 +376,13 @@
                   <p>web portal, 15.07.2022</p>
                 </div>
               </div>
-              <img src="images/portfolio/06_portfolio_reinherit.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/06_portfolio_reinherit.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">NAMPI - Nuns and Monks: Prosopographical Interfaces</p>
+            <hr/>
             <a href="https://data.nampi.icar-us.eu/" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="2">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -392,11 +391,13 @@
                   <p>digital edition, 2022</p>
                 </div>
               </div>
-              <img src="images/portfolio/07_portfolio_nampi.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/07_portfolio_nampi.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">GIS - Map of remembrance</p>
+            <hr/>
             <a href="https://gams.uni-graz.at/context:derlageo/sdef:Context/get?locale=de&mode=map" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -405,11 +406,13 @@
                   <p>research software, 2021</p>
                 </div>
               </div>
-              <img src="images/portfolio/08_portfolio_derlamap.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/08_portfolio_derlamap.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">GIS-tool: Integration services</p>
+            <hr/>
             <a href="https://gams.uni-graz.at/archive/objects/o:derla.geobrowsertut/methods/sdef:TEI/get?locale=de" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -418,11 +421,13 @@
                   <p>software, 2021</p>
                 </div>
               </div>
-              <img src="images/portfolio/09_portfolio_derlageobrowser.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/09_portfolio_derlageobrowser.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">Facet-drilldown: A client side reusable filter seach</p>
+            <hr/>
             <a href="https://doi.org/10.5281/zenodo.10342768" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -431,11 +436,13 @@
                   <p>software, 2023</p>
                 </div>
               </div>
-              <img src="images/portfolio/10_portfolio_drilldown.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/10_portfolio_drilldown.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">ZIM-GAMS-hooks</p>
+            <hr/>
             <a href="https://www.npmjs.com/package/zim-gamshooks" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -444,11 +451,13 @@
                   <p>software, 2021</p>
                 </div>
               </div>
-              <img src="images/portfolio/11_portfolio_zimgamshooks.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/11_portfolio_zimgamshooks.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
+            <p style="font-weight: 600;">Bock cli-tool</p>
+            <hr/>
             <a href="https://doi.org/10.5281/zenodo.10357244" target="_blank" class="portfolio-item isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -457,7 +466,7 @@
                   <p>software, branding</p>
                 </div>
               </div>
-              <img src="images/portfolio/12_portfolio_bock.png" class="lazyload  img-fluid border" alt="Images" />
+              <img src="images/portfolio/12_portfolio_bock.png" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
