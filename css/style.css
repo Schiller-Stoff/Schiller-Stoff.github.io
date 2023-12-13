@@ -25,6 +25,15 @@ html {
   #portfolio-image {
     margin-top: 3em;
   }
+  /* I want to hide all .item elements except the first three in the #portfolio-section  */
+  #portfolio-section .item:nth-child(n+5) {
+    display: none;
+  }
+
+  #teaching-section-real .item:nth-child(n+5){
+    display: none;
+  }
+
 }
 
 @media only screen and (max-width: 400px) {
