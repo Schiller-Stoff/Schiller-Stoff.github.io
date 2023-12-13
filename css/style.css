@@ -9,6 +9,17 @@ html {
   scroll-padding-top: 4rem;
 }
 
+.item:hover {
+  transform: scale(1.15);
+  background: white;
+  opacity: 1;
+  z-index: 100000;
+}
+
+.item {
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
 
 body {
   font-family: "PT Mono", monospace;
@@ -640,7 +651,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 .item {
   border: none;
-  margin-bottom: 30px;
+  /* margin-bottom: 10px; */
   border-radius: 4px; }
   .item a {
     display: block;
