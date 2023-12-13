@@ -20,6 +20,19 @@ html {
   transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
 
+/* I need a media query that only applies css to screen sizes below 400 pixels width */
+@media only screen and (max-width: 770px) {
+  #portfolio-image {
+    margin-top: 3em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #portfolio-image {
+    margin-top: 5em;
+  }
+}
+
 
 body {
   font-family: "PT Mono", monospace;
