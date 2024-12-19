@@ -38,6 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
+  
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -49,6 +50,10 @@
   <link rel="stylesheet" href="css/style.css">
 
   <title>Sebastian David Schiller-Stoff</title>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
@@ -122,11 +127,13 @@
         <div class="col-md-7">
           <img id="portfolio-image" src="https://avatars.githubusercontent.com/u/34453177?v=4" width="200" style="border-radius:50%;"/>
           <!-- <img src="images/svg/logo.svg" width="150"/> -->
-          <a href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank"><span style="padding: .25em; border-radius: 50px; background: whitesmoke;" class="icon-linkedin"></span></a>
-          <div style="margin-top:.5em; margin-bottom: .5em;">
-            <a href="https://orcid.org/0000-0001-6941-113X" target="_blank"><span style="padding: .25em; border-radius: 50px; background: whitesmoke;"><b>orcID</b></span></a>
-            <a href="https://scholar.google.com/citations?user=9bPF984AAAAJ&hl=en" target="_blank"><span style="padding: .25em; border-radius: 50px; background: whitesmoke;"><b>scholar</b></span></a>
-            <a style="display: none;" href="https://g.co/kgs/5Jpd72E" target="_blank"><span style="padding: .25em; border-radius: 50px; background: whitesmoke;" class="icon-google"></span></a>
+          
+          <div class="bg-light p-2 mb-4" style="margin-top:.5em;">
+            <a href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="LinkedIn"><span><i class="fa-brands fa-linkedin fa-xl"></i></span></a>
+            <a href="https://scholar.google.com/citations?user=9bPF984AAAAJ&hl=en" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Google Scholar"><span><i class="fa-brands fa-google-scholar fa-xl"></i></span></a>
+            <a href="https://orcid.org/0000-0001-6941-113X" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="ORCID"><span><i class="fa-brands fa-orcid fa-xl"></i></span></a>
+            <a href="https://www.researchgate.net/profile/Sebastian-Schiller-Stoff" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Researchgate"><span><i class="fa-brands fa-researchgate fa-xl"></i></span></a>
+            <a href="https://g.co/kgs/5Jpd72E" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Google knowledge tab"><span><i class="fa-solid fa-window-maximize fa-xl"></i></span></a>
           </div>
           <h1 class="heading mb-3"><strong>Sebastian David Schiller-Stoff</strong></h1>
           <h2 class="subheading gsap-reveal-hero mb-4">
@@ -1255,6 +1262,14 @@
 
 
     <script src="js/custom.js"></script>
+
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+    </script>
     
   </body>
 
