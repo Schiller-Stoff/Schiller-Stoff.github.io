@@ -627,5 +627,98 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
+  document.addEventListener('DOMContentLoaded', function() {
+	// Portfolio filtering
+	const filterBtns = document.querySelectorAll('.filter-btn');
+	const portfolioItems = document.querySelectorAll('.portfolio-item');
+	
+	// Initially show only first 9 items
+	const itemsToShow = 9;
+	portfolioItems.forEach((item, index) => {
+	  if (index >= itemsToShow) {
+		item.style.display = 'none';
+	  }
+	});
+	
+	// Load more functionality
+	const loadMoreBtn = document.getElementById('load-more');
+	if (loadMoreBtn) {
+	  loadMoreBtn.addEventListener('click', function() {
+		let visibleCount = 0;
+		
+		portfolioItems.forEach(item => {
+		  if (item.style.display !== 'none') {
+			visibleCount++;
+		  }
+		});
+		
+		// Show next batch of items
+		portfolioItems.forEach((item, index) => {
+		  if (index >= visibleCount && index < visibleCount + itemsToShow) {
+			item.style.display = 'block';
+			setTimeout(() => {
+			  item.classList.add('show');
+			}, 50 * (index - visibleCount));
+		  }
+		});
+		
+		// Hide load more if all items are visible
+		if (visibleCount + itemsToShow >= portfolioItems.length) {
+		  loadMoreBtn.style.display = 'none';
+		}
+	  });
+	}
+	
+	// Filtering functionality
+	filterBtns.forEach(btn => {
+	  btn.addEventListener('click', function() {
+		// Remove active class from all buttons
+		filterBtns.forEach(b => b.classList.remove('active'));
+		
+		// Add active class to current button
+		this.classList.add('active');
+		
+		const filterValue = this.getAttribute('data-filter');
+		let visibleCount = 0;
+		
+		// Show/hide portfolio items based on filter
+		portfolioItems.forEach(item => {
+		  // Reset
+		  item.classList.remove('show');
+		  item.style.display = 'none';
+		  
+		  if (filterValue === 'all' || item.classList.contains(filterValue)) {
+			if (visibleCount < itemsToShow) {
+			  item.style.display = 'block';
+			  setTimeout(() => {
+				item.classList.add('show');
+			  }, 50 * visibleCount);
+			  visibleCount++;
+			}
+		  }
+		});
+		
+		// Show/hide load more button based on filtered items
+		if (visibleCount < getFilteredItemsCount(filterValue)) {
+		  loadMoreBtn.style.display = 'inline-block';
+		} else {
+		  loadMoreBtn.style.display = 'none';
+		}
+	  });
+	});
+	
+	// Helper function to count filtered items
+	function getFilteredItemsCount(filter) {
+	  let count = 0;
+	  portfolioItems.forEach(item => {
+		if (filter === 'all' || item.classList.contains(filter)) {
+		  count++;
+		}
+	  });
+	  return count;
+	}
+  });
+
+
 
 
