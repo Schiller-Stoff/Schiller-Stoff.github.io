@@ -1977,3 +1977,138 @@ nav a.active-section:after {
     font-size: 14px;
   }
 }
+
+
+/* Add this CSS for timeline */
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: #eee;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0389ff;
+  z-index: 1;
+  box-shadow: 0 0 0 4px rgba(3, 137, 255, 0.2);
+}
+
+.timeline-date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(50% - 30px);
+  text-align: right;
+  padding-right: 30px;
+  font-weight: 700;
+  color: #0389ff;
+}
+
+.timeline-content {
+  position: relative;
+  margin-left: calc(50% + 30px);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: calc(50% - 30px);
+  border: 1px solid #eee;
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.timeline-location {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.timeline-tags {
+  margin-top: 15px;
+}
+
+.timeline-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  background: rgba(3, 137, 255, 0.1);
+  color: #0389ff;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* Alternate timeline items */
+.timeline-item:nth-child(even) .timeline-date {
+  right: 0;
+  left: auto;
+  text-align: left;
+  padding-right: 0;
+  padding-left: 30px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 0;
+  margin-right: calc(50% + 30px);
+}
+
+/* Media queries for mobile */
+@media (max-width: 767px) {
+  .timeline:before {
+    left: 20px;
+  }
+  
+  .timeline-dot {
+    left: 20px;
+  }
+  
+  .timeline-date {
+    width: 100%;
+    text-align: left;
+    left: 50px;
+    top: -5px;
+    padding: 0;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 70px);
+    margin-left: 70px;
+    margin-top: 30px;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-date {
+    left: 50px;
+    text-align: left;
+    padding: 0;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 70px;
+    margin-right: 0;
+  }
+}
