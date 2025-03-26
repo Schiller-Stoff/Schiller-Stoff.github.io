@@ -600,6 +600,31 @@ var owlSingleSlider = function () {
 
 
 
+// Add this script to highlight the current section in navigation
+document.addEventListener('DOMContentLoaded', function() {
+	const sections = document.querySelectorAll('.untree_co-section');
+	const navLinks = document.querySelectorAll('nav a[href^="index.html#"]');
+	
+	window.addEventListener('scroll', function() {
+	  let current = '';
+	  
+	  sections.forEach(section => {
+		const sectionTop = section.offsetTop;
+		const sectionHeight = section.clientHeight;
+		if (pageYOffset >= (sectionTop - 300)) {
+		  current = section.getAttribute('id');
+		}
+	  });
+	  
+	  navLinks.forEach(link => {
+		link.classList.remove('active-section');
+		const href = link.getAttribute('href').split('#')[1];
+		if (href === current) {
+		  link.classList.add('active-section');
+		}
+	  });
+	});
+  });
 
 
 

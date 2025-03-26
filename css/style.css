@@ -1708,3 +1708,21 @@ figure.dotted-bg {
       .site-footer .social li a:hover {
         background: #36a1ff;
         color: #ffffff; }
+
+
+/* Add this CSS for the active navigation state */
+nav a.active-section {
+  position: relative;
+  color: #0389ff !important;
+  font-weight: 700 !important;
+}
+
+nav a.active-section:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #0389ff;
+}
