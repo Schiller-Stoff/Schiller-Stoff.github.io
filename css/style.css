@@ -2196,3 +2196,137 @@ nav a.active-section:after {
   border-color: #0389ff;
   box-shadow: 0 0 0 0.2rem rgba(3, 137, 255, 0.25);
 }
+
+/* Hero section styling */
+.hero-section {
+  padding: 120px 0 80px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(3, 137, 255, 0.05);
+  top: -100px;
+  right: -100px;
+  z-index: 0;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #212529;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: #495057;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #6c757d;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.award-banner {
+  display: flex;
+  align-items: center;
+  background: rgba(3, 137, 255, 0.1);
+  border-left: 4px solid #0389ff;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.award-icon {
+  color: #0389ff;
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+
+.award-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-image-container {
+  position: relative;
+  text-align: center;
+}
+
+.hero-image {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.social-link {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  color: #495057;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.social-link:hover {
+  transform: translateY(-5px);
+  color: #0389ff;
+  box-shadow: 0 5px 15px rgba(3, 137, 255, 0.2);
+}
+
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 100px 0 60px;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-text {
+    max-width: 100%;
+  }
+  
+  .hero-cta {
+    justify-content: center;
+  }
+  
+  .hero-image-container {
+    margin-top: 40px;
+  }
+}
