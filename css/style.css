@@ -2330,3 +2330,149 @@ nav a.active-section:after {
     margin-top: 40px;
   }
 }
+
+
+/* Services section styling */
+.section-services {
+  padding: 100px 0;
+  background-color: #fff;
+}
+
+.section-header {
+  margin-bottom: 50px;
+}
+
+.section-subtitle {
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0389ff;
+  background: rgba(3, 137, 255, 0.1);
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #212529;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.service-card {
+  height: 100%;
+  padding: 35px 30px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 0;
+  background: #0389ff;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover:before {
+  height: 100%;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #0389ff;
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #212529;
+}
+
+.service-description {
+  margin-bottom: 20px;
+  color: #6c757d;
+}
+
+.service-features {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  list-style-type: none;
+ }
+ 
+ .service-features li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 8px;
+  color: #495057;
+ }
+ 
+ .service-features li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0389ff;
+ }
+ 
+ .service-link {
+  display: inline-flex;
+  align-items: center;
+  color: #0389ff;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+ }
+ 
+ .service-link i {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+ }
+ 
+ .service-link:hover {
+  color: #0272d9;
+ }
+ 
+ .service-link:hover i {
+  transform: translateX(5px);
+ }
+ 
+ @media (max-width: 768px) {
+  .section-services {
+    padding: 70px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .service-card {
+    padding: 25px 20px;
+  }
+ }
