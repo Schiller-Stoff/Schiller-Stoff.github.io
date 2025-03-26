@@ -1518,27 +1518,95 @@
     <br/>
     <br/>
 
-    <div class="container untree_co-section" id="contact-section">
-      <div class="row mb-4">
-        <div class="col-lg-7 text-center mx-auto">
-          <h2 id="services" class="section-heading mb-0"><strong>Contact</strong></h2>
-          <p>Contact information.</p>
-          <div class="wave gsap-reveal-hero" >
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
+    <div class="untree_co-section" id="contact-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-lg-7 text-center mx-auto">
+            <h2 class="section-heading mb-2"><strong>Get In Touch</strong></h2>
+            <p class="mb-3">Let's discuss your project</p>
+            <div class="wave gsap-reveal-hero">
+              <svg>
+                <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-
-        <ul>
-            <li>Mail: <a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a></li>
-            <li>Phone: <a href="tel:+4367761371551">+4367761371551</a></li>
-            <li><a href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/">LinkedIn</a></li>
-            <li><a target="_blank" href="https://orcid.org/0000-0001-6941-113X">ORCID</a></li>
-            <li><a target="_blank" href="https://github.com/Schiller-Stoff">Github</a></li>
-        </ul>
-
+    
+        <div class="row">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="contact-info bg-white p-4 rounded shadow-sm h-100">
+              <h3 class="mb-4">Contact Information</h3>
+              
+              <div class="contact-item mb-3">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p><a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a></p>
+                </div>
+              </div>
+              
+              <div class="contact-item mb-3">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Phone</h4>
+                  <p><a href="tel:+4367761371551">+43 677 6137 1551</a></p>
+                </div>
+              </div>
+              
+              <div class="contact-item mb-3">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Location</h4>
+                  <p>Wegenergasse 7/2/4, 8010 Graz, Austria</p>
+                </div>
+              </div>
+              
+              <div class="contact-social mt-4">
+                <a href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank" class="social-contact-icon">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Schiller-Stoff" target="_blank" class="social-contact-icon">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://orcid.org/0000-0001-6941-113X" target="_blank" class="social-contact-icon">
+                  <i class="fa-brands fa-orcid"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <form class="contact-form bg-white p-4 rounded shadow-sm">
+              <div class="form-group mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+              
+              <div class="form-group mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+              
+              <div class="form-group mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject">
+              </div>
+              
+              <div class="form-group mb-4">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     </div>

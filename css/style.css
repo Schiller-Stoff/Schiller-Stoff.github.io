@@ -2112,3 +2112,87 @@ nav a.active-section:after {
     margin-right: 0;
   }
 }
+
+
+/* Add this CSS for contact section */
+.contact-info {
+  border: 1px solid #eee;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(3, 137, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0389ff;
+  margin-right: 15px;
+}
+
+.contact-text h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.contact-text p {
+  margin-bottom: 0;
+  color: #666;
+}
+
+.contact-text a {
+  color: #666;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-text a:hover {
+  color: #0389ff;
+}
+
+.social-contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f8f9fa;
+  color: #555;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-contact-icon:hover {
+  background: #0389ff;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.contact-form {
+  border: 1px solid #eee;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.form-control {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  border-color: #0389ff;
+  box-shadow: 0 0 0 0.2rem rgba(3, 137, 255, 0.25);
+}
