@@ -1503,25 +1503,28 @@
           </div>
           
           <div class="col-md-6">
-            <form class="contact-form bg-white p-4 rounded shadow-sm">
+            <form
+              action="https://formspree.io/f/myzepvjv"
+              method="POST"
+              class="contact-form bg-white p-4 rounded shadow-sm">
               <div class="form-group mb-3">
                 <label for="name" class="form-label">Your Name</label>
-                <input type="text" class="form-control" id="name" required>
+                <input name="name" type="text" class="form-control" id="name" required>
               </div>
               
               <div class="form-group mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" required>
+                <input name="email" type="email" class="form-control" id="email" required>
               </div>
               
               <div class="form-group mb-3">
                 <label for="subject" class="form-label">Subject</label>
-                <input type="text" class="form-control" id="subject">
+                <input name="subject" type="text" class="form-control" id="subject">
               </div>
               
               <div class="form-group mb-4">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="5" required></textarea>
+                <textarea name="message" class="form-control" id="message" rows="5" required></textarea>
               </div>
               
               <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
