@@ -1726,3 +1726,51 @@ nav a.active-section:after {
   height: 2px;
   background: #0389ff;
 }
+
+
+/* Add this CSS for improved hero section */
+.social-icon {
+  display: inline-block;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: #0389ff;
+}
+
+.award-banner {
+  transition: all 0.3s ease;
+}
+
+.award-banner:hover {
+  background: rgba(3, 137, 255, 0.2) !important;
+}
+
+.cta-buttons .btn {
+  transition: all 0.3s ease;
+}
+
+.cta-buttons .btn-primary {
+  background: #0389ff;
+  border-color: #0389ff;
+  font-weight: 600;
+}
+
+.cta-buttons .btn-primary:hover {
+  background: #0272d9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(3, 137, 255, 0.2);
+}
+
+.cta-buttons .btn-outline-secondary {
+  color: #333;
+  border-color: #ddd;
+  font-weight: 600;
+}
+
+.cta-buttons .btn-outline-secondary:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+}
