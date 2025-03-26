@@ -1774,3 +1774,55 @@ nav a.active-section:after {
   background: #f8f9fa;
   transform: translateY(-2px);
 }
+
+/* Add this CSS for service cards */
+.service-card {
+  background: white;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+  border-color: #e0e0e0;
+}
+
+.service-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 0;
+  background: #0389ff;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover:before {
+  height: 100%;
+}
+
+.service-icon {
+  color: #0389ff;
+}
+
+.service-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.service-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #0389ff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.service-link:hover {
+  transform: translateX(5px);
+}
