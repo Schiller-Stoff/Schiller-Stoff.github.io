@@ -2670,3 +2670,13 @@ nav a.active-section:after {
     border-bottom: none;
   }
 }
+
+
+@media (max-width: 990px) {
+
+  .hero-title {
+    margin-top: 2em;
+  }
+
+
+}
