@@ -105,7 +105,7 @@ a.text-primary {
     color: #0389ff !important; }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
   color: #dddde6; }
 
 .btn {
@@ -2580,8 +2580,8 @@ nav a.active-section:after {
 }
 
 .hero-image {
-  width: 280px;
-  height: 280px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   border: 5px solid white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);

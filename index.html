@@ -50,6 +50,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/custom-styles.css">
 
+  <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
   <title>Sebastian David Schiller-Stoff</title>
 
 
@@ -126,26 +128,40 @@
         <div class="col-lg-6">
           <h1 class="hero-title">Transforming Ideas Into <span class="text-primary">Digital Reality</span></h1>
           <h2 class="hero-subtitle">Award-winning software solutions by Sebastian David Schiller-Stoff</h2>
-          <p class="hero-text">I build robust, scalable web applications and AI-powered tools that solve real business problems. Specialized in full-stack development and digital transformation.</p>
+          <!-- <p class="hero-text">I build robust, scalable web applications and AI-powered tools that solve real business problems. Specialized in full-stack development and digital transformation.</p> -->
           
-          <div class="award-banner">
+          <!-- Element to contain animated typing -->
+          <p style="min-height: 20vh;"><span id="element"></span></p>
+
+          <!-- Load library from the CDN -->
+          <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+          <!-- Setup and start animation! -->
+          <script>
+            var typed = new Typed('#element', {
+              strings: ['<span class="hero-text">I build robust, scalable web applications and AI-powered tools that solve real business problems. Specialized in full-stack development and digital transformation.</span>'],
+              typeSpeed: 50,
+            });
+          </script>
+
+          <!-- <div class="award-banner">
             <div class="award-icon"><i class="fa-solid fa-award"></i></div>
             <div class="award-content">
               <strong>2024 Austrian State Prize Winner</strong>
               <span>For innovations in digital history (DERLA project)</span>
             </div>
-          </div>
+          </div> -->
           
-          <div class="hero-cta">
+          <!-- <div class="hero-cta">
             <a href="#portfolio-section" class="btn btn-primary btn-lg">View My Work</a>
             <a href="#contact-section" class="btn btn-outline-secondary btn-lg">Get In Touch</a>
-          </div>
+          </div> -->
         </div>
         
         <div class="col-lg-6">
           <div class="hero-image-container">
-            <img src="images/profile/profile.png" onmouseover="this.src='images/profile/02_old_profile.jpg';" onmouseout="this.src='images/profile/02_old_profile.jpg';" class="hero-image" alt="Sebastian David Schiller-Stoff">
-            <p><small>(Hover for real photo)</small></p>
+            <img src="images/profile/03_profile_new.jpg" onmouseover="this.src='images/profile/profile.png';" onmouseout="this.src='images/profile/03_profile_new.jpg';" class="hero-image" alt="Sebastian David Schiller-Stoff">
+            <p><small>(Hover for anime)</small></p>
             <div class="social-links">
               <a href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
               <a href="https://scholar.google.com/citations?user=9bPF984AAAAJ&hl=en" target="_blank" class="social-link"><i class="fa-brands fa-google-scholar"></i></a>
@@ -392,7 +408,7 @@
           <div class="tab-content case-content" id="case-study-content">
             <!-- Case Study 1 -->
             <div class="tab-pane fade show active" id="derla" role="tabpanel" aria-labelledby="derla-tab">
-              <div class="row align-items-center">
+              <div class="row">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                   <div class="case-study-image">
                     <img src="images/portfolio/01_portfolio_derla.png" alt="DERLA Project" class="img-fluid rounded shadow">
@@ -441,7 +457,7 @@
             
             <!-- Additional case studies could go here -->
             <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
-              <div class="row align-items-center">
+              <div class="row">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                   <div class="case-study-image">
                     <img src="images/portfolio/13_derla_book.png" alt="Erinnerungskultur im digitalen Wandel" class="img-fluid rounded shadow">
@@ -490,7 +506,7 @@
 
              <!-- Case Study 2 -->
        <div class="tab-pane fade" id="graphviz" role="tabpanel" aria-labelledby="graphviz-tab">
-        <div class="row align-items-center">
+        <div class="row">
           <div class="col-lg-6 mb-4 mb-lg-0">
             <div class="case-study-image">
               <img src="images/portfolio/03_portfolio_graphviz.png" alt="ZIM-Graphviz Library" class="img-fluid rounded shadow">
@@ -539,7 +555,7 @@
       
       <!-- Case Study 3 -->
           <div class="tab-pane fade" id="reinherit" role="tabpanel" aria-labelledby="reinherit-tab">
-            <div class="row align-items-center">
+            <div class="row">
               <div class="col-lg-6 mb-4 mb-lg-0">
                 <div class="case-study-image">
                   <img src="images/portfolio/06_portfolio_reinherit.png" alt="ReInHerit Digital Hub" class="img-fluid rounded shadow">
