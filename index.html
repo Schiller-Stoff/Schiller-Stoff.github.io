@@ -50,6 +50,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/custom-styles.css">
 
+  <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
   <title>Sebastian David Schiller-Stoff</title>
 
 
@@ -126,8 +128,22 @@
         <div class="col-lg-6">
           <h1 class="hero-title">Transforming Ideas Into <span class="text-primary">Digital Reality</span></h1>
           <h2 class="hero-subtitle">Award-winning software solutions by Sebastian David Schiller-Stoff</h2>
-          <p class="hero-text">I build robust, scalable web applications and AI-powered tools that solve real business problems. Specialized in full-stack development and digital transformation.</p>
+          <!-- <p class="hero-text">I build robust, scalable web applications and AI-powered tools that solve real business problems. Specialized in full-stack development and digital transformation.</p> -->
           
+          <!-- Element to contain animated typing -->
+          <p style="min-height: 20vh;"><span id="element"></span></p>
+
+          <!-- Load library from the CDN -->
+          <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+          <!-- Setup and start animation! -->
+          <script>
+            var typed = new Typed('#element', {
+              strings: ['<span class="hero-text">I build robust, scalable web applications and AI-powered tools that solve real business problems. Specialized in full-stack development and digital transformation.</span>'],
+              typeSpeed: 50,
+            });
+          </script>
+
           <!-- <div class="award-banner">
             <div class="award-icon"><i class="fa-solid fa-award"></i></div>
             <div class="award-content">
@@ -136,10 +152,10 @@
             </div>
           </div> -->
           
-          <div class="hero-cta">
+          <!-- <div class="hero-cta">
             <a href="#portfolio-section" class="btn btn-primary btn-lg">View My Work</a>
             <a href="#contact-section" class="btn btn-outline-secondary btn-lg">Get In Touch</a>
-          </div>
+          </div> -->
         </div>
         
         <div class="col-lg-6">
