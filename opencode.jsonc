@@ -13,6 +13,10 @@
       "mode": "all",
       "model": "dhinfra/deepseek-v4.1-flash",
       "steps": 8
+    },
+    "developer": {
+      "mode": "all",
+      "model": "google/gemini-3.1-flash-lite"
     }
   },
 
@@ -22,6 +26,17 @@
   },
 
   "model": "dhinfra/deepseek-v4.1-flash",
+
+  "providers": {
+    "google": {
+      "settings":{
+        "apiKey": "{env:GEMINI_API_KEY}"
+      }
+    },
+    "openai": {
+      "apiKey": "{env:OPEN_AI_API_KEY}"
+    }
+  },
 
   "provider": {
     "dhinfra": {
@@ -36,7 +51,8 @@
           "name": "DHINFRA-SEEK"
         }
       }
-    }
+    },
+
   },
 
   "autoupdate": false,
