@@ -1,1627 +1,1503 @@
-<!-- /*
-* Template Name: Minimal
-* Template Author: Untree.co
-* Author URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns# dc: http://purl.org/dc/terms schema_org: https://schema.org/">
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Sebastian David Schiller-Stoff — Digital Humanities &amp; Research Software</title>
+  <meta name="description" content="Sebastian David Schiller-Stoff (Sebastian Stoff) is a digital humanist and research software engineer at the University of Graz, building digital archives, editions and tools for cultural knowledge.">
   <meta name="author" content="Sebastian David Schiller-Stoff">
-  <meta name="author" content="Sebastian Stoff">
-  <meta property="og:description" name="description" content="Sebastian David Schiller-Stoff (Sebastian Stoff). Digital humanist specialised in research software engineering and digital archiving at ZIM University of Graz." />
-  <meta property="og:locale" content="en-us" />
-  <meta property="og:author" name="author" content="Sebastian David Schiller-Stoff" />
-  <meta property="og:author" name="author" content="Sebastian Stoff" />
-  <meta property="dc:creator" name="author" content="Sebastian David Schiller-Stoff" />
-  <meta property="dc:creator" name="author" content="Sebastian Stoff" />
-  <meta property="og:url" content="stoff-sebi.github.io"/>
-  <meta property="og:type" content="website" />
-  <meta property="dc:type" content="website" />
-  <meta name="description" content="Sebastian David Schiller-Stoff (Sebastian Stoff). Digital humanist specialised in research software engineering and digital archiving at DDH (former: ZIM) University of Graz." />
-  <meta name="keywords" content="Digital Humanities, Web Development, Software Development, Geographical Information Systems (GIS), Digital Editions, Linked Data, Frontend Development, Economic History, Art History, Natural Language Processing (NLP), History, GIS, HGIS, Semantic Web, Information Design, Information Modelling, Web Engineering, Search Engine Optimization (SEO), Data Science, Digital Archives, Cultural Heritage, Web of Data, Web 2.0, Knowledge Engineering, AI" />
-  <meta name="schema_org:keywords" content="Digital Humanities, Web Development, Software Development, Geographical Information Systems (GIS), Digital Editions, Linked Data, Frontend Development, Economic History, Art History, Natural Language Processing (NLP), History, GIS, HGIS, Semantic Web, Information Design, Information Modelling, Web Engineering, Search Engine Optimization (SEO), Data Science, Digital Archives, Cultural Heritage, Web of Data, Web 2.0, Knowledge Engineering, AI" />
-  <meta name="twitter:title" content="Sebastian David Schiller-Stoff" />
-  <meta name="twitter:description" content="Sebastian David Schiller-Stoff (Sebastian Stoff). Digital humanist specialised in research software engineering and digital archiving at DDH (former: ZIM) University of Graz." />
-  <meta typeof="schema_org:Website" />
-  <meta property="schema_org:title" content="Sebastian David Schiller-Stoff" />
-  <meta property="schema_org:description" content="Sebastian David Schiller-Stoff (Sebastian Stoff). Digital humanist specialised in research software engineering and digital archiving at DDH (former: ZIM) University of Graz." />
-  <title property="og:title" lang="en-us">Sebastian David Schiller-Stoff</title>
-  <title property="og:site_name" lang="en-us">Sebastian David Schiller-Stoff</title>
-  <meta property="dc:title" lang="en-us" content="Sebastian David Schiller-Stoff"/>
-  <meta property="dc:description" lang="en-us" content="Sebastian David Schiller-Stoff (Sebastian Stoff). Digital humanist specialised in research software engineering and digital archiving at DDH (former: ZIM) University of Graz."/>
+  <meta name="keywords" content="Digital Humanities, Research Software Engineering, Digital Archives, Digital Editions, Linked Data, Semantic Web, GIS, Data Visualisation, AI, LLM workflows, Cultural Heritage, University of Graz">
+  <link rel="icon" href="favicon.png" type="image/png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
-  
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Sebastian David Schiller-Stoff — Digital Humanities &amp; Research Software">
+  <meta property="og:description" content="Digital humanist and research software engineer building archives, editions and tools for cultural knowledge.">
+  <meta property="og:url" content="https://schiller-stoff.github.io/">
+  <meta property="og:site_name" content="Sebastian David Schiller-Stoff">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sebastian David Schiller-Stoff">
+  <meta name="twitter:description" content="Digital humanist and research software engineer building archives, editions and tools for cultural knowledge.">
+  <meta name="dc:creator" content="Sebastian David Schiller-Stoff">
+  <meta name="dc:title" lang="en" content="Sebastian David Schiller-Stoff">
+  <meta name="dc:description" lang="en" content="Digital humanist and research software engineer at the University of Graz.">
+  <meta name="schema_org:title" content="Sebastian David Schiller-Stoff">
+  <meta name="schema_org:description" content="Digital humanist and research software engineer at the University of Graz.">
+  <meta name="schema_org:keywords" content="Digital Humanities, Research Software Engineering, Digital Archives, Digital Editions, Linked Data, Semantic Web, GIS, AI">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="css/aos.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" href="fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/custom-styles.css">
 
-  <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+  <script>document.documentElement.classList.add('js');</script>
 
-  <title>Sebastian David Schiller-Stoff</title>
+  <noscript>
+    <style>
+      .filters,
+      .work-more {
+        display: none;
+      }
 
+      @media (max-width: 900px) {
+        .site-header {
+          position: static;
+          height: auto;
+          border-bottom-color: var(--line);
+        }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        .nav {
+          height: auto;
+          flex-wrap: wrap;
+          padding-block: 12px;
+        }
 
+        .nav-toggle {
+          display: none;
+        }
+
+        .nav__menu {
+          position: static;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 10px;
+          padding: 12px 0 4px;
+          overflow: visible;
+          border: 0;
+          background: transparent;
+          box-shadow: none;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+        }
+
+        .nav__links {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 14px;
+        }
+
+        .nav__link {
+          padding-block: 4px;
+          border: 0;
+        }
+
+        .nav__cta {
+          margin-top: 0;
+        }
+
+        .hero {
+          padding-top: 52px;
+        }
+      }
+    </style>
+  </noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sebastian David Schiller-Stoff",
+    "alternateName": "Sebastian Stoff",
+    "jobTitle": "Senior Developer (Full-Stack Engineer)",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Department of Digital Humanities, University of Graz"
+    },
+    "url": "https://schiller-stoff.github.io/",
+    "email": "mailto:sebi.stoff@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wegenergasse 7/2/4",
+      "postalCode": "8010",
+      "addressLocality": "Graz",
+      "addressCountry": "AT"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/",
+      "https://scholar.google.com/citations?user=9bPF984AAAAJ&hl=en",
+      "https://orcid.org/0000-0001-6941-113X",
+      "https://github.com/Schiller-Stoff"
+    ],
+    "knowsAbout": [
+      "Digital Humanities",
+      "Research Software Engineering",
+      "Digital Archives",
+      "Digital Editions",
+      "Linked Data",
+      "Geographic Information Systems",
+      "Artificial Intelligence"
+    ]
+  }
+  </script>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <a class="btn" style="position: fixed; right: 2%; top: 90%; border-radius: 5px; background: #d6e8ff; z-index: 1000000;" id="TEST" href="index.html#contact-section">Get in touch</a>
+  <!-- Icon sprite -->
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12h15M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4v15M6 13l6 6 6-6"/>
+    </symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 17 17 7M8 7h9v9"/>
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="2"/>
+      <path d="m3 7 9 6 9-6"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.5 3h-2A1.5 1.5 0 0 0 3 4.6C3 13 11 21 19.4 21a1.5 1.5 0 0 0 1.6-1.5v-2a1.5 1.5 0 0 0-1.2-1.5l-2.7-.6a1.5 1.5 0 0 0-1.5.6l-.9 1.2a14.6 14.6 0 0 1-5.9-5.9l1.2-.9a1.5 1.5 0 0 0 .6-1.5l-.6-2.7A1.5 1.5 0 0 0 6.5 3Z"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11Z"/>
+      <circle cx="12" cy="10" r="2.6"/>
+    </symbol>
+    <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="9" r="5.5"/>
+      <path d="M8.3 13.6 7 22l5-2.6L17 22l-1.3-8.4"/>
+    </symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/>
+    </symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="5" rx="1"/>
+      <path d="M5 9v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9M10 13h4"/>
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/>
+      <path d="M4 19a2 2 0 0 1 2-2h14M8 7h8"/>
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>
+      <circle cx="12" cy="12" r="2.4"/>
+    </symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="13" rx="2"/>
+      <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/>
+    </symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m2 9 10-5 10 5-10 5L2 9Z"/>
+      <path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 7h16M4 12h16M4 17h16"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 6 12 12M18 6 6 18"/>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+    </symbol>
+    <symbol id="i-orcid" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0ZM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947Zm-.722 3.038h1.444v10.041H6.647V7.416Zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416Zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222Z"/>
+    </symbol>
+  </svg>
 
-  <div class="lines-wrap">
-    <div class="lines-inner">
-      <div class="lines"></div>
-    </div>
-  </div>
+  <header class="site-header" data-header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Sebastian David Schiller-Stoff — back to top">
+        Sebastian Stoff<span class="brand__dot">.</span>
+        <span class="brand__long">Digital Humanities</span>
+      </a>
 
-  <div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close">
-        <span class="icofont-close js-menu-toggle"></span>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+        <span class="visually-hidden">Toggle navigation</span>
+        <svg class="icon nav-toggle__open" aria-hidden="true"><use href="#i-menu"></use></svg>
+        <svg class="icon nav-toggle__close" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+
+      <div class="nav__menu" id="site-menu" data-nav-menu>
+        <nav class="nav__links" aria-label="Primary">
+          <a class="nav__link" href="#services-section">Services</a>
+          <a class="nav__link" href="#case-studies-section">Case studies</a>
+          <a class="nav__link" href="#portfolio-section">Portfolio</a>
+          <a class="nav__link" href="#teaching-section">Teaching</a>
+          <a class="nav__link" href="#cv-section">CV</a>
+          <a class="nav__link" href="#imprint-section">Imprint</a>
+        </nav>
+        <a class="btn btn--primary nav__cta" href="#contact-section">
+          Get in touch
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+        </a>
       </div>
     </div>
-    <div class="site-mobile-menu-body"></div>
-  </div>
-  
-  <nav style="position: fixed; background: white; box-shadow: 1px 1px 3px 1px whitesmoke; z-index: 100000000;" class="site-nav dark mb-5 site-navbar-target">
-    <div class="container">
-      <div class="site-navigation">
-        <a href="index.html" class="logo m-0">Sebastian David Schiller-Stoff<span class="text-primary">.</span></a>
-        <span style="float: right; margin-top:.5em;">
-          <a href="index.html#services-section" style="margin-right: 1em; font-weight: 600;">Services</a>
-          <!-- <a href="index.html#pricing" style="margin-right: 1em; font-weight: 600;">Pricing</a> -->
-          <a href="index.html#portfolio-section" style="margin-right: 1em;font-weight: 600;">Portfolio</a>
-          <a href="index.html#teaching-section" style="margin-right: 1em;font-weight: 600;">Teaching</a>
-          <a href="index.html#cv-section" style="margin-right: 1em;font-weight: 600;">CV</a>
-          <a href="index.html#imprint-section" style="margin-right: 1em;font-weight: 600;">Imprint</a>
-          <a href="index.html#contact-section" style="margin-right: 1em;font-weight: 600;">Contact</a>
-        </span>
-        
-        
-        <!-- <ul class="js-clone-nav d-none d-lg-inline-none site-menu float-right site-nav-wrap">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="index.html#services" class="nav-link">Services</a></li>
-          <li><a href="index.html#cv-section" class="nav-link">CV</a></li>
-          <li><a href="workshops.html" class="nav-link">Workshops and Presentations</a></li>
-          <li><a href="imprint.html" class="nav-link">Imprint</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="has-children">
-            <ul class="dropdown">
-              <li><a href="elements.html" class="nav-link">Elements</a></li>
-              <li class="has-children">
-                <a href="#">Menu Two</a>
-                <ul class="dropdown">
-                  <li><a href="#" class="nav-link">Sub Menu One</a></li>
-                  <li><a href="#" class="nav-link">Sub Menu Two</a></li>
-                  <li><a href="#" class="nav-link">Sub Menu Three</a></li>
-                </ul>
-              </li>
-              <li><a href="#" class="nav-link">Menu Three</a></li>
-            </ul>
-          </li>
-        </ul> -->
-        <!-- <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-inline-block" data-toggle="collapse" data-target="#main-navbar">
-          <span></span>
-        </a> -->
-      </div>
-    </div>
-  </nav>
+  </header>
 
-  <div class="hero-section" id="home-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <h1 class="hero-title">Transforming Ideas Into <span class="text-primary">Digital Reality</span></h1>
-          <h2 class="hero-subtitle">Award-winning software solutions by Sebastian David Schiller-Stoff</h2>
-          <!-- <p class="hero-text">I build robust, scalable web applications and AI-powered tools that solve real business problems. Specialized in full-stack development and digital transformation.</p> -->
-          
-          <!-- Element to contain animated typing -->
-          <p style="min-height: 20vh;"><span id="element"></span></p>
-
-          <!-- Load library from the CDN -->
-          <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
-
-          <!-- Setup and start animation! -->
-          <script>
-            var typed = new Typed('#element', {
-              strings: ['<span class="hero-text">I build robust, scalable web applications and AI-powered tools that solve real business problems. Specialized in full-stack development and digital transformation.</span>'],
-              typeSpeed: 50,
-            });
-          </script>
-
-          <!-- <div class="award-banner">
-            <div class="award-icon"><i class="fa-solid fa-award"></i></div>
-            <div class="award-content">
-              <strong>2024 Austrian State Prize Winner</strong>
-              <span>For innovations in digital history (DERLA project)</span>
-            </div>
-          </div> -->
-          
-          <!-- <div class="hero-cta">
-            <a href="#portfolio-section" class="btn btn-primary btn-lg">View My Work</a>
-            <a href="#contact-section" class="btn btn-outline-secondary btn-lg">Get In Touch</a>
-          </div> -->
-        </div>
-        
-        <div class="col-lg-6">
-          <div class="hero-image-container">
-            <img src="images/profile/03_profile_new.jpg" onmouseover="this.src='images/profile/profile.png';" onmouseout="this.src='images/profile/03_profile_new.jpg';" class="hero-image" alt="Sebastian David Schiller-Stoff">
-            <p><small>(Hover for anime)</small></p>
-            <div class="social-links">
-              <a href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
-              <a href="https://scholar.google.com/citations?user=9bPF984AAAAJ&hl=en" target="_blank" class="social-link"><i class="fa-brands fa-google-scholar"></i></a>
-              <a href="https://orcid.org/0000-0001-6941-113X" target="_blank" class="social-link"><i class="fa-brands fa-orcid"></i></a>
-              <a href="https://github.com/Schiller-Stoff" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section id="services-section" class="section-services untree_co-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-subtitle">What I Do</span>
-        <h2 class="section-title">Services & Expertise</h2>
-        <p class="section-description">Specialized digital solutions to bring your vision to life and solve complex problems.</p>
-      </div>
-      
-      <div class="row mt-5">
-        <!-- Service 1 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fa-solid fa-code"></i>
-            </div>
-            <h3 class="service-title">Web Development</h3>
-            <p class="service-description">Full-stack development with React, Spring, and modern JavaScript frameworks. Building responsive, high-performance web applications.</p>
-            <ul class="service-features">
-              <li>Custom Web Applications</li>
-              <li>API Integration & Development</li>
-              <li>Progressive Web Apps (PWAs)</li>
-            </ul>
-            <a href="#contact-section" class="service-link">Discuss Your Project <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-        
-        <!-- Service 2 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fa-solid fa-sitemap"></i>
-            </div>
-            <h3 class="service-title">Digital Infrastructures</h3>
-            <p class="service-description">Designing scalable and robust software systems with clean architecture principles and modern patterns.</p>
-            <ul class="service-features">
-              <li>System Design & Planning</li>
-              <li>Microservices Architecture</li>
-              <li>Technical Decision Making</li>
-            </ul>
-            <a href="#contact-section" class="service-link">Discuss Your Project <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-        
-        <!-- Service 3 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fa-solid fa-robot"></i>
-            </div>
-            <h3 class="service-title">AI Solutions</h3>
-            <p class="service-description">Integrating AI capabilities into your applications with machine learning, NLP, and LLM-powered features.</p>
-            <ul class="service-features">
-              <li>Custom AI Implementations</li>
-              <li>LLM Integration & Fine-tuning</li>
-              <li>Data Processing Pipelines</li>
-            </ul>
-            <a href="#contact-section" class="service-link">Discuss Your Project <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-5">
-        <a href="#contact-section" class="btn btn-outline-primary">Discuss Your Requirements</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- <div class="untree_co-section pb-0" id="services-section">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col-lg-7 text-center mx-auto">
-          <h2 id="services" class="section-heading mb-0"><strong>Services</strong></h2>
-          <p>What I offer?</p>
-          <div class="wave gsap-reveal-hero" >
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-
-        <div class="col-6 col-sm-6 col-md-6 col-lg-4 mb-4">
-          <div class="service text-center">
-            <div class="gsap-reveal-hero mb-3">
-              <span class="icon-service"><img src="images/svg/service-icon-7.svg" alt="Image" class="img-fluid"></span>
-            </div>
-            <h3 class="gsap-reveal-hero">Web development</h3>
-            <p class="gsap-reveal-hero">I specialize in turning business ideas into dynamic and interactive web solutions, ensuring optimal performance and stunning user experiences.</p>
-          </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-4 mb-4">
-          <div class="service text-center">
-            <div class="gsap-reveal-hero mb-3">
-              <span class="icon-service"><img src="images/svg/service-icon-6.svg" alt="Image" class="img-fluid"></span>
-            </div>
-            <h3 class="gsap-reveal-hero">Software architecture</h3>
-            <p class="gsap-reveal-hero">Unlock your software's full potential with my meticulous approach to architecture, designing robust frameworks for scalability and adaptability.</p>
-          </div>
-        </div>
-
-        <div class="col-6 col-sm-6 col-md-6 col-lg-4 mb-4">
-          <div class="service text-center">
-            <div class="gsap-reveal-hero mb-3">
-              <span class="icon-service"><img src="images/svg/service-icon-1.svg" alt="Image" class="img-fluid"></span>
-            </div>
-            <h3 class="gsap-reveal-hero">Web Design</h3>
-            <p class="gsap-reveal-hero">Elevate your online presence with captivating and user-centric web designs that drive engagement and conversions.</p>
-          </div>
-        </div>
-
-
-        <div class="col-6 col-sm-6 col-md-6 col-lg-4 mb-4">
-          <div class="service text-center">
-            <div class="gsap-reveal-hero mb-3">
-              <span class="icon-service"><img src="images/svg/service-icon-8.svg" alt="Image" class="img-fluid"></span>
-            </div>
-            <h3 class="gsap-reveal-hero">AI enabled software development</h3>
-            <p class="gsap-reveal-hero">Step into the future with my AI-enabled software development services, integrating machine learning for smart features and unparalleled user experiences.</p>
-          </div>
-        </div>
-
-        <div class="col-6 col-sm-6 col-md-6 col-lg-4 mb-4">
-          <div class="service text-center">
-            <div class="gsap-reveal-hero mb-3">
-              <span class="icon-service"><img src="images/svg/service-icon-4.svg" alt="Image" class="img-fluid"></span>
-            </div>
-            <h3 class="gsap-reveal-hero">Search Ranking</h3>
-            <p class="gsap-reveal-hero">Outrank the competition with my strategic search ranking services, employing proven SEO techniques for higher rankings and increased organic traffic.</p>
-          </div>
-        </div>
-
-        <div class="col-6 col-sm-6 col-md-6 col-lg-4 mb-4">
-          <div class="service text-center">
-            <div class="gsap-reveal-hero mb-3">
-              <span class="icon-service"><img src="images/svg/service-icon-5.svg" alt="Image" class="img-fluid"></span>
-            </div>
-            <h3 class="gsap-reveal-hero">Data Modeling</h3>
-            <p class="gsap-reveal-hero">Turn your data into actionable insights with my expert data modeling services, designing robust architectures for informed decision-making and optimized structures.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div> -->
-  
-
-  
-  
-
-  
-
-  <div id="pricing" class="untree_co-section pb-0">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col-lg-7 text-center mx-auto">
-          <h2 class="section-heading mb-0"><strong>Pricing</strong></h2>
-          <p>Prices? Get in touch with me! I operate on the basis of <strong>individual offers</strong> tailored to your specific needs.</p>
-          <div class="wave gsap-reveal-hero" >
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="prices" class="untree_co-section pb-0">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col-lg-7 text-center mx-auto">
-          <h2 class="section-heading mb-0"><strong>Announcements</strong></h2>
-          <p>General blog posts and awards</p>
-          <div class="wave gsap-reveal-hero" >
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <div class="container-fluid bg-light p-3 m-0">
-          <p style="font-weight: 600;" class="text-center">
-            <a target="_blank" href="https://www.erinnern.at/themen/artikel/oesterreichischer-staatspreis-fuer-geschichtswissenschaften-2024-auszeichnung-fuer-das-projekt-derla-in-der-kategorie-geschichte-innovativ?fbclid=IwY2xjawF0Ul1leHRuA2FlbQIxMAABHa8A09yMHLN-ubFkAEx07AluiMcOve6y9vjlHzavKmjpT2JN6lB_-7CLCw_aem_oEPHQ0iNYt1oue8-8JWa-Q">Österreichischer Staatspreis für Geschichtswissenschaften 2024</a>
+  <main id="main">
+    <!-- ====================================================================
+         Hero
+         ==================================================================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow hero__name">Sebastian Stoff · Digital Humanities</p>
+          <h1 id="hero-title">Digital craft from research, <em>for everyone working with knowledge.</em></h1>
+          <p class="hero__lead">
+            I am a digital humanist and research software engineer at the University of Graz.
+            I build archives, editions and tools that make cultural knowledge easier to find,
+            explore and keep.
           </p>
-          <a target="_blank" href="https://www.bmbwf.gv.at/Ministerium/staatspreise-auszeichnungen/Staatspreise/stpgw.html?fbclid=IwY2xjawF0t75leHRuA2FlbQIxMAABHVdvVKf-iq0cPifAKWBxsyuw-s_5MMR5mPFKkMZKN1oXYzLaPsfiJNmpMA_aem_W4ELk97tLhuQ7nFhOYGsLQ"><img src="images/announcement/ann02.jpg" class="lazyload img-fluid" alt="Images"/></a>
-          <p><small>In 2024, I was honored with the Österreichischer Staatspreis für Geschichtswissenschaften – awarded for the project DERLA in the category 'History Innovatively'.</small></p>
-      </div>
 
-      <div class="announcements-wrapper">
-        
-        
-        
-        
-        <!-- <div id="posts" class="row">
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://www.erinnern.at/themen/artikel/oesterreichischer-staatspreis-fuer-geschichtswissenschaften-2024-auszeichnung-fuer-das-projekt-derla-in-der-kategorie-geschichte-innovativ?fbclid=IwY2xjawF0Ul1leHRuA2FlbQIxMAABHa8A09yMHLN-ubFkAEx07AluiMcOve6y9vjlHzavKmjpT2JN6lB_-7CLCw_aem_oEPHQ0iNYt1oue8-8JWa-Q">
-              <p style="font-weight: 600;">Österreichischer Staatspreis für Geschichtswissenschaften 2024</p>
-              <hr/>
-              <span class="isotope-item gsap-reveal-img" data-id="1">
-                <img src="images/announcement/announcement01.png" class="lazyload img-fluid" alt="Images" />
-              </span>
+          <div class="btn-row hero__actions">
+            <a class="btn btn--primary" href="#portfolio-section">
+              Explore my work
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg>
+            </a>
+            <a class="btn btn--outline" href="#contact-section">
+              Get in touch
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
             </a>
           </div>
 
-      
+          <p class="status">Available for research software collaborations</p>
 
-
-        </div> -->
-      </div>
-
-      <section id="case-studies-section" class="section-case-studies">
-        <div class="container">
-          <div class="section-header text-center">
-            <span class="section-subtitle">Success Stories</span>
-            <h2 class="section-title">Project Highlights</h2>
-            <p class="section-description">A closer look at some of my most successful projects and their impacts.</p>
+          <div class="social-row">
+            <span class="social-row__label">Elsewhere</span>
+            <a class="social-link" href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+            </a>
+            <a class="social-link" href="https://scholar.google.com/citations?user=9bPF984AAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+              <svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg>
+            </a>
+            <a class="social-link" href="https://orcid.org/0000-0001-6941-113X" target="_blank" rel="noopener" aria-label="ORCID">
+              <svg class="icon" aria-hidden="true"><use href="#i-orcid"></use></svg>
+            </a>
+            <a class="social-link" href="https://github.com/Schiller-Stoff" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+            </a>
           </div>
-          
-          <div class="case-study-tabs">
-            <div class="nav nav-tabs justify-content-center" id="case-study-tabs" role="tablist">
-              <a class="nav-item nav-link active" id="derla-tab" data-toggle="tab" href="#derla" role="tab" aria-controls="derla" aria-selected="true">DERLA</a>
-              <a class="nav-item nav-link" id="book-tab" data-toggle="tab" href="#book" role="tab" aria-controls="derla" aria-selected="true">DH-Book</a>
-              <a class="nav-item nav-link" id="graphviz-tab" data-toggle="tab" href="#graphviz" role="tab" aria-controls="graphviz" aria-selected="false">ZIM-Graphviz</a>
-              <a class="nav-item nav-link" id="reinherit-tab" data-toggle="tab" href="#reinherit" role="tab" aria-controls="reinherit" aria-selected="false">ReInHerit Hub</a>
-            </div>
-          </div>
-          
-          <div class="tab-content case-content" id="case-study-content">
-            <!-- Case Study 1 -->
-            <div class="tab-pane fade show active" id="derla" role="tabpanel" aria-labelledby="derla-tab">
-              <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                  <div class="case-study-image">
-                    <img src="images/portfolio/01_portfolio_derla.png" alt="DERLA Project" class="img-fluid rounded shadow">
-                    <div class="image-badge">
-                      <span><i class="fa-solid fa-award"></i> Award Winner</span>
-                    </div>
-                  </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hex-mosaic">
+            <div class="hex-row">
+              <div class="hex tint--lime">
+                <div class="hex__inner">
+                  <img src="images/portfolio/01_portfolio_derla.png" alt="" width="1133" height="975">
                 </div>
-                <div class="col-lg-6">
-                  <div class="case-study-content">
-                    <h3 class="case-title">DERLA: Digital Memorial Landscape</h3>
-                    <div class="case-meta">
-                      <span><i class="fa-solid fa-calendar"></i> 2019-2025</span>
-                      <span><i class="fa-solid fa-tag"></i> Digital Humanities</span>
-                    </div>
-                    <p class="case-description">The Digital Memorial Landscape (DERLA) project creates a comprehensive digital platform that documents Holocaust memorials across Austria. This project won the 2024 Austrian State Prize for History Sciences in the category 'History Innovatively'.</p>
-                    
-                    <h4 class="case-subtitle">My Contribution</h4>
-                    <ul class="case-features">
-                      <li>Developed the full-stack application architecture</li>
-                      <li>Implemented GIS mapping system for memorial locations</li>
-                      <li>Created searchable database with advanced filtering</li>
-                      <li>Integrated multimedia content with the archive system</li>
-                    </ul>
-                    
-                    <div class="case-results">
-                      <div class="result-item">
-                        <span class="result-number">250+</span>
-                        <span class="result-label">Memorials Documented</span>
-                      </div>
-                      <div class="result-item">
-                        <span class="result-number">15k+</span>
-                        <span class="result-label">Monthly Users</span>
-                      </div>
-                      <div class="result-item">
-                        <span class="result-number">1</span>
-                        <span class="result-label">National Award</span>
-                      </div>
-                    </div>
-                    
-                    <a href="https://gams.uni-graz.at/derla" target="_blank" class="btn btn-primary mt-4">View Full Project</a>
-                  </div>
+              </div>
+              <div class="hex tint--blue">
+                <div class="hex__inner">
+                  <img src="images/portfolio/06_portfolio_reinherit.png" alt="" width="1628" height="922">
                 </div>
               </div>
             </div>
-            
-            <!-- Additional case studies could go here -->
-            <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
-              <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                  <div class="case-study-image">
-                    <img src="images/portfolio/13_derla_book.png" alt="Erinnerungskultur im digitalen Wandel" class="img-fluid rounded shadow">
-                    <div class="image-badge tech-badge">
-                      <span><i class="fa-solid fa-code-branch"></i> Book</span>
-                    </div>
-                  </div>
+            <div class="hex-row">
+              <div class="hex tint--orange">
+                <div class="hex__inner">
+                  <img src="images/portfolio/03_portfolio_graphviz.png" alt="" width="856" height="987">
                 </div>
-                <div class="col-lg-6">
-                  <div class="case-study-content">
-                    <h3 class="case-title">Erinnerungskultur und Holocaust Education im digitalen Wandel: Georeferenzierte Dokumentations-, Erinnerungs- und Vermittlungsprojekte</h3>
-                    <div class="case-meta">
-                      <span><i class="fa-solid fa-calendar"></i> 2024</span>
-                      <span><i class="fa-solid fa-tag"></i> Collected edition</span>
-                    </div>
-                    <p class="case-description">This collection examines how remembrance of National Socialism and the Holocaust is evolving alongside digital technologies. Contributors analyze the growing importance of digital Holocaust education, particularly through geo-referenced web applications that mark memorial sites on digital maps and enhance them with additional context through Deep Mapping techniques.
-                      The work presents critical perspectives on various digital documentation, memorial, and educational projects, exploring how these technological approaches are reshaping our engagement with historical memory.</p>
-                
-                    <h4 class="case-subtitle">My Contribution</h4>
-                    <ul class="case-features">
-                      <li>Part of the editorial team</li>
-                      <li>Article: GAMS, DERLA and Data Science with Selina Galka</li>
-                      <li>Article: Inhalte explorativ durchsuchen with Roman Bleier</li>
-                    </ul>
-                    
-                    <div class="case-results">
-                      <div class="result-item">
-                        <span class="result-number">2500+</span>
-                        <span class="result-label">Views</span>
-                      </div>
-                      <div class="result-item">
-                        <span class="result-number">~300</span>
-                        <span class="result-label">Pages</span>
-                      </div>
-                      <div class="result-item">
-                        <span class="result-number">10+</span>
-                        <span class="result-label">Authors</span>
-                      </div>
-                    </div>
-                    
-                    <a href="https://www.transcript-open.de/isbn/6415" target="_blank" class="btn btn-primary mt-4">View on transcript (publisher)</a>
-                  </div>
+              </div>
+              <div class="hex tint--none">
+                <div class="hex__inner">
+                  <img src="images/profile/03_profile_new.jpg" alt="" width="400" height="400">
+                </div>
+              </div>
+              <div class="hex tint--green">
+                <div class="hex__inner">
+                  <img src="images/portfolio/07_portfolio_nampi.png" alt="" width="820" height="802">
                 </div>
               </div>
             </div>
-
-             <!-- Case Study 2 -->
-       <div class="tab-pane fade" id="graphviz" role="tabpanel" aria-labelledby="graphviz-tab">
-        <div class="row">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <div class="case-study-image">
-              <img src="images/portfolio/03_portfolio_graphviz.png" alt="ZIM-Graphviz Library" class="img-fluid rounded shadow">
-              <div class="image-badge tech-badge">
-                <span><i class="fa-solid fa-code-branch"></i> Open Source</span>
+            <div class="hex-row">
+              <div class="hex tint--blue">
+                <div class="hex__inner">
+                  <img src="images/portfolio/05_portfolio_cantus.png" alt="" width="1613" height="845">
+                </div>
+              </div>
+              <div class="hex tint--lime">
+                <div class="hex__inner">
+                  <img src="images/portfolio/02_portfolio_lipfa.png" alt="" width="1261" height="957">
+                </div>
+              </div>
+            </div>
+            <div class="hex-row">
+              <div class="hex tint--green">
+                <div class="hex__inner">
+                  <img src="images/portfolio/08_portfolio_derlamap.png" alt="" width="852" height="932">
+                </div>
+              </div>
+              <div class="hex tint--orange">
+                <div class="hex__inner">
+                  <img src="images/portfolio/13_derla_book.png" alt="" width="533" height="802">
+                </div>
+              </div>
+              <div class="hex tint--blue">
+                <div class="hex__inner">
+                  <img src="images/portfolio/04_portfolio_fuzzy.png" alt="" width="860" height="920">
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="case-study-content">
-              <h3 class="case-title">ZIM-Graphviz: Network Visualization Library</h3>
-              <div class="case-meta">
-                <span><i class="fa-solid fa-calendar"></i> 2021-2023</span>
-                <span><i class="fa-solid fa-tag"></i> Data Visualization</span>
-              </div>
-              <p class="case-description">ZIM-Graphviz is a React component library that enables researchers and developers to create interactive network visualizations. The library has been adopted by multiple research projects for exploring complex relationships in historical and cultural data.</p>
-              
-              <h4 class="case-subtitle">My Contribution</h4>
-              <ul class="case-features">
-                <li>Designed and implemented the core visualization engine</li>
-                <li>Built customizable node and edge rendering systems</li>
-                <li>Created interactive filtering and exploration features</li>
-                <li>Developed comprehensive documentation and examples</li>
-              </ul>
-              
-              <div class="case-results">
-                <div class="result-item">
-                  <span class="result-number">5+</span>
-                  <span class="result-label">Projects Using It</span>
-                </div>
-                <div class="result-item">
-                  <span class="result-number">1000+</span>
-                  <span class="result-label">Downloads</span>
-                </div>
-                <div class="result-item">
-                  <span class="result-number">3</span>
-                  <span class="result-label">Academic Citations</span>
-                </div>
-              </div>
-              
-              <a href="https://gams.uni-graz.at/archive/objects/context:konde/methods/sdef:Context/get?mode=graph" target="_blank" class="btn btn-primary mt-4">View Project Demo</a>
-            </div>
-          </div>
+          <p class="hero__note">Selected work <strong>2019—2025</strong></p>
         </div>
       </div>
-      
-      <!-- Case Study 3 -->
-          <div class="tab-pane fade" id="reinherit" role="tabpanel" aria-labelledby="reinherit-tab">
-            <div class="row">
-              <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="case-study-image">
-                  <img src="images/portfolio/06_portfolio_reinherit.png" alt="ReInHerit Digital Hub" class="img-fluid rounded shadow">
-                  <div class="image-badge eu-badge">
-                    <span><i class="fa-solid fa-globe"></i> EU Project</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="case-study-content">
-                  <h3 class="case-title">ReInHerit Digital Hub: Cultural Heritage Platform</h3>
-                  <div class="case-meta">
-                    <span><i class="fa-solid fa-calendar"></i> 2020-2022</span>
-                    <span><i class="fa-solid fa-tag"></i> Cultural Heritage</span>
-                  </div>
-                  <p class="case-description">The ReInHerit Digital Hub is an EU-funded platform that connects museums, cultural institutions, and audiences across Europe. It serves as a digital commons for sharing cultural heritage resources and fostering collaboration.</p>
-                  
-                  <h4 class="case-subtitle">My Contribution</h4>
-                  <ul class="case-features">
-                    <li>Led the technical development of the web platform</li>
-                    <li>Designed content management systems for multiple stakeholders</li>
-                    <li>Implemented multi-lingual support and accessibility features</li>
-                    <li>Created cross-institution collaboration tools</li>
-                  </ul>
-                  
-                  <div class="case-results">
-                    <div class="result-item">
-                      <span class="result-number">12</span>
-                      <span class="result-label">Partner Institutions</span>
-                    </div>
-                    <div class="result-item">
-                      <span class="result-number">8</span>
-                      <span class="result-label">Supported Languages</span>
-                    </div>
-                    <div class="result-item">
-                      <span class="result-number">20k+</span>
-                      <span class="result-label">Monthly Visitors</span>
-                    </div>
-                  </div>
-                  
-                  <a href="https://reinherit-hub.eu/" target="_blank" class="btn btn-primary mt-4">Visit the Hub</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </section>
-          </div>
-        </div>
+    </section>
 
-      <!-- <div class="row">
-        <div class="col-6 col-sm-6 col-md-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="0">
-          <div class="progressbar" data-animate="false">
-            <div class="circle" data-percent="98">
-              <div class="number"></div>
-              <p class="caption">Spring Framework (Java)</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="progressbar" data-animate="false">
-            <div class="circle" data-percent="95">
-              <div class="number"></div>
-              <p class="caption">React (JavaScript)</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="progressbar" data-animate="false">
-            <div class="circle" data-percent="95">
-              <div class="number"></div>
-              <p class="caption">Copilot technologies</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="300">
-          <div class="progressbar" data-animate="false">
-            <div class="circle" data-percent="93">
-              <div class="number"></div>
-              <p class="caption">Digital archiving</p>
-            </div>
-          </div>
-
-        </div>
-      </div> -->
-    </div>
-  </div>
-
-
-  <div class="untree_co-section" id="portfolio-section">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-lg-7 text-center mx-auto">
-          <h2 class="section-heading mb-2"><strong>Portfolio</strong></h2>
-          <p class="mb-3">Selected projects and contributions</p>
-          <div class="wave gsap-reveal-hero">
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-filters text-center mb-4">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web Projects</button>
-        <button class="filter-btn" data-filter="research">Digital Research</button>
-        <button class="filter-btn" data-filter="tool">Tools & Libraries</button>
-        <button class="filter-btn" data-filter="teaching">Education</button>
-        <button class="filter-btn" data-filter="document">Documents (expert opinion)</button>
-      </div>
-  
-      <div class="row portfolio-container">
-        <!-- DERLA Project -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item web research">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://gams.uni-graz.at/derla" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/01_portfolio_derla.png" class="img-fluid" alt="DERLA Project" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">DERLA - Digital Memorial Landscape</h4>
-                <p class="portfolio-category">Digital Humanities, Web Development</p>
-                <div class="portfolio-tags">
-                  <span class="portfolio-tag">Award-winning</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- LIPFA Project -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item web research">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://gams.uni-graz.at/lipfa" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/02_portfolio_lipfa.png" class="img-fluid" alt="LIPFA Project" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">LIPFA - Literary Paths Documentation</h4>
-                <p class="portfolio-category">Digital Edition, Medieval Literature</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- ZIM-Graphviz -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item tool web">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://gams.uni-graz.at/archive/objects/context:konde/methods/sdef:Context/get?mode=graph" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/03_portfolio_graphviz.png" class="img-fluid" alt="ZIM-Graphviz" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">ZIM-Graphviz Library</h4>
-                <p class="portfolio-category">React Component Library, Data Visualization</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- ZIM-fuzzysearch -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item tool web">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://gams.uni-graz.at/archive/objects/context:corema/methods/sdef:Context/get?mode=fuzzy-recipe-search#/" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/04_portfolio_fuzzy.png" class="img-fluid" alt="ZIM-fuzzysearch" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">ZIM-fuzzysearch</h4>
-                <p class="portfolio-category">Client-side Search Engine, JavaScript Library</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- CANTUS NETWORK -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item web research">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://gams.uni-graz.at/cantus" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/05_portfolio_cantus.png" class="img-fluid" alt="CANTUS NETWORK" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">CANTUS NETWORK</h4>
-                <p class="portfolio-category">Semantic Digital Edition, Historical Research</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- ReInHerit Digital Hub -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item web">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://reinherit-hub.eu/" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/06_portfolio_reinherit.png" class="img-fluid" alt="ReInHerit Digital Hub" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">ReInHerit Digital Hub</h4>
-                <p class="portfolio-category">Web Platform, Cultural Heritage</p>
-                <div class="portfolio-tags">
-                  <span class="portfolio-tag">EU Project</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- NAMPI -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item web research">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://data.nampi.icar-us.eu/" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/07_portfolio_nampi.png" class="img-fluid" alt="NAMPI" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">NAMPI - Prosopographical Interfaces</h4>
-                <p class="portfolio-category">Semantic Web, Historical Data</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- GIS Map -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item web tool">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://gams.uni-graz.at/context:derlageo/sdef:Context/get?locale=de&mode=map" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/08_portfolio_derlamap.png" class="img-fluid" alt="GIS Map" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">GIS - Map of Remembrance</h4>
-                <p class="portfolio-category">Geographic Information System, Interactive Map</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- GIS Tool -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item tool">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://gams.uni-graz.at/archive/objects/o:derla.geobrowsertut/methods/sdef:TEI/get?locale=de" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/09_portfolio_derlageobrowser.png" class="img-fluid" alt="GIS Tool" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">GIS Integration Services</h4>
-                <p class="portfolio-category">Geospatial Tool, Data Integration</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- Facet-drilldown -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item tool web">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://doi.org/10.5281/zenodo.10342768" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/10_portfolio_drilldown.png" class="img-fluid" alt="Facet-drilldown" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">Facet-drilldown</h4>
-                <p class="portfolio-category">Client-side Filter Component, JavaScript</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- ZIM-GAMS-hooks -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item tool">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://www.npmjs.com/package/zim-gamshooks" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/11_portfolio_zimgamshooks.png" class="img-fluid" alt="ZIM-GAMS-hooks" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">ZIM-GAMS-hooks</h4>
-                <p class="portfolio-category">React Hooks, NPM Package</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- Bock CLI Tool -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item tool">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://doi.org/10.5281/zenodo.10357244" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/12_portfolio_bock.png" class="img-fluid" alt="Bock CLI Tool" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">Bock CLI Tool</h4>
-                <p class="portfolio-category">Command Line Interface, Developer Tool</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- DERLA eBook -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item research">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://doi.org/10.14361/9783839464151-fm" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/13_derla_book.png" class="img-fluid" alt="DERLA eBook" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">Digital Memory Culture and Holocaust Education</h4>
-                <p class="portfolio-category">eBook, Digital Humanities Research</p>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- GAMS DERLA Data Science -->
-        <div class="col-md-6 col-lg-4 mb-4 portfolio-item research">
-          <div class="portfolio-card shadow-sm">
-            <a href="https://doi.org/10.14361/9783839464151-013" target="_blank" class="portfolio-link">
-              <div class="portfolio-image">
-                <img src="images/portfolio/14_derla_data_science.png" class="img-fluid" alt="GAMS DERLA Data Science" loading="lazy" />
-                <div class="portfolio-overlay">
-                  <div class="portfolio-overlay-content">
-                    <i class="fa-solid fa-link"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-content p-3">
-                <h4 class="portfolio-title">GAMS, DERLA and Data Science</h4>
-                <p class="portfolio-category">Research Publication, Data Science
-                  <p class="portfolio-category">Research Publication, Data Science</p>
-           </div>
-         </a>
-       </div>
-     </div>
-
-     <!-- KONDE Graph -->
-     <div class="col-md-6 col-lg-4 mb-4 portfolio-item research tool">
-       <div class="portfolio-card shadow-sm">
-         <a href="https://doi.org/10.14361/9783839464151-014" target="_blank" class="portfolio-link">
-           <div class="portfolio-image">
-             <img src="images/portfolio/15_konde_graph.png" class="img-fluid" alt="KONDE Graph" loading="lazy" />
-             <div class="portfolio-overlay">
-               <div class="portfolio-overlay-content">
-                 <i class="fa-solid fa-link"></i>
-               </div>
-             </div>
-           </div>
-           <div class="portfolio-content p-3">
-             <h4 class="portfolio-title">Exploring Content with Network Graphs</h4>
-             <p class="portfolio-category">Research Publication, Data Visualization</p>
-           </div>
-         </a>
-       </div>
-     </div>
-
-     <!-- GAMS Test-tool -->
-     <div class="col-md-6 col-lg-4 mb-4 portfolio-item research tool">
-      <div class="portfolio-card shadow-sm">
-        <a href="https://github.com/Schiller-Stoff/gams-tests/tree/main" target="_blank" class="portfolio-link">
-          <div class="portfolio-image">
-            <img src="images/portfolio/21_portfolio_gamstests.jpg" class="img-fluid" alt="KONDE Graph" loading="lazy" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-overlay-content">
-                <i class="fa-solid fa-link"></i>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content p-3">
-            <h4 class="portfolio-title">GAMS-E2E Test-tool: Automated testing of system uptime.</h4>
-            <p class="portfolio-category">Research Publication, CLI-tool</p>
-          </div>
-        </a>
-      </div>
-    </div>
-
-     <!-- Data Librarian Training -->
-     <div class="col-md-6 col-lg-4 mb-4 portfolio-item teaching">
-       <div class="portfolio-card shadow-sm">
-         <a href="https://www.uniforlife.at/de/lis/" target="_blank" class="portfolio-link">
-           <div class="portfolio-image">
-             <img src="images/portfolio/17_portfolio_data_librarian.webp" class="img-fluid" alt="Data Librarian Training" loading="lazy" />
-             <div class="portfolio-overlay">
-               <div class="portfolio-overlay-content">
-                 <i class="fa-solid fa-link"></i>
-               </div>
-             </div>
-           </div>
-           <div class="portfolio-content p-3">
-             <h4 class="portfolio-title">Data Librarian Training Program</h4>
-             <p class="portfolio-category">Academic Training, University of Graz</p>
-             <div class="portfolio-tags">
-               <span class="portfolio-tag">2025</span>
-             </div>
-           </div>
-         </a>
-       </div>
-     </div>
-
-     <!-- Data Steward Training -->
-     <div class="col-md-6 col-lg-4 mb-4 portfolio-item teaching">
-       <div class="portfolio-card shadow-sm">
-         <a href="https://doi.org/10.5281/zenodo.10867503" target="_blank" class="portfolio-link">
-           <div class="portfolio-image">
-             <img src="images/portfolio/16_portfolio_data_steward.png" class="img-fluid" alt="Data Steward Training" loading="lazy" />
-             <div class="portfolio-overlay">
-               <div class="portfolio-overlay-content">
-                 <i class="fa-solid fa-link"></i>
-               </div>
-             </div>
-           </div>
-           <div class="portfolio-content p-3">
-             <h4 class="portfolio-title">Data Steward Training Program</h4>
-             <p class="portfolio-category">Academic Training, University of Graz</p>
-             <div class="portfolio-tags">
-               <span class="portfolio-tag">2024</span>
-             </div>
-           </div>
-         </a>
-       </div>
-     </div>
-
-
-     <!-- MHDBDB Review -->
-     <div class="col-md-6 col-lg-4 mb-4 portfolio-item document">
-      <div class="portfolio-card shadow-sm">
-        <a href="https://mhdbdb.sbg.ac.at/#/" target="_blank" class="portfolio-link">
-          <div class="portfolio-image">
-            <img src="images/portfolio/18_MHDBDB.jpg" class="img-fluid" alt="Data Steward Training" loading="lazy" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-overlay-content">
-                <i class="fa-solid fa-link"></i>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content p-3">
-            <h4 class="portfolio-title">Aufwandsschätzung des künftigen Weiterbetriebs der MHDBDB („Mittelhochdeutsche Begriffsdatenbank“)</h4>
-            <p class="portfolio-category">Software review, University of Salzburg</p>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">2024</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-
-    <!-- Information modeling I -->
-    <div class="col-md-6 col-lg-4 mb-4 portfolio-item teaching">
-      <div class="portfolio-card shadow-sm">
-        <a href="https://online.uni-graz.at/kfu_online/ee/ui/ca2/app/desktop/#/slc.tm.cp/student/courses/684367?$ctx=design=ca;lang=de" target="_blank" class="portfolio-link">
-          <div class="portfolio-image">
-            <img src="images/portfolio/19_information_modeling.jpg" class="img-fluid" alt="Data Steward Training" loading="lazy" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-overlay-content">
-                <i class="fa-solid fa-link"></i>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content p-3">
-            <h4 class="portfolio-title">Information modelling I</h4>
-            <p class="portfolio-category">Master program course (Digital Humanities), University of Graz (DDH)</p>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">2021/22</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Object oriented programming -->
-    <div class="col-md-6 col-lg-4 mb-4 portfolio-item teaching">
-      <div class="portfolio-card shadow-sm">
-        <a href="https://online.uni-graz.at/kfu_online/ee/ui/ca2/app/desktop/#/slc.tm.cp/student/courses/739142?$scrollTo=toc_overview" target="_blank" class="portfolio-link">
-          <div class="portfolio-image">
-            <img src="images/portfolio/20_oop.jpg" class="img-fluid" alt="Data Steward Training" loading="lazy" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-overlay-content">
-                <i class="fa-solid fa-link"></i>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content p-3">
-            <h4 class="portfolio-title">Introduction to Programming (Object-oriented Programming)</h4>
-            <p class="portfolio-category">Master program course (Digital Humanities), University of Graz (DDH)</p>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">2023</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-
-
-   </div>
-
-   <!-- Portfolio pagination or load more button -->
-   <div class="text-center mt-4">
-     <button id="load-more" class="btn btn-outline-primary px-4">
-       Load More <i class="fa-solid fa-chevron-down ms-2"></i>
-     </button>
-   </div>
- </div>
-</div>
-
-
-    <div class="untree_co-section" id="teaching-section"></div>
-    <br/>
-    <br/>
-    <br/>
-
-    <div class="container" id="teaching-section-real">
-      <div class="row mb-4">
-        <div class="col-lg-7 text-center mx-auto">
-          <h2 class="section-heading mb-0"><strong>Teaching material</strong></h2>
-          <p>Slides, code repositories and additional material for my workshops, presentations etc.</p>
-          <div class="wave gsap-reveal-hero" >
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-wrapper">
-
-        <div id="posts" class="row">
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.17178206">
-              <p style="font-weight: 600;">Kann LLM generierter Code FAIR sein? Herausforderungen für das Forschungsdatenmanagement. (conference abastract, 26.09.2025)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/19_forge_2025.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.15827013">
-              <p style="font-weight: 600;">GIS integration in digital research archives: Challenges and solutions using GAMS (slides, 01.07.2025)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/18_gis_workshop.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.15421823">
-              <p style="font-weight: 600;">Software Architecture for Data Librarians (slides, 15.05.2025)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/17_software_arch_data_lib.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.14999965">
-              <p style="font-weight: 600;">Introduction to AI-Agent-Engineering (workshop-slides, 10.03.2025)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/16_ai_agents.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.14887461">
-              <p style="font-weight: 600;">Der Einfluss von AI Pair-Programmers auf die Digital Humanities: Potentiale und Limitationen ( Abstract / presentation S., DhD 2025 Bielefeld, 05.03.2025)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/15_dhd_2025.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.14887461">
-              <p style="font-weight: 600;">Fortgeschrittenes Prompt und AI Agent Engineering für wissenschaftliche Textproduktion ( Abstract / workshop S.44-48, DhD 2025 Bielefeld, 04.03.2025)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/14_n8n.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.14234115">
-              <p style="font-weight: 600;">KI gestützte Programmierung in den Digitalen Geisteswissenschaften (workshop, University-Library Graz, 28.11.2024)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/12_ki_assistenten.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.14195629">
-              <p style="font-weight: 600;">AI coding assistants advanced (workshop, University of Graz, 21.11.2024)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/11_ai_coding_assistants_advanced.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.13751610">
-              <p style="font-weight: 600;">AI coding assistants (workshop, University of Graz, 12.09.2024)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/10_ai_coding_assistants.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://gams.uni-graz.at/o:konde.255">
-              <p style="font-weight: 600;">Various articles for the KONDE Weißbuch e.g. "Software Architecture", "Software Engineering"  (article, 01.05.2024)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/09_konde.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.11196383">
-              <p style="font-weight: 600;">IDE-Integration of GitHub Copilot: Jetbrains IDEs (presentation, 15.05.2024)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/08_akgi.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.10698240">
-              <p style="font-weight: 600;">Project Overhaul und Refactoring der digitalen Edition der 'Urfehdebücher der Stadt Basel' mithilfe von GPT-4 und LLM (conference abstract / workshop, 21.02.2024)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/13_dhd_2024.jpg" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.10550479">
-              <p style="font-weight: 600;">Legacy code and copilot technologies: AI-supported software maintenance (workshop, 22.01.2024)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/07_copilot02.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.10288101">
-              <p style="font-weight: 600;">Copilot technologies in the DH (workshop, 04.12.2023)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/copilot.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.8386446">
-              <p style="font-weight: 600;">Presentation at FORGE 2023 (conference presentation, 06.10.2023)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/02_conway.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://gams.uni-graz.at/context:lipfa">
-              <p style="font-weight: 600;">Literaturpfade des Mittelalters (presentation, 21.06.2023)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/03_literaturpfade.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.10340362">
-              <p style="font-weight: 600;">Digital Mapping – Digital History: DERLA – Digitale Erinnerungslandschaft (presentation, 30.06.2022)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/03_age_tagung.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.10340488">
-              <p style="font-weight: 600;">Werkzeuge und Architekturen für digitale Editionen: React als Frontendwerkzeug (presentation, 13.06.2022)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/04_teaching_wuppertal.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.10340675">
-              <p style="font-weight: 600;">Abschlusspräsentation des ÖAW-Projekts "Nuns and Monks – Prosopographical Interfaces (NAMPI)"</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/05_teaching_nampi.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="https://doi.org/10.5281/zenodo.5379569">
-              <p style="font-weight: 600;">A long-term archiving and dissemination ecosystem for Humanities' research data (conference presentation, 09.09.2021)</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="images/teaching/06_teaching_forge.png" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div>
-
-          <!-- <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2 border p-2">
-            <a class="text-black" target="_blank" href="TODO">
-              <p style="font-weight: 600;">TODO</p>
-              <hr/>
-              <span  class="isotope-item gsap-reveal-img" data-id="3">
-                <img src="TODO" class="lazyload  img-fluid" alt="Images" />
-              </span>
-            </a>
-          </div> -->
-
-        </div>
-      </div>
-      </div>
-    </div>
-
-    <section id="cv-section" class="section-timeline untree_co-section">
+    <!-- ====================================================================
+         Services
+         ==================================================================== -->
+    <section class="section section--surface" id="services-section" aria-labelledby="services-title">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="section-subtitle">My Journey</span>
-          <h2 class="section-title">Experience & Education</h2>
-          <p class="section-description">The path that has shaped my expertise in digital solutions.</p>
+        <div class="section-head section-head--wide">
+          <p class="eyebrow">What I do</p>
+          <h2 id="services-title">Research questions, turned into working software.</h2>
+          <p>
+            I work where the humanities meet engineering: building the infrastructure that
+            lets research collections be published, searched and preserved for the long term.
+          </p>
         </div>
-    
-        <div class="timeline-wrapper">
-          <!-- Current position highlight card -->
-          <div class="timeline-highlight">
-            <div class="card highlight-card">
-              <div class="highlight-header">
-                <span class="highlight-badge">Current Position</span>
-                <span class="highlight-year">2022 - Present</span>
+
+        <div class="services">
+          <article class="service service--lime reveal">
+            <div class="service__icon">
+              <svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>
+            </div>
+            <h3>Research software engineering</h3>
+            <p>
+              I turn research requirements into maintainable applications: full-stack
+              products, APIs and data pipelines built with React, Spring Boot and modern
+              JavaScript.
+            </p>
+            <div class="chip-row">
+              <span class="chip chip--muted">React</span>
+              <span class="chip chip--muted">Spring Boot</span>
+              <span class="chip chip--muted">APIs</span>
+            </div>
+            <a class="service__link" href="#contact-section">
+              Work with me
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+          </article>
+
+          <article class="service service--blue reveal">
+            <div class="service__icon">
+              <svg class="icon" aria-hidden="true"><use href="#i-archive"></use></svg>
+            </div>
+            <h3>Digital archives</h3>
+            <p>
+              I design and build digital archives with durable access in mind. At DDH Graz
+              I lead development of the next generation of GAMS, the university&rsquo;s
+              digital archive.
+            </p>
+            <div class="chip-row">
+              <span class="chip chip--muted">GAMS</span>
+              <span class="chip chip--muted">Metadata</span>
+              <span class="chip chip--muted">Long-term access</span>
+            </div>
+            <a class="service__link" href="#contact-section">
+              Work with me
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+          </article>
+
+          <article class="service service--orange reveal">
+            <div class="service__icon">
+              <svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>
+            </div>
+            <h3>Digital editions &amp; Linked Data</h3>
+            <p>
+              I model cultural heritage as structured, connected data: TEI editions, RDF
+              graphs, prosopographies and semantic search interfaces that reward curiosity.
+            </p>
+            <div class="chip-row">
+              <span class="chip chip--muted">TEI</span>
+              <span class="chip chip--muted">RDF</span>
+              <span class="chip chip--muted">Semantic web</span>
+            </div>
+            <a class="service__link" href="#contact-section">
+              Work with me
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+          </article>
+
+          <article class="service service--green reveal">
+            <div class="service__icon">
+              <svg class="icon" aria-hidden="true"><use href="#i-spark"></use></svg>
+            </div>
+            <h3>AI &amp; LLM workflows</h3>
+            <p>
+              I bring AI into scholarly work carefully: coding assistants, agent workflows
+              and retrieval pipelines that keep researchers in control of their sources.
+            </p>
+            <div class="chip-row">
+              <span class="chip chip--muted">LLM</span>
+              <span class="chip chip--muted">Agents</span>
+              <span class="chip chip--muted">NLP</span>
+            </div>
+            <a class="service__link" href="#contact-section">
+              Work with me
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Case studies
+         ==================================================================== -->
+    <section class="section" id="case-studies-section" aria-labelledby="case-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Selected projects</p>
+          <h2 id="case-title">A closer look at the work.</h2>
+          <p>
+            Four projects that show how research, design and engineering meet in practice —
+            from a national memorial archive to an open-source visualisation library.
+          </p>
+        </div>
+
+        <article class="feature reveal">
+          <div class="feature__media">
+            <img src="images/portfolio/01_portfolio_derla.png" alt="Screenshot of the DERLA digital memorial landscape" width="1133" height="975" loading="lazy">
+          </div>
+          <div class="feature__body">
+            <div class="feature__meta">
+              <span class="chip">Award winner</span>
+              <span class="chip chip--muted">Digital Humanities</span>
+              <span class="chip chip--muted">2019—2025</span>
+            </div>
+            <h3>DERLA: Digital Memorial Landscape</h3>
+            <p class="feature__desc">
+              A comprehensive digital platform documenting Holocaust memorials across
+              Austria. In 2024 the project received the Austrian State Prize for History
+              Sciences in the category &ldquo;History Innovatively&rdquo;.
+            </p>
+            <h4 class="feature__subhead">My contribution</h4>
+            <ul class="feature__list">
+              <li>Developed the full-stack application architecture</li>
+              <li>Implemented the GIS mapping system for memorial locations</li>
+              <li>Created a searchable database with advanced filtering</li>
+              <li>Integrated multimedia content with the archive system</li>
+            </ul>
+            <div class="stats">
+              <div>
+                <span class="stat__value">250+</span>
+                <span class="stat__label">Memorials documented</span>
               </div>
-              <div class="highlight-body">
-                <h3 class="highlight-title">Senior Developer (Full-Stack Engineer)</h3>
-                <h4 class="highlight-organization">DDH Department of Digital Humanities, University of Graz</h4>
-                <p class="highlight-description">Leading the development of the new version of GAMS, the digital archive at DDH Graz. Responsible for designing and implementing critical digital infrastructure and ensuring seamless evolution of research software systems.</p>
-                <div class="highlight-skills">
-                  <span class="skill-tag">Full-Stack Development</span>
-                  <span class="skill-tag">Digital Archives</span>
-                  <span class="skill-tag">Research Software</span>
+              <div>
+                <span class="stat__value">15k+</span>
+                <span class="stat__label">Monthly users</span>
+              </div>
+              <div>
+                <span class="stat__value">1</span>
+                <span class="stat__label">National award</span>
+              </div>
+            </div>
+            <div class="feature__actions">
+              <a class="btn btn--outline btn--sm" href="https://gams.uni-graz.at/derla" target="_blank" rel="noopener">
+                View the project
+                <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature feature--flip reveal">
+          <div class="feature__media feature__media--contain">
+            <img src="images/portfolio/13_derla_book.png" alt="Cover of the collected volume Erinnerungskultur und Holocaust Education im digitalen Wandel" width="533" height="802" loading="lazy">
+          </div>
+          <div class="feature__body">
+            <div class="feature__meta">
+              <span class="chip">Collected edition</span>
+              <span class="chip chip--muted">Digital memory culture</span>
+              <span class="chip chip--muted">2024</span>
+            </div>
+            <h3>Erinnerungskultur und Holocaust Education im digitalen Wandel</h3>
+            <p class="feature__desc">
+              A collected volume examining how remembrance of National Socialism and the
+              Holocaust is evolving alongside digital technologies. Contributors analyse
+              geo-referenced web applications, deep mapping and the growing role of digital
+              Holocaust education.
+            </p>
+            <h4 class="feature__subhead">My contribution</h4>
+            <ul class="feature__list">
+              <li>Part of the editorial team</li>
+              <li>Article: GAMS, DERLA and Data Science, with Selina Galka</li>
+              <li>Article: Inhalte explorativ durchsuchen, with Roman Bleier</li>
+            </ul>
+            <div class="stats">
+              <div>
+                <span class="stat__value">2,500+</span>
+                <span class="stat__label">Views</span>
+              </div>
+              <div>
+                <span class="stat__value">~300</span>
+                <span class="stat__label">Pages</span>
+              </div>
+              <div>
+                <span class="stat__value">10+</span>
+                <span class="stat__label">Authors</span>
+              </div>
+            </div>
+            <div class="feature__actions">
+              <a class="btn btn--outline btn--sm" href="https://www.transcript-open.de/isbn/6415" target="_blank" rel="noopener">
+                View at transcript
+                <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature__media">
+            <img src="images/portfolio/03_portfolio_graphviz.png" alt="Screenshot of the ZIM-Graphviz network visualisation" width="856" height="987" loading="lazy">
+          </div>
+          <div class="feature__body">
+            <div class="feature__meta">
+              <span class="chip">Open source</span>
+              <span class="chip chip--muted">Data visualisation</span>
+              <span class="chip chip--muted">2021—2023</span>
+            </div>
+            <h3>ZIM-Graphviz: network visualisation library</h3>
+            <p class="feature__desc">
+              A React component library that lets researchers and developers create
+              interactive network visualisations. It has been adopted by multiple research
+              projects for exploring complex relationships in historical and cultural data.
+            </p>
+            <h4 class="feature__subhead">My contribution</h4>
+            <ul class="feature__list">
+              <li>Designed and implemented the core visualisation engine</li>
+              <li>Built customisable node and edge rendering systems</li>
+              <li>Created interactive filtering and exploration features</li>
+              <li>Developed documentation and worked examples</li>
+            </ul>
+            <div class="stats">
+              <div>
+                <span class="stat__value">5+</span>
+                <span class="stat__label">Projects using it</span>
+              </div>
+              <div>
+                <span class="stat__value">1000+</span>
+                <span class="stat__label">Downloads</span>
+              </div>
+              <div>
+                <span class="stat__value">3</span>
+                <span class="stat__label">Academic citations</span>
+              </div>
+            </div>
+            <div class="feature__actions">
+              <a class="btn btn--outline btn--sm" href="https://gams.uni-graz.at/archive/objects/context:konde/methods/sdef:Context/get?mode=graph" target="_blank" rel="noopener">
+                View the demo
+                <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature feature--flip reveal">
+          <div class="feature__media">
+            <img src="images/portfolio/06_portfolio_reinherit.png" alt="Screenshot of the ReInHerit Digital Hub" width="1628" height="922" loading="lazy">
+          </div>
+          <div class="feature__body">
+            <div class="feature__meta">
+              <span class="chip">EU project</span>
+              <span class="chip chip--muted">Cultural heritage</span>
+              <span class="chip chip--muted">2020—2022</span>
+            </div>
+            <h3>ReInHerit Digital Hub: cultural heritage platform</h3>
+            <p class="feature__desc">
+              An EU-funded platform connecting museums, cultural institutions and audiences
+              across Europe. It serves as a digital commons for sharing cultural heritage
+              resources and fostering collaboration.
+            </p>
+            <h4 class="feature__subhead">My contribution</h4>
+            <ul class="feature__list">
+              <li>Led technical development of the web platform</li>
+              <li>Designed content management for multiple stakeholders</li>
+              <li>Implemented multilingual support and accessibility features</li>
+              <li>Created cross-institution collaboration tools</li>
+            </ul>
+            <div class="stats">
+              <div>
+                <span class="stat__value">12</span>
+                <span class="stat__label">Partner institutions</span>
+              </div>
+              <div>
+                <span class="stat__value">8</span>
+                <span class="stat__label">Supported languages</span>
+              </div>
+              <div>
+                <span class="stat__value">20k+</span>
+                <span class="stat__label">Monthly visitors</span>
+              </div>
+            </div>
+            <div class="feature__actions">
+              <a class="btn btn--outline btn--sm" href="https://reinherit-hub.eu/" target="_blank" rel="noopener">
+                Visit the hub
+                <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Announcement
+         ==================================================================== -->
+    <section class="section section--navy section--tight" id="announcements" aria-labelledby="award-title">
+      <div class="container award">
+        <div class="award__body">
+          <p class="eyebrow">Announcement</p>
+          <p class="award__year">2024 · Austrian State Prize</p>
+          <h2 id="award-title">
+            <a href="https://www.erinnern.at/themen/artikel/oesterreichischer-staatspreis-fuer-geschichtswissenschaften-2024-auszeichnung-fuer-das-projekt-derla-in-der-kategorie-geschichte-innovativ" target="_blank" rel="noopener">
+              Österreichischer Staatspreis für Geschichtswissenschaften
+            </a>
+          </h2>
+          <p>
+            In 2024 I was honoured with the Austrian State Prize for History Sciences,
+            awarded to the DERLA project in the category &ldquo;History Innovatively&rdquo;.
+          </p>
+          <div class="award__actions">
+            <a class="btn btn--light btn--sm" href="https://www.bmbwf.gv.at/Ministerium/staatspreise-auszeichnungen/Staatspreise/stpgw.html" target="_blank" rel="noopener">
+              Read the announcement
+              <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+            </a>
+          </div>
+        </div>
+        <div class="award__media">
+          <img src="images/announcement/ann02.jpg" alt="Announcement of the 2024 Austrian State Prize for History Sciences" width="1700" height="1134" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Portfolio
+         ==================================================================== -->
+    <section class="section" id="portfolio-section" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <div class="section-head__text">
+            <p class="eyebrow">Portfolio</p>
+            <h2 id="portfolio-title">Selected projects and contributions.</h2>
+            <p>
+              Archives, editions, research tools and publications — built with colleagues
+              across the humanities and computer science.
+            </p>
+          </div>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter portfolio by category" data-filters>
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web projects</button>
+          <button class="filter-btn" type="button" data-filter="research" aria-pressed="false">Digital research</button>
+          <button class="filter-btn" type="button" data-filter="tool" aria-pressed="false">Tools &amp; libraries</button>
+          <button class="filter-btn" type="button" data-filter="teaching" aria-pressed="false">Education</button>
+          <button class="filter-btn" type="button" data-filter="document" aria-pressed="false">Expert opinion</button>
+          <p class="filter-count" aria-live="polite" data-filter-count>Showing 9 of 21 projects</p>
+        </div>
+
+        <div class="work-grid" data-work-grid>
+          <article class="work-card" data-categories="web research">
+            <a class="work-card__link" href="https://gams.uni-graz.at/derla" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/01_portfolio_derla.png" alt="DERLA — Digital Memorial Landscape" width="1133" height="975" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>DERLA — Digital Memorial Landscape</h3>
+                <p class="work-card__category">Digital Humanities, Web Development</p>
+                <div class="chip-row"><span class="chip">Award-winning</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="web research">
+            <a class="work-card__link" href="https://gams.uni-graz.at/lipfa" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/02_portfolio_lipfa.png" alt="LIPFA — Literary Paths Documentation" width="1261" height="957" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>LIPFA — Literary Paths Documentation</h3>
+                <p class="work-card__category">Digital Edition, Medieval Literature</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="tool web">
+            <a class="work-card__link" href="https://gams.uni-graz.at/archive/objects/context:konde/methods/sdef:Context/get?mode=graph" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/03_portfolio_graphviz.png" alt="ZIM-Graphviz library" width="856" height="987" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>ZIM-Graphviz Library</h3>
+                <p class="work-card__category">React Component Library, Data Visualization</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="tool web">
+            <a class="work-card__link" href="https://gams.uni-graz.at/archive/objects/context:corema/methods/sdef:Context/get?mode=fuzzy-recipe-search#/" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/04_portfolio_fuzzy.png" alt="ZIM-fuzzysearch" width="860" height="920" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>ZIM-fuzzysearch</h3>
+                <p class="work-card__category">Client-side Search Engine, JavaScript Library</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="web research">
+            <a class="work-card__link" href="https://gams.uni-graz.at/cantus" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/05_portfolio_cantus.png" alt="CANTUS NETWORK" width="1613" height="845" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>CANTUS NETWORK</h3>
+                <p class="work-card__category">Semantic Digital Edition, Historical Research</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="web">
+            <a class="work-card__link" href="https://reinherit-hub.eu/" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/06_portfolio_reinherit.png" alt="ReInHerit Digital Hub" width="1628" height="922" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>ReInHerit Digital Hub</h3>
+                <p class="work-card__category">Web Platform, Cultural Heritage</p>
+                <div class="chip-row"><span class="chip">EU project</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="web research">
+            <a class="work-card__link" href="https://data.nampi.icar-us.eu/" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/07_portfolio_nampi.png" alt="NAMPI — Prosopographical Interfaces" width="820" height="802" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>NAMPI — Prosopographical Interfaces</h3>
+                <p class="work-card__category">Semantic Web, Historical Data</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="web tool">
+            <a class="work-card__link" href="https://gams.uni-graz.at/context:derlageo/sdef:Context/get?locale=de&amp;mode=map" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/08_portfolio_derlamap.png" alt="GIS map of remembrance" width="852" height="932" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>GIS — Map of Remembrance</h3>
+                <p class="work-card__category">Geographic Information System, Interactive Map</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="tool">
+            <a class="work-card__link" href="https://gams.uni-graz.at/archive/objects/o:derla.geobrowsertut/methods/sdef:TEI/get?locale=de" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/09_portfolio_derlageobrowser.png" alt="GIS integration services" width="1127" height="923" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>GIS Integration Services</h3>
+                <p class="work-card__category">Geospatial Tool, Data Integration</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="tool web">
+            <a class="work-card__link" href="https://doi.org/10.5281/zenodo.10342768" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/10_portfolio_drilldown.png" alt="Facet-drilldown component" width="997" height="927" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Facet-drilldown</h3>
+                <p class="work-card__category">Client-side Filter Component, JavaScript</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="tool">
+            <a class="work-card__link" href="https://www.npmjs.com/package/zim-gamshooks" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/11_portfolio_zimgamshooks.png" alt="ZIM-GAMS-hooks package" width="938" height="918" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>ZIM-GAMS-hooks</h3>
+                <p class="work-card__category">React Hooks, NPM Package</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="tool">
+            <a class="work-card__link" href="https://doi.org/10.5281/zenodo.10357244" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/12_portfolio_bock.png" alt="Bock command-line tool" width="1167" height="952" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Bock CLI Tool</h3>
+                <p class="work-card__category">Command Line Interface, Developer Tool</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="research">
+            <a class="work-card__link" href="https://doi.org/10.14361/9783839464151-fm" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/13_derla_book.png" alt="Digital Memory Culture and Holocaust Education" width="533" height="802" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Digital Memory Culture and Holocaust Education</h3>
+                <p class="work-card__category">eBook, Digital Humanities Research</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="research">
+            <a class="work-card__link" href="https://doi.org/10.14361/9783839464151-013" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/14_derla_data_science.png" alt="GAMS, DERLA and Data Science" width="652" height="463" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>GAMS, DERLA and Data Science</h3>
+                <p class="work-card__category">Research Publication, Data Science</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="research tool">
+            <a class="work-card__link" href="https://doi.org/10.14361/9783839464151-014" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/15_konde_graph.png" alt="Exploring content with network graphs" width="882" height="488" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Exploring Content with Network Graphs</h3>
+                <p class="work-card__category">Research Publication, Data Visualization</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="research tool">
+            <a class="work-card__link" href="https://github.com/Schiller-Stoff/gams-tests/tree/main" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/21_portfolio_gamstests.jpg" alt="GAMS end-to-end test tool" width="702" height="530" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>GAMS-E2E Test-tool</h3>
+                <p class="work-card__category">Automated testing of system uptime, CLI tool</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="teaching">
+            <a class="work-card__link" href="https://www.uniforlife.at/de/lis/" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/17_portfolio_data_librarian.webp" alt="Data Librarian Training Program" width="1024" height="1024" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Data Librarian Training Program</h3>
+                <p class="work-card__category">Academic Training, University of Graz</p>
+                <div class="chip-row"><span class="chip chip--muted">2025</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="teaching">
+            <a class="work-card__link" href="https://doi.org/10.5281/zenodo.10867503" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/16_portfolio_data_steward.png" alt="Data Steward Training Program" width="412" height="108" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Data Steward Training Program</h3>
+                <p class="work-card__category">Academic Training, University of Graz</p>
+                <div class="chip-row"><span class="chip chip--muted">2024</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="document">
+            <a class="work-card__link" href="https://mhdbdb.sbg.ac.at/#/" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/18_MHDBDB.jpg" alt="MHDBDB software review" width="1251" height="796" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Aufwandsschätzung des künftigen Weiterbetriebs der MHDBDB</h3>
+                <p class="work-card__category">Software review, University of Salzburg</p>
+                <div class="chip-row"><span class="chip chip--muted">2024</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="teaching">
+            <a class="work-card__link" href="https://online.uni-graz.at/kfu_online/ee/ui/ca2/app/desktop/#/slc.tm.cp/student/courses/684367?$ctx=design=ca;lang=de" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/19_information_modeling.jpg" alt="Information modelling I course" width="628" height="431" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Information Modelling I</h3>
+                <p class="work-card__category">Master&rsquo;s course (Digital Humanities), University of Graz</p>
+                <div class="chip-row"><span class="chip chip--muted">2021/22</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card" data-categories="teaching">
+            <a class="work-card__link" href="https://online.uni-graz.at/kfu_online/ee/ui/ca2/app/desktop/#/slc.tm.cp/student/courses/739142?$scrollTo=toc_overview" target="_blank" rel="noopener">
+              <div class="work-card__media">
+                <img src="images/portfolio/20_oop.jpg" alt="Introduction to Programming course" width="562" height="425" loading="lazy">
+                <span class="work-card__open"><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></span>
+              </div>
+              <div class="work-card__body">
+                <h3>Introduction to Programming (Object-oriented Programming)</h3>
+                <p class="work-card__category">Master&rsquo;s course (Digital Humanities), University of Graz</p>
+                <div class="chip-row"><span class="chip chip--muted">2023</span></div>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <div class="work-more">
+          <button class="btn btn--outline" type="button" data-load-more>
+            Load more projects
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Teaching
+         ==================================================================== -->
+    <section class="section section--surface" id="teaching-section" aria-labelledby="teaching-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Teaching &amp; talks</p>
+          <h2 id="teaching-title">Slides, code and material to take away.</h2>
+          <p>
+            Workshop material, presentations and publications for digital humanities
+            teaching — most of it openly archived on Zenodo.
+          </p>
+        </div>
+
+        <div class="teach-grid">
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.17178206" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/19_forge_2025.png" alt="Slides for the FORGE 2025 conference abstract" width="1068" height="367" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Conference abstract</span><span>26 Sep 2025</span></div>
+              <h3>Kann LLM generierter Code FAIR sein? Herausforderungen für das Forschungsdatenmanagement</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.15827013" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/18_gis_workshop.png" alt="Slides for the GIS integration workshop" width="1536" height="1024" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop slides</span><span>1 Jul 2025</span></div>
+              <h3>GIS integration in digital research archives: challenges and solutions using GAMS</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.15421823" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/17_software_arch_data_lib.png" alt="Slides for Software Architecture for Data Librarians" width="1536" height="1024" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop slides</span><span>15 May 2025</span></div>
+              <h3>Software Architecture for Data Librarians</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.14999965" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/16_ai_agents.png" alt="Slides for Introduction to AI-Agent-Engineering" width="1024" height="1024" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop slides</span><span>10 Mar 2025</span></div>
+              <h3>Introduction to AI-Agent-Engineering</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.14887461" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/15_dhd_2025.png" alt="Slides for the DhD 2025 presentation on AI pair-programmers" width="867" height="500" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Presentation · DhD 2025</span><span>5 Mar 2025</span></div>
+              <h3>Der Einfluss von AI Pair-Programmers auf die Digital Humanities: Potentiale und Limitationen</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.14887461" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/14_n8n.png" alt="Slides for the prompt and AI agent engineering workshop" width="838" height="610" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop · DhD 2025</span><span>4 Mar 2025</span></div>
+              <h3>Fortgeschrittenes Prompt und AI Agent Engineering für wissenschaftliche Textproduktion</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.14234115" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/12_ki_assistenten.png" alt="Slides for the AI-assisted programming workshop" width="1066" height="895" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop</span><span>28 Nov 2024</span></div>
+              <h3>KI gestützte Programmierung in den Digitalen Geisteswissenschaften</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.14195629" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/11_ai_coding_assistants_advanced.png" alt="Slides for AI coding assistants advanced" width="531" height="517" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop</span><span>21 Nov 2024</span></div>
+              <h3>AI coding assistants advanced</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.13751610" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/10_ai_coding_assistants.png" alt="Slides for AI coding assistants" width="405" height="233" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop</span><span>12 Sep 2024</span></div>
+              <h3>AI coding assistants</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://gams.uni-graz.at/o:konde.255" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/09_konde.png" alt="KONDE Weißbuch articles" width="480" height="362" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Article</span><span>1 May 2024</span></div>
+              <h3>Various articles for the KONDE Weißbuch, e.g. &ldquo;Software Architecture&rdquo; and &ldquo;Software Engineering&rdquo;</h3>
+              <span class="teach-card__open">Open on GAMS <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.11196383" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/08_akgi.png" alt="Slides for GitHub Copilot IDE integration" width="412" height="237" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Presentation</span><span>15 May 2024</span></div>
+              <h3>IDE-Integration of GitHub Copilot: JetBrains IDEs</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.10698240" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/13_dhd_2024.jpg" alt="Slides for the DhD 2024 workshop on refactoring a digital edition with GPT-4" width="400" height="400" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Conference abstract</span><span>21 Feb 2024</span></div>
+              <h3>Project Overhaul und Refactoring der digitalen Edition der &lsquo;Urfehdebücher der Stadt Basel&rsquo; mithilfe von GPT-4 und LLM</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.10550479" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/07_copilot02.png" alt="Slides for Legacy code and copilot technologies" width="526" height="296" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop</span><span>22 Jan 2024</span></div>
+              <h3>Legacy code and copilot technologies: AI-supported software maintenance</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.10288101" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/copilot.png" alt="Slides for Copilot technologies in the DH" width="472" height="286" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Workshop</span><span>4 Dec 2023</span></div>
+              <h3>Copilot technologies in the DH</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.8386446" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/02_conway.png" alt="Presentation at FORGE 2023" width="700" height="402" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Conference presentation</span><span>6 Oct 2023</span></div>
+              <h3>Presentation at FORGE 2023</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://gams.uni-graz.at/context:lipfa" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/03_literaturpfade.png" alt="Presentation on Literaturpfade des Mittelalters" width="690" height="403" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Presentation</span><span>21 Jun 2023</span></div>
+              <h3>Literaturpfade des Mittelalters</h3>
+              <span class="teach-card__open">Open on GAMS <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.10340362" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/03_age_tagung.png" alt="Slides for Digital Mapping — Digital History" width="936" height="751" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Presentation</span><span>30 Jun 2022</span></div>
+              <h3>Digital Mapping – Digital History: DERLA – Digitale Erinnerungslandschaft</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.10340488" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/04_teaching_wuppertal.png" alt="Slides for Werkzeuge und Architekturen für digitale Editionen" width="1081" height="902" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Presentation</span><span>13 Jun 2022</span></div>
+              <h3>Werkzeuge und Architekturen für digitale Editionen: React als Frontendwerkzeug</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.10340675" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/05_teaching_nampi.png" alt="Slides for the NAMPI final presentation" width="601" height="697" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Final presentation</span><span>2022</span></div>
+              <h3>Abschlusspräsentation des ÖAW-Projekts &ldquo;Nuns and Monks – Prosopographical Interfaces (NAMPI)&rdquo;</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="teach-card reveal" href="https://doi.org/10.5281/zenodo.5379569" target="_blank" rel="noopener">
+            <div class="teach-card__media">
+              <img src="images/teaching/06_teaching_forge.png" alt="Slides for a long-term archiving ecosystem for humanities research data" width="663" height="887" loading="lazy">
+            </div>
+            <div class="teach-card__body">
+              <div class="teach-card__meta"><span>Conference presentation</span><span>9 Sep 2021</span></div>
+              <h3>A long-term archiving and dissemination ecosystem for humanities research data</h3>
+              <span class="teach-card__open">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CV
+         ==================================================================== -->
+    <section class="section" id="cv-section" aria-labelledby="cv-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Curriculum vitae</p>
+          <h2 id="cv-title">Experience and education.</h2>
+          <p>
+            A path through digital humanities, art history and software engineering —
+            with a decade of building things at the University of Graz.
+          </p>
+        </div>
+
+        <div class="cv-highlight reveal">
+          <div>
+            <p class="cv-highlight__badge">
+              <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
+              Current position
+            </p>
+            <h3>Senior Developer (Full-Stack Engineer)</h3>
+            <p class="cv-highlight__org">DDH Department of Digital Humanities, University of Graz</p>
+            <p>
+              Leading development of the new version of GAMS, the digital archive at DDH Graz.
+              Responsible for designing and implementing critical digital infrastructure and
+              ensuring the seamless evolution of research software systems.
+            </p>
+            <div class="chip-row">
+              <span class="chip chip--navy">Full-stack development</span>
+              <span class="chip chip--navy">Digital archives</span>
+              <span class="chip chip--navy">Research software</span>
+            </div>
+          </div>
+          <p class="cv-highlight__year">2022<span>present</span></p>
+        </div>
+
+        <div class="cv-columns">
+          <div class="cv-column">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg> Professional experience</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2022 — present</p>
+                  <h4>Freelance Software Engineer</h4>
+                  <p class="timeline-card__place">Graz, Austria</p>
+                  <p>Building robust, scalable web applications and AI-powered tools that solve real research and business problems.</p>
+                  <div class="chip-row">
+                    <span class="chip chip--muted">Digital infrastructures</span>
+                    <span class="chip chip--muted">LLM &amp; agents</span>
+                    <span class="chip chip--muted">Web development</span>
+                    <span class="chip chip--muted">Spring Boot</span>
+                    <span class="chip chip--muted">Java</span>
+                  </div>
+                  <a class="timeline-card__link" href="https://schiller-stoff.github.io/">schiller-stoff.github.io <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2019 — 2022</p>
+                  <h4>Computational Research Engineer</h4>
+                  <p class="timeline-card__place">DDH Department of Digital Humanities, University of Graz</p>
+                  <p>Leading research in digital infrastructures, digital editions and educational technology for memory preservation.</p>
+                  <div class="chip-row">
+                    <span class="chip chip--muted">Digital infrastructures</span>
+                    <span class="chip chip--muted">Digital editions</span>
+                    <span class="chip chip--muted">Research software</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2017 — 2019</p>
+                  <h4>Frontend Engineer</h4>
+                  <p class="timeline-card__place">ZIM — Zentrum für Informationsmodellierung, University of Graz</p>
+                  <p>Developed frontend solutions for digital humanities research projects.</p>
+                  <div class="chip-row">
+                    <span class="chip chip--muted">React.js</span>
+                    <span class="chip chip--muted">Vue.js</span>
+                    <span class="chip chip--muted">jQuery</span>
+                    <span class="chip chip--muted">XSLT</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2016 — 2017</p>
+                  <h4>IT Administrator</h4>
+                  <p class="timeline-card__place">UNI-IT, University of Graz</p>
+                  <p>Managed IT infrastructure and systems administration.</p>
+                  <div class="chip-row">
+                    <span class="chip chip--muted">Active Directory</span>
+                    <span class="chip chip--muted">Microsoft software</span>
+                    <span class="chip chip--muted">Git</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2009 — 2016</p>
+                  <h4>Digital Marketing Manager</h4>
+                  <p class="timeline-card__place">Kunst und Antiquitätenhandel Stoff</p>
+                  <p>Managed and operated the family business dealing with valuable antiques and art objects.</p>
+                  <a class="timeline-card__link" href="https://www.kunsthandelstoff.at/" target="_blank" rel="noopener">kunsthandelstoff.at <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a>
                 </div>
               </div>
             </div>
           </div>
-    
-          <!-- Timeline items -->
-          <div class="timeline">
-            <!-- Timeline Header -->
-            <div class="timeline-header">
-              <div class="timeline-header-item">
-                <div class="header-icon">
-                  <i class="fas fa-briefcase"></i>
-                </div>
-                <h3>Professional Experience</h3>
-              </div>
-              <div class="timeline-header-item">
-                <div class="header-icon">
-                  <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>Education</h3>
-              </div>
-            </div>
-    
-            <!-- Timeline content -->
-            <div class="timeline-container">
-              <!-- Left column: Professional experiences -->
-               
-              <div class="timeline-column column-experience">
 
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2022 - Present</div>
-                    <h4>Freelance Sofware Engineer</h4>
-                    <div class="timeline-place">Graz, Austria (https://schiller-stoff.github.io/)</div>
-                    <p>Building robust, scalable web applications and AI-powered tools that solve real business problems.</p>
-                    <div class="timeline-tags">
-                      <span>Digital Infrastructures</span>
-                      <span>LLM&AI-Agent Engineering</span>
-                      <span>AI Coding Assistants</span>
-                      <span>Web Development</span>
-                      <span>Spring Boot</span>
-                      <span>Java</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2019 - 2022</div>
-                    <h4>Computational Research Engineer</h4>
-                    <div class="timeline-place">DDH Department of Digital Humanities, University of Graz</div>
-                    <p>Leading research in digital infrastructures, digital editions, and educational technology for memory preservation.</p>
-                    <div class="timeline-tags">
-                      <span>Digital Infrastructures</span>
-                      <span>Digital Edition</span>
-                      <span>Research Software</span>
-                    </div>
-                  </div>
-                </div>
-                
-    
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2017 - 2019</div>
-                    <h4>Frontend-Engineer</h4>
-                    <div class="timeline-place">ZIM (Zentrum für Informationsmodellierung), University of Graz</div>
-                    <p>Developed frontend solutions for digital humanities research projects.</p>
-                    <div class="timeline-tags">
-                      <span>React.js</span>
-                      <span>Vue.js</span>
-                      <span>JQuery</span>
-                      <span>XSLT</span>
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2016 - 2017</div>
-                    <h4>IT-Admin</h4>
-                    <div class="timeline-place">UNI-IT, University of Graz</div>
-                    <p>Managed IT infrastructure and systems administration.</p>
-                    <div class="timeline-tags">
-                      <span>ActiveDirectory</span>
-                      <span>Microsoft software</span>
-                      <span>GIT</span>
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2009 - 2016</div>
-                    <h4>Digital Marketing Manager</h4>
-                    <div class="timeline-place">Kunst und Antiquitätenhandel Stoff</div>
-                    <p>Managed and operated family business dealing with valuable antiques and art objects.</p>
-                    <div class="timeline-link">
-                      <a href="https://www.kunsthandelstoff.at/" target="_blank">kunsthandelstoff.at <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                  </div>
+          <div class="cv-column">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg> Education</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2020</p>
+                  <h4>MA Digital Humanities</h4>
+                  <p class="timeline-card__place">DDH Department of Digital Humanities, University of Graz</p>
+                  <div class="chip-row"><span class="chip chip--muted">Master&rsquo;s degree</span></div>
                 </div>
               </div>
-    
-              <!-- Right column: Education -->
-              <div class="timeline-column column-education">
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2020</div>
-                    <h4>MA Digital Humanities</h4>
-                    <div class="timeline-place">DDH Department of Digital Humanities, University of Graz</div>
-                    <div class="timeline-degree">
-                      <i class="fas fa-award"></i> Master's Degree
-                    </div>
-                  </div>
+
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2018</p>
+                  <h4>MA Art History</h4>
+                  <p class="timeline-card__place">University of Graz</p>
+                  <div class="chip-row"><span class="chip chip--muted">Master&rsquo;s degree</span></div>
                 </div>
-    
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2018</div>
-                    <h4>MA Art History</h4>
-                    <div class="timeline-place">University of Graz</div>
-                    <div class="timeline-degree">
-                      <i class="fas fa-award"></i> Master's Degree
-                    </div>
-                  </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2017</p>
+                  <h4>BA Art History</h4>
+                  <p class="timeline-card__place">University of Graz</p>
+                  <div class="chip-row"><span class="chip chip--muted">Bachelor&rsquo;s degree</span></div>
                 </div>
-    
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2017</div>
-                    <h4>BA Art History</h4>
-                    <div class="timeline-place">University of Graz</div>
-                    <div class="timeline-degree">
-                      <i class="fas fa-award"></i> Bachelor's Degree
-                    </div>
-                  </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2016</p>
+                  <h4>MA Historical Science</h4>
+                  <p class="timeline-card__place">University of Graz</p>
+                  <div class="chip-row"><span class="chip chip--muted">Master&rsquo;s degree</span></div>
                 </div>
-    
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2016</div>
-                    <h4>MA Historical Science</h4>
-                    <div class="timeline-place">University of Graz</div>
-                    <div class="timeline-degree">
-                      <i class="fas fa-award"></i> Master's Degree
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <div class="timeline-date">2013</div>
-                    <h4>BA Historical Science</h4>
-                    <div class="timeline-place">University of Graz</div>
-                    <div class="timeline-degree">
-                      <i class="fas fa-award"></i> Bachelor's Degree
-                    </div>
-                  </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <p class="timeline-card__date">2013</p>
+                  <h4>BA Historical Science</h4>
+                  <p class="timeline-card__place">University of Graz</p>
+                  <div class="chip-row"><span class="chip chip--muted">Bachelor&rsquo;s degree</span></div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <!-- Timeline skills summary -->
-          <div class="timeline-skills-summary">
-            <h3>Core Competencies</h3>
-            <div class="skills-container">
-              <div class="skill-group">
-                <h4>Web Development</h4>
-                <div class="skill-bars">
-                  <div class="skill-bar">
-                    <div class="skill-bar-label">React.js</div>
-                    <div class="skill-bar-track">
-                      <div class="skill-bar-fill" style="width: 95%"></div>
-                    </div>
-                    <div class="skill-bar-percent">95%</div>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-label">Spring Framework</div>
-                    <div class="skill-bar-track">
-                      <div class="skill-bar-fill" style="width: 90%"></div>
-                    </div>
-                    <div class="skill-bar-percent">90%</div>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-label">JavaScript</div>
-                    <div class="skill-bar-track">
-                      <div class="skill-bar-fill" style="width: 92%"></div>
-                    </div>
-                    <div class="skill-bar-percent">92%</div>
-                  </div>
+        </div>
+
+        <div class="competencies">
+          <h3>Core competencies</h3>
+          <div class="tag-groups">
+            <div class="tag-group">
+              <h4>Web development</h4>
+              <div class="chip-row">
+                <span class="chip">React.js</span>
+                <span class="chip">Spring Framework</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">REST APIs</span>
+              </div>
+            </div>
+            <div class="tag-group">
+              <h4>Research &amp; tools</h4>
+              <div class="chip-row">
+                <span class="chip">Digital archives</span>
+                <span class="chip">Copilot technologies</span>
+                <span class="chip">GIS</span>
+                <span class="chip">TEI</span>
+                <span class="chip">Linked Data</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Imprint
+         ==================================================================== -->
+    <section class="section section--surface" id="imprint-section" aria-labelledby="imprint-title">
+      <div class="container">
+        <div class="imprint-grid">
+          <div>
+            <div class="section-head">
+              <p class="eyebrow">Legal</p>
+              <h2 id="imprint-title">Imprint and data protection.</h2>
+              <p>
+                Information according to the Austrian E-Commerce Act and the disclosure
+                obligations for this personal website.
+              </p>
+            </div>
+            <div class="legal-card">
+              <h3>Publisher</h3>
+              <p class="legal-note">
+                Personal project. Legal responsibility follows the CV information on this
+                page. All content and services are provided by the owner of the website.
+              </p>
+              <p class="legal-note">
+                Built with HTML, CSS and JavaScript. No tracking, no advertising.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div class="legal-card">
+              <h3>Business details</h3>
+              <div class="legal-list">
+                <div class="legal-list__row">
+                  <span class="legal-list__label">Company</span>
+                  <span class="legal-list__value">Sebastian David Schiller-Stoff</span>
+                </div>
+                <div class="legal-list__row">
+                  <span class="legal-list__label">GLN</span>
+                  <span class="legal-list__value">9110032223467</span>
+                </div>
+                <div class="legal-list__row">
+                  <span class="legal-list__label">Address</span>
+                  <span class="legal-list__value">Wegenergasse 7/2/4, 8010 Graz, Austria</span>
+                </div>
+                <div class="legal-list__row">
+                  <span class="legal-list__label">Phone</span>
+                  <span class="legal-list__value"><a href="tel:+4367761371551">+43 677 6137 1551</a></span>
+                </div>
+                <div class="legal-list__row">
+                  <span class="legal-list__label">Email</span>
+                  <span class="legal-list__value"><a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a></span>
+                </div>
+                <div class="legal-list__row">
+                  <span class="legal-list__label">Web</span>
+                  <span class="legal-list__value"><a href="https://schiller-stoff.github.io/">schiller-stoff.github.io</a></span>
                 </div>
               </div>
-              
-              <div class="skill-group">
-                <h4>Research & Tools</h4>
-                <div class="skill-bars">
-                  <div class="skill-bar">
-                    <div class="skill-bar-label">Digital Archives</div>
-                    <div class="skill-bar-track">
-                      <div class="skill-bar-fill" style="width: 95%"></div>
-                    </div>
-                    <div class="skill-bar-percent">95%</div>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-label">Copilot technologies</div>
-                    <div class="skill-bar-track">
-                      <div class="skill-bar-fill" style="width: 90%"></div>
-                    </div>
-                    <div class="skill-bar-percent">90%</div>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-label">GIS</div>
-                    <div class="skill-bar-track">
-                      <div class="skill-bar-fill" style="width: 85%"></div>
-                    </div>
-                    <div class="skill-bar-percent">85%</div>
-                  </div>
+            </div>
+
+            <div class="legal-card">
+              <h3>Business information</h3>
+              <div class="legal-list">
+                <div class="legal-list__row">
+                  <span class="legal-list__label">Services</span>
+                  <span class="legal-list__value">Services in automated data processing and information technology</span>
+                </div>
+                <div class="legal-list__row">
+                  <span class="legal-list__label">Sector</span>
+                  <span class="legal-list__value">IT services</span>
+                </div>
+                <div class="legal-list__row">
+                  <span class="legal-list__label">GISA</span>
+                  <span class="legal-list__value">34945216</span>
+                </div>
+                <div class="legal-list__row">
+                  <span class="legal-list__label">Authority</span>
+                  <span class="legal-list__value">Magistrat der Stadt Graz (pursuant to the E-Commerce Act)</span>
                 </div>
               </div>
             </div>
@@ -1629,288 +1505,141 @@
         </div>
       </div>
     </section>
-    </div>
 
-    <br/>
-    <br/>
-    <br/>
-
-
-    
-
-
-    <div class="container untree_co-section" id="imprint-section">
-
-      <div class="row mb-4">
-        <div class="col-lg-7 text-center mx-auto">
-          <h2 class="section-heading mb-0"><strong>Imprint</strong></h2>
-          <p>Imprint and data protection.</p>
-          <div class="wave gsap-reveal-hero" >
-            <svg>
-              <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-      <br/>
-
-        <p>Company name: Sebastian David Schiller-Stoff</p>
-        <p>GLN: 9110032223467</p>
-        <p>Wegenergasse 7/2/4 / 8010 Graz</p>
-        <p>Phone: <a href="tel:+4367761371551">+4367761371551</a></p>
-        <p>E-Mail: <a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a></p>
-        <p>Web: <a href="https://schiller-stoff.github.io/">https://schiller-stoff.github.io/</a></p>
-        <br/>
-        <p>Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik</p>
-        <p>Berufszweig: IT-Dienstleistung</p>
-        <p>GISA-Zahl: 34945216</p>
-        <p>Behörde gem. ECG (E-Commerce Gesetz): Magistrat der Stadt Graz</p>
-
-        <br/>
-      <b>Publisher, development and implementation</b>
-      <p>
-        Personal project. (Legal responsibilities according to CV information on
-        the main page)
-      </p>
-      <b>The following technologies form an integral part of the website</b>
-      <p>HTML / CSS / JS </p>
-      <b>Information according to § 5 E-Commerce Law</b>
-      <p>
-        All content and services on this website are provided by the owner of
-        the website stated on home-page
-      </p>
-      <br />
-
-      </div>
-    </div>
-
-    <br />
-    <br/>
-    <br/>
-
-    <div class="untree_co-section" id="contact-section">
+    <!-- ====================================================================
+         Contact
+         ==================================================================== -->
+    <section class="section" id="contact-section" aria-labelledby="contact-title">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-7 text-center mx-auto">
-            <h2 class="section-heading mb-2"><strong>Get In Touch</strong></h2>
-            <p class="mb-3">Let's discuss your project</p>
-            <div class="wave gsap-reveal-hero">
-              <svg>
-                <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-              </svg>
-            </div>
-          </div>
+        <div class="section-head">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Let&rsquo;s build something useful.</h2>
+          <p>
+            Research software, digital archives, editions or AI workflows — tell me what
+            you are working on and I will get back to you.
+          </p>
         </div>
-    
-        <div class="row">
-          <div class="col-md-6 mb-4 mb-md-0">
-            <div class="contact-info bg-white p-4 rounded shadow-sm h-100">
-              <h3 class="mb-4">Contact Information</h3>
-              
-              <div class="contact-item mb-3">
-                <div class="contact-icon">
-                  <i class="fa-solid fa-envelope"></i>
+
+        <div class="contact-grid">
+          <div>
+            <div class="contact-cards">
+              <div class="contact-card">
+                <div class="contact-card__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
                 </div>
-                <div class="contact-text">
-                  <h4>Email</h4>
-                  <p><a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a></p>
-                </div>
+                <h3>Email</h3>
+                <p><a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a></p>
               </div>
-              
-              <div class="contact-item mb-3">
-                <div class="contact-icon">
-                  <i class="fa-solid fa-phone"></i>
+              <div class="contact-card">
+                <div class="contact-card__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
                 </div>
-                <div class="contact-text">
-                  <h4>Phone</h4>
-                  <p><a href="tel:+4367761371551">+43 677 6137 1551</a></p>
-                </div>
+                <h3>Phone</h3>
+                <p><a href="tel:+4367761371551">+43 677 6137 1551</a></p>
               </div>
-              
-              <div class="contact-item mb-3">
-                <div class="contact-icon">
-                  <i class="fa-solid fa-location-dot"></i>
+              <div class="contact-card">
+                <div class="contact-card__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>
                 </div>
-                <div class="contact-text">
-                  <h4>Location</h4>
-                  <p>Wegenergasse 7/2/4, 8010 Graz, Austria</p>
-                </div>
+                <h3>Location</h3>
+                <p>Wegenergasse 7/2/4<br>8010 Graz, Austria</p>
               </div>
-              
-              <div class="contact-social mt-4">
-                <a href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank" class="social-contact-icon">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/Schiller-Stoff" target="_blank" class="social-contact-icon">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://orcid.org/0000-0001-6941-113X" target="_blank" class="social-contact-icon">
-                  <i class="fa-brands fa-orcid"></i>
-                </a>
+              <div class="contact-card">
+                <div class="contact-card__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-award"></use></svg>
+                </div>
+                <h3>Currently</h3>
+                <p>Senior Developer<br>DDH, University of Graz</p>
               </div>
             </div>
+
+            <div class="contact-socials">
+              <a class="social-link" href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+              </a>
+              <a class="social-link" href="https://github.com/Schiller-Stoff" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+              </a>
+              <a class="social-link" href="https://orcid.org/0000-0001-6941-113X" target="_blank" rel="noopener" aria-label="ORCID">
+                <svg class="icon" aria-hidden="true"><use href="#i-orcid"></use></svg>
+              </a>
+              <a class="social-link" href="https://scholar.google.com/citations?user=9bPF984AAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+                <svg class="icon" aria-hidden="true"><use href="#i-cap"></use></svg>
+              </a>
+            </div>
           </div>
-          
-          <div class="col-md-6">
-            <form
-              action="https://formspree.io/f/myzepvjv"
-              method="POST"
-              class="contact-form bg-white p-4 rounded shadow-sm">
-              <div class="form-group mb-3">
-                <label for="name" class="form-label">Your Name</label>
-                <input name="name" type="text" class="form-control" id="name" required>
+
+          <form class="contact-form" action="https://formspree.io/f/myzepvjv" method="POST" data-contact-form>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
               </div>
-              
-              <div class="form-group mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input name="email" type="email" class="form-control" id="email" required>
+              <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
               </div>
-              
-              <div class="form-group mb-3">
-                <label for="subject" class="form-label">Subject</label>
-                <input name="subject" type="text" class="form-control" id="subject">
+              <div class="field field--full">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text">
               </div>
-              
-              <div class="form-group mb-4">
-                <label for="message" class="form-label">Message</label>
-                <textarea name="message" class="form-control" id="message" rows="5" required></textarea>
+              <div class="field field--full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
               </div>
-              
-              <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
-            </form>
-          </div>
+            </div>
+            <button class="btn btn--primary" type="submit" data-submit>
+              Send message
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </button>
+            <p class="form-note">Your message is sent through Formspree. I usually reply within a few working days.</p>
+            <p class="form-status" role="status" data-form-status></p>
+          </form>
         </div>
       </div>
-    </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="site-footer">
-      <div class="container">
-
-        <!-- <div class="row">
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Home</h3>
-              <ul class="list-unstyled float-left links">
-                <li><a href="#">Untree.co</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy</a></li>
-              </ul>
-            </div>
-          </div> 
-
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Projects</h3>
-              <ul class="list-unstyled float-left links">
-                <li><a href="#">HTML5</a></li>
-                <li><a href="#">CSS3</a></li>
-                <li><a href="#">Untree.co</a></li>
-                <li><a href="#">Free Templates</a></li>
-                <li><a href="#">WordPress Themes</a></li>
-              </ul>
-            </div> 
-          </div> 
-
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Services</h3>
-              <ul class="list-unstyled float-left links">
-                <li><a href="#">Untree.co</a></li>
-                <li><a href="#">jQuery</a></li>
-                <li><a href="#">Bootstrap</a></li>
-                <li><a href="#">Freebies</a></li>
-              </ul>
-            </div> 
-          </div> 
-
-
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Contact</h3>
-              <address>43 Raymouth Rd. Baltemoer, London 3910</address>
-              <ul class="list-unstyled links mb-4">
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                <li><a href="mailto:info@mydomain.com">info@mydomain.com</a></li>
-              </ul>
-
-              <h3>Connect</h3>
-              <ul class="list-unstyled social">
-                <li><a href="#"><span class="icon-instagram"></span></a></li>
-                <li><a href="#"><span class="icon-twitter"></span></a></li>
-                <li><a href="#"><span class="icon-facebook"></span></a></li>
-                <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                <li><a href="#"><span class="icon-pinterest"></span></a></li>
-                <li><a href="#"><span class="icon-dribbble"></span></a></li>
-              </ul>
-
-            </div>
-          </div>
-
-        </div> -->
-
-
-
-
-
-        <div class="row mt-5">
-          <div class="col-12 text-center">
-            <!-- 
-              **==========
-              NOTE: 
-              Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
-
-              **==========
-            -->
-            <p class="mb-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a>  Distributed By <a href="https://themewagon.com">ThemeWagon</a> <!-- License information: https://untree.co/license/ -->
-            </p>
-          </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top">Sebastian Stoff<span class="brand__dot">.</span></a>
+          <p>Digital humanities · research software · Graz</p>
         </div>
-      </div> <!-- /.container -->
-    </div> <!-- /.site-footer -->
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#services-section">Services</a>
+          <a href="#portfolio-section">Portfolio</a>
+          <a href="#teaching-section">Teaching</a>
+          <a href="#cv-section">CV</a>
+          <a href="#imprint-section">Imprint</a>
+          <a href="#contact-section">Contact</a>
+        </nav>
+        <div class="social-row">
+          <a class="social-link" href="https://www.linkedin.com/in/sebastian-david-schiller-stoff-305514152/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+          </a>
+          <a class="social-link" href="https://github.com/Schiller-Stoff" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+          </a>
+          <a class="social-link" href="https://orcid.org/0000-0001-6941-113X" target="_blank" rel="noopener" aria-label="ORCID">
+            <svg class="icon" aria-hidden="true"><use href="#i-orcid"></use></svg>
+          </a>
+        </div>
+      </div>
 
-    <div id="overlayer"></div>
-    <div class="loader">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
+      <div class="footer-bottom">
+        <p>&copy; <span data-year>2026</span> Sebastian David Schiller-Stoff. All rights reserved.</p>
+        <p>
+          Template originally by <a href="https://untree.co" target="_blank" rel="noopener">Untree.co</a>,
+          distributed by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a>
+          &mdash; licensed under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>.
+        </p>
       </div>
     </div>
+  </footer>
 
-    
+  <script src="js/site.js" defer></script>
+</body>
 
-
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/wave-animate.js"></script>
-    <script src="js/circle-progress.js"></script>
-    <script src="js/imagesloaded.pkgd.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/TweenMax.min.js"></script>
-    <script src="js/ScrollMagic.min.js"></script>
-    <script src="js/scrollmagic.animation.gsap.min.js"></script>
-
-
-    <script src="js/custom.js"></script>
-
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-          return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-
-    </script>
-    
-  </body>
-
-  </html>
+</html>
