@@ -1,0 +1,50 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Default
+  "default_agent": "architect",
+
+  "agent": {
+    "architect": {
+      "mode": "all",
+      "model": "dhinfra/deepseek-v4.1-flash"
+    },
+    "reviewer": {
+      "mode": "all",
+      "model": "dhinfra/deepseek-v4.1-flash",
+      "steps": 8
+    }
+  },
+
+  // Autocompact
+  "compaction": {
+    "auto": true
+  },
+
+  "model": "dhinfra/deepseek-v4.1-flash",
+
+  "provider": {
+    "dhinfra": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "DHINFRA-AT",
+      "options": {
+        "baseURL": "https://api.dhinfra.uni-graz.at/v1",
+        "apiKey": "{env:DH_INFRA_API_KEY}"
+      },
+      "models": {
+        "deepseek-v4.1-flash": {
+          "name": "DHINFRA-SEEK"
+        }
+      }
+    }
+  },
+
+  "autoupdate": false,
+  "share": "disabled",
+
+  "theme": {
+    "name": "tokyonight",
+    "mode": "system"
+  }
+}
+
