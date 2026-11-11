@@ -7,10 +7,10 @@ Static single-page personal site (Linked Data CV) for Sebastian David Schiller-S
 ## Source of truth
 
 - `index.html` (~1,540 lines): the whole page. Sections are identified by id and carry a `data-callno` attribute that paints the archival call number in the ruled spine on wide screens.
-- `css/custom-styles.css`: the only stylesheet and the de facto source. It starts with a single `:root` token block (paper/ink/signal/printing inks, two typefaces, 2px radius, rail metrics). Edit this file directly.
+- `css/custom-styles.css`: the only stylesheet and the de facto source. It starts with a single `:root` token block (the five-colour palette — lilac ash, almond silk, alabaster grey, ash grey, thistle — plus ink, signal, night band, two typefaces, 2px radius and rail metrics). Edit this file directly.
 - `js/site.js`: all behaviour, vanilla JavaScript, loaded with `defer`. Guarded modules: footer year, header scroll state, mobile drawer, scrollspy, portfolio filters/load-more, fail-safe reveal, Formspree form.
 - `fonts/`: two self-hosted OFL woff2 files — `source-serif-4.woff2` (variable 400–600) and `ibm-plex-mono-400.woff2`. No CDN fonts.
-- `images/`: WebP assets only, plus `og-cover.jpg` for social previews. No vendor CSS/JS, SCSS, icon fonts, or unused image trees remain.
+- `images/`: WebP assets only, including the hero portrait in `images/profile/`, plus `og-cover.jpg` for social previews. No vendor CSS/JS, SCSS, icon fonts, or unused image trees remain.
 - `redesignv3.md` is the design rationale/history. `REDESIGN-PLAN.md` and `redesignv2.md` are superseded.
 
 ## Editing gotchas

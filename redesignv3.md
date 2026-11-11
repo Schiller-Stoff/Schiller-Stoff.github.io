@@ -158,6 +158,11 @@ already deliver the effect.
 
 ## 2. The colour code (measured, not eyeballed)
 
+> **Palette update:** the client-supplied five-colour set (lilac ash, almond silk, alabaster grey, ash grey,
+> thistle) replaced the original paper/ink/red proposal. The current token values, contrast checks and the
+> hero-portrait change are recorded in **Appendix C**. The table below is the original v3 proposal and is
+> kept for design history.
+
 Derived from archival material: **paper, iron-gall ink, a red stamp**, and four **muted printing inks**
 from historical map legends. Warm and low-chroma, so it reads as printed matter rather than UI.
 
@@ -494,4 +499,53 @@ Three cuts made on review advice: no contact-sheet strip (text index instead), n
 
 Nothing lower depends on anything above, which is why Phases 1 and 2 can be committed and verified
 independently.
-Two notes for when you save it: the file ends at Appendix B, and the doc assumes the three font files must be fetched by someone with network access — that is the only item blocking Phase 1.
+---
+
+## Appendix C — Palette update and hero portrait (current)
+
+### C.1 The five supplied colours, kept exact
+
+| Token | Value | Role |
+|---|---|---|
+| `--lilac-ash` | `#9F9AA4` | strong rules, muted marks, portrait ring |
+| `--almond-silk` | `#E7CFCD` | deep paper, form wells, image mats |
+| `--alabaster-grey` | `#CFD8D7` | alternate section band (`--surface`) |
+| `--ash-grey` | `#B5C9C3` | the portrait mat |
+| `--thistle` | `#CAB1BD` | hairlines, frames (`--rule`) |
+
+A lifted almond tint (`#F3E7E6`) is the page paper so long-form reading stays comfortable; the exact
+almond remains the deep surface. The ink is a deep plum (`#2F2A33`) rather than black, so it belongs to the
+same low-chroma family.
+
+### C.2 Semantic tokens and measured contrast
+
+| Token | Value | Contrast |
+|---|---|---|
+| `--paper` | `#F3E7E6` | — |
+| `--paper-deep` | `#E7CFCD` | — |
+| `--surface` | `#CFD8D7` | — |
+| `--card` | `#FBF5F4` | — |
+| `--ink` | `#2F2A33` | 11.6:1 paper, 9.6:1 surface |
+| `--ink-soft` | `#4F4855` | 7.3:1 paper, 5.9:1 almond, 6.1:1 surface |
+| `--ink-muted` | `#5E5767` | 5.7:1 paper, 4.7:1 almond, 4.8:1 surface |
+| `--signal` | `#7A4F66` | 5.5:1 paper, 4.6:1 surface (hover `#654054`, 7.2:1) |
+| `--night` / `--night-soft` | `#38323E` / `#D8D0D5` | 8.2:1 |
+| `--signal-night` | `#D9B0C1` | 6.5:1 on night |
+
+The palette marks (`--ink-indigo` `#6B6478`, `--ink-ochre` `#8E6474`, `--ink-moss` `#5F7A72`,
+`--ink-clay` `#966D69`, `--ink-graphite` `#6C6672`) are used only for 6px swatches, 3px rules and 24px
+icons, all at or above 3:1 on paper and the alabaster band. Chip text is now `--ink-soft`; the accent
+colours the swatch, not the label.
+
+### C.3 Hero portrait
+
+The DERLA map plate in the hero was replaced by the portrait
+`images/profile/sebastian-stoff.webp` (400x400, alpha-masked circle) on an ash-grey mat. The DERLA map
+remains the first case study and portfolio entry `No. 08`, so no project content was lost. The portrait is
+also exposed as the JSON-LD `image`.
+
+### C.4 Font files, as actually shipped
+
+Google Fonts serves the latin subset of Source Serif 4 as one variable woff2 that covers 400–600, so the
+repository ships two files (`source-serif-4.woff2`, `ibm-plex-mono-400.woff2`, ~66 KB total) rather than
+three static instances. Only weights 400 and 600 are used.

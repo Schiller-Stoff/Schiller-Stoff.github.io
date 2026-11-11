@@ -1,7 +1,8 @@
 /* ==========================================================================
    Sebastian David Schiller-Stoff — "Finding Aid" stylesheet
-   Archival paper, iron-gall ink, one red stamp, four muted printing inks.
-   Single stylesheet. No framework, no build step, no shadows, no gradients.
+   A five-colour archival palette: lilac ash, almond silk, alabaster grey,
+   ash grey and thistle, on one deep plum ink. Single stylesheet. No
+   framework, no build step, no shadows, no gradients.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -31,41 +32,49 @@
 :root {
   color-scheme: light;
 
+  /* The supplied palette, kept exact */
+  --lilac-ash: #9f9aa4;
+  --almond-silk: #e7cfcd;
+  --alabaster-grey: #cfd8d7;
+  --ash-grey: #b5c9c3;
+  --thistle: #cab1bd;
+
   /* Surfaces */
-  --paper: #f5f0e6;
-  --paper-deep: #ede6d8;
-  --card: #fcfaf4;
+  --paper: #f3e7e6;
+  --paper-deep: var(--almond-silk);
+  --surface: var(--alabaster-grey);
+  --card: #fbf5f4;
 
   /* Ink */
-  --ink: #191a17;
-  --ink-deep: #000;
-  --ink-soft: #4c4a43;
-  --ink-muted: #6f6a5e;
-  --rule: #dcd3c1;
-  --rule-strong: #c0b49b;
+  --ink: #2f2a33;
+  --ink-deep: #211d26;
+  --ink-soft: #4f4855;
+  --ink-muted: #5e5767;
+  --rule: var(--thistle);
+  --rule-strong: var(--lilac-ash);
 
-  /* The one interactive colour */
-  --signal: #a3392a;
-  --signal-hover: #8a2e22;
-  --signal-soft: rgba(163, 57, 42, 0.1);
+  /* The one interactive colour: thistle, deepened for contrast */
+  --signal: #7a4f66;
+  --signal-hover: #654054;
+  --signal-soft: rgba(122, 79, 102, 0.12);
 
   /* Night band */
-  --night: #1d201c;
-  --night-soft: #a9a697;
-  --night-rule: #3a3b36;
-  --signal-night: #e2806b;
+  --night: #38323e;
+  --night-soft: #d8d0d5;
+  --night-rule: #5a5362;
+  --signal-night: #d9b0c1;
 
-  /* Printing inks — small marks only */
-  --ink-indigo: #33476b;
-  --ink-ochre: #7e5c1b;
-  --ink-moss: #4c5c36;
-  --ink-clay: #8a4b2e;
-  --ink-graphite: #56514a;
+  /* Palette marks — small accents only */
+  --ink-indigo: #6b6478;
+  --ink-ochre: #8e6474;
+  --ink-moss: #5f7a72;
+  --ink-clay: #966d69;
+  --ink-graphite: #6c6672;
 
-  --night-indigo: #93aedc;
-  --night-ochre: #d9b166;
-  --night-moss: #a8be8a;
-  --night-clay: #d8a98f;
+  --night-indigo: #b9b2c4;
+  --night-ochre: #d6b3c0;
+  --night-moss: #b8cec7;
+  --night-clay: #e0c3bf;
 
   /* Type */
   --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -175,7 +184,7 @@ p {
 }
 
 ::selection {
-  background: rgba(163, 57, 42, 0.16);
+  background: rgba(202, 177, 189, 0.55);
   color: var(--ink);
 }
 
@@ -275,7 +284,7 @@ p {
 }
 
 .section--surface {
-  background: var(--paper-deep);
+  background: var(--surface);
 }
 
 .section--dark {
@@ -487,7 +496,7 @@ p {
   padding: 4px 9px;
   border: 1px solid var(--rule-strong);
   border-radius: var(--radius);
-  background: rgba(86, 81, 74, 0.08);
+  background: rgba(94, 87, 103, 0.08);
   color: var(--ink-soft);
   font: 400 0.68rem/1.5 var(--font-mono);
   letter-spacing: 0.08em;
@@ -499,7 +508,6 @@ p {
   .chip {
     border-color: color-mix(in srgb, var(--chip-accent) 40%, transparent);
     background: color-mix(in srgb, var(--chip-accent) 10%, var(--paper));
-    color: var(--chip-accent);
   }
 }
 
@@ -518,7 +526,7 @@ p {
 .chip--night {
   --chip-accent: var(--night-moss);
   border-color: var(--night-rule);
-  background: rgba(245, 240, 230, 0.06);
+  background: rgba(243, 231, 230, 0.06);
   color: var(--night-soft);
 }
 
@@ -801,6 +809,23 @@ html.js-ready .site-header.is-scrolled {
   width: 100%;
   height: auto;
   border: 1px solid var(--ink);
+}
+
+/* The cover portrait: a circular plate on an ash-grey mat. */
+.hero__plate--portrait .plate__mat {
+  display: grid;
+  place-items: center;
+  padding: clamp(28px, 5vw, 56px);
+  background: var(--ash-grey);
+}
+
+.hero__plate--portrait .plate__mat img {
+  width: min(100%, 340px);
+  height: auto;
+  border: 0;
+  border-radius: 50%;
+  outline: 1px solid var(--rule-strong);
+  outline-offset: 6px;
 }
 
 .plate__caption {
@@ -1127,7 +1152,7 @@ html.js-ready .site-header.is-scrolled {
 .award__media {
   padding: 10px;
   border: 1px solid var(--night-rule);
-  background: rgba(245, 240, 230, 0.03);
+  background: rgba(243, 231, 230, 0.03);
 }
 
 .award__media img {
