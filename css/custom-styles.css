@@ -38,6 +38,7 @@
 
   /* Ink */
   --ink: #191a17;
+  --ink-deep: #000;
   --ink-soft: #4c4a43;
   --ink-muted: #6f6a5e;
   --rule: #dcd3c1;
@@ -434,8 +435,8 @@ p {
 }
 
 .btn--primary:hover {
-  background: #000;
-  border-color: #000;
+  background: var(--ink-deep);
+  border-color: var(--ink-deep);
 }
 
 .btn--outline {
