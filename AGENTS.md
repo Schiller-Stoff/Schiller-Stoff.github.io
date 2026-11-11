@@ -2,36 +2,47 @@
 
 ## What this is
 
-Static single-page personal site (Linked Data CV). There is no package manager, build, test, lint, or CI workflow; assets are served as plain files from the repo root. Origin is `Schiller-Stoff/Schiller-Stoff.github.io`, branch `master` (GitHub Pages settings are external to the repo).
+Static single-page personal site (Linked Data CV) for Sebastian David Schiller-Stoff. There is no package manager, build, test, lint, or CI workflow; assets are served as plain files from the repo root. Origin is `Schiller-Stoff/Schiller-Stoff.github.io`; `master` is the published branch (GitHub Pages settings live outside the repo).
 
 ## Source of truth
 
-- `index.html` (~1,900 lines): the whole site. Search by section id, but beware commented-out duplicate blocks (old `#services-section` and old `#posts`).
-- `css/style.css`: the loaded stylesheet and de facto source. Custom blocks are interleaved with template output and are not present in `scss/`; edit this file directly.
-- `scss/` + `prepros-6.config`: stale. Prepros references a missing `css/scss/` tree; regenerating `css/style.css` from `scss/` would drop current custom CSS.
-- `js/custom.js`: most behavior; Typed.js (hero text) and Bootstrap tooltips are initialized inline in `index.html`. Vendor libraries are checked into `js/`; there is no bundler.
-- `images/{portfolio,teaching,profile,svg,announcement}/` and `fonts/` are static assets. `static/img/` is unused; placeholder `index.html` files in `css/`, `js/`, `scss/`, and `fonts/` are not pages.
+- `index.html` (~1,540 lines): the whole page. Sections are identified by id and carry a `data-callno` attribute that paints the archival call number in the ruled spine on wide screens.
+- `css/custom-styles.css`: the only stylesheet and the de facto source. It starts with a single `:root` token block (paper/ink/signal/printing inks, two typefaces, 2px radius, rail metrics). Edit this file directly.
+- `js/site.js`: all behaviour, vanilla JavaScript, loaded with `defer`. Guarded modules: footer year, header scroll state, mobile drawer, scrollspy, portfolio filters/load-more, fail-safe reveal, Formspree form.
+- `fonts/`: two self-hosted OFL woff2 files — `source-serif-4.woff2` (variable 400–600) and `ibm-plex-mono-400.woff2`. No CDN fonts.
+- `images/`: WebP assets only, plus `og-cover.jpg` for social previews. No vendor CSS/JS, SCSS, icon fonts, or unused image trees remain.
+- `redesignv3.md` is the design rationale/history. `REDESIGN-PLAN.md` and `redesignv2.md` are superseded.
 
 ## Editing gotchas
 
-- Nav links use `index.html#<id>`. `#teaching-section` is an empty anchor; live teaching content is `#teaching-section-real`.
-- Two different grids:
-  - Portfolio: `.portfolio-item` cards driven by `.filter-btn` + `#load-more` (plain DOM logic at the end of `js/custom.js`).
-  - Teaching: legacy Isotope `#posts` grid with `.item`/`.isotope-item` (jQuery logic near the top of `js/custom.js`). The legacy `#filters` UI is absent from the live DOM, so teaching filtering is dead code.
-- `.portfolio-item` needs filter classes (`web`, `research`, `tool`, `teaching`, `document`) to appear under the filters.
-- Known broken/duplicate references: `css/custom-styles.css` is linked but missing; `css/style.css` references missing `images/dots.png`; Typed.js is included twice; `js/custom.js` calls `.jarallax()` but `jarallax.min.js` is not loaded.
-- CDN dependencies (Google Fonts, Font Awesome 6.7.2, Typed.js) require network. The hero paragraph is blank without Typed.js.
-- Prefer vendored local copies for new third-party assets; do not add a build/bundler step.
+- **No build step.** Change `index.html`, `css/custom-styles.css`, and `js/site.js` directly. Do not introduce a bundler.
+- **Fail-safe reveal:** `.reveal` is visible by default. `site.js` adds `html.reveal-ready` only after the observer is attached, so deleting or breaking `site.js` cannot hide content.
+- **Interactive controls:** `.filters` and `.work-more` are hidden until `site.js` adds `html.js-ready`; without JS the full portfolio is visible and the controls stay hidden.
+- **Portfolio:** each `.work-card` needs `data-categories` (`web`, `research`, `tool`, `teaching`, `document`) to appear under a filter. The page size is 9; the load-more label is rewritten from the visible counts. Catalogue numbers come from the `data-no` attribute on `.work-card__body`, so they stay stable when cards are filtered.
+- **Mobile navigation:** the base CSS keeps navigation in flow (usable without JS). With JS, `html.nav-ready` turns the menu into a drawer. `aria-expanded`, Esc and focus return are handled in `site.js`; scroll locking follows `html.nav-open` in CSS.
+- **Ruled spine:** at `min-width: 1000px`, every `.section` paints the vertical rule and `.section-head[data-callno]` prints the call number in the rail. The hero is not a `.section` and has no rail.
+- **German content:** German headings/cards carry `lang="de"`; preserve it when editing.
+- **Images:** use WebP (keep width/height attributes). `og-cover.jpg` is the only intentional non-WebP content image.
 - `google9857a7b25fe89ee0.html` is Search Console verification; leave it in place.
 - `opencode.jsonc` contains a plaintext API key and is not covered by `.gitignore`. Check `git status` before broad staging; do not commit it.
 
 ## Verify
 
-No automated checks exist. Serve the repo root and inspect manually:
+No automated suite exists. Serve the repo root and inspect manually:
 
 ```bash
 python3 -m http.server 8000
 # http://localhost:8000 — check console and Network for 404s
 ```
 
-Treat a push to `master` as publishing the live site (no CI workflow in repo; confirm Pages settings in GitHub if unsure).
+Useful invariants:
+
+```bash
+grep -c 'class="work-card"' index.html                 # 21
+grep -c 'class="teach-card reveal"' index.html         # 20
+grep -c '<h1' index.html                               # 1
+grep -oE 'https://doi.org/[^"]+' index.html | sort | uniq -d   # no duplicate DOIs
+grep -nE 'manrope|inter-var|pt-mono|site\.js' css/ index.html  # only js/site.js
+```
+
+Also check all local `src`/`href`/`url()` targets exist, and test keyboard navigation, every filter, load-more to 21, the drawer at 360px, and the form states. `opencode.jsonc` must never be staged. Treat a push to `master` as publishing the live site.
