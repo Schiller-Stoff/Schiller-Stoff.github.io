@@ -1,6 +1,6 @@
 # Redesign plan v4 — “Evidence, clearly presented”
 
-Status: proposal for review. Supersedes the visual direction in `redesignv3.md`; it does not undo the
+Status: implemented on this branch. Supersedes the visual direction in `redesignv3.md`; it does not undo the
 accessibility, progressive-enhancement, performance, or content-integrity work delivered by v3.
 
 Scope: fundamentally redesign the single page through `index.html` and `css/custom-styles.css`, with a
@@ -243,28 +243,39 @@ Remove IBM Plex Mono from the UI. Tabular numerals are a font feature, not a rea
 like a terminal. If adding IBM Plex Sans is not approved, use the system UI stack and retain Source Serif
 for emphasis; that is the zero-download fallback.
 
-| Role | Size / line height | Notes |
+Final scale (implemented; see `design-refactor.md` §4.1):
+
+| Token | Value | Role |
 |---|---|---|
-| Hero | `clamp(2.75rem, 5.5vw, 5rem)` / `0.98` | Sans 600; maximum 13 words |
-| Section h2 | `clamp(2rem, 3.5vw, 3.25rem)` / `1.05` | Sans 600 |
-| Feature h3 | `clamp(1.5rem, 2.4vw, 2.1rem)` / `1.15` | Optional serif |
-| Body lead | `clamp(1.1rem, 1.4vw, 1.25rem)` / `1.55` | maximum 56ch |
-| Body | `1rem`–`1.0625rem` / `1.6` | maximum 68ch |
-| Label/meta | `0.75rem` / `1.4` | Sans 600, `0.06em`; sparing uppercase |
-| Metric | `clamp(1.6rem, 3vw, 2.5rem)` / `1` | tabular numerals |
+| `--text-2xs` | `0.6875rem` (11px) | Uppercase labels, meta lines, flags |
+| `--text-xs` | `0.75rem` (12px) | Tags, dense captions, small links |
+| `--text-sm` | `0.875rem` (14px) | Scope lines, notes, secondary copy, controls |
+| `--text-base` | `1rem` (16px) | Body, card titles, outcome copy |
+| `--text-lg` | `1.125rem` (18px) | Section intros, lead paragraphs, component headings |
+| `--text-xl` | `1.25rem` (20px) | Capability and CV headings |
+| `--display-1` / `--display-1-stacked` | `clamp(2.7rem, 5vw, 4.6rem)` / `clamp(2.35rem, 10vw, 3.2rem)` | Hero `h1`, two-column / stacked |
+| `--display-2` | `clamp(2rem, 3.4vw, 3rem)` | Section `h2` |
+| `--display-3` | `clamp(1.5rem, 2.4vw, 2.1rem)` | Outcome `h3` |
+| `--display-4` | `clamp(1.25rem, 2vw, 1.6rem)` | CV role, contact email |
+| `--display-stat` | `clamp(1.8rem, 3.5vw, 2.8rem)` | CV dates |
+
+Five leading roles (`display`, `title`, `dense`, `body`, `prose`) and three tracking roles
+(`display`, `title`, `label`) cover every component; print sizes stay in `pt`.
 
 ### 4.3 Grid, spacing, and shape
 
 - Container: `1200px`; gutter: `clamp(20px, 4vw, 48px)`.
 - Use intrinsic CSS Grid patterns (`minmax()`, `auto-fit`, and named two-column layouts), not a formal
   12/8/4-column framework. Introduce a column system only if a prototype proves a specific need.
-- Main section spacing: `clamp(72px, 9vw, 128px)`; related subsections: 40–64px.
+- Main section spacing: `clamp(72px, 9vw, 128px)`; component spacing uses the eight-step 4px scale
+  (`--space-2xs` 4px through `--space-3xl` 64px).
 - Text measure is controlled independently of grid width.
-- Radius: 6px for controls and cards, 10px only for the portrait frame; no pills except true status.
-- Borders: 1px by default; 2px only for the evidence line or focus indicator.
+- Radius: 6px for controls, panels and cards; 4px for tags, thumbnails and fields; 50% only for the portrait.
+- Borders: `--rule-hair` 1px by default; `--rule-accent` 2px for the evidence line, award note, CV summary
+  and focus indicator.
 - Shadows: one subtle elevation token may be used on the fixed header only. Content cards remain flat.
-- Images use their natural aspect where meaningful. Do not force book covers and screenshots into the same
-  crop.
+- Register thumbnails are 4:3 frames with `contain`; outcomes use one 4:3 `contain` frame; the publication
+  cover keeps its natural ratio and the portrait stays circular. Book covers and screenshots are not cropped.
 
 ### 4.4 Interaction and motion
 
@@ -398,8 +409,9 @@ Retain all 21 records, but change from an image-heavy gallery to a compact evide
 - Featured projects keep thumbnails; ordinary records are text rows/cards.
 - Desktop columns: year, project, contribution/type, technologies, evidence.
 - Mobile: stacked cards with visible labels; never a horizontally scrolling data table.
-- Keep filters, but rename categories in audience language: `Platforms`, `Research`, `Tools`, `Knowledge
-  transfer`, `Reviews`.
+- Keep five filters in audience language: `All work`, `Platforms`, `Research`, `Tools`, `Teaching`. The
+  former `Reviews` record is folded into `Research`; “Knowledge transfer” is labelled `Teaching` in the
+  filter only (the section heading keeps its name).
 - Keep stable identifiers only if they are useful for deep linking; do not print `No. 08` as a brand motif.
 - First view shows exactly 9 records, preserving the current tested page size. “Show more” is progressive
   enhancement; no-JS and print show all.
@@ -422,7 +434,9 @@ Retain all 21 records, but change from an image-heavy gallery to a compact evide
   adoption; do not add a second custom show-more module merely for visual neatness.
 - With CSS/JS unavailable, all resources must remain reachable and indexable.
 - Keep DOI links, dates, languages, and event/institution names prominent.
-- Avoid 20 equally weighted screenshot tiles; they obscure rather than strengthen the record.
+- Avoid 20 equally weighted screenshot tiles; they obscure rather than strengthen the record. The
+  implemented version removes the teaching thumbnails entirely and keeps the publication cover as the
+  section’s single image anchor.
 
 ### 6.10 Contact
 
@@ -576,13 +590,14 @@ and focus management. Do not preserve the current hybrid solely because Esc and 
 python3 -m http.server 8000
 # Browser: no console errors and no failed local requests
 
-grep -c 'class="work-card"' index.html                 # 21 until class migration
-grep -c 'class="teach-card reveal"' index.html         # 20 before reveal removal
+grep -c 'class="project-card"' index.html              # 21
+grep -c 'class="teaching-item"' index.html             # 20
 grep -c '<h1' index.html                               # 1
 # validate unique record IDs within each register; repeated evidence URLs across sections are allowed
-grep -nE 'data-callno|plate__caption|reveal-ready' index.html css/custom-styles.css js/site.js
+grep -nE 'data-callno|plate__caption|reveal-ready|plex-mono' index.html css/custom-styles.css js/site.js
 # no output after migration
 
+gjs js/site.js                                         # stops at "document is not defined": syntax valid
 node --check js/site.js                                # when Node is available
 ```
 
@@ -604,7 +619,7 @@ Add a small one-off Python check (not a dependency) for:
   overrides. In forced colours, links, focus, current state, errors, and status remain identifiable without
   colour alone.
 - Navigation: drawer open/close/Esc/focus return; every anchor lands below header.
-- Register: every filter, show-more to all 21, count live region, print shows all.
+- Register: every filter, load-more to all 21, the count live region, and the hidden-load-more focus handoff.
 - Form: empty, invalid email, valid submission, failed network, native POST fallback.
 - Content: role and outcome attribution; German pronunciation/lang; external-link behaviour.
 
@@ -631,11 +646,11 @@ Add a small one-off Python check (not a dependency) for:
   like a generic software template.
 - One coherent token system; no archival and corporate design systems mixed together.
 - All 21 project and 20 teaching records remain accessible, searchable, and available without JavaScript.
-- Mobile drawer, filters/show-more, form, direct links, reduced motion, and print all work.
+- Mobile navigation disclosure, filters/show-more, form, direct links, reduced motion, and print all work.
 - One `h1`, valid heading order, unique IDs, correct `lang`, useful alternative text, and visible focus.
 - No framework, package manager, build step, CDN, tracking script, or new paid asset.
 - No call-number rail, specimen captions, decorative reveal, category rainbow, or repeated sales CTA.
-- Documentation and screenshots describe the shipped V4 design; `master` is updated only after review.
+- Documentation describes the shipped V4 design; `master` is updated only after review.
 
 ---
 
@@ -684,6 +699,36 @@ content review, which is also the highest-value work for corporate credibility.
     infrastructure, or remove the form and use direct contact only.
 14. **Mobile navigation:** choose non-modal disclosure or a correctly isolated modal drawer after assistive-
     technology testing.
+
+### Resolved during implementation
+
+- The evidence device sits inside a half-width outcome column, so it ships as a 2×2 rule-bounded block. A
+  four-across line left each field about 120px wide at 1440px, which broke “Result” strings into three or
+  four lines; the single-column blue-rule variant remains below 640px.
+- IBM Plex Sans is self-hosted as the single UI face (latin subset, variable 400–600); the mono face was
+  removed rather than kept as dead weight, and Source Serif 4 survives only as the `h1` emphasis.
+- ZIM-Graphviz is the third selected outcome because its demo, adoption and citation claims are verifiable.
+- Metrics that were already published in V3 were retained as-is; no new numbers were invented. GAMS has no
+  invented case study — it keeps its capability description and register entries.
+- Award wording attributes the prize to the project, consistently: “DERLA received the award…”.
+- All 20 teaching records stay visible; no disclosure widget was introduced.
+- The mobile navigation is the non-modal disclosure described in §8, without a focus trap or scroll lock.
+- The contact form stays on Formspree with an explicit data-protection note in the form and in the imprint.
+- Print output is the browser-printed page, tuned as a concise CV; no separate PDF is maintained.
+- The interface remains English-only; German titles keep `lang="de"`.
+- No screenshot suite was produced: the environment has no headless browser that can render the page.
+  Verification was scripted (counts, ids, anchors, local targets, HTML nesting, CSS balance, JS parse) plus
+  a local-server request check.
+- The design-system refactor is implemented: six text sizes plus six display roles, five leading and three
+  tracking roles, an eight-step 4px spacing scale, 4px/6px radii plus the portrait circle, one shared label
+  recipe, one `.tag` geometry, and `--action` limited to signal (links, focus, current/pressed state and the
+  eyebrow marker).
+- The award is stated twice (proof strip and DERLA award note); the outcome tag, description sentence and
+  register flag are removed. The award image is a 192×128 derivative and the register serves 224px-wide
+  WebP thumbnails through `srcset`/`sizes`.
+- Outcome media share a 4:3 `contain` frame; teaching thumbnails are removed; the register keeps two columns
+  above 900px with 88px media at 901–1120px. The filter row has five controls and becomes a 3-column grid
+  below 640px.
 
 ---
 

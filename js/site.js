@@ -2,17 +2,16 @@
    Sebastian David Schiller-Stoff — site behaviour
    Vanilla JavaScript. No dependencies, no build step.
    Every module is isolated and guarded so a missing element cannot break the
-   rest of the page.
+   rest of the page. Content and navigation remain usable without this file.
    ========================================================================== */
 
 (function () {
   "use strict";
 
   var root = document.documentElement;
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   /* Progressive enhancement flag: interactive controls are hidden by default
-     and only revealed once this stylesheet's owner is actually running. */
+     and only revealed once this script is actually running. */
   root.classList.add("js-ready");
 
   /* ------------------------------------------------------------------
@@ -48,7 +47,9 @@
   }
 
   /* ------------------------------------------------------------------
-     3. Mobile navigation drawer
+     3. Mobile navigation — non-modal disclosure
+     The page stays scrollable and available to assistive technology; the
+     disclosure only reveals the navigation panel below the header.
      ------------------------------------------------------------------ */
   function initNav() {
     var toggle = document.querySelector("[data-nav-toggle]");
@@ -58,45 +59,34 @@
     root.classList.add("nav-ready");
 
     var desktop = window.matchMedia("(min-width: 901px)");
-    var lastFocus = null;
 
     function isOpen() {
       return root.classList.contains("nav-open");
     }
 
-    function focusable() {
-      var items = Array.prototype.slice.call(
-        menu.querySelectorAll("a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex='-1'])")
-      );
-      /* The toggle doubles as the close button, so keep it in the loop. */
-      items.unshift(toggle);
-      return items.filter(function (el) {
-        return el.offsetWidth > 0 || el.offsetHeight > 0;
-      });
-    }
-
     function open() {
       if (isOpen()) return;
-      lastFocus = document.activeElement;
       root.classList.add("nav-open");
       toggle.setAttribute("aria-expanded", "true");
-      var items = focusable();
-      if (items.length > 1) items[1].focus();
-      else if (items.length) items[0].focus();
     }
 
     function close(returnFocus) {
       if (!isOpen()) return;
       root.classList.remove("nav-open");
       toggle.setAttribute("aria-expanded", "false");
-      if (returnFocus && lastFocus && typeof lastFocus.focus === "function") {
-        lastFocus.focus();
-      }
+      if (returnFocus) toggle.focus();
     }
 
     toggle.addEventListener("click", function () {
       if (isOpen()) close(true);
       else open();
+    });
+
+    /* Light-dismiss: a click anywhere outside the disclosure closes it. */
+    document.addEventListener("click", function (event) {
+      if (!isOpen()) return;
+      if (menu.contains(event.target) || toggle.contains(event.target)) return;
+      close(false);
     });
 
     document.addEventListener("keydown", function (event) {
@@ -105,33 +95,37 @@
       if (event.key === "Escape") {
         event.preventDefault();
         close(true);
-        return;
-      }
-
-      if (event.key !== "Tab") return;
-
-      var items = focusable();
-      if (!items.length) return;
-
-      var first = items[0];
-      var last = items[items.length - 1];
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
       }
     });
 
-    /* A click on a link closes the drawer and lets the anchor do its job. */
+    /* A click on a link closes the disclosure and lets the anchor work.
+       Focus is moved to the target section so keyboard users do not lose
+       their place when the focused link disappears with the menu. */
     menu.addEventListener("click", function (event) {
-      if (event.target.closest("a")) close(true);
+      var link = event.target.closest("a");
+      if (!link) return;
+
+      var modified =
+        event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+      var href = link.getAttribute("href") || "";
+      var id = href.charAt(0) === "#" ? href.slice(1) : "";
+
+      close(false);
+      if (modified || !id) return;
+
+      var target = document.getElementById(id);
+      if (!target) return;
+
+      if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+      try {
+        target.focus({ preventScroll: true });
+      } catch (error) {
+        target.focus();
+      }
     });
 
     function reset() {
-      if (desktop.matches) close(true);
+      if (desktop.matches) close(false);
     }
 
     if (typeof desktop.addEventListener === "function") {
@@ -164,7 +158,7 @@
       links.forEach(function (link) {
         if (link === activeLink) {
           link.classList.add("is-active");
-          link.setAttribute("aria-current", "page");
+          link.setAttribute("aria-current", "location");
         } else {
           link.classList.remove("is-active");
           link.removeAttribute("aria-current");
@@ -172,69 +166,44 @@
       });
     }
 
-    if ("IntersectionObserver" in window) {
-      var visible = new Set();
-
-      var observer = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) visible.add(entry.target);
-            else visible.delete(entry.target);
-          });
-
-          var current = null;
-          sections.forEach(function (item) {
-            if (visible.has(item.section) && !current) current = item;
-          });
-
-          if (current) setActive(current.link);
-        },
-        { rootMargin: "-30% 0px -55% 0px", threshold: 0 }
-      );
-
-      sections.forEach(function (item) {
-        observer.observe(item.section);
-      });
-      return;
-    }
-
-    /* Fallback for browsers without IntersectionObserver. */
     var ticking = false;
 
     function update() {
-      var offset = window.scrollY + window.innerHeight * 0.3;
+      var marker = window.innerHeight * 0.35;
       var current = null;
+
       sections.forEach(function (item) {
-        if (item.section.offsetTop <= offset) current = item;
+        if (item.section.getBoundingClientRect().top <= marker) current = item;
       });
+
       setActive(current ? current.link : null);
       ticking = false;
     }
 
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(update);
-      },
-      { passive: true }
-    );
+    function request() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request, { passive: true });
     update();
   }
 
   /* ------------------------------------------------------------------
-     5. Portfolio filters and "load more"
+     5. Project register filters and "load more"
      ------------------------------------------------------------------ */
   function initPortfolio() {
     var grid = document.querySelector("[data-work-grid]");
     var filters = document.querySelector("[data-filters]");
     var more = document.querySelector("[data-load-more]");
+    var moreWrap = more ? more.closest(".work-more") : null;
     var moreLabel = document.querySelector("[data-load-label]");
     var count = document.querySelector("[data-filter-count]");
     if (!grid) return;
 
-    var cards = Array.prototype.slice.call(grid.querySelectorAll(".work-card"));
+    var cards = Array.prototype.slice.call(grid.querySelectorAll("[data-project-item]"));
     var buttons = filters
       ? Array.prototype.slice.call(filters.querySelectorAll("[data-filter]"))
       : [];
@@ -253,6 +222,10 @@
     function apply() {
       var total = 0;
       var visible = 0;
+      var visibleCards = [];
+      /* The button disappears when the last batch is revealed; remember whether
+         it held focus so focus can move somewhere sensible instead of being lost. */
+      var moreHadFocus = document.activeElement === more;
 
       cards.forEach(function (card) {
         if (matches(card)) {
@@ -260,6 +233,7 @@
           if (visible < shown) {
             card.hidden = false;
             visible += 1;
+            visibleCards.push(card);
           } else {
             card.hidden = true;
           }
@@ -274,7 +248,21 @@
       }
 
       if (more) {
-        more.hidden = visible >= total;
+        var done = visible >= total;
+        if (moreWrap) moreWrap.hidden = done;
+
+        if (done && moreHadFocus) {
+          var last = visibleCards[visibleCards.length - 1];
+          var link = last ? last.querySelector("a") : null;
+
+          if (link) {
+            try {
+              link.focus({ preventScroll: true });
+            } catch (error) {
+              link.focus();
+            }
+          }
+        }
 
         if (moreLabel) {
           var remaining = Math.min(pageSize, total - visible);
@@ -315,55 +303,7 @@
   }
 
   /* ------------------------------------------------------------------
-     6. Fail-safe reveal
-     Default is visible. Content is hidden only after the observer has been
-     attached, so a missing or broken site.js can never hide the page.
-     ------------------------------------------------------------------ */
-  function initReveal() {
-    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
-    if (!items.length) return;
-
-    function showAll() {
-      items.forEach(function (item) {
-        item.classList.add("is-visible");
-      });
-      root.classList.remove("reveal-ready");
-    }
-
-    if (reduceMotion.matches || !("IntersectionObserver" in window)) {
-      showAll();
-      return;
-    }
-
-    root.classList.add("reveal-ready");
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
-    );
-
-    items.forEach(function (item) {
-      observer.observe(item);
-    });
-
-    if (typeof reduceMotion.addEventListener === "function") {
-      reduceMotion.addEventListener("change", function (event) {
-        if (event.matches) {
-          observer.disconnect();
-          showAll();
-        }
-      });
-    }
-  }
-
-  /* ------------------------------------------------------------------
-     7. Contact form — Formspree via fetch, native POST as fallback
+     6. Contact form — Formspree via fetch, native POST as fallback
      ------------------------------------------------------------------ */
   function initForm() {
     var form = document.querySelector("[data-contact-form]");
@@ -389,7 +329,12 @@
 
     form.addEventListener("input", function (event) {
       var field = event.target;
-      if (field && field.getAttribute && field.getAttribute("aria-invalid") === "true" && field.checkValidity()) {
+      if (
+        field &&
+        field.getAttribute &&
+        field.getAttribute("aria-invalid") === "true" &&
+        field.checkValidity()
+      ) {
         field.setAttribute("aria-invalid", "false");
       }
     });
@@ -435,7 +380,10 @@
         .then(function (response) {
           if (!response.ok) throw new Error("Formspree responded " + response.status);
           form.reset();
-          setStatus("Thank you — your message has been sent. I will reply within a few working days.", "success");
+          setStatus(
+            "Thank you — your message has been sent. I will reply within a few working days.",
+            "success"
+          );
         })
         .catch(function () {
           setStatus(
@@ -465,6 +413,5 @@
   safe(initNav);
   safe(initScrollspy);
   safe(initPortfolio);
-  safe(initReveal);
   safe(initForm);
 })();

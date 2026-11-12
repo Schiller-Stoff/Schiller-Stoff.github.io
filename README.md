@@ -14,24 +14,30 @@ python3 -m http.server 8000
 
 ## Structure
 
-- `index.html` — the single page: hero, services, case studies, award, portfolio,
-  teaching, CV, imprint, contact, footer.
-- `css/custom-styles.css` — the only stylesheet: the archival "Finding Aid" design
-  system on a five-colour palette (lilac ash, almond silk, alabaster grey, ash
-  grey, thistle), with a ruled spine, section call numbers and night bands.
-- `js/site.js` — progressive-enhancement behaviour: mobile drawer, scrollspy,
-  portfolio filters/load-more, reveal, header state and the contact form.
-- `fonts/` — self-hosted Source Serif 4 and IBM Plex Mono (OFL).
-- `images/` — WebP project and teaching imagery, the hero portrait, plus the
-  social preview.
+- `index.html` — the single page: hero, credibility strip, selected outcomes,
+  capabilities, working method, project register, knowledge transfer, CV, contact,
+  imprint and footer.
+- `css/custom-styles.css` — the only stylesheet: the V4 “Evidence, clearly
+  presented” design system, with an institutional navy/blue palette, self-hosted
+  sans typography, a rule-bounded evidence line and a print stylesheet that
+  produces a concise CV.
+- `js/site.js` — progressive-enhancement behaviour: header state, non-modal
+  navigation disclosure, scrollspy, project filters/load-more and the contact form.
+- `fonts/` — self-hosted IBM Plex Sans and Source Serif 4 (OFL).
+- `images/` — WebP project imagery with 224px register derivatives, the hero
+  portrait, the 192px award image, plus the social preview.
 
 The page is designed to work with JavaScript disabled: content stays visible and
-the full portfolio remains listed. Interactive controls are revealed only when
-`site.js` is running.
+the full register of 21 projects and 20 teaching resources remains listed.
+Interactive controls are revealed only when `site.js` is running.
 
 ## Deploy
 
 The site is published from `master` via GitHub Pages. A push to `master`
-publishes immediately; work on `redesign` until cutover.
+publishes immediately; keep working on `redesign` until cutover.
 
-Design rationale and history: `redesignv3.md`.
+Design rationale and history: `redesignv4.md` (current), `redesignv3.md`
+(previous direction). `design-refactor.md` is the implemented design-system
+refactor: nominal tokens for type, spacing, radii and rules; a shared label and
+tag recipe; restrained blue semantics; 4:3 outcome media; 224px register
+derivatives; and the five-control filter taxonomy.
