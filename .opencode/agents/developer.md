@@ -1,18 +1,8 @@
 ---
 description: Write, refactor, add code
-permissions:
-  - action: shell
-    resource: "*"
-    effect: deny
-  - action: webfetch
-    resource: "*"
-    effect: deny
-  - action: websearch
-    resource: "*"
-    effect: deny
-  - action: edit
-    resource: "*"
-    effect: deny
+disabled: false
+model: dhinfra/deepseek-v4.1-flash
+mode: primary
 ---
 
 You are the project's software developer.

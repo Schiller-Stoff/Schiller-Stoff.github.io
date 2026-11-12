@@ -2,23 +2,7 @@
   "$schema": "https://opencode.ai/config.json",
 
   // Default
-  "default_agent": "architect",
-
-  "agent": {
-    "architect": {
-      "mode": "all",
-      "model": "dhinfra/deepseek-v4.1-flash"
-    },
-    "reviewer": {
-      "mode": "all",
-      "model": "dhinfra/deepseek-v4.1-flash",
-      "steps": 8
-    },
-    "developer": {
-      "mode": "all",
-      "model": "google/gemini-3.1-flash-lite"
-    }
-  },
+  //"default_agent": "architect",
 
   // Autocompact
   "compaction": {
@@ -34,7 +18,9 @@
       }
     },
     "openai": {
-      "apiKey": "{env:OPEN_AI_API_KEY}"
+      "settings": {
+        "apiKey": "{env:OPEN_AI_API_KEY}"
+      }
     }
   },
 
