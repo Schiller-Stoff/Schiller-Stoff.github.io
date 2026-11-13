@@ -31,6 +31,7 @@ import json
 import math
 import re
 import sys
+import textwrap
 import urllib.request
 from pathlib import Path
 
@@ -178,7 +179,7 @@ def main() -> None:
     parser.add_argument("--map-html", type=Path, help="saved DERLA map page")
     parser.add_argument("--natural-earth", type=Path, help="saved NE 1:50m countries")
     parser.add_argument("--out", type=Path, default=Path("tools/storymap/austria-map.svg"))
-    parser.add_argument("--splice", type=Path, help="replace the map block in this HTML file")
+    parser.add_argument("--splice", type=Path, action="append", help="replace the map block in this HTML file (repeatable)")
     args = parser.parse_args()
 
     html = (
@@ -221,23 +222,46 @@ def main() -> None:
         points = " ".join(f"{x:.1f},{y:.1f}" for x, y in (screen(*p) for p in simplified))
         outline_d.append("M" + points + "Z")
 
-    def dots(selected: list[dict], width: float) -> str:
-        """Zero-length subpaths: round caps make dots, square caps make squares."""
-        return "".join(
-            f"M{round(x)},{round(y)}h0"
-            for x, y in (px(f["geometry"]["coordinates"][0], f["geometry"]["coordinates"][1]) for f in selected)
-        )
+    def dots(selected: list[dict]) -> str:
+        """Zero-length subpaths: round caps make dots, square caps make squares.
+
+        Positions are rounded to whole viewBox units, so records that share an
+        address (or a building) land on the same pixel. Emitting each rounded
+        position once changes nothing on screen — the same paint lands in the
+        same place — but removes thousands of redundant subpaths that every
+        renderer would still walk. Order is preserved, so the picture is
+        bit-identical; all counts in the prose stay record counts.
+        """
+        seen: set[tuple[int, int]] = set()
+        parts = []
+        for feature in selected:
+            x, y = px(
+                feature["geometry"]["coordinates"][0],
+                feature["geometry"]["coordinates"][1],
+            )
+            key = (round(x), round(y))
+            if key in seen:
+                continue
+            seen.add(key)
+            parts.append(f"M{key[0]},{key[1]}h0")
+        return "".join(parts)
 
     terror_features = [f for f in features if terror(f)]
     marker_features = [f for f in features if not terror(f)]
+    marker_dots = dots(marker_features)
+    terror_dots = dots(terror_features)
 
-    svg = f"""      <svg class="map__svg" viewBox="0 0 {VIEW_W} {VIEW_H}" role="img" aria-labelledby="map-title map-desc" preserveAspectRatio="xMidYMid meet">
-        <title id="map-title">Documented places of remembrance in Austria</title>
-        <desc id="map-desc">{len(features):,} points, one per DERLA record: {len(marker_features):,} memorial markers and {len(terror_features):,} sites of terror. The distribution is densest in Vienna and along the eastern edge, and sparse in the western Alps. Exact positions are approximate at this scale.</desc>
-        <path class="map__outline" d="{' '.join(outline_d)}"/>
-        <path class="map__dots" d="{dots(marker_features, 1.5)}"/>
-        <path class="map__terror" d="{dots(terror_features, 2.6)}"/>
-      </svg>"""
+    svg = "\n".join(
+        [
+            f'<svg class="map__svg" viewBox="0 0 {VIEW_W} {VIEW_H}" role="img" aria-labelledby="map-title map-desc" preserveAspectRatio="xMidYMid meet">',
+            '  <title id="map-title">Documented places of remembrance in Austria</title>',
+            f'  <desc id="map-desc">{len(features):,} records, one per documented place: {len(marker_features):,} memorial markers and {len(terror_features):,} sites of terror. Records at the same position overlap at this scale. The distribution is densest in Vienna and along the eastern edge, and sparse in the western Alps. Exact positions are approximate.</desc>',
+            f'  <path class="map__outline" d="{" ".join(outline_d)}"/>',
+            f'  <path class="map__dots" d="{marker_dots}"/>',
+            f'  <path class="map__terror" d="{terror_dots}"/>',
+            "</svg>",
+        ]
+    )
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(svg + "\n", encoding="utf-8")
@@ -255,21 +279,28 @@ def main() -> None:
     print(f"usable               {len(features)}")
     print(f"terror               {len(terror_features)}")
     print(f"markers              {len(marker_features)}")
+    print(f"dot positions        {marker_dots.count('h0') + terror_dots.count('h0')}")
     print(f"dated                {len(dated)}")
     print(f"decades              {sorted(decades.items())}")
     print(f"svg bytes            {len(svg)}")
     print(f"wrote                {args.out}")
 
     if args.splice:
-        page = args.splice.read_text(encoding="utf-8")
-        pattern = re.compile(
-            r"(<!-- map:begin -->\n)(.*?)(\n\s*<!-- map:end -->)", re.DOTALL
-        )
-        if not pattern.search(page):
-            raise SystemExit(f"no map:begin / map:end markers in {args.splice}")
-        page = pattern.sub(lambda m: m.group(1) + svg + m.group(3), page)
-        args.splice.write_text(page, encoding="utf-8")
-        print(f"spliced into         {args.splice}")
+        for page_path in args.splice:
+            page = page_path.read_text(encoding="utf-8")
+            pattern = re.compile(
+                r"([ \t]*)<!-- map:begin -->.*?<!-- map:end -->", re.DOTALL
+            )
+            match = pattern.search(page)
+            if not match:
+                raise SystemExit(f"no map:begin / map:end markers in {page_path}")
+            indent = match.group(1)
+            body = textwrap.indent(svg, indent + "  ")
+            block = f"{indent}<!-- map:begin -->\n{body}\n{indent}<!-- map:end -->"
+            page_path.write_text(
+                page[: match.start()] + block + page[match.end() :], encoding="utf-8"
+            )
+            print(f"spliced into         {page_path}")
 
 
 if __name__ == "__main__":

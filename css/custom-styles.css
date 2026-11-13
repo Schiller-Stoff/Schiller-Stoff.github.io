@@ -28,12 +28,13 @@
    22 Print
 
    Breakpoint owners
-   1120  hero density, register thumbnail, bridge circles
+   1120  hero density, register thumbnail, feature plate halves
    900   navigation disclosure, one-column grids, graph removed,
-         storymap rail static and numeral column collapsed
+         feature plate stacked, storymap rail static and numeral column
+         collapsed
    640   stacked strips, single-column evidence, filter grid,
          storymap decade chart as rows
-   420   small phones
+   420   small phones, feature stats tightened
 
    Rules: use the tokens in §2; no raw type sizes or radii in components.
    ========================================================================== */
@@ -1028,6 +1029,197 @@ html.typed-ready .typewriter__caret {
   line-height: var(--leading-dense);
 }
 
+/* --- Storymap feature plate: the CV's one data exhibit -------------------
+   Placed directly after the credibility strip, where the page has just said
+   what the work is and is about to show it. Copy left, the real map right:
+   the object is the argument, so the map is inline SVG (re-inked in forced
+   colours), never a screenshot. Paper ground and one 2px accent rule; no
+   circles, no palette, no motion. The map is content, not decorative ink, so
+   nothing here waits for JavaScript or scroll. */
+.storymap-feature {
+  padding-block: clamp(48px, 6vw, 88px);
+  border-top: var(--rule-accent) solid var(--action);
+  background: var(--surface-paper);
+}
+
+.storymap-feature__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.44fr) minmax(0, 0.56fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.storymap-feature__kicker {
+  color: var(--action);
+}
+
+.storymap-feature__title {
+  margin-top: var(--space-sm);
+  color: var(--action);
+  font-family: var(--font-serif);
+  font-size: var(--display-2);
+  font-weight: 500;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-serif);
+}
+
+.storymap-feature__standfirst {
+  margin-top: var(--space-md);
+  max-width: 48ch;
+  color: var(--ink-soft);
+  font-size: var(--text-lg);
+  line-height: var(--leading-prose);
+}
+
+/* Three facts, not a metric wall: the counts are the storymap's own. */
+.storymap-feature__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--space-lg);
+  border-top: var(--rule-hair) solid var(--rule);
+}
+
+.storymap-feature__stat {
+  padding: var(--space-sm) var(--space-md) 0 0;
+  border-left: var(--rule-hair) solid var(--rule);
+}
+
+.storymap-feature__stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.storymap-feature__stat + .storymap-feature__stat {
+  padding-left: var(--space-md);
+}
+
+.storymap-feature__stat-value {
+  color: var(--ink);
+  font-size: var(--display-4);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-title);
+}
+
+.storymap-feature__stat .label {
+  margin-top: var(--space-2xs);
+}
+
+.storymap-feature__actions {
+  margin-top: var(--space-lg);
+}
+
+/* The plate: a legend bar, the country, a caption. The legend is HTML, so
+   the dot/square distinction survives forced colours, zoom and translation
+   and never depends on the SVG alone. */
+.storymap-plate {
+  margin: 0;
+}
+
+.storymap-plate__frame {
+  border: var(--rule-hair) solid var(--rule);
+  background: var(--canvas);
+}
+
+.storymap-plate__bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-lg);
+  padding: var(--space-xs) var(--space-sm);
+  border-bottom: var(--rule-hair) solid var(--rule);
+  color: var(--ink-soft);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
+.storymap-plate__key {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.storymap-plate__swatch {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--action);
+}
+
+.storymap-plate__swatch--dot {
+  border-radius: var(--radius-circle);
+}
+
+.storymap-plate__swatch--square {
+  border-radius: var(--radius-sm);
+  background: var(--ink);
+}
+
+.storymap-plate__pending {
+  padding: var(--space-lg);
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+
+.storymap-plate__caption {
+  max-width: 74ch;
+  margin-top: var(--space-xs);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
+/* The plate is rendered at anything from 348px (phone) to 811px (stacked
+   tablet), so the ink is pinned in CSS pixels instead of viewBox units:
+   otherwise the same 1.3-unit dot is 0.6px on a phone and 1.5px on a tablet.
+   The storymap's own weights are untouched. */
+.storymap-plate .map__outline,
+.storymap-plate .map__dots,
+.storymap-plate .map__terror {
+  vector-effect: non-scaling-stroke;
+}
+
+.storymap-plate .map__outline {
+  stroke-width: 1px;
+}
+
+.storymap-plate .map__dots {
+  stroke-width: 1.5px;
+  opacity: 0.7;
+}
+
+.storymap-plate .map__terror {
+  stroke-width: 2.6px;
+}
+
+@media (max-width: 1120px) {
+  .storymap-feature__grid {
+    grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.5fr);
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 900px) {
+  .storymap-feature__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .storymap-feature__stat {
+    padding-right: var(--space-sm);
+  }
+
+  .storymap-feature__stat + .storymap-feature__stat {
+    padding-left: var(--space-sm);
+  }
+
+  .storymap-feature__stat-value {
+    font-size: var(--text-xl);
+  }
+}
+
 /* --------------------------------------------------------------------------
    9. Selected outcomes and evidence line
    -------------------------------------------------------------------------- */
@@ -1560,92 +1752,6 @@ html.js-ready .work-more {
 
 html.js-ready .work-more[hidden] {
   display: none;
-}
-
-/* --- Bridge band: the storymap entry -------------------------------------
-   A full-bleed pause after the register. White ground with one 2px accent
-   rule: the footer keeps the only blue field, so this can never read as a
-   second advertisement. Two unfilled circles echo the reference composition
-   at 0 KB and are cropped by the band, never by the page. */
-.bridge {
-  position: relative;
-  overflow: hidden;
-  padding-block: clamp(48px, 6vw, 88px);
-  border-top: var(--rule-accent) solid var(--action);
-  border-bottom: var(--rule-hair) solid var(--rule);
-  background: var(--canvas);
-}
-
-.bridge__inner {
-  position: relative;
-  z-index: 1;
-  max-width: 680px;
-}
-
-.bridge__kicker {
-  color: var(--action);
-}
-
-.bridge__title {
-  margin-top: var(--space-sm);
-  color: var(--action);
-  font-family: var(--font-serif);
-  font-size: var(--display-2);
-  font-weight: 500;
-  line-height: var(--leading-display);
-  letter-spacing: var(--tracking-serif);
-}
-
-.bridge__standfirst {
-  margin-top: var(--space-md);
-  max-width: 54ch;
-  color: var(--ink-soft);
-  font-size: var(--text-lg);
-  line-height: var(--leading-prose);
-}
-
-.bridge__actions {
-  margin-top: var(--space-lg);
-}
-
-/* Decorative geometry only: no fill, no shadow, no gradient. */
-.bridge__circles {
-  position: absolute;
-  inset-block: 0;
-  right: 0;
-  width: min(48%, 560px);
-  pointer-events: none;
-}
-
-.bridge__circles span {
-  position: absolute;
-  border: var(--rule-hair) solid var(--action);
-  border-radius: var(--radius-circle);
-  opacity: 0.12;
-}
-
-.bridge__circles span:first-child {
-  top: 50%;
-  right: -64px;
-  width: 380px;
-  height: 380px;
-  transform: translateY(-50%);
-}
-
-.bridge__circles span:last-child {
-  top: 50%;
-  right: 132px;
-  width: 240px;
-  height: 240px;
-  transform: translateY(-50%);
-}
-
-/* Under 1120px the copy would collide with the circles: keep the rule, drop
-   the geometry. The band is composition, not information. */
-@media (max-width: 1120px) {
-  .bridge__circles {
-    display: none;
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -3084,6 +3190,11 @@ html.js-ready .work-more[hidden] {
   background: var(--canvas);
 }
 
+/* --- The map artefact, shared by both pages -----------------------------
+   These four rules are intentionally not `sm-`-scoped: the CV's feature
+   plate renders the same inline SVG, and both instances must be able to be
+   re-inked by the print and forced-colours blocks. The plate tunes the
+   stroke weights for its smaller size in §8; nothing here may drift. */
 .map__svg {
   display: block;
   width: 100%;
@@ -3096,7 +3207,8 @@ html.js-ready .work-more[hidden] {
   stroke-width: 1;
 }
 
-/* One path for 4,161 dots: round caps on zero-length subpaths. */
+/* One path for the memorial markers: round caps on zero-length subpaths.
+   Coincident records are emitted once, so the path is positions, not records. */
 .map__dots {
   fill: none;
   stroke: var(--action);
@@ -3459,14 +3571,37 @@ html.js-ready .work-more[hidden] {
   /* Decorative layers and progress are removed; states stay text/border led. */
   .hero__graph,
   .footer__graph,
-  .bridge__circles,
   .sm-rail__progress,
   .site-header::after {
     display: none;
   }
 
-  /* The storymap map keeps its shape, loses its hue. Squares stay squares, so
-     a site of terror is still distinguishable from a memorial marker. */
+  /* The feature plate keeps its map and its numbers; the paper ground
+     becomes the canvas and every edge becomes a real border. */
+  .storymap-feature {
+    border-top-color: CanvasText;
+    background: Canvas;
+  }
+
+  .storymap-feature__kicker,
+  .storymap-feature__title {
+    color: CanvasText;
+  }
+
+  .storymap-feature__stats,
+  .storymap-feature__stat,
+  .storymap-plate__frame,
+  .storymap-plate__bar {
+    border-color: CanvasText;
+  }
+
+  .storymap-plate__swatch {
+    background: CanvasText;
+  }
+
+  /* Both map instances keep their shape, lose their hue. Squares stay
+     squares, so a site of terror is still distinguishable from a memorial
+     marker. */
   .map__outline {
     fill: none;
     stroke: CanvasText;
@@ -3475,6 +3610,12 @@ html.js-ready .work-more[hidden] {
   .map__dots,
   .map__terror {
     stroke: CanvasText;
+    opacity: 1;
+  }
+
+  /* The plate's own 0.7 is a colour-mode subtlety; forced colours need the
+     full ink so the markers do not fade into the page. */
+  .storymap-plate .map__dots {
     opacity: 1;
   }
 
@@ -3916,7 +4057,7 @@ html.js-ready .work-more[hidden] {
   .site-footer,
   #portfolio-section,
   #imprint-section,
-  .bridge,
+  .storymap-feature,
   .anchor-alias {
     display: none !important;
   }

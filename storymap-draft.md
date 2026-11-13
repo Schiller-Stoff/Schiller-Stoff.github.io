@@ -16,10 +16,11 @@ colophon.
 - Page: `storymap.html`, standalone masthead/footer, same fonts and tokens as
   the CV, one stylesheet (§19 of `css/custom-styles.css`).
 - One data request: none. The map is baked into inline SVG at build time.
-- One page weight: 67KB uncompressed / 16KB gzip, no images, no map library,
+- One page weight: 39KB uncompressed / 11.8KB gzip, no images, no map library,
   no tiles, **no JavaScript at all**.
-- Linked from a white bridge band on the CV between the register and the
-  knowledge-transfer section.
+- Promoted on the CV as `#storymap-feature`, a paper feature plate directly after
+  the credibility strip, carrying the same inline map (V9); a "Read the storymap"
+  text link also sits in the DERLA outcome. The V8 bridge band is gone.
 
 ## 2. The data
 
@@ -243,13 +244,17 @@ the chapters that are about geography; the forms and the timeline do not need it
 
 ## 7. Integration
 
-1. **Interlude on the CV** (see `redesignv8.md` §3.2) with "Open the storymap".
-2. **DERLA outcome action:** add a second outline pill, "Open the storymap",
-   linking to `storymap.html`. One extra link in `.outcome__actions`; no change
-   to ids, counts or the project register.
+What shipped (V9; see §11):
+
+1. **Feature plate on the CV** directly after the credibility strip:
+   `#storymap-feature`, serif `h2`, standfirst, three counts, one outline pill and
+   the inline map. It replaced the V8 bridge band, which was too easy to scroll
+   past.
+2. **DERLA outcome action:** a `.text-link` "Read the storymap" beside the
+   existing outline pill. No change to ids, counts or the project register.
 3. **Storymap masthead:** wordmark links to `index.html`; "Back to the CV" links
-   to `index.html#case-studies-section`; contact links to
-   `index.html#contact-section`.
+   to `index.html#storymap-feature` (the plate, not the outcomes); the closing
+   button links there too; imprint links to `index.html#imprint-section`.
 4. **Metadata:** `<title>The Memory Landscape — a DERLA storymap</title>`,
    description, canonical, `og:image` reuses `og-cover.jpg` for v1.
 
@@ -333,6 +338,15 @@ addresses, no tooltips. Print and forced colours restyle it through
 `currentColor`; in forced colours the shapes keep their distinction at full
 opacity.
 
+**V9 promotion and dedupe.** The map is now also in `index.html`: one generator
+run with `--splice storymap.html --splice index.html` writes the same block to
+both, so the two maps cannot drift. Coincident records are emitted once per
+whole viewBox unit (4,393 records → 1,545 positions; 1,458 dot positions and 87
+square positions), which is pixel-identical on screen and cuts the map from 47KB
+to 18.5KB. All prose counts stay record counts. The CV plate re-inks the same
+paths at CSS-pixel weights (`vector-effect: non-scaling-stroke`), because it
+renders at 348–811px.
+
 **Chart.** The decade bars are static CSS columns driven by a `--v` percentage
 per bar, from 1940s to 2020–26. Above 640px they are nine columns; below that
 they turn into rows (`label | bar | count`) so the labels stay readable. In
@@ -350,6 +364,5 @@ wraps into one row at 900px; the chart reads as rows at 375px; no console
 messages; all ids unique and all fragments resolve on both pages.
 
 **Still open.** Historical review of the prose (external, §2); the Graz walk as
-a possible v2 appendix; and whether the site should link the storymap from the
-DERLA outcome card in addition to the bridge band (open decision 3 in
-`redesignv8.md`).
+a possible v2 appendix. The CV-entry question (decision 3 in `redesignv8.md`) is
+settled: V9 added both the feature plate and the DERLA outcome link.

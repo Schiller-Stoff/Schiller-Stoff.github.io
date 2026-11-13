@@ -1,9 +1,11 @@
 # V8 — Depth, restrained
 
 Status: **implemented**, 13 November 2026 — hero graph drift, register arrow
-fill, bridge band and `storymap.html`, all uncommitted in the working tree. See
-§12 for the implementation record and the measurements. V7 remains the published
-design until this change set is pushed.
+fill and `storymap.html`, all uncommitted in the working tree. The bridge band in
+§5 was **retired by V9** (`redesignv9.md`); the storymap is now a feature plate
+directly after the credibility strip. See §12 for the implementation record and
+the measurements. V7 remains the published design until this change set is
+pushed.
 
 ## 1. What the reference actually does
 
@@ -112,7 +114,12 @@ Corrections to the earlier draft:
 - In forced colours the background is overridden; the border, underline and icon
   shift still carry the state, so nothing depends on the fill.
 
-## 5. Effect 3 — the bridge band
+## 5. Effect 3 — the bridge band *(retired in V9)*
+
+> **Superseded.** V9 (`redesignv9.md`) removed this band and replaced it with a
+> paper feature plate directly after the credibility strip, carrying the real
+> inline map. The section below is the V8 record, kept for the reasoning; the
+> code no longer exists.
 
 A full-bleed band after the project register, before knowledge transfer. It is
 the storymap's entry point and the one composition borrowed from AI:AT.
@@ -172,13 +179,14 @@ If the owner insists on blue, the same band can be `--action` with the text
 | No scroll-timeline support | The graph is exactly V7 (static, centred). |
 | `prefers-reduced-motion: reduce` | Explicit `animation: none` on `.hero__graph`; no draw. |
 | ≤900px | Graph is already hidden; no animation. |
-| Print | The bridge band is added to the `@media print` hide list (`:3185`); the graph is already hidden; page count unchanged. |
-| Forced colours | The band's circles are hidden with the graphs (`:2800`); rules use `CanvasText`; the link keeps an underline. |
+| Print | The bridge band was added to the `@media print` hide list (V8); V9 removed the band and hides the feature plate instead. The graph is already hidden; page count unchanged. |
+| Forced colours | The band's circles were hidden with the graphs (V8); V9 removed the circles and re-inks the plate's map instead. Rules use `CanvasText`; the link keeps an underline. |
 | No JS | All three effects are CSS; the page is complete. |
 | Counts | 21 cards, 20 teaching links, one `h1`, eight `.section-head`s, no new nav item, ids unchanged. |
 
-The bridge band must be added to the print hide list and (if its circles are
-decorative) to the forced-colours hide list. The graph needs the explicit
+The bridge band had to be added to the print hide list and (if its circles are
+decorative) to the forced-colours hide list; V9 removed the band and carried the
+same two decisions over to the feature plate. The graph needs the explicit
 reduced-motion entry. These are the three places where a new decorative layer
 usually leaks into print or forced colours.
 
@@ -253,31 +261,37 @@ turns the arrow `--on-dark`. Border, fill and the 3px icon shift move together,
 so the state is not colour-only. Forced colours drop the fill and keep the
 border/underline/shift (unchanged from V7).
 
-**Bridge band.** `.bridge` between `#portfolio-section` and
-`#teaching-section`: white ground, 2px `--action` top rule, 1px `--rule` bottom
-rule, serif `h2`, one factual standfirst, one outline pill to `storymap.html`,
-two unfilled `--action` circles at 0.12 opacity cropped by `overflow: hidden`.
-No id and no `.section-head`, so the section-head count stays eight. Circles
-hidden at ≤1120px, the whole band hidden in print, circles removed in forced
-colours. Rendered height 397px at 1440px, 315px at 900px.
+**Bridge band (removed in V9).** `.bridge` stood between `#portfolio-section`
+and `#teaching-section`: white ground, 2px `--action` top rule, 1px `--rule`
+bottom rule, serif `h2`, one factual standfirst, one outline pill to
+`storymap.html`, two unfilled `--action` circles at 0.12 opacity cropped by
+`overflow: hidden`. No id and no `.section-head`, so the section-head count stayed
+eight. Circles hidden at ≤1120px, the whole band hidden in print, circles removed
+in forced colours. Rendered height 397px at 1440px, 315px at 900px. V9 deleted the
+markup, the §12 CSS block and the circles; `#storymap-feature` after the
+credibility strip is its replacement.
 
 **Storymap.** `storymap.html` is new: masthead, sticky chapter rail, four
-chapters plus colophon, and a 47KB inline SVG of all 4,393 DERLA records. It
-loads **no JavaScript**; the only motion is a scroll-driven 2px progress rule
-under the rail. The map and its prose come from the data study in
-`storymap-draft.md`; the six-stop Graz walk is deferred and the draft's chapter
-05 (what the map cannot show) is now chapter 04. The generator
+chapters plus colophon, and an inline SVG of all 4,393 DERLA records (47KB at
+first build; V9 deduplicated coincident positions to 18.5KB with a
+pixel-identical picture). It loads **no JavaScript**; the only motion is a
+scroll-driven 2px progress rule under the rail. The map and its prose come from
+the data study in `storymap-draft.md`; the six-stop Graz walk is deferred and the
+draft's chapter 05 (what the map cannot show) is now chapter 04. The generator
 `tools/storymap/build_map.py` reproduces 4,399 extracted / 4,393 usable / 232
-terror / 4,161 markers / 3,877 dated on every run and splices the SVG between
-`map:begin` / `map:end`; a double-projection bug in the first run (outline
-projected twice, empty view) is fixed and documented in the script.
+terror / 4,161 markers / 3,877 dated on every run and, since V9, splices the same
+SVG into `storymap.html` **and** `index.html` between `map:begin` / `map:end`; a
+double-projection bug in the first run (outline projected twice, empty view) is
+fixed and documented in the script.
 
 **Actual cost.** `js/site.js` untouched: still two `IntersectionObserver`s and
 two `scroll` listeners, and no new scroll math. CSS grows by the CV motion
-rules (~45 lines), the bridge band (~90 lines) and §19 storymap (~560 lines,
-scoped to `sm-*`/`map__*`). `storymap.html` is 67KB raw / 16KB gzip, no images
-and no requests beyond the two fonts and the stylesheet. No new token, font,
-image, dependency or script on either page.
+rules (~45 lines) and §19 storymap (~560 lines, scoped to `sm-*`/`map__*`); the
+bridge band's ~90 lines were removed again in V9 and replaced by the plate block
+in §8. At V8, `storymap.html` was 67KB raw / 16KB gzip; V9's dedupe brought it to
+39KB raw / 11.8KB gzip, and `index.html` to 113KB raw / 23KB gzip with the second
+map inline. No images, and no requests beyond the two fonts and the stylesheet.
+No new token, font, image, dependency or script on either page.
 
 **What was cut, and why.** The 600-dot constellation, the hero orbit and the
 ultramarine interlude were dropped in the reviewer pass: they were page-wide
@@ -287,6 +301,6 @@ pan/zoom: turning memorial records into a hover toy is the one thing the draft
 rules out. The draft's `js/storymap.js` does not exist.
 
 **Left as-is on purpose.** The 1.025 thumbnail scale stays (decision 2); it is
-a register-only response and does not stack with the arrow fill. The DERLA
-outcome card does not yet carry a second storymap link (decision 3): one entry
-in the bridge band is enough until the page has been reviewed.
+a register-only response and does not stack with the arrow fill. (V8 left the
+DERLA outcome card without a second storymap link, decision 3; V9 has since added
+a "Read the storymap" text link there, beside the feature plate.)
