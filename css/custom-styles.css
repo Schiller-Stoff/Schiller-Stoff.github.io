@@ -22,14 +22,17 @@
    16 Imprint and legal
    17 Footer
    18 Responsive (1120 / 900 / 640 / 420)
-   19 Forced colours
-   20 Motion and motion preferences
-   21 Print
+   19 Storymap page (storymap.html)
+   20 Forced colours
+   21 Motion and motion preferences
+   22 Print
 
    Breakpoint owners
-   1120  hero density, register thumbnail
-   900   navigation disclosure, one-column grids, graph removed
-   640   stacked strips, single-column evidence, filter grid
+   1120  hero density, register thumbnail, bridge circles
+   900   navigation disclosure, one-column grids, graph removed,
+         storymap rail static and numeral column collapsed
+   640   stacked strips, single-column evidence, filter grid,
+         storymap decade chart as rows
    420   small phones
 
    Rules: use the tokens in §2; no raw type sizes or radii in components.
@@ -1499,7 +1502,8 @@ html.js-ready .work-more {
   border-radius: var(--radius-circle);
   color: var(--ink-muted);
   transition: color var(--dur-fast) var(--ease-standard),
-    border-color var(--dur-fast) var(--ease-standard);
+    border-color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard);
 }
 
 /* The icon moves inside the circle; the circle itself stays put, so the
@@ -1523,10 +1527,14 @@ html.js-ready .work-more {
   text-underline-offset: 3px;
 }
 
+/* The circle fills on hover; the arrow inverts so the glyph stays legible.
+   Border, fill and the 3px icon shift change together, so the state never
+   depends on colour alone. */
 .project-card__link:hover .project-card__arrow,
 .project-card__link:focus-visible .project-card__arrow {
-  color: var(--action);
+  background-color: var(--action);
   border-color: var(--action);
+  color: var(--on-dark);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1552,6 +1560,92 @@ html.js-ready .work-more {
 
 html.js-ready .work-more[hidden] {
   display: none;
+}
+
+/* --- Bridge band: the storymap entry -------------------------------------
+   A full-bleed pause after the register. White ground with one 2px accent
+   rule: the footer keeps the only blue field, so this can never read as a
+   second advertisement. Two unfilled circles echo the reference composition
+   at 0 KB and are cropped by the band, never by the page. */
+.bridge {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(48px, 6vw, 88px);
+  border-top: var(--rule-accent) solid var(--action);
+  border-bottom: var(--rule-hair) solid var(--rule);
+  background: var(--canvas);
+}
+
+.bridge__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.bridge__kicker {
+  color: var(--action);
+}
+
+.bridge__title {
+  margin-top: var(--space-sm);
+  color: var(--action);
+  font-family: var(--font-serif);
+  font-size: var(--display-2);
+  font-weight: 500;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-serif);
+}
+
+.bridge__standfirst {
+  margin-top: var(--space-md);
+  max-width: 54ch;
+  color: var(--ink-soft);
+  font-size: var(--text-lg);
+  line-height: var(--leading-prose);
+}
+
+.bridge__actions {
+  margin-top: var(--space-lg);
+}
+
+/* Decorative geometry only: no fill, no shadow, no gradient. */
+.bridge__circles {
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  width: min(48%, 560px);
+  pointer-events: none;
+}
+
+.bridge__circles span {
+  position: absolute;
+  border: var(--rule-hair) solid var(--action);
+  border-radius: var(--radius-circle);
+  opacity: 0.12;
+}
+
+.bridge__circles span:first-child {
+  top: 50%;
+  right: -64px;
+  width: 380px;
+  height: 380px;
+  transform: translateY(-50%);
+}
+
+.bridge__circles span:last-child {
+  top: 50%;
+  right: 132px;
+  width: 240px;
+  height: 240px;
+  transform: translateY(-50%);
+}
+
+/* Under 1120px the copy would collide with the circles: keep the rule, drop
+   the geometry. The band is composition, not information. */
+@media (max-width: 1120px) {
+  .bridge__circles {
+    display: none;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -2767,7 +2861,573 @@ html.js-ready .work-more[hidden] {
 }
 
 /* --------------------------------------------------------------------------
-   19. Forced colours — states must not depend on colour alone
+   19. Storymap page — storymap.html
+   A standalone data study on the same tokens, fonts and one stylesheet. No
+   JavaScript: the page is complete without it. Everything here is scoped to
+   `sm-*` or `map__*` so the CV cannot inherit any of it.
+   -------------------------------------------------------------------------- */
+
+.sm-head {
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.sm-head__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-sm) var(--space-xl);
+  padding-block: var(--space-lg);
+}
+
+.sm-head__note {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-dense);
+  text-transform: uppercase;
+}
+
+.sm-head__note .label {
+  color: var(--ink-muted);
+}
+
+.sm-head__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.sm-head__nav a {
+  color: var(--ink-soft);
+  border-bottom: var(--rule-hair) solid transparent;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.sm-head__nav a:hover,
+.sm-head__nav a:focus-visible {
+  color: var(--action);
+  border-bottom-color: var(--action);
+}
+
+/* Hero */
+.sm-hero {
+  padding-block: clamp(48px, 7vw, 96px) clamp(32px, 4vw, 56px);
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.sm-hero__kicker {
+  color: var(--action);
+}
+
+.sm-hero__title {
+  margin-top: var(--space-md);
+  max-width: 22ch;
+  color: var(--action);
+  font-family: var(--font-serif);
+  font-size: var(--display-1);
+  font-weight: 500;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-serif);
+}
+
+.sm-hero__standfirst {
+  margin-top: var(--space-lg);
+  max-width: 58ch;
+  color: var(--ink-soft);
+  font-size: var(--text-lg);
+  line-height: var(--leading-prose);
+}
+
+.sm-hero__meta {
+  margin-top: var(--space-lg);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
+/* Chapter rail: a sticky index on desktop, a scrollable strip on phones.
+   No aria-current is set — a static anchor list is honest without JS. */
+.sm-rail {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--canvas);
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.sm-rail__inner {
+  position: relative;
+}
+
+.sm-rail__list {
+  display: flex;
+  gap: clamp(16px, 2.4vw, 32px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.sm-rail__list::-webkit-scrollbar {
+  display: none;
+}
+
+.sm-rail__list a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  padding-block: var(--space-md);
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color var(--dur) var(--ease);
+}
+
+.sm-rail__list a span {
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-label);
+}
+
+.sm-rail__list a:hover,
+.sm-rail__list a:focus-visible {
+  color: var(--action);
+  text-decoration: underline;
+  text-decoration-thickness: var(--rule-accent);
+  text-underline-offset: 6px;
+}
+
+/* Reading progress: decorative, drawn by a scroll timeline, never by script. */
+.sm-rail__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: var(--rule-accent);
+  background: var(--action);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* Chapters */
+.sm-chapter {
+  padding-block: clamp(56px, 8vw, 112px);
+}
+
+.sm-chapter--paper {
+  background: var(--surface-paper);
+}
+
+.sm-chapter__grid {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.sm-chapter__num {
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-dense);
+  text-transform: uppercase;
+}
+
+.sm-chapter__title {
+  max-width: 24ch;
+  color: var(--action);
+  font-family: var(--font-serif);
+  font-size: var(--display-2);
+  font-weight: 500;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-serif);
+}
+
+.sm-chapter__body > p {
+  max-width: 62ch;
+  margin-top: var(--space-lg);
+  color: var(--ink-soft);
+  line-height: var(--leading-prose);
+}
+
+.sm-chapter__body > p.sm-lede {
+  margin-top: var(--space-md);
+  color: var(--ink);
+  font-size: var(--text-xl);
+  line-height: var(--leading-body);
+}
+
+.sm-chapter__body > p.sm-note {
+  margin-top: var(--space-xl);
+  padding-left: var(--space-md);
+  border-left: var(--rule-accent) solid var(--action);
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+
+/* Figures */
+.sm-figure {
+  margin: var(--space-2xl) 0 0;
+}
+
+.sm-map {
+  border: var(--rule-hair) solid var(--rule);
+  background: var(--canvas);
+}
+
+.map__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map__outline {
+  fill: var(--surface-paper);
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+
+/* One path for 4,161 dots: round caps on zero-length subpaths. */
+.map__dots {
+  fill: none;
+  stroke: var(--action);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
+
+/* Squares, not dots: a perpetrator site must never read as a memorial. */
+.map__terror {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.4;
+  stroke-linecap: square;
+  opacity: 0.85;
+}
+
+.sm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-xs) var(--space-lg);
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: var(--rule-hair) solid var(--rule);
+  color: var(--ink-soft);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
+.sm-legend__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+}
+
+.sm-legend__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-circle);
+  background: var(--action);
+  transform: translateY(-1px);
+}
+
+.sm-legend__square {
+  width: 7px;
+  height: 7px;
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+
+.sm-legend b {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.sm-legend__item--note {
+  flex-basis: 100%;
+  color: var(--ink-muted);
+}
+
+.sm-figcaption {
+  max-width: 74ch;
+  margin-top: var(--space-sm);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
+/* Three forms */
+.sm-forms {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  margin-top: var(--space-2xl);
+}
+
+.sm-form {
+  padding-top: var(--space-md);
+  border-top: var(--rule-accent) solid var(--action);
+}
+
+.sm-form__count {
+  color: var(--action);
+  font-size: var(--display-stat);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.sm-form__name {
+  margin-top: var(--space-2xs);
+  color: var(--ink);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: var(--tracking-title);
+}
+
+.sm-form__note {
+  margin-top: var(--space-xs);
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+}
+
+/* Decade chart: static bars, the numbers are the point. */
+.sm-bars {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: clamp(6px, 1.2vw, 16px);
+  height: clamp(180px, 24vw, 280px);
+  padding-top: var(--space-sm);
+}
+
+.sm-bar {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  align-items: end;
+  justify-items: center;
+  height: 100%;
+}
+
+/* Fill first, then the axis label, then the count: the bar grows from the
+   baseline and the number reads as the axis value, not as a floating label. */
+.sm-bar__fill {
+  order: 1;
+  align-self: end;
+  width: 100%;
+  height: calc(var(--v) * 1%);
+  background: var(--action);
+}
+
+.sm-bar__label {
+  order: 2;
+  width: 100%;
+  padding-top: var(--space-xs);
+  border-top: var(--rule-hair) solid var(--ink-muted);
+  color: var(--ink-soft);
+  font-size: var(--text-2xs);
+  line-height: var(--leading-dense);
+  text-align: center;
+}
+
+.sm-bar__value {
+  order: 3;
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-dense);
+}
+
+/* Links and colophon */
+.sm-links {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.sm-links .text-link {
+  font-size: var(--text-base);
+}
+
+.sm-colophon {
+  padding-block: clamp(56px, 8vw, 112px);
+  border-top: var(--rule-accent) solid var(--action);
+}
+
+.sm-meta {
+  margin: var(--space-lg) 0 0;
+}
+
+.sm-meta__row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: var(--space-lg);
+  padding-block: var(--space-md);
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.sm-meta dt {
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-body);
+  text-transform: uppercase;
+}
+
+.sm-meta dd {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+}
+
+.sm-colophon__back {
+  margin-top: var(--space-xl);
+}
+
+.sm-foot {
+  border-top: var(--rule-hair) solid var(--rule);
+}
+
+.sm-foot__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-sm) var(--space-xl);
+  padding-block: var(--space-xl);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+}
+
+.sm-foot a {
+  color: var(--ink-soft);
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.sm-foot a:hover,
+.sm-foot a:focus-visible {
+  color: var(--action);
+  border-bottom-color: var(--action);
+}
+
+/* One scroll timeline, capability-gated like the CV spine. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes sm-progress {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    .sm-rail__progress {
+      animation: sm-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sm-rail__progress {
+    animation: none !important;
+  }
+}
+
+/* The storymap has its own breakpoints: the numeral column collapses, the
+   rail stops sticking (it would eat a phone's first screen) and the bars
+   shrink. */
+@media (max-width: 900px) {
+  .sm-chapter__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .sm-rail {
+    position: static;
+  }
+
+  /* With the rail no longer sticking, every chapter fits: wrap instead of
+     hiding two links behind a horizontal scroll. */
+  .sm-rail__list {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: var(--space-xs) var(--space-md);
+  }
+
+  .sm-rail__progress {
+    display: none;
+  }
+
+  .sm-forms {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sm-meta__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xs);
+  }
+}
+
+@media (max-width: 640px) {
+  .sm-head__nav {
+    width: 100%;
+  }
+
+  /* The decade chart turns horizontal: nine columns of 32px cannot hold a
+     label, so each record becomes a row with the same numbers. */
+  .sm-bars {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xs);
+    height: auto;
+  }
+
+  .sm-bar {
+    grid-template-columns: 4.75rem minmax(0, 1fr) 2.75rem;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: stretch;
+    gap: var(--space-xs);
+    height: auto;
+  }
+
+  .sm-bar__label {
+    order: 1;
+    width: auto;
+    padding-top: 0;
+    border-top: 0;
+    text-align: left;
+  }
+
+  .sm-bar__fill {
+    order: 2;
+    width: calc(var(--v) * 1%);
+    height: 10px;
+  }
+
+  .sm-bar__value {
+    order: 3;
+    text-align: right;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   20. Forced colours — states must not depend on colour alone
    -------------------------------------------------------------------------- */
 
 @media (forced-colors: active) {
@@ -2799,8 +3459,33 @@ html.js-ready .work-more[hidden] {
   /* Decorative layers and progress are removed; states stay text/border led. */
   .hero__graph,
   .footer__graph,
+  .bridge__circles,
+  .sm-rail__progress,
   .site-header::after {
     display: none;
+  }
+
+  /* The storymap map keeps its shape, loses its hue. Squares stay squares, so
+     a site of terror is still distinguishable from a memorial marker. */
+  .map__outline {
+    fill: none;
+    stroke: CanvasText;
+  }
+
+  .map__dots,
+  .map__terror {
+    stroke: CanvasText;
+    opacity: 1;
+  }
+
+  .sm-legend__dot,
+  .sm-legend__square,
+  .sm-bar__fill {
+    background: CanvasText;
+  }
+
+  .sm-bar__label {
+    border-top-color: CanvasText;
   }
 
   .typewriter__caret {
@@ -2865,7 +3550,7 @@ html.js-ready .work-more[hidden] {
 }
 
 /* --------------------------------------------------------------------------
-   20. Motion and motion preferences
+   21. Motion and motion preferences
    One vocabulary: draw a rule, settle into place, respond to input.
    JavaScript-driven motion is guarded in site.js; no CSS animation loops
    except the temporary caret.
@@ -3121,6 +3806,31 @@ html.js-ready .work-more[hidden] {
   }
 }
 
+/* Hero depth: the decorative field drifts 48px as the hero leaves. This is the
+   only scroll-linked motion on the page. The profile card, the headline and
+   every reading line stay put — ink moves, content does not.
+   `from` repeats the base translateY(-50%) on purpose: the graph is centred
+   with that transform, so starting at 0 would jump it by half its height. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 901px) {
+    @keyframes hero-field-drift {
+      from {
+        transform: translateY(-50%);
+      }
+
+      to {
+        transform: translateY(calc(-50% - 48px));
+      }
+    }
+
+    .hero__graph {
+      animation: hero-field-drift linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 90vh;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -3128,7 +3838,8 @@ html.js-ready .work-more[hidden] {
 
   /* A scroll timeline outlives the duration override: stop it explicitly. */
   .cv-list::before,
-  .cv-entry::before {
+  .cv-entry::before,
+  .hero__graph {
     animation: none !important;
   }
 
@@ -3148,7 +3859,7 @@ html.js-ready .work-more[hidden] {
 }
 
 /* --------------------------------------------------------------------------
-   21. Print — a concise CV, not the full register
+   22. Print — a concise CV, not the full register
    -------------------------------------------------------------------------- */
 @media print {
   @page {
@@ -3205,6 +3916,7 @@ html.js-ready .work-more[hidden] {
   .site-footer,
   #portfolio-section,
   #imprint-section,
+  .bridge,
   .anchor-alias {
     display: none !important;
   }
@@ -3430,5 +4142,115 @@ html.js-ready .work-more[hidden] {
   a {
     color: #000 !important;
     text-decoration: none;
+  }
+
+  /* Storymap on paper: a report. Chrome goes, every number, map and chapter
+     stays. Bars keep their shape as outlined columns so they print even when
+     the browser drops background graphics. */
+  .sm-head__nav,
+  .sm-rail,
+  .sm-foot,
+  .sm-colophon__back {
+    display: none !important;
+  }
+
+  .sm-hero,
+  .sm-chapter,
+  .sm-colophon {
+    padding-block: 10pt;
+    border-top: var(--rule-hair) solid #999;
+    background: #fff !important;
+  }
+
+  .sm-hero {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .sm-hero__title,
+  .sm-form__count {
+    color: #000 !important;
+    font-size: 18pt;
+  }
+
+  .sm-hero__standfirst,
+  .sm-hero__meta,
+  .sm-chapter__body > p,
+  .sm-figcaption,
+  .sm-legend,
+  .sm-meta dd {
+    max-width: none;
+    color: #000 !important;
+  }
+
+  .sm-chapter__title {
+    font-size: 14pt;
+  }
+
+  .sm-chapter__grid,
+  .sm-chapter__body > p,
+  .sm-meta__row {
+    display: block;
+  }
+
+  .sm-chapter__num {
+    color: #333 !important;
+    font-size: 9pt;
+  }
+
+  .sm-map {
+    border-color: #000;
+  }
+
+  .map__outline {
+    fill: none;
+    stroke: #000;
+  }
+
+  .map__dots,
+  .map__terror {
+    stroke: #000;
+    opacity: 1;
+  }
+
+  .sm-figure,
+  .sm-forms,
+  .sm-bars,
+  .sm-meta__row,
+  .sm-bar {
+    break-inside: avoid;
+  }
+
+  .sm-forms {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 10pt;
+  }
+
+  .sm-form {
+    border-top-color: #000;
+  }
+
+  .sm-bars {
+    height: 80pt;
+    gap: 3pt;
+  }
+
+  .sm-bar__fill {
+    border: 0.5pt solid #000;
+    background: #fff;
+  }
+
+  .sm-bar__label {
+    border-top-color: #000;
+    color: #000;
+  }
+
+  .sm-meta__row {
+    padding-block: 5pt;
+    border-color: #999;
+  }
+
+  .sm-meta dt {
+    color: #333 !important;
   }
 }
