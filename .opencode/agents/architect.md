@@ -1,5 +1,5 @@
 ---
-disabled: false
+disabled: True
 description: Design features, plan changes
 model: openai/gpt-5.6-sol
 mode: primary

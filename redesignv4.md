@@ -1,7 +1,9 @@
 # Redesign plan v4 — “Evidence, clearly presented”
 
 Status: implemented on this branch. Supersedes the visual direction in `redesignv3.md`; it does not undo the
-accessibility, progressive-enhancement, performance, or content-integrity work delivered by v3.
+accessibility, progressive-enhancement, performance, or content-integrity work delivered by v3. The later
+V5 iteration (`redesignv5.md`) relaxes one V4 rule — it gates decorative ink for one-pass draws and adds a
+finite hero scene — without changing the structure, hierarchy or content documented here.
 
 Scope: fundamentally redesign the single page through `index.html` and `css/custom-styles.css`, with a
 small simplification of `js/site.js`. Keep the static, no-build, no-framework architecture.
@@ -649,7 +651,7 @@ Add a small one-off Python check (not a dependency) for:
 - Mobile navigation disclosure, filters/show-more, form, direct links, reduced motion, and print all work.
 - One `h1`, valid heading order, unique IDs, correct `lang`, useful alternative text, and visible focus.
 - No framework, package manager, build step, CDN, tracking script, or new paid asset.
-- No call-number rail, specimen captions, decorative reveal, category rainbow, or repeated sales CTA.
+- No call-number rail, specimen captions, category rainbow, or repeated sales CTA.
 - Documentation describes the shipped V4 design; `master` is updated only after review.
 
 ---

@@ -115,6 +115,19 @@
     <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="m6 6 12 12M18 6 6 18"/>
     </symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+      <path d="M9 6v12M15 6v12"/>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5.4v13.2L19 12 8 5.4Z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m4 12.5 5.2 5.2L20 6.5"/>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="11" height="11" rx="2"/>
+      <path d="M15 5H6a1 1 0 0 0-1 1v9"/>
+    </symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24">
       <path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/>
     </symbol>
@@ -159,6 +172,41 @@
          ==================================================================== -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero__grid">
+        <svg class="hero__graph" viewBox="0 0 520 520" aria-hidden="true" focusable="false">
+          <g class="hero__graph-edges">
+            <line x1="260" y1="260" x2="146" y2="112" pathLength="1"/>
+            <line x1="260" y1="260" x2="386" y2="128" pathLength="1"/>
+            <line x1="260" y1="260" x2="112" y2="300" pathLength="1"/>
+            <line x1="260" y1="260" x2="418" y2="308" pathLength="1"/>
+            <line x1="260" y1="260" x2="204" y2="422" pathLength="1"/>
+            <line x1="260" y1="260" x2="352" y2="432" pathLength="1"/>
+            <line x1="146" y1="112" x2="64" y2="220" pathLength="1"/>
+            <line x1="386" y1="128" x2="470" y2="210" pathLength="1"/>
+            <line x1="112" y1="300" x2="64" y2="220" pathLength="1"/>
+            <line x1="418" y1="308" x2="470" y2="210" pathLength="1"/>
+            <line x1="204" y1="422" x2="352" y2="432" pathLength="1"/>
+            <line x1="146" y1="112" x2="300" y2="64" pathLength="1"/>
+            <line x1="386" y1="128" x2="300" y2="64" pathLength="1"/>
+            <line x1="150" y1="196" x2="64" y2="220" pathLength="1"/>
+            <line x1="330" y1="330" x2="352" y2="432" pathLength="1"/>
+          </g>
+          <g class="hero__graph-nodes">
+            <circle cx="260" cy="260" r="7"/>
+            <circle cx="146" cy="112" r="5"/>
+            <circle cx="386" cy="128" r="4"/>
+            <circle cx="112" cy="300" r="5"/>
+            <circle cx="418" cy="308" r="5"/>
+            <circle cx="204" cy="422" r="4"/>
+            <circle cx="352" cy="432" r="4"/>
+            <circle cx="64" cy="220" r="3"/>
+            <circle cx="470" cy="210" r="3"/>
+            <circle cx="300" cy="64" r="4"/>
+            <circle cx="150" cy="196" r="3"/>
+            <circle cx="330" cy="330" r="3"/>
+          </g>
+          <circle class="hero__graph-hub" cx="260" cy="260" r="22"/>
+        </svg>
+
         <div class="hero__copy">
           <p class="eyebrow">Digital humanist · Research software engineer</p>
           <h1 id="hero-title">I build durable digital platforms for <em>complex cultural knowledge.</em></h1>
@@ -167,6 +215,21 @@
             I design archives, editions and tools that make cultural knowledge easier to find,
             explore and preserve.
           </p>
+
+          <div class="hero__focus" data-typed>
+            <p class="hero__focus-line">
+              <span class="visually-hidden">Digital archives, editions and research tools — built to last.</span>
+              <span class="hero__focus-text" data-typed-text aria-hidden="true">Digital archives, editions and research tools — built to last.</span>
+              <span class="typewriter__caret" aria-hidden="true"></span>
+              <button class="typed-toggle" type="button" data-typed-toggle hidden>
+                <span class="visually-hidden" data-typed-toggle-label>Pause rotating text</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-pause" data-typed-toggle-icon></use></svg>
+              </button>
+            </p>
+          </div>
+          <script type="application/json" data-typed-phrases>
+            ["Digital archives, editions and research tools — built to last.","Making cultural knowledge findable, explorable and durable.","Research software made with the people who care for the heritage."]
+          </script>
 
           <div class="btn-row hero__actions">
             <a class="btn btn--primary" href="#case-studies-section">
@@ -178,11 +241,6 @@
               <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
             </a>
           </div>
-
-          <p class="hero__note">
-            <svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>
-            Graz, Austria · Working with research and cultural institutions across Europe
-          </p>
         </div>
 
         <aside class="hero__profile" aria-label="Profile">
@@ -1247,7 +1305,13 @@
         <div class="contact-grid">
           <div class="contact-direct">
             <p class="label">Direct contact</p>
-            <a class="contact-direct__email" href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a>
+            <div class="contact-direct__row">
+              <a class="contact-direct__email" href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a>
+              <button class="copy-btn" type="button" data-copy-email="sebi.stoff@gmail.com" hidden>
+                <svg class="icon" aria-hidden="true"><use href="#i-copy" data-copy-icon></use></svg>
+                <span data-copy-label aria-live="polite">Copy</span>
+              </button>
+            </div>
             <div class="contact-facts">
               <div class="contact-fact">
                 <p class="contact-fact__label label">Phone</p>
@@ -1296,7 +1360,7 @@
               <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
             </button>
             <p class="form-note" id="form-note">Your message is sent through Formspree. See the <a href="#imprint-section">imprint</a> for data-protection information. I usually reply within a few working days.</p>
-            <p class="form-status" id="form-status" role="status" aria-live="polite" data-form-status></p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite" data-form-status><span class="form-status__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="m4 12.5 5.2 5.2L20 6.5"/></svg></span><span data-form-status-text></span></p>
           </form>
         </div>
       </div>
@@ -1399,6 +1463,32 @@
   </main>
 
   <footer class="site-footer">
+    <svg class="footer__graph" viewBox="0 0 420 320" aria-hidden="true" focusable="false">
+      <g class="footer__graph-edges">
+        <line x1="210" y1="160" x2="96" y2="72" pathLength="1"/>
+        <line x1="210" y1="160" x2="300" y2="58" pathLength="1"/>
+        <line x1="210" y1="160" x2="70" y2="214" pathLength="1"/>
+        <line x1="210" y1="160" x2="330" y2="236" pathLength="1"/>
+        <line x1="210" y1="160" x2="160" y2="276" pathLength="1"/>
+        <line x1="210" y1="160" x2="354" y2="150" pathLength="1"/>
+        <line x1="210" y1="160" x2="64" y2="140" pathLength="1"/>
+        <line x1="96" y1="72" x2="206" y2="66" pathLength="1"/>
+        <line x1="300" y1="58" x2="206" y2="66" pathLength="1"/>
+        <line x1="70" y1="214" x2="64" y2="140" pathLength="1"/>
+      </g>
+      <g class="footer__graph-nodes">
+        <circle cx="210" cy="160" r="5"/>
+        <circle cx="96" cy="72" r="3"/>
+        <circle cx="300" cy="58" r="3"/>
+        <circle cx="70" cy="214" r="3"/>
+        <circle cx="330" cy="236" r="3"/>
+        <circle cx="160" cy="276" r="2.5"/>
+        <circle cx="206" cy="66" r="2.5"/>
+        <circle cx="354" cy="150" r="2.5"/>
+        <circle cx="64" cy="140" r="2.5"/>
+      </g>
+    </svg>
+
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
