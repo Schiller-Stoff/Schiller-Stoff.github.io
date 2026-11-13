@@ -823,8 +823,9 @@ at 1× DPI.
    transparent corners; removing `border-radius` shows the same circle. A square
    portrait would need a grey plate behind the circular photo (or a new crop from the
    original). This is why V7 keeps the circle.
-9. **V6 is still unverified.** Do not claim V7 complete on static checks alone; the
-   colour system is judged in a browser.
+9. **V6 was unverified when this was written.** Do not claim V7 complete on static
+   checks alone; the colour system is judged in a browser. (Done — see the browser
+   verification in §18.)
 10. **Borderless media can lose its edge.** `--surface-bed` is 1.25:1 against the
     white canvas, so a screenshot with a white background may bleed. If that happens,
     restore a 1px hairline on media only — `--rule` first, `--rule-strong` if it still
@@ -921,7 +922,7 @@ The intended experience:
 ### Static verification
 
 - `git diff --stat`: `css/custom-styles.css` +220/−147, `index.html` +3/−2; `js/`
-  diff empty; `redesignv7.md` untracked.
+  diff empty (`redesignv7.md` was untracked at the time of writing).
 - Braces balanced; every `var(--token)` has a definition; no retired token appears.
 - 21 project cards, 20 teaching links, one `h1`, eight `.section-head`s; ids unique;
   every fragment link resolves; every local `src`/`href`/`url()` target exists.
@@ -931,22 +932,106 @@ The intended experience:
   `IntersectionObserver`s; `animation-timeline: view()` only on the CV spine.
 - `gjs js/site.js` stops at `document is not defined`, i.e. syntax is valid.
 
-### Still unverified (needs a browser)
+### Browser verification — same day
 
-- Serif fitting and line counts for the `h1`, the eight `h2`s and the editorial `h3`s
-  at 360/420/900/1120/1440; hero height against V6.
-- The asymmetric head at 1121px (baseline alignment, 46ch intro) and its collapse at
-  exactly 1120px.
-- Long register titles after the 18–20px lost to the arrow column at 901–1120px;
-  hover band without horizontal padding.
-- Filter label placement, blue pressed underline over the strip rules, and the count
-  at 640px.
-- Underline fields with real text, error states, and the textarea box.
-- Footer contrast in context (white wordmark, periwinkle graph at 0.45) and the
-  periwinkle selection.
-- Forced colours (pill edges, CanvasText circles/rules) and print (serif headings,
-  tags, flattened tint, complete rules) at A4 and Letter.
-- The whole V6 motion matrix (unchanged but never walked).
+Walked in Chrome against `python3 -m http.server 8000`, with emulated viewports from
+320 to 1440px and `prefers-reduced-motion` / `forced-colors` toggled. V6 was compared
+from a detached worktree of `9748890` on port 8001. Nothing broke structurally; the
+one gate that is not strictly met and five pre-existing quirks are listed at the end
+and were left unchanged.
+
+- **Layout.** No horizontal overflow at 320/360/390/420/480/640/641/768/900/901/1024/
+  1120/1121/1280/1440 (`scrollWidth == clientWidth` at every width). The nav toggle
+  appears at ≤900 as a 42px circle and is absent above; the header is 72px and
+  64px once scrolled. The register is 2-up above 900 and 1-up at 900; media runs
+  112/88/84/72px at >1120 / 901–1120 / 641–900 / ≤420, and the arrow is 40px, 36px
+  at ≤420. The filter grid is three columns at ≤640. The section head is a 760px/691px two-column
+  grid at 1121 and `display: block` at exactly 1120.
+- **Type.** Serif resolves to exactly five roles — wordmark 600, `h1` 500, `h2` 500,
+  outcome `h3` 400, publication `h3` 400. Capability, teaching, CV and register
+  headings, the hero lead and the typed line stay IBM Plex Sans. The `h1` takes five
+  lines at 360 (37.6px) and 420 (42px), three at 641, two at 900, five at 1120 and
+  five at 1440; the eight `h2`s take two to three lines at 360 and none overflows its
+  column at any width. The reserved typed-line height (30px at ≥640, 59px at
+  360/420) holds across all three phrases.
+- **Hero height against V6 (gate).** 360: 1419 → 1419; 420: 1385 → 1443; 641: 1247 →
+  1250; 900: 1235 → 1237; 1120: 878 → 878; 1440: 926 → 934. Equal at 360 and 1120,
+  +2–8px above 640, and **+58px at 420**, where the serif `h1` wraps to five lines
+  instead of four. This is accepted, not a miss: §7's fallback triggers only when the
+  serif costs *more than one line* ("keep its V6 size; do not enlarge"), and at 420
+  the extra height is exactly one line of `--display-1-stacked`. No size change was
+  made, so the stack at 360 and the two-column density above 640 stay as specified.
+- **Interaction.** Nav disclosure opens/closes, sets `aria-expanded`, closes on Esc
+  (focus returns to the toggle) and on an outside click, has no scroll lock, and moves
+  focus to the target section on link click. Scrollspy marks Expertise/Work/Experience
+  with `aria-current="location"` without changing weight. Filters show "Showing 9 of
+  21 projects", load-more goes 9 → 18 → 21 with `.is-settling` on the new cards, and
+  the control hides when the filter is exhausted. Copy e-mail swaps to "Copied" with a
+  check for ~2s and keeps the `mailto:`. The form marks invalid fields, shows the
+  sending sweep, the teal success check and the error message.
+- **Motion and states.** The typed line types, holds, erases and advances; pause
+  completes the phrase and swaps label/icon; a mid-cycle reduced-motion change settles
+  to phrase 1 with no caret, toggle or reserved height. The arrival rule draws once
+  (~600ms) and removes its class at ~900ms; decorative rules and the footer graph draw
+  once; the CV spine fills through `view()` and resolves markers; the 2px header
+  progress runs 0 → 0.42 → 1 with no shadow. Hover: paper row, blue underlined title,
+  thumbnail scale 1.025 and a 3px icon shift inside a static circle; teaching rows
+  stay white; `.text-link` goes 1px → 2px. Focus rings are 2px `--action` at 3px
+  offset (typed toggle 2px), white in the footer; the skip link is an ink pill with a
+  blue ring.
+- **Colour and fallbacks.** h1 9.64:1, body 10.76:1, labels 6.33:1, footer muted
+  6.87:1 on ultramarine — all pass. In forced colours the graphs and header progress
+  disappear, pressed filters gain a real underline, and rules, circles and the pill
+  border use `CanvasText`. Under reduced motion there is no typing, caret, draw, spine
+  fill, settle, thumbnail scale or View Transition.
+
+### Follow-up pass — same day
+
+Three findings from the walk were fixed in `css/custom-styles.css`; `index.html` and
+`js/site.js` are still untouched.
+
+1. **Footer graph resized.** `width: min(46%, 520px)` → `clamp(150px, 17vw, 300px)`,
+   still right-anchored and vertically centred, `--tint` at 0.45. A sweep of widths
+   from 160 to 520px against every footer text box at 901/1024/1121/1280/1440/1680px
+   put the largest collision-free width at 160px (901), 200 (1024), 220 (1121),
+   280 (1280) and 340 (1440–1680); 17vw stays under each of them. Re-measured after
+   the change: zero intersections at 901/1024/1121/1280/1440/1920, no horizontal
+   overflow, footer height unchanged (349–363px), ratio 1.31, opacity 0.45. The graph
+   is now a bookend on the footer's empty right edge rather than a field behind the
+   ORCID and GND identifiers.
+2. **Print heading sizes now apply.** The bare `h1 { 24pt }` / `h2 { 16pt }` lost to
+   the component selectors and were dead; they are now `.hero h1` and
+   `.section-head h2`, and `.outcome h3` / `.publication-highlight__body h3` are set
+   to 12pt so the serif case titles stay below the 16pt section statement. With the
+   print rules injected at 794px: h1 32px on two lines, h2 21.33px, case and
+   publication h3 16px, capability h3 20px, CV column h3 18px, h4 16px, all headings
+   black, header hidden, body 14px.
+3. **Contact e-mail matches §6.10.** Underline at rest at 1px (`--rule-hair`) and 2px
+   on `:hover`/`:focus-visible` (`--rule-accent`), 3px offset. Computed values
+   verified at rest and on hover; the element's height is unchanged at 33px, so the
+   contact column does not reflow.
+
+### Verification caveats
+
+Print was checked by injecting the extracted `@media print` rules at 794px (A4)
+because the DevTools emulation has no media-type switch; Letter was not checked.
+JavaScript cannot be disabled over MCP, so the no-JS state was verified by removing
+`js-ready`/`motion-ready`/`typed-ready` and reading the CSS.
+
+### Left unchanged, deliberately
+
+1. **Filter tabs are centred inside their cells at ≤640px.** §11's responsive table
+   keeps the three-column filter grid and the count row as they are at that width;
+   the centre alignment is part of that grid, not a leftover to correct. Left-aligned
+   labels would also break the shared cell rule the pressed underline relies on.
+2. **Scrollspy stays on Experience over Contact and Imprint** (only three primary
+   links exist). Pre-existing behaviour in `site.js`, which V7 does not touch.
+3. **One console issue** asks for explicit dimensions on
+   `images/portfolio/13_derla_book.webp`; the element has `width`/`height` and a
+   computed `aspect-ratio` of `533 / 802`, so this is a DevTools false positive.
+4. **`.brand__descriptor` hides only at ≤640px**, as in V4; at 900 it is one 289px
+   line inside an 885px header, so nothing clips.
+
 
 ---
 

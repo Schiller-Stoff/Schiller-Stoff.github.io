@@ -1906,13 +1906,17 @@ html.js-ready .work-more[hidden] {
   font-size: var(--display-4);
   font-weight: 600;
   line-height: var(--leading-dense);
-  text-decoration: none;
+  /* 1px at rest, 2px on hover/focus: the line, not only the colour, shows
+     that this is a link. */
+  text-decoration: underline;
+  text-decoration-thickness: var(--rule-hair);
+  text-underline-offset: 3px;
   overflow-wrap: anywhere;
 }
 
-.contact-direct__email:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.contact-direct__email:hover,
+.contact-direct__email:focus-visible {
+  text-decoration-thickness: var(--rule-accent);
 }
 
 .copy-btn {
@@ -2254,7 +2258,10 @@ html.js-ready .work-more[hidden] {
   top: 50%;
   right: 0;
   z-index: 0;
-  width: min(46%, 520px);
+  /* Sized to the empty right edge of the footer: the wider field crossed the
+     identifier links and the legal line. Still a bookend, never a watermark
+     behind text. */
+  width: clamp(150px, 17vw, 300px);
   height: auto;
   color: var(--tint);
   opacity: 0.45;
@@ -3252,12 +3259,20 @@ html.js-ready .work-more[hidden] {
     color: #000 !important;
   }
 
-  h1 {
+  /* Component rules out-specify the bare element selectors, so the paper
+     sizes must name the hero and section headings to win. */
+  .hero h1 {
     font-size: 24pt;
   }
 
-  h2 {
+  .section-head h2 {
     font-size: 16pt;
+  }
+
+  /* Keep the serif case titles below the section statement on paper. */
+  .outcome h3,
+  .publication-highlight__body h3 {
+    font-size: 12pt;
   }
 
   .eyebrow,
