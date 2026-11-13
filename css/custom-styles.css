@@ -1193,6 +1193,36 @@ html.typed-ready .typewriter__caret {
   stroke-width: 2.6px;
 }
 
+/* Second exhibit (V10): MEMOR is a peer of DERLA, not another billboard.
+   The same component in the same paper band, separated by a hairline rather
+   than a second accent rule. The figure is capped because the city is square:
+   without it the copy column ends 250px above the map. */
+.storymap-feature--memor {
+  padding-top: clamp(40px, 4.5vw, 64px);
+  border-top: var(--rule-hair) solid var(--rule);
+}
+
+.storymap-feature--memor .storymap-plate {
+  max-inline-size: 520px;
+}
+
+.storymap-plate .map__address {
+  vector-effect: non-scaling-stroke;
+  stroke-width: 1.5px;
+  opacity: 0.7;
+}
+
+/* The band closes with the one explicit claim, after the artefacts. */
+.storymap-feature__note {
+  max-width: 74ch;
+  margin-top: clamp(32px, 4vw, 56px);
+  padding-top: var(--space-md);
+  border-top: var(--rule-hair) solid var(--rule);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
 @media (max-width: 1120px) {
   .storymap-feature__grid {
     grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.5fr);
@@ -1780,6 +1810,13 @@ html.js-ready .work-more[hidden] {
 .publication-highlight__media img {
   width: 100%;
   height: auto;
+}
+
+/* A dataset line has no cover image: one column, same box. Two classes so the
+   640px media query (`.publication-highlight` at 88px + text) cannot re-split
+   the card into a thumbnail column it does not have. */
+.publication-highlight.publication-highlight--text {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .publication-highlight__body h3 {
@@ -3190,6 +3227,13 @@ html.js-ready .work-more[hidden] {
   background: var(--canvas);
 }
 
+/* The city is square: at the chapter's full measure it would be taller than
+   the viewport and its dots would read as dust. The national map is landscape
+   and needs no cap; this one does. */
+.sm-map--city {
+  max-inline-size: 640px;
+}
+
 /* --- The map artefact, shared by both pages -----------------------------
    These four rules are intentionally not `sm-`-scoped: the CV's feature
    plate renders the same inline SVG, and both instances must be able to be
@@ -3207,9 +3251,12 @@ html.js-ready .work-more[hidden] {
   stroke-width: 1;
 }
 
-/* One path for the memorial markers: round caps on zero-length subpaths.
-   Coincident records are emitted once, so the path is positions, not records. */
-.map__dots {
+/* One path for memorial markers (DERLA) or last addresses (MEMOR): round caps
+   on zero-length subpaths. Coincident records are emitted once, so each path
+   is positions, not records. The page decides which of the two paths it draws;
+   no single page carries both. */
+.map__dots,
+.map__address {
   fill: none;
   stroke: var(--action);
   stroke-width: 1.3;
@@ -3322,6 +3369,54 @@ html.js-ready .work-more[hidden] {
   gap: clamp(6px, 1.2vw, 16px);
   height: clamp(180px, 24vw, 280px);
   padding-top: var(--space-sm);
+}
+
+/* The MEMOR page reuses the chart with fewer columns; only the count changes.
+   Capped so five bars are not 150px wide on a wide screen — the same bar
+   weight as the nine-column chart on storymap.html. */
+.sm-bars--five,
+.sm-bars--eight {
+  max-inline-size: 720px;
+}
+
+.sm-bars--five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.sm-bars--eight {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+/* Ranked lists: rows of names and counts, no bars. A rank is not a chart when
+   the numbers are the point, and a list survives print and forced colours.
+   Capped like the map: a 950px-wide two-column list reads like a page of
+   scattered numbers, not a table. */
+.sm-rank {
+  max-inline-size: 640px;
+  margin-top: var(--space-2xl);
+  border-top: var(--rule-accent) solid var(--action);
+}
+
+.sm-rank__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding-block: var(--space-xs);
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.sm-rank__name {
+  color: var(--ink);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+}
+
+.sm-rank__value {
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-body);
 }
 
 .sm-bar {
@@ -3588,6 +3683,11 @@ html.js-ready .work-more[hidden] {
     color: CanvasText;
   }
 
+  .storymap-feature__note {
+    border-top-color: CanvasText;
+    color: CanvasText;
+  }
+
   .storymap-feature__stats,
   .storymap-feature__stat,
   .storymap-plate__frame,
@@ -3608,6 +3708,7 @@ html.js-ready .work-more[hidden] {
   }
 
   .map__dots,
+  .map__address,
   .map__terror {
     stroke: CanvasText;
     opacity: 1;
@@ -3615,7 +3716,8 @@ html.js-ready .work-more[hidden] {
 
   /* The plate's own 0.7 is a colour-mode subtlety; forced colours need the
      full ink so the markers do not fade into the page. */
-  .storymap-plate .map__dots {
+  .storymap-plate .map__dots,
+  .storymap-plate .map__address {
     opacity: 1;
   }
 
@@ -4343,12 +4445,23 @@ html.js-ready .work-more[hidden] {
     border-color: #000;
   }
 
+  .sm-legend__dot,
+  .sm-legend__square {
+    background: #000;
+  }
+
+  .sm-chapter__body > p.sm-note {
+    border-left-color: #000;
+    color: #000 !important;
+  }
+
   .map__outline {
     fill: none;
     stroke: #000;
   }
 
   .map__dots,
+  .map__address,
   .map__terror {
     stroke: #000;
     opacity: 1;
@@ -4357,6 +4470,7 @@ html.js-ready .work-more[hidden] {
   .sm-figure,
   .sm-forms,
   .sm-bars,
+  .sm-rank__row,
   .sm-meta__row,
   .sm-bar {
     break-inside: avoid;
@@ -4365,6 +4479,20 @@ html.js-ready .work-more[hidden] {
   .sm-forms {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0 10pt;
+  }
+
+  .sm-rank {
+    border-top-color: #000;
+  }
+
+  .sm-rank__row {
+    padding-block: 4pt;
+    border-color: #999;
+  }
+
+  .sm-rank__name,
+  .sm-rank__value {
+    color: #000 !important;
   }
 
   .sm-form {

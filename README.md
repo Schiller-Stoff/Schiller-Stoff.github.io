@@ -14,11 +14,20 @@ python3 -m http.server 8000
 
 ## Structure
 
-- `index.html` — the single page: hero, credibility strip, selected outcomes,
-  capabilities, working method, project register, knowledge transfer, CV, contact,
-  imprint and footer.
+- `index.html` — the CV: hero, credibility strip, two feature plates (DERLA and
+  MEMOR), selected outcomes, capabilities, working method, project register,
+  knowledge transfer, CV, contact, imprint and footer.
+- `storymap.html` — a dependency-free data study of DERLA, “The Memory
+  Landscape”: a national inline map of 4,393 records and four chapters. No
+  JavaScript.
+- `memor.html` — a dependency-free data study of MEMOR, the City of Graz's
+  digital memorial book, “The Last Addresses”: a city inline map of 604 last
+  addresses and five chapters. No JavaScript.
+- `tools/` — two offline map generators (DERLA, MEMOR) whose committed SVG
+  fragments are spliced into both hosts. Nothing runs at page load.
 - `css/custom-styles.css` — the only stylesheet: the V7 “Blue ink” design system
-  on the V4 structure and V6 motion. White canvas, one ultramarine accent, serif
+  on the V4 structure and V6 motion, plus the shared `sm-*` shell for both
+  storymap pages. White canvas, one ultramarine accent, serif
   statements (wordmark, `h1`, `h2`, two editorial `h3` roles), pill controls,
   circle nodes and arrows, a rule-bounded evidence line, a rotating typed focus
   line, a finite hero scene (linked-data graph, panel settle), one-pass rule
@@ -69,8 +78,10 @@ V6 keeps one signature scene and makes every other movement answer an action:
 The site is published from `master` via GitHub Pages. A push to `master`
 publishes immediately; keep working on `redesign` until cutover.
 
-Design rationale and history: `redesignv7.md` (current visual direction and
-implementation record), `redesignv6.md` (previous motion record),
+Design rationale and history: `redesignv10.md` (MEMOR plate and page, the data
+study and its limitations), `redesignv9.md` (DERLA plate on the CV),
+`redesignv7.md` (visual direction and implementation record),
+`redesignv6.md` (motion record),
 `redesignv5.md` (V5 record), `redesignv4.md` (evidence-first structure),
 `redesignv3.md` (previous direction).
 `design-refactor.md` is the implemented design-system refactor: nominal tokens for
