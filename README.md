@@ -17,12 +17,13 @@ python3 -m http.server 8000
 - `index.html` — the single page: hero, credibility strip, selected outcomes,
   capabilities, working method, project register, knowledge transfer, CV, contact,
   imprint and footer.
-- `css/custom-styles.css` — the only stylesheet: the V6 “The page answers”
-  design system on the V4 structure. Institutional navy/blue palette, self-hosted
-  sans typography, a rule-bounded evidence line, a rotating typed focus line, a
-  finite hero scene (linked-data graph, panel settle), one-pass rule draws, a
-  scroll-drawn CV spine, restrained hover/focus feedback, and a print stylesheet
-  that produces a concise CV.
+- `css/custom-styles.css` — the only stylesheet: the V7 “Blue ink” design system
+  on the V4 structure and V6 motion. White canvas, one ultramarine accent, serif
+  statements (wordmark, `h1`, `h2`, two editorial `h3` roles), pill controls,
+  circle nodes and arrows, a rule-bounded evidence line, a rotating typed focus
+  line, a finite hero scene (linked-data graph, panel settle), one-pass rule
+  draws, a scroll-drawn CV spine, restrained hover/focus feedback, and a print
+  stylesheet that produces a concise CV.
 - `js/site.js` — progressive-enhancement behaviour: header state, non-modal
   navigation disclosure, scrollspy, project filters/load-more, the contact form,
   the rotating hero focus line with its pause control, arrival acknowledgement,
@@ -41,6 +42,7 @@ rule and all motion classes are absent from print and forced-colours output.
 
 ## Motion
 
+V7 is a skin: it changes colour, type and shape, not the V6 motion vocabulary.
 V6 keeps one signature scene and makes every other movement answer an action:
 
 - the hero focus line types, holds, erases and advances through three statements,
@@ -67,7 +69,8 @@ V6 keeps one signature scene and makes every other movement answer an action:
 The site is published from `master` via GitHub Pages. A push to `master`
 publishes immediately; keep working on `redesign` until cutover.
 
-Design rationale and history: `redesignv6.md` (current motion direction),
+Design rationale and history: `redesignv7.md` (current visual direction and
+implementation record), `redesignv6.md` (previous motion record),
 `redesignv5.md` (V5 record), `redesignv4.md` (evidence-first structure),
 `redesignv3.md` (previous direction).
 `design-refactor.md` is the implemented design-system refactor: nominal tokens for

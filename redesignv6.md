@@ -1,6 +1,9 @@
 # Redesign plan V6 — “The page answers”
 
-**Status:** implemented on `redesign`, uncommitted. The manual browser matrix has not been run (no browser is available in this environment).
+**Status:** superseded as the current visual direction by V7 “Blue ink”
+(`redesignv7.md`); this file remains the motion record. Implemented on `redesign`,
+uncommitted. The manual browser matrix has not been run (no browser is available in
+this environment).
 **Date:** 12 November 2026
 **Branch:** `redesign`
 **Depends on:** V5 “Living evidence” (implemented, uncommitted, not yet verified in a
