@@ -8,7 +8,7 @@
   <title>Sebastian David Schiller-Stoff — Digital heritage engineering</title>
   <meta name="description" content="Archives, editions and research platforms for universities, museums and heritage institutions. Senior developer of GAMS at the University of Graz.">
   <meta name="author" content="Sebastian David Schiller-Stoff">
-  <meta name="keywords" content="Digital Humanities, Research Software Engineering, Digital Archives, Digital Editions, Linked Data, Semantic Web, GIS, Data Visualisation, AI, LLM workflows, Cultural Heritage, University of Graz">
+  <meta name="keywords" content="Digital Humanities, Research Software Engineering, Digital Archives, Digital Editions, Linked Data, Semantic Web, GIS, Data Visualisation, AI, LLM workflows, responsible AI, AI agents, AI coding assistants, Cultural Heritage, University of Graz">
   <link rel="icon" href="favicon.png" type="image/png">
 
   <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
   <meta name="dc:description" lang="en" content="Archives, editions and research platforms for universities, museums and heritage institutions. Senior developer of GAMS at the University of Graz.">
   <meta name="schema_org:title" content="Sebastian David Schiller-Stoff">
   <meta name="schema_org:description" content="Archives, editions and research platforms for universities, museums and heritage institutions. Senior developer of GAMS at the University of Graz.">
-  <meta name="schema_org:keywords" content="Digital Humanities, Research Software Engineering, Digital Archives, Digital Editions, Linked Data, Semantic Web, GIS, AI">
+  <meta name="schema_org:keywords" content="Digital Humanities, Research Software Engineering, Digital Archives, Digital Editions, Linked Data, Semantic Web, GIS, AI, responsible AI, AI agents, AI coding assistants">
 
   <link rel="preload" href="fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
@@ -113,6 +113,14 @@
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 21s6.2-5.8 6.2-10.3a6.2 6.2 0 1 0-12.4 0C5.8 15.2 12 21 12 21Z"/>
       <circle cx="12" cy="10.6" r="2.3"/>
+    </symbol>
+    <symbol id="i-agent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="4" width="16" height="16"/>
+      <circle cx="12" cy="12" r="2.5"/>
+      <path d="M12 4v3M12 20v-3M4 12h3M20 12h-3"/>
+    </symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 7l-5 5 5 5M15 7l5 5-5 5M13.5 4.5l-3 15"/>
     </symbol>
     <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4 7h16M4 12h16M4 17h16"/>
@@ -237,12 +245,12 @@
           </p>
         </div>
 
-        <!-- V12 hero index: four routes into the work. Real navigation, so it is
+        <!-- V12 hero index: six routes into the work. Real navigation, so it is
              never hidden, never gated by a script and never animated in. -->
         <nav class="hero__index" aria-label="Explore the work">
           <div class="hero__index-bar">
             <p class="hero__index-label">Index</p>
-            <span class="hero__index-range" aria-hidden="true">01–04</span>
+            <span class="hero__index-range" aria-hidden="true">01–06</span>
           </div>
           <ul class="hero__index-grid" role="list">
             <li>
@@ -295,6 +303,32 @@
                   <svg class="icon hero__index-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
                 </span>
                 <span class="hero__index-meta">Since 2009</span>
+              </a>
+            </li>
+            <li>
+              <a class="hero__index-link" href="ai-agents.html">
+                <span class="hero__index-top">
+                  <svg class="icon hero__index-glyph" aria-hidden="true"><use href="#i-agent"></use></svg>
+                  <span class="hero__index-num" aria-hidden="true">05</span>
+                </span>
+                <span class="hero__index-head">
+                  <span class="hero__index-title">AI agents</span>
+                  <svg class="icon hero__index-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+                <span class="hero__index-meta">Brief &middot; tools &middot; checks</span>
+              </a>
+            </li>
+            <li>
+              <a class="hero__index-link" href="ai-coding.html">
+                <span class="hero__index-top">
+                  <svg class="icon hero__index-glyph" aria-hidden="true"><use href="#i-code"></use></svg>
+                  <span class="hero__index-num" aria-hidden="true">06</span>
+                </span>
+                <span class="hero__index-head">
+                  <span class="hero__index-title">AI coding</span>
+                  <svg class="icon hero__index-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+                <span class="hero__index-meta">2023–2025 series</span>
               </a>
             </li>
           </ul>
@@ -778,6 +812,16 @@
             </p>
             <p class="capability__outputs"><span class="label">Outputs</span> Retrieval pipelines · coding assistants · agent workflows</p>
             <p class="capability__tech"><span class="label">Technologies</span> LLM · NLP · evaluation · provenance</p>
+            <div class="btn-row capability__links">
+              <a class="text-link" href="ai-agents.html">
+                AI agent engineering
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+              <a class="text-link" href="ai-coding.html">
+                AI coding assistants
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              </a>
+            </div>
           </article>
         </div>
 
@@ -1222,6 +1266,14 @@
         </article>
 
         <div class="teaching-list">
+          <a class="teaching-item" href="https://doi.org/10.5281/zenodo.18847078" target="_blank" rel="noopener">
+            <div class="teaching-item__body">
+              <p class="teaching-item__meta label">Presentation · DHd 2026 · 23–27 Feb 2026</p>
+              <h3 lang="de">Wo ist der KI-Sweetspot? Nutzen und Herausforderungen für die Einbindung von KI-Assistenzsystemen ins Geisteswissenschaftliche Asset Management System (GAMS)</h3>
+              <span class="teaching-item__link">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+            </div>
+          </a>
+
           <a class="teaching-item" href="https://doi.org/10.5281/zenodo.17178206" target="_blank" rel="noopener">
             <div class="teaching-item__body">
               <p class="teaching-item__meta label">Conference abstract · 26 Sep 2025</p>
@@ -1254,9 +1306,9 @@
             </div>
           </a>
 
-          <a class="teaching-item" href="https://doi.org/10.5281/zenodo.14887461" target="_blank" rel="noopener">
+          <a class="teaching-item" href="https://doi.org/10.5281/zenodo.14943176" target="_blank" rel="noopener">
             <div class="teaching-item__body">
-              <p class="teaching-item__meta label">Presentation · DhD 2025 · 5 Mar 2025</p>
+              <p class="teaching-item__meta label">Presentation · DHd 2025 · 5 Mar 2025</p>
               <h3 lang="de">Der Einfluss von AI Pair-Programmers auf die Digital Humanities: Potentiale und Limitationen</h3>
               <span class="teaching-item__link">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
             </div>
@@ -1264,7 +1316,7 @@
 
           <a class="teaching-item" href="https://doi.org/10.5281/zenodo.14943178" target="_blank" rel="noopener">
             <div class="teaching-item__body">
-              <p class="teaching-item__meta label">Workshop · DhD 2025 · 4 Mar 2025</p>
+              <p class="teaching-item__meta label">Workshop · DHd 2025 · 4 Mar 2025</p>
               <h3 lang="de">Fortgeschrittenes Prompt und AI Agent Engineering für wissenschaftliche Textproduktion</h3>
               <span class="teaching-item__link">Open on Zenodo <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
             </div>

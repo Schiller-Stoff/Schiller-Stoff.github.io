@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agents with a brief — AI agent engineering</title>
+
+  <meta name="description" content="A practice note on AI agent engineering: a written brief, a short list of tools, a check the output must pass and a record of what it did, with the 2025–2026 publication record.">
+  <meta name="author" content="Sebastian David Schiller-Stoff">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="canonical" href="https://schiller-stoff.github.io/ai-agents.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Agents with a brief — AI agent engineering">
+  <meta property="og:description" content="An agent is a bounded worker: a written brief, a set of tools, a check it must pass and a record of what it did.">
+  <meta property="og:url" content="https://schiller-stoff.github.io/ai-agents.html">
+  <meta property="og:image" content="https://schiller-stoff.github.io/images/profile/sebastian-stoff.webp">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Portrait of Sebastian David Schiller-Stoff">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Agents with a brief — AI agent engineering">
+  <meta name="twitter:description" content="An agent is a bounded worker: a written brief, a set of tools, a check it must pass and a record of what it did.">
+  <meta name="twitter:image" content="https://schiller-stoff.github.io/images/profile/sebastian-stoff.webp">
+  <meta name="twitter:image:alt" content="Portrait of Sebastian David Schiller-Stoff">
+
+  <link rel="preload" href="fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/custom-styles.css">
+</head>
+
+<body class="sm-body">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="sm-head">
+    <div class="container sm-head__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Sebastian Stoff</span>
+      </a>
+      <p class="sm-head__note"><span class="label">Practice note</span> AI agents</p>
+      <nav class="sm-head__nav" aria-label="Practice note">
+        <a href="index.html#services-section">Back to the CV</a>
+        <a href="ai-coding.html">AI coding assistants</a>
+        <a href="#colophon">Colophon</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="sm-main" id="main">
+    <!-- ==================================================================
+         Hero
+         ================================================================== -->
+    <section class="sm-hero" aria-labelledby="sm-title">
+      <div class="container">
+        <p class="label sm-hero__kicker">Practice note &middot; AI agent engineering</p>
+        <h1 class="sm-hero__title" id="sm-title">Agents with a brief.</h1>
+        <p class="sm-hero__standfirst">
+          An agent is not a colleague. It is a bounded worker: a written brief, a
+          set of tools, a check it must pass, and a record of what it did. I design
+          that boundary into research systems &mdash; and teach it.
+        </p>
+        <p class="sm-hero__meta">
+          Practice note &middot; record 2025&ndash;2026
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Chapter rail
+         ================================================================== -->
+    <nav class="sm-rail" aria-label="Chapters">
+      <div class="container sm-rail__inner">
+        <ol class="sm-rail__list" role="list">
+          <li><a href="#ch-01"><span aria-hidden="true">01</span> The brief</a></li>
+          <li><a href="#ch-02"><span aria-hidden="true">02</span> The toolbox</a></li>
+          <li><a href="#ch-03"><span aria-hidden="true">03</span> The check</a></li>
+          <li><a href="#ch-04"><span aria-hidden="true">04</span> What I teach</a></li>
+          <li><a href="#colophon"><span aria-hidden="true">05</span> Colophon</a></li>
+        </ol>
+        <span class="sm-rail__progress" aria-hidden="true"></span>
+      </div>
+    </nav>
+
+    <!-- ==================================================================
+         01 The brief
+         ================================================================== -->
+    <section class="sm-chapter" id="ch-01" aria-labelledby="ch-01-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">01</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="ch-01-title">The brief</h2>
+          <p class="sm-lede">
+            An agent is a loop: read, choose a tool, act, check, repeat.
+          </p>
+          <p>
+            The model is one component; the brief decides whether the loop is
+            useful. A brief names the task, the systems in scope, the tools, the
+            stop conditions and the signatory.
+          </p>
+          <p>
+            Research software is full of actions that are easy to automate and
+            expensive to undo: a migration, a bulk metadata edit, a publish step,
+            a deletion. The brief is how they stay reversible.
+          </p>
+
+          <ol class="sm-steps sm-steps--row" role="list">
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">01</span>
+              <div>
+                <p class="sm-steps__name">Brief</p>
+                <p class="sm-steps__note">Names the task, the systems in scope, the tools and the stop conditions.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">02</span>
+              <div>
+                <p class="sm-steps__name">Act</p>
+                <p class="sm-steps__note">Uses only the listed tools, one step at a time.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">03</span>
+              <div>
+                <p class="sm-steps__name">Check</p>
+                <p class="sm-steps__note">Passes the written test before anything is kept.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">04</span>
+              <div>
+                <p class="sm-steps__name">Record</p>
+                <p class="sm-steps__note">Leaves a trace of what it read, ran and changed.</p>
+              </div>
+            </li>
+          </ol>
+
+          <p class="sm-note">
+            The loop is deliberately dull. Dull is the point.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         02 The toolbox
+         ================================================================== -->
+    <section class="sm-chapter sm-chapter--paper" id="ch-02" aria-labelledby="ch-02-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">02</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="ch-02-title">The toolbox</h2>
+          <p class="sm-lede">
+            The useful tools are unglamorous: an archive API, a search index, a
+            repository checkout, a test suite, a metadata schema.
+          </p>
+          <p>
+            The 2026 DHd paper on AI assistance in GAMS asks where the sweet spot
+            is between reusing existing LLM building blocks and building your own
+            &mdash; and how to integrate either without technical debt. The lesson
+            I take is narrower than the demo: give the agent the same interfaces a
+            colleague would get, and no more.
+          </p>
+
+          <div class="sm-split">
+            <section class="sm-split__col" aria-labelledby="ch-02-in">
+              <h3 class="sm-split__title" id="ch-02-in">In scope</h3>
+              <ul class="sm-split__list" role="list">
+                <li>Read public or licensed sources</li>
+                <li>Query the archive API</li>
+                <li>Draft code and tests</li>
+                <li>Propose metadata edits</li>
+                <li>Summarise a diff</li>
+              </ul>
+            </section>
+            <section class="sm-split__col" aria-labelledby="ch-02-out">
+              <h3 class="sm-split__title" id="ch-02-out">Out of scope</h3>
+              <ul class="sm-split__list" role="list">
+                <li>Publish or delete records</li>
+                <li>Invent citations or identifiers</li>
+                <li>Change licences</li>
+                <li>Act on personal data</li>
+                <li>Approve its own output</li>
+              </ul>
+            </section>
+          </div>
+
+          <p class="sm-note">
+            A callable tool is both an attack surface and an audit obligation.
+            Keep the list short.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         03 The check
+         ================================================================== -->
+    <section class="sm-chapter" id="ch-03" aria-labelledby="ch-03-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">03</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="ch-03-title">The check</h2>
+          <p class="sm-lede">
+            The 2025 FAIR-code abstract with M&uuml;nzer asks whether
+            LLM-generated code can be FAIR.
+          </p>
+          <p>
+            Not by default: generated code often arrives without maintainable
+            structure, metadata or a clear licence, which limits findability and
+            lawful reuse. The same is true of an agent&rsquo;s output, only
+            faster.
+          </p>
+          <p>
+            So the check is a gate, not a vibe.
+          </p>
+
+          <ol class="sm-steps" role="list">
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">01</span>
+              <div>
+                <p class="sm-steps__name">It runs</p>
+                <p class="sm-steps__note">The task completes on a real input, not a demo.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">02</span>
+              <div>
+                <p class="sm-steps__name">It is tested</p>
+                <p class="sm-steps__note">A test proves the change, and that test is in the repository.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">03</span>
+              <div>
+                <p class="sm-steps__name">It is attributable</p>
+                <p class="sm-steps__note">The prompt, the sources and the diff are recorded.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">04</span>
+              <div>
+                <p class="sm-steps__name">It is licensed</p>
+                <p class="sm-steps__note">Every dependency and its terms are known.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">05</span>
+              <div>
+                <p class="sm-steps__name">A person signs it</p>
+                <p class="sm-steps__note">The commit carries a human author, not the tool.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         04 What I teach
+         ================================================================== -->
+    <section class="sm-chapter sm-chapter--paper" id="ch-04" aria-labelledby="ch-04-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">04</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="ch-04-title">What I teach</h2>
+          <p class="sm-lede">
+            The method is public; the record is the evidence.
+          </p>
+          <p>
+            Agent engineering is taught as a bounded practice, not a tool tour.
+          </p>
+
+          <ol class="sm-record" role="list">
+            <li class="sm-record__row">
+              <p class="sm-record__meta">
+                <time datetime="2026-02">23&ndash;27 Feb 2026</time>
+                <span class="label">Presentation</span>
+              </p>
+              <a href="https://doi.org/10.5281/zenodo.18847078" target="_blank" rel="noopener">
+                <span lang="de">Wo ist der KI-Sweetspot?</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </a>
+            </li>
+            <li class="sm-record__row">
+              <p class="sm-record__meta">
+                <time datetime="2026-02-20">20 Feb 2026</time>
+                <span class="label">Conference paper</span>
+              </p>
+              <a href="https://doi.org/10.5281/zenodo.18696498" target="_blank" rel="noopener">
+                <span lang="de">Wo ist der KI-Sweetspot? Nutzen und Herausforderungen f&uuml;r die Einbindung von KI-Assistenzsystemen ins Geisteswissenschaftliche Asset Management System (GAMS)</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </a>
+            </li>
+            <li class="sm-record__row">
+              <p class="sm-record__meta">
+                <time datetime="2025-09-26">26 Sep 2025</time>
+                <span class="label">Conference abstract</span>
+              </p>
+              <a href="https://doi.org/10.5281/zenodo.17178206" target="_blank" rel="noopener">
+                <span lang="de">Kann LLM generierter Code FAIR sein? Herausforderungen f&uuml;r das Forschungsdatenmanagement</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </a>
+            </li>
+            <li class="sm-record__row">
+              <p class="sm-record__meta">
+                <time datetime="2025-03-10">10 Mar 2025</time>
+                <span class="label">Workshop slides</span>
+              </p>
+              <a href="https://doi.org/10.5281/zenodo.14999965" target="_blank" rel="noopener">
+                Introduction to AI-Agent-Engineering<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </a>
+            </li>
+            <li class="sm-record__row">
+              <p class="sm-record__meta">
+                <time datetime="2025-03-04">4 Mar 2025</time>
+                <span class="label">Workshop</span>
+              </p>
+              <a href="https://doi.org/10.5281/zenodo.14943178" target="_blank" rel="noopener">
+                <span lang="de">Fortgeschrittenes Prompt und AI Agent Engineering f&uuml;r wissenschaftliche Textproduktion</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </a>
+            </li>
+          </ol>
+
+          <p class="sm-note">
+            The workshops and papers behind this record were co-authored with
+            M&uuml;nzer, Scholger, Pollin, Steyer and Citro.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Colophon
+         ================================================================== -->
+    <section class="sm-colophon" id="colophon" aria-labelledby="colophon-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">05</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="colophon-title">Colophon</h2>
+          <dl class="sm-meta">
+            <div class="sm-meta__row">
+              <dt>Method</dt>
+              <dd>
+                A practice note, 14 November 2026. It describes the boundary I use
+                in agent work and teach in workshops; it is not a specification.
+              </dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Sources</dt>
+              <dd>
+                The five records listed in chapter 04: the 2025
+                agent-engineering workshop and its slides, the 2026 GAMS paper
+                and talk, and the 2025 FAIR-code abstract. All are open on
+                Zenodo, and every claim in this note maps to one of them.
+              </dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Record titles</dt>
+              <dd>
+                Titles follow the deposits. Normalised: typographic quotation,
+                terminal punctuation, and the GAMS paper&rsquo;s deposited
+                <span lang="de">&bdquo;Assiszentzsystemen&ldquo;</span>,
+                corrected above. Type labels name the event form; the
+                deposits&rsquo; own types are broader.
+              </dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Authorship</dt>
+              <dd>
+                Sebastian David Schiller-Stoff. The work in the record was
+                co-authored with M&uuml;nzer, Scholger, Pollin, Steyer and Citro.
+                This is a practice note, not a product claim: it describes a
+                method I use and teach, not a standard or a certification.
+              </dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>JavaScript</dt>
+              <dd>None. The page is text, CSS and a small inline sprite.</dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Licence</dt>
+              <dd>
+                Text and layout:
+                <a class="text-link" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC&nbsp;BY-NC&nbsp;4.0</a>.
+                The cited records keep their own Zenodo licences.
+              </dd>
+            </div>
+          </dl>
+          <p class="sm-colophon__back btn-row">
+            <a class="btn btn--outline" href="index.html#services-section">
+              Back to the CV
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+            </a>
+            <a class="btn btn--outline" href="ai-coding.html">
+              AI coding assistants
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sm-foot">
+    <div class="container sm-foot__inner">
+      <p>&copy; <span>2026</span> Sebastian David Schiller-Stoff</p>
+      <p>
+        <a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a>
+        &middot;
+        <a href="index.html#imprint-section">Imprint</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Icon sprite: same drawing as the CV's, three symbols only. -->
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12h15M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 12H5M11 6l-6 6 6 6"/>
+    </symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 17 17 7M8 7h9v9"/>
+    </symbol>
+  </svg>
+</body>
+</html>

@@ -22,14 +22,14 @@
    16 Imprint and legal
    17 Footer
    18 Responsive (1120 / 900 / 640 / 420)
-   19 Storymap page (storymap.html)
+   19 Standalone pages (storymap.html, memor.html, practice notes)
    20 Forced colours
    21 Motion and motion preferences
    22 Print
 
    Breakpoint owners
    1121  two-column hero (index beside the copy)
-   1120  hero density, index band 4-up, register thumbnail, feature plate halves
+   1120  hero density, index band 3-up, register thumbnail, feature plate halves
    900   navigation disclosure, one-column grids, footer graph removed,
          feature plate stacked, storymap rail static and numeral column
          collapsed
@@ -769,9 +769,9 @@ p {
   mask-image: linear-gradient(to bottom, #000 0 58%, transparent 96%);
 }
 
-/* The ghost card repeats the index's proportions, offset out from under it.
-   It hangs 24px past the content edge on purpose: the sheet is a field, not
-   a second panel. */
+/* The ghost card frames the index plate, offset out from under it. It hangs
+   24px past the content edge on purpose: the sheet is a field, not a second
+   panel. */
 .hero__scene-sheet {
   position: absolute;
   top: 22%;
@@ -816,7 +816,7 @@ p {
   bottom: var(--space-lg);
 }
 
-/* V12 hero index: one ultramarine window, four routes. It is navigation, not
+/* V12/V14 hero index: one ultramarine window, six routes. It is navigation, not
    scene — no entrance animation, no html.* gate, no scroll-linked motion. The
    sash is the 1px gap between panes, so the hairlines are layout, not borders. */
 .hero__index {
@@ -1717,6 +1717,11 @@ html.typed-ready .typewriter__caret {
   display: block;
   margin-bottom: var(--space-2xs);
   color: var(--ink-muted);
+}
+
+/* The AI practice notes hang off card 04; geometry comes from `.btn-row`. */
+.capability__links {
+  margin-top: var(--space-md);
 }
 
 /* --------------------------------------------------------------------------
@@ -2900,13 +2905,13 @@ html.js-ready .work-more[hidden] {
     gap: var(--space-md);
   }
 
-  /* The index becomes a full-width band of four windows under the offer. */
+  /* The index becomes a full-width band of three windows under the offer. */
   .hero__index {
     margin-top: var(--space-2xl);
   }
 
   .hero__index-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -3314,9 +3319,11 @@ html.js-ready .work-more[hidden] {
 }
 
 /* --------------------------------------------------------------------------
-   19. Storymap page — storymap.html
-   A standalone data study on the same tokens, fonts and one stylesheet. No
-   JavaScript: the page is complete without it. Everything here is scoped to
+   19. Standalone pages — storymap.html, memor.html and the practice notes
+   A standalone long-form shell on the same tokens, fonts and one stylesheet.
+   `sm-` means standalone, not storymap: storymap.html, memor.html and the two
+   practice notes (ai-agents.html, ai-coding.html) share it. No JavaScript:
+   this page family is complete without it. Everything here is scoped to
    `sm-*` or `map__*` so the CV cannot inherit any of it.
    -------------------------------------------------------------------------- */
 
@@ -3766,6 +3773,162 @@ html.js-ready .work-more[hidden] {
   line-height: var(--leading-dense);
 }
 
+/* Practice-note components: steps, a two-way split and a dated record.
+   Three families, not five. All rules are static borders — a new page in
+   this family loads no JavaScript, so nothing may depend on `motion-ready`. */
+
+/* A numbered sequence. Base geometry is one item per row: a fixed number
+   column, then the name and its note. `--row` lays the same items out as
+   four columns under one 2px accent rule. */
+.sm-steps {
+  display: grid;
+  margin-top: var(--space-2xl);
+  border-top: var(--rule-hair) solid var(--rule);
+}
+
+.sm-steps__item {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.sm-steps__num {
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-dense);
+}
+
+.sm-steps__name {
+  color: var(--ink);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: var(--tracking-title);
+  line-height: var(--leading-title);
+}
+
+.sm-steps__note {
+  margin-top: var(--space-2xs);
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+}
+
+.sm-steps--row {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-lg) clamp(20px, 3vw, 36px);
+  border-top: var(--rule-accent) solid var(--action);
+}
+
+.sm-steps--row .sm-steps__item {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2xs);
+  border-bottom: 0;
+}
+
+/* A dichotomy, not a hierarchy: two equal columns, one hairline each, never
+   an accent — the two sides are not ranked. */
+.sm-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 40px);
+  margin-top: var(--space-2xl);
+}
+
+.sm-split__col {
+  padding-top: var(--space-md);
+  border-top: var(--rule-hair) solid var(--rule);
+}
+
+.sm-split__title {
+  color: var(--ink);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-title);
+  line-height: var(--leading-title);
+}
+
+.sm-split__list {
+  display: grid;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.sm-split__list li {
+  color: var(--ink-soft);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+}
+
+/* A dated record: one date/type cell, one link. A third column would squeeze
+   the titles, and every row points at the same repository. */
+.sm-record {
+  margin-top: var(--space-2xl);
+  border-top: var(--rule-hair) solid var(--rule);
+}
+
+.sm-record__row {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-xs) var(--space-lg);
+  padding-block: var(--space-md);
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.sm-record__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-sm);
+}
+
+.sm-record__meta time {
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-body);
+}
+
+.sm-record a {
+  position: relative;
+  display: block;
+  /* Reserve the trailing slot for the arrow so a long title can wrap under it
+     without ever pushing the arrow onto a line of its own. */
+  padding-right: 1.9rem;
+  color: var(--ink);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  /* Underline the words, not the full grid cell: a bottom border would double
+     the row's own hairline. */
+  text-decoration: underline;
+  text-decoration-thickness: var(--rule-hair);
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule-strong);
+  transition: color var(--dur) var(--ease), text-decoration-color var(--dur) var(--ease);
+}
+
+.sm-record a:hover,
+.sm-record a:focus-visible {
+  color: var(--action);
+  text-decoration-color: var(--action);
+}
+
+.sm-record a .icon {
+  /* Pinned to the title cell's trailing edge: an inline arrow can be pushed
+     onto a line of its own by a long title, which reads as a stray glyph. */
+  position: absolute;
+  top: 0.2em;
+  right: 0;
+  width: 0.85em;
+  height: 0.85em;
+  margin: 0;
+}
+
 /* Links and colophon */
 .sm-links {
   display: grid;
@@ -3895,6 +4058,20 @@ html.js-ready .work-more[hidden] {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* The steps keep their sequence but wrap two per row; the split becomes a
+     single column because the dichotomy is in the copy, not the geometry. */
+  .sm-steps--row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm-steps--row .sm-steps__item {
+    border-bottom: var(--rule-hair) solid var(--rule);
+  }
+
+  .sm-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .sm-meta__row {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-xs);
@@ -3904,6 +4081,16 @@ html.js-ready .work-more[hidden] {
 @media (max-width: 640px) {
   .sm-head__nav {
     width: 100%;
+  }
+
+  .sm-steps--row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* The date and type sit above the title instead of beside it. */
+  .sm-record__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xs);
   }
 
   /* The decade chart turns horizontal: nine columns of 32px cannot hold a
@@ -4069,6 +4256,22 @@ html.js-ready .work-more[hidden] {
 
   .sm-bar__label {
     border-top-color: CanvasText;
+  }
+
+  /* Practice notes: the 2px/1px weight stays the only distinction, and a
+     record link is underlined so the evidence's affordance survives. */
+  .sm-steps,
+  .sm-steps__item,
+  .sm-split__col,
+  .sm-chapter__body > p.sm-note,
+  .sm-record,
+  .sm-record__row {
+    border-color: CanvasText;
+  }
+
+  .sm-record a {
+    color: LinkText;
+    text-decoration: underline;
   }
 
   .typewriter__caret {
@@ -4632,6 +4835,11 @@ html.js-ready .work-more[hidden] {
     background: #fff;
   }
 
+  /* The practice notes are screen artefacts; the printed CV stays a CV. */
+  .capability__links {
+    display: none !important;
+  }
+
   .delivery-path {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -4777,6 +4985,7 @@ html.js-ready .work-more[hidden] {
   }
 
   .sm-chapter__title {
+    color: #000 !important;
     font-size: 14pt;
   }
 
@@ -4871,5 +5080,59 @@ html.js-ready .work-more[hidden] {
 
   .sm-meta dt {
     color: #333 !important;
+  }
+
+  /* Practice notes on paper: A4 at 16mm is ~673px, so the ≤900 layout would
+     apply. Re-declare the three components as two columns, drop the narrow
+     title measures and underline the record links the global print reset
+     stripped. */
+  .sm-steps--row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm-record__row {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+  }
+
+  .sm-hero__title,
+  .sm-chapter__title {
+    max-width: none;
+  }
+
+  .sm-record a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .sm-steps,
+  .sm-steps__item,
+  .sm-split__col,
+  .sm-record,
+  .sm-record__row {
+    border-color: #999;
+  }
+
+  .sm-steps--row {
+    border-top-color: #000;
+  }
+
+  .sm-steps__num,
+  .sm-steps__name,
+  .sm-steps__note,
+  .sm-split__title,
+  .sm-split__list li,
+  .sm-record__meta time,
+  .sm-record a {
+    color: #000 !important;
+  }
+
+  .sm-steps__item,
+  .sm-split__col,
+  .sm-record__row {
+    break-inside: avoid;
   }
 }
