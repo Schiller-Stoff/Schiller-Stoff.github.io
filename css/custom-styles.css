@@ -744,6 +744,78 @@ p {
   max-width: 720px;
 }
 
+/* V13 hero scene: the page as a printed sheet. A 96px ledger grid, one ghost
+   index card and two registration crosses sit behind the offer at very low
+   ink. They are decorative, so they may move; the copy, the actions and the
+   index never do. The field is compositor-only (transform) and stops entirely
+   under reduced motion. */
+.hero__scene {
+  --scene-inset: max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter)));
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  color: var(--action);
+}
+
+.hero__scene-grid {
+  position: absolute;
+  inset: -96px 0 0;
+  width: 100%;
+  height: calc(100% + 192px);
+  opacity: 0.07;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0 58%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 0 58%, transparent 96%);
+}
+
+/* The ghost card repeats the index's proportions, offset out from under it.
+   It hangs 24px past the content edge on purpose: the sheet is a field, not
+   a second panel. */
+.hero__scene-sheet {
+  position: absolute;
+  top: 22%;
+  right: calc(var(--scene-inset) - var(--space-lg));
+  width: clamp(300px, 32vw, 460px);
+  aspect-ratio: 1 / 1.12;
+  border: var(--rule-hair) solid currentColor;
+  opacity: 0.16;
+}
+
+.hero__scene-mark {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  opacity: 0.3;
+}
+
+.hero__scene-mark::before,
+.hero__scene-mark::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+
+.hero__scene-mark::before {
+  inset: 6px 0 auto;
+  height: var(--rule-hair);
+}
+
+.hero__scene-mark::after {
+  inset: 0 auto 0 6px;
+  width: var(--rule-hair);
+}
+
+.hero__scene-mark--start {
+  top: calc(var(--header-h) + var(--space-lg));
+  left: var(--scene-inset);
+}
+
+.hero__scene-mark--end {
+  right: var(--scene-inset);
+  bottom: var(--space-lg);
+}
+
 /* V12 hero index: one ultramarine window, four routes. It is navigation, not
    scene — no entrance animation, no html.* gate, no scroll-linked motion. The
    sash is the 1px gap between panes, so the hairlines are layout, not borders. */
@@ -791,15 +863,45 @@ p {
 }
 
 .hero__index-link {
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
   gap: var(--space-xs);
   min-height: 148px;
   padding: var(--space-md);
+  overflow: hidden;
   background: var(--action);
   color: var(--on-dark);
   transition: background-color var(--dur-fast) var(--ease-standard);
+}
+
+/* A soft light follows the pointer across the plate. Purely additive ink:
+   the pane stays solid, focus and contrast do not change, and without a fine
+   pointer (or without script) it simply sits centred behind the hover state. */
+.hero__index-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    180px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(255, 255, 255, 0.16),
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-standard);
+}
+
+.hero__index-link > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__index-link:hover::after,
+.hero__index-link:focus-visible::after {
+  opacity: 1;
 }
 
 .hero__index-link:hover,
@@ -1726,18 +1828,28 @@ html.js-ready .work-more {
   font-weight: 600;
 }
 
-.filter-btn[aria-pressed="true"]::after {
+/* The active underline grows from the left when a filter is chosen; the
+   state is still carried by weight and, in forced colours, the 2px line. */
+.filter-btn::after {
   content: "";
   position: absolute;
   left: 16px;
   right: 16px;
   bottom: -1px;
-  height: 2px;
+  height: var(--rule-accent);
   background: var(--action);
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-enter);
 }
 
-.filter-btn:first-child[aria-pressed="true"]::after {
+.filter-btn:first-child::after {
   left: 0;
+}
+
+.filter-btn[aria-pressed="true"]::after {
+  transform: scaleX(1);
 }
 
 .filter-count {
@@ -2769,6 +2881,12 @@ html.js-ready .work-more[hidden] {
   .section-head {
     display: block;
     max-width: 760px;
+  }
+
+  /* The index leaves the right column here, so the ghost card has nothing
+     left to frame. */
+  .hero__scene-sheet {
+    display: none;
   }
 
   .section-head > p:not(.eyebrow) {
@@ -3857,6 +3975,7 @@ html.js-ready .work-more[hidden] {
 
   /* Decorative layers and progress are removed; states stay text/border led. */
   .footer__graph,
+  .hero__scene,
   .sm-rail__progress,
   .site-header::after {
     display: none;
@@ -4030,6 +4149,12 @@ html.js-ready .work-more[hidden] {
   }
 }
 
+@keyframes scene-settle {
+  from {
+    opacity: 0;
+  }
+}
+
 @keyframes rule-draw {
   from {
     transform: scaleX(0);
@@ -4145,7 +4270,12 @@ html.js-ready .work-more[hidden] {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Hero opening scene: marker, then the typed sentence. */
+  /* Hero opening scene: the sheet settles in, then the marker and the typed
+     sentence. The field is decorative ink; no reading content is gated. */
+  .hero__scene {
+    animation: scene-settle var(--dur-scene) var(--ease-enter) both;
+  }
+
   .hero .eyebrow::before {
     animation: mark-in var(--dur-base) var(--ease-enter) 120ms both;
   }
@@ -4223,6 +4353,49 @@ html.js-ready .work-more[hidden] {
   }
 }
 
+/* Hero scene depth: the decorative field lags the page as the hero leaves.
+   The grid is furthest, the sheet sits between, the marks are nearest; the
+   copy, actions and index are not in this block and never move. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes scene-field-drift {
+      to {
+        transform: translate3d(0, 64px, 0);
+      }
+    }
+
+    @keyframes scene-sheet-drift {
+      to {
+        transform: translate3d(0, 48px, 0);
+      }
+    }
+
+    @keyframes scene-mark-drift {
+      to {
+        transform: translate3d(0, 16px, 0);
+      }
+    }
+
+    .hero__scene-grid {
+      animation: scene-field-drift linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 90vh;
+    }
+
+    .hero__scene-sheet {
+      animation: scene-sheet-drift linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 90vh;
+    }
+
+    .hero__scene-mark {
+      animation: scene-mark-drift linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 90vh;
+    }
+  }
+}
+
 /* On one column the spine is short enough that a moving line adds nothing;
    the markers stay as static structure. */
 @media (max-width: 900px) {
@@ -4239,7 +4412,11 @@ html.js-ready .work-more[hidden] {
 
   /* A scroll timeline outlives the duration override: stop it explicitly. */
   .cv-list::before,
-  .cv-entry::before {
+  .cv-entry::before,
+  .hero__scene,
+  .hero__scene-grid,
+  .hero__scene-sheet,
+  .hero__scene-mark {
     animation: none !important;
   }
 
@@ -4296,6 +4473,7 @@ html.js-ready .work-more[hidden] {
   .site-header,
   .nav-toggle,
   .skip-link,
+  .hero__scene,
   .hero__actions,
   .hero__focus,
   .hero__engagements,

@@ -176,6 +176,23 @@
          Hero
          ==================================================================== -->
     <section class="hero" id="top" aria-labelledby="hero-title">
+      <!-- Decorative ink only: a printed-sheet field behind the offer. It is
+           never content, never a control and never gated by script; the
+           reading layer above it is untouched. -->
+      <div class="hero__scene" aria-hidden="true">
+        <svg class="hero__scene-grid" focusable="false">
+          <defs>
+            <pattern id="hero-scene-grid" width="96" height="96" patternUnits="userSpaceOnUse">
+              <path d="M96 0H0v96" fill="none" stroke="currentColor" stroke-width="1"></path>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-scene-grid)"></rect>
+        </svg>
+        <span class="hero__scene-sheet"></span>
+        <span class="hero__scene-mark hero__scene-mark--start"></span>
+        <span class="hero__scene-mark hero__scene-mark--end"></span>
+      </div>
+
       <div class="container hero__grid">
         <div class="hero__copy">
           <p class="eyebrow">Digital heritage engineering · Graz, Austria</p>

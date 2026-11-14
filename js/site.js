@@ -887,7 +887,59 @@
   }
 
   /* ------------------------------------------------------------------
-     10. Decorative rules — one observer, one pass, no content gated
+     10. Index light — pointer ink on the hero plate (fine pointers only)
+     ------------------------------------------------------------------ */
+  function initIndexLight() {
+    var index = document.querySelector(".hero__index");
+    if (!index) return;
+    if (prefersReducedMotion()) return;
+
+    var finePointer = window.matchMedia
+      ? window.matchMedia("(hover: hover) and (pointer: fine)")
+      : null;
+    if (finePointer && !finePointer.matches) return;
+
+    var frame = 0;
+    var link = null;
+    var x = 0;
+    var y = 0;
+
+    function paint() {
+      frame = 0;
+      if (!link || prefersReducedMotion()) return;
+
+      var rect = link.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+
+      link.style.setProperty("--spot-x", ((x - rect.left) / rect.width) * 100 + "%");
+      link.style.setProperty("--spot-y", ((y - rect.top) / rect.height) * 100 + "%");
+    }
+
+    index.addEventListener("pointermove", function (event) {
+      if (event.pointerType === "touch" || prefersReducedMotion()) return;
+
+      var target = event.target.closest
+        ? event.target.closest(".hero__index-link")
+        : null;
+      if (!target) return;
+
+      link = target;
+      x = event.clientX;
+      y = event.clientY;
+
+      if (!frame) frame = window.requestAnimationFrame(paint);
+    });
+
+    index.addEventListener("pointerleave", function () {
+      link = null;
+      if (!frame) return;
+      window.cancelAnimationFrame(frame);
+      frame = 0;
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     11. Decorative rules — one observer, one pass, no content gated
      ------------------------------------------------------------------ */
   function initDrawnRules() {
     var targets = Array.prototype.slice.call(
@@ -953,6 +1005,7 @@
   safe(initTypedFocus);
   safe(initArrival);
   safe(initCopyEmail);
+  safe(initIndexLight);
   safe(initDrawnRules);
   safe(initPortfolio);
   safe(initForm);
