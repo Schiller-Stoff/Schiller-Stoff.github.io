@@ -14,10 +14,11 @@ python3 -m http.server 8000
 
 ## Structure
 
-- `index.html` — the CV: hero with a six-route index, profile band, credibility
-  strip, two feature plates (DERLA and MEMOR), selected outcomes, capabilities,
-  working method, project register, training (21 items), CV, contact, imprint
-  and footer.
+- `index.html` — the CV: hero with a six-route index and a two-paragraph lead,
+  profile band, credibility strip, two feature plates (DERLA and MEMOR), three
+  selected outcomes (DERLA, MEMOR, GAMS), capabilities, working method with its
+  sustain note, project register, training (21 items), CV, contact, imprint and
+  footer.
 - `storymap.html` — a dependency-free data study of DERLA, “The Memory
   Landscape”: a national inline map of 4,393 records and four chapters. No
   JavaScript.
@@ -46,11 +47,13 @@ python3 -m http.server 8000
   copy e-mail and the decorative rule observer.
 - `fonts/` — self-hosted IBM Plex Sans and Source Serif 4 (OFL).
 - `images/` — WebP project imagery with 224px register derivatives, the hero
-  portrait, the 192px award image, plus the social preview. The two practice
-  notes use the square portrait as their social card.
+  portrait, the 192px award image, plus the social preview. The DERLA, MEMOR and
+  GAMS outcomes each keep a 900px source; MEMOR is the whole-city data map,
+  never a homepage screenshot. The two practice notes use the square portrait as their
+  social card.
 
 The page is designed to work with JavaScript disabled: content stays visible and
-the full register of 21 projects and 21 teaching resources remains listed.
+the full register of 23 projects and 21 teaching resources remains listed.
 Interactive controls are revealed only when `site.js` is running. Motion is
 decorative: the first hero phrase is already in the HTML and is only re-typed by
 script, and `prefers-reduced-motion: reduce` removes every type, draw, spine fill
@@ -90,9 +93,10 @@ progress; under reduced motion every item above is static.
 The site is published from `master` via GitHub Pages. A push to `master`
 publishes immediately; keep working on `redesign` until cutover.
 
-Design rationale and history: `redesignv14.md` (the AI practice: two index
-routes and two practice notes), `redesignv13.md` (hero depth), `redesignv12.md`
-(the six-route index), `redesignv11.md` (the commissionable practice and profile
+Design rationale and history: `redesignv15.md` (proof-led outcomes, the approach
+note and the register at 23), `redesignv14.md` (the AI practice: two index routes
+and two practice notes), `redesignv13.md` (hero depth), `redesignv12.md` (the
+six-route index), `redesignv11.md` (the commissionable practice and profile
 band), `redesignv10.md` (MEMOR plate and page, the data study and its
 limitations), `redesignv9.md` (DERLA plate on the CV), `redesignv7.md` (visual
 direction and implementation record), `redesignv6.md` (motion record),
