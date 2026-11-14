@@ -775,7 +775,8 @@
       return (
         link.closest(".nav") ||
         link.closest(".footer-nav") ||
-        link.closest(".hero__actions")
+        link.closest(".hero__actions") ||
+        link.closest(".hero__index")
       );
     }
 
