@@ -733,9 +733,8 @@ p {
 .hero__grid {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  gap: clamp(36px, 6vw, 80px);
 }
 
 .hero__copy {
@@ -744,8 +743,8 @@ p {
   max-width: 720px;
 }
 
-/* Decorative linked-data field; art only, never announced. The opaque profile
-   card masks its centre, so only the surrounding nodes and rules show. */
+/* Decorative linked-data field; art only, never announced. V11's one-column
+   hero leaves the field clear space on the right, so it stays low-contrast. */
 .hero__graph {
   position: absolute;
   top: 50%;
@@ -754,7 +753,7 @@ p {
   width: min(62%, 660px);
   height: auto;
   color: var(--action);
-  opacity: 0.12;
+  opacity: 0.09;
   transform: translateY(-50%);
   pointer-events: none;
 }
@@ -783,12 +782,6 @@ p {
   font-weight: 500;
   line-height: var(--leading-display);
   letter-spacing: var(--tracking-serif);
-}
-
-.hero h1 em {
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
 }
 
 .hero__lead {
@@ -878,100 +871,106 @@ html.typed-ready .typewriter__caret {
   outline-offset: 2px;
 }
 
-.hero__profile {
-  position: relative;
-  z-index: 1;
-  padding: clamp(24px, 3vw, 32px);
-  border: var(--rule-hair) solid var(--rule);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.profile__portrait {
+/* V11 engagement line: what is purchasable, named above the fold. */
+.hero__engagements {
   display: flex;
-  justify-content: center;
-  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-sm);
+  margin-top: var(--space-lg);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
 }
 
-.profile__portrait img {
-  width: min(100%, 220px);
-  height: auto;
+.hero__engagements span + span {
+  padding-left: var(--space-sm);
+  border-left: var(--rule-hair) solid var(--rule);
+}
+
+/* V11 profile band: the person arrives after the offer, at the fold line.
+   Content, not scene — no animation and no html.* gate. */
+.profile-band {
+  padding-block: clamp(28px, 4vw, 44px);
+  border-top: var(--rule-hair) solid var(--rule);
+  background: var(--surface-paper);
+}
+
+.profile-band__grid {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.profile-band__portrait img {
+  width: 120px;
+  height: 120px;
   border-radius: var(--radius-circle);
+  object-fit: cover;
   background: transparent;
 }
 
-.profile__role {
+.profile-band__name {
   color: var(--ink);
   font-size: var(--text-lg);
   font-weight: 600;
   line-height: var(--leading-dense);
 }
 
-.profile__org {
+.profile-band__role {
   margin-top: var(--space-2xs);
   color: var(--ink-soft);
   font-size: var(--text-sm);
   line-height: var(--leading-body);
 }
 
-.profile__location {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  margin-top: var(--space-sm);
-  color: var(--ink-muted);
-  font-size: var(--text-sm);
-}
-
-.profile__location .icon {
-  width: 14px;
-  height: 14px;
-}
-
-.profile__links {
-  display: grid;
-  margin-top: var(--space-lg);
-  border-top: var(--rule-hair) solid var(--rule);
-}
-
-.profile__link {
-  display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
-  column-gap: var(--space-xs);
-  row-gap: 1px;
-  align-items: center;
-  padding: var(--space-xs) 0;
-  border-bottom: var(--rule-hair) solid var(--rule);
+.profile-band__remit {
+  margin-top: var(--space-2xs);
+  max-width: 58ch;
   color: var(--ink-soft);
   font-size: var(--text-sm);
-  transition: color var(--dur) var(--ease);
+  line-height: var(--leading-body);
 }
 
-.profile__link .icon {
-  grid-row: 1 / span 2;
+.profile-band__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-sm);
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+}
+
+.profile-band__links li + li {
+  padding-left: var(--space-sm);
+  border-left: var(--rule-hair) solid var(--rule);
+}
+
+.profile-band__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-thickness: var(--rule-hair);
+  text-underline-offset: 3px;
+}
+
+.profile-band__link .icon {
   width: 15px;
   height: 15px;
   color: var(--ink-muted);
 }
 
-.profile__link:hover {
+.profile-band__link:hover,
+.profile-band__link:focus-visible {
   color: var(--action);
 }
 
-.profile__link:hover .icon {
+.profile-band__link:hover .icon,
+.profile-band__link:focus-visible .icon {
   color: var(--action);
-}
-
-.profile__link-label {
-  font-weight: 500;
-  line-height: var(--leading-title);
-}
-
-.profile__link-value {
-  color: var(--ink-muted);
-  font-size: var(--text-xs);
-  line-height: var(--leading-title);
-  overflow-wrap: anywhere;
 }
 
 /* --------------------------------------------------------------------------
@@ -1027,6 +1026,16 @@ html.typed-ready .typewriter__caret {
   color: var(--ink-muted);
   font-size: var(--text-xs);
   line-height: var(--leading-dense);
+}
+
+.proof-item__note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.proof-item__note a:hover {
+  color: var(--action);
 }
 
 /* --- Storymap feature plate: the CV's one data exhibit -------------------
@@ -1457,6 +1466,11 @@ html.typed-ready .typewriter__caret {
   background: var(--rule);
 }
 
+/* The services grid closes with one route to the contact section. */
+.capability-closing {
+  margin-top: var(--space-xl);
+}
+
 .capability {
   padding: clamp(24px, 3.2vw, 40px);
   background: var(--surface);
@@ -1810,6 +1824,9 @@ html.js-ready .work-more[hidden] {
 .publication-highlight__media img {
   width: 100%;
   height: auto;
+  /* The cover is 533x802. The literal ratio reserves its box before the lazy
+     file arrives; update both numbers if the cover is replaced. */
+  aspect-ratio: 533 / 802;
 }
 
 /* A dataset line has no cover image: one column, same box. Two classes so the
@@ -2154,6 +2171,37 @@ html.js-ready .work-more[hidden] {
 .contact-direct__email:hover,
 .contact-direct__email:focus-visible {
   text-decoration-thickness: var(--rule-accent);
+}
+
+/* V11: the brief checklist names what makes a first message useful. */
+.contact-brief {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--surface-paper);
+}
+
+.contact-brief__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: var(--leading-title);
+}
+
+.contact-brief ul {
+  display: grid;
+  gap: var(--space-2xs);
+  margin-top: var(--space-sm);
+  padding-left: var(--space-lg);
+  list-style: disc;
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+}
+
+.contact-brief__note {
+  margin-top: var(--space-md);
+  max-width: 62ch;
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
 }
 
 .copy-btn {
@@ -2612,11 +2660,6 @@ html.js-ready .work-more[hidden] {
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1120px) {
-  .hero__grid {
-    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
-    gap: var(--space-2xl);
-  }
-
   /* The asymmetric head collapses before the title column gets too narrow. */
   .section-head {
     display: block;
@@ -2632,6 +2675,13 @@ html.js-ready .work-more[hidden] {
   .project-card__link {
     grid-template-columns: 88px minmax(0, 1fr) 40px;
     gap: var(--space-md);
+  }
+
+  /* Without the masking card the field is pulled into the right margin so it
+     stops sitting on the measure between 901px and 1120px. */
+  .hero__graph {
+    width: min(50%, 520px);
+    right: -12%;
   }
 }
 
@@ -2726,11 +2776,6 @@ html.js-ready .work-more[hidden] {
     width: 100%;
   }
 
-  .hero__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-  }
-
   /* The decorative field would collide with stacked content. */
   .hero__graph {
     display: none;
@@ -2743,11 +2788,6 @@ html.js-ready .work-more[hidden] {
 
   .hero__copy {
     max-width: 680px;
-  }
-
-  .hero__profile {
-    width: 100%;
-    max-width: 480px;
   }
 
   .proof-strip__grid {
@@ -2809,6 +2849,13 @@ html.js-ready .work-more[hidden] {
   .footer-brand {
     grid-column: 1 / -1;
   }
+
+  /* At narrow measures the links can wrap; a left border would then lead the
+     second line. Icons, underline and gap carry the separation instead. */
+  .profile-band__links li + li {
+    padding-left: 0;
+    border-left: 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2820,8 +2867,14 @@ html.js-ready .work-more[hidden] {
     flex: 1 1 auto;
   }
 
-  .profile__portrait img {
-    width: 180px;
+  .profile-band__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .hero__engagements span + span {
+    padding-left: 0;
+    border-left: 0;
   }
 
   .proof-strip__grid {
@@ -2977,10 +3030,6 @@ html.js-ready .work-more[hidden] {
 
   .hero__actions .btn {
     width: 100%;
-  }
-
-  .profile__portrait img {
-    width: 150px;
   }
 
   .project-card__link {
@@ -3774,6 +3823,7 @@ html.js-ready .work-more[hidden] {
 
   .evidence-item__value a,
   .text-link,
+  .profile-band__link,
   .teaching-item__link,
   .cv-entry__link,
   .proof-item__value a,
@@ -3823,17 +3873,6 @@ html.js-ready .work-more[hidden] {
   }
   to {
     transform: scale(1);
-  }
-}
-
-@keyframes panel-settle {
-  from {
-    opacity: 0.88;
-    transform: translateY(var(--shift-md));
-  }
-  to {
-    opacity: 1;
-    transform: none;
   }
 }
 
@@ -3934,13 +3973,9 @@ html.js-ready .work-more[hidden] {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Hero opening scene: marker, panel, graph, then the typed sentence. */
+  /* Hero opening scene: marker, graph, then the typed sentence. */
   .hero .eyebrow::before {
     animation: mark-in var(--dur-base) var(--ease-enter) 120ms both;
-  }
-
-  .hero__profile {
-    animation: panel-settle var(--dur-scene) var(--ease-enter) 180ms both;
   }
 
   .hero__graph-edges line {
@@ -4050,7 +4085,7 @@ html.js-ready .work-more[hidden] {
 }
 
 /* Hero depth: the decorative field drifts 48px as the hero leaves. This is the
-   only scroll-linked motion on the page. The profile card, the headline and
+   only scroll-linked motion on the page. The profile band, the headline and
    every reading line stay put — ink moves, content does not.
    `from` repeats the base translateY(-50%) on purpose: the graph is centred
    with that transform, so starting at 0 would jump it by half its height. */
@@ -4141,11 +4176,12 @@ html.js-ready .work-more[hidden] {
   .skip-link,
   .hero__actions,
   .hero__focus,
+  .hero__engagements,
   .typed-toggle,
   .hero__graph,
   .footer__graph,
   .typewriter__caret,
-  .profile__portrait,
+  .profile-band__portrait,
   .filters,
   .filters__label,
   .work-more,
@@ -4156,6 +4192,7 @@ html.js-ready .work-more[hidden] {
   .outcome__actions,
   .award-note img,
   .contact-form,
+  .copy-btn,
   .site-footer,
   #portfolio-section,
   #imprint-section,
@@ -4199,12 +4236,20 @@ html.js-ready .work-more[hidden] {
     max-width: none;
   }
 
-  .hero__profile {
+  .profile-band {
     max-width: none;
     margin-top: 10pt;
     padding: 10pt;
     border: var(--rule-hair) solid #000;
     background: #fff;
+  }
+
+  .profile-band__grid {
+    display: block;
+  }
+
+  .profile-band__links {
+    margin-top: 6pt;
   }
 
   h1,
@@ -4242,20 +4287,24 @@ html.js-ready .work-more[hidden] {
     background: #000 !important;
   }
 
-  .profile__link,
-  .profile__link-value,
-  .profile__link .icon {
+  .profile-band__name,
+  .profile-band__role,
+  .profile-band__remit,
+  .profile-band__link,
+  .profile-band__link .icon {
     color: #000 !important;
   }
 
-  .profile__link {
-    border-color: #999;
+  .profile-band__links li + li {
+    padding-left: 0;
+    border-left: 0;
   }
 
   .outcome,
   .capability,
   .cv-entry,
   .publication-highlight,
+  .profile-band,
   .award-note {
     break-inside: avoid;
   }
@@ -4327,6 +4376,7 @@ html.js-ready .work-more[hidden] {
 
   .award-note,
   .publication-highlight,
+  .contact-brief,
   .cv-summary {
     padding: 8pt;
     border: var(--rule-hair) solid #000;
