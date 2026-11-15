@@ -155,7 +155,7 @@ This creates a recognisable graphic language while remaining sober, accessible, 
 
 ```text
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ Sebastian Stoff                 Expertise  Work  Experience  [Contact]  │
+│ Sebastian Schiller-Stoff                 Expertise  Work  Experience  [Contact]  │
 ├──────────────────────────────────────────────────────────────────────────┤
 │ DIGITAL HUMANITIES + RSE                                               │
 │ I build durable research platforms       ┌───────────────────────────┐  │
@@ -318,7 +318,7 @@ icon to every heading.
 ### 6.1 Header
 
 - White, 72px desktop / 64px mobile, with a fine bottom rule after scrolling.
-- Brand: `Sebastian Stoff` with the descriptor `Digital Humanities · Research Software` as plain text.
+- Brand: `Sebastian Schiller-Stoff` with the descriptor `Digital Humanities · Research Software` as plain text.
 - Primary links: `Expertise`, `Work`, `Experience`, `Contact`.
 - Remove `Imprint` and `Teaching` from primary navigation; both remain linked in the footer and page.
 - CTA label: `Contact` rather than “Get in touch”; shorter and more neutral.

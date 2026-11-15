@@ -510,7 +510,7 @@ borderless cover. No filters.
 
 ```text
 ┌─────────────────────────────────────────────────────────────────────────┐
-│ Sebastian Stoff (serif, blue)      Expertise  Work  Experience  (Contact)│ ← pill
+│ Sebastian Schiller-Stoff (serif, blue)      Expertise  Work  Experience  (Contact)│ ← pill
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
 │  DIGITAL HUMANIST · RESEARCH SOFTWARE ENGINEER                          │
