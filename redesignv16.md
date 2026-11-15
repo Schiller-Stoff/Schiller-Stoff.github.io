@@ -77,10 +77,11 @@ would read as hovered. No `<select>`, no `<button>`, no `aria-expanded`, no
 
 Both cells are 32px tall inside the 34px pill, which clears the 32px target
 inside the 72px desktop and 64px mobile headers. The component is identical on
-both shells; only two rules are shell-specific: `align-self: flex-end` inside
-the `≤900px` navigation disclosure and `margin-left: auto` in the standalone
-`≤640px` masthead. It is hidden in print, and in forced colours it keeps border
-+ 600 weight + the 2px rule, so state never depends on colour alone.
+both shells; only four declarations are shell-specific: `align-self: flex-end`
+inside the `≤900px` navigation disclosure, `justify-content: flex-end` on the
+standalone `.sm-head__inner`, and `flex-start` plus the pill's own auto margin
+at ≤640. It is hidden in print, and in forced colours it keeps border + 600
+weight + the 2px rule, so state never depends on colour alone.
 
 The switch is **generator-owned** between `lang-switch:begin` / `lang-switch:end`,
 like the head's `lang-alt` block. Five pages × two languages is ten copies of one
@@ -305,7 +306,7 @@ record. Files edited: `index.html` (GAMS wording, `data-ui-strings` island,
 `lang-alt` + switch markers, record-title fixes), `storymap.html`,
 `memor.html`, `ai-agents.html`, `ai-coding.html` (switch + alternates,
 title fixes), `js/site.js` (`UI_FALLBACK`, `ui()`), `css/custom-styles.css`
-(§6 switch, §18 ≤900 alignment, §19 ≤640 margin, §20 forced colours, §22 print),
+(§6 switch, §18 ≤900 alignment, §19 masthead alignment, §20 forced colours, §22 print),
 `README.md`, `AGENTS.md`.
 
 Not touched: both map generators, any `map:`/`memor:` fragment, images, fonts,
@@ -330,10 +331,46 @@ Determinism: `--build` twice, then `git diff --stat` empty; `--check` green.
 `gjs js/site.js` stops at "document is not defined" (syntax valid). The
 `i18n/pending/` directory is empty by design.
 
-Not verified here (no browser): switch width and tab order at 1440/1120/901/900/
-641/640/375, its print and forced-colours rendering, the mobile disclosure with
-the switch as its last child, and German line lengths against the English
-reserved heights. These are listed for the manual pass in AGENTS.md.
+**Browser pass (Chrome, local server).** Run after the static work and recorded
+here because it changed the masthead's alignment rule:
+
+- Switch at 1440/1120/1000/901 is 71.9 × 34 at `--action`-free rest, both cells
+  32px tall inside the 72px header; the current cell measures 600 weight with a
+  2px underline at 4px offset, the link 500. Tab order is skip → brand → nav ×3 →
+  CTA → DE. Focus ring 2px inset −3px.
+- The standalone masthead wraps between 1120 and 1040px (German) and between 1000
+  and 901px (English), not at 900. A first rule put `margin-left: auto` on the
+  pill inside the ≤900 block; measured at 901 (814px after the scrollbar)
+  `de/storymap.html` and `de/ai-coding.html` still dropped it to a second line at
+  the left. Replaced with `justify-content: flex-end` on `.sm-head__inner` —
+  inert on any line whose note has already taken the free space, so it only
+  moves the wrapped line — plus `flex-start` and the pill's own auto margin at
+  ≤640, where the brand can sit alone on its line. Verified on all eight pages at
+  1440/1280/1120/1040/1000/950/901/900/800/720/641/640/500/375/360/320: brand
+  flush left, switch flush right, no overflow.
+- Mobile disclosure at 375: toggle opens `flex`, the switch is the last child,
+  right-aligned at x = 283.1 (71.9 × 34), no body scroll lock, Esc closes,
+  Enter on the focused DE link lands on `/de/index.html`.
+- German `data-ui-strings` island: load-more 9 → 18 → 23 (`9 weitere …` →
+  `5 weitere …`), filters 9/9/9/4 with `9 von 11 Projekten`, copy
+  `Kopieren` → `Kopiert` → `Kopieren`, form `Wird gesendet …` → German success
+  / error with `is-sending` and a disabled submit.
+- Hero typed line reserves the tallest German phrase (59px at 1440, 59.4px at
+  375), pause/resume swaps the label, reduced motion leaves phrase 1 complete
+  with no caret and no button; arrival draw appears at 50ms and clears at 952ms
+  with no-preference, and never under reduce.
+- Forced colours: switch keeps a black border, the current cell 600 + underline,
+  the link `LinkText`.
+- Both maps render 2 / 1 paths in German, no clipping at 375, and the CV plates
+  fit the 350px column at 390. All ten pages load with no console message and
+  no non-200/304 request; 29 images, 0 broken. No horizontal overflow at
+  1440/1120/1000/901/900/720/640/420/375/360 on EN/DE index and the DE
+  standalone pages.
+
+Not verified here: **print**. The available browser tooling cannot emulate
+print media, so the two print hide lists and the report layout are covered by
+reading the rules only. That, and a visual review of the remaining widths, stay
+in the manual pass in AGENTS.md.
 
 ## 12. Open for the owner
 

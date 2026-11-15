@@ -3450,6 +3450,7 @@ html.js-ready .work-more[hidden] {
 .sm-head__inner {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   align-items: baseline;
   gap: var(--space-sm) var(--space-xl);
   padding-block: var(--space-lg);
@@ -4195,15 +4196,20 @@ html.js-ready .work-more[hidden] {
 }
 
 @media (max-width: 640px) {
-  .sm-head__nav {
-    width: 100%;
+  /* On phones the brand can end up alone on its line, so the masthead packs
+     from the start again; the note keeps its own right edge. The nav is full
+     width here, so the switch always lands on a line of its own, where its
+     auto margin holds the right edge. */
+  .sm-head__inner {
+    justify-content: flex-start;
   }
 
-  /* The nav row is full width here, so the switch lands on its own line; the
-     caps note above already holds the right edge, so the pill joins it instead
-     of being stranded at the left. */
   .sm-head__inner > .lang-switch {
     margin-left: auto;
+  }
+
+  .sm-head__nav {
+    width: 100%;
   }
 
   .sm-steps--row {

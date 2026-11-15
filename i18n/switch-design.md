@@ -25,9 +25,9 @@ tightest desktop width (901px), so nothing in the header has to be hidden or mov
 
 One markup shape, two shells: the same `div.lang-switch` is the last child of `.nav__menu`
 on the CV and the last child of `.sm-head__inner` on the four standalone pages. The only
-shell-specific CSS is one alignment rule inside §18's ≤900 block (§3.3) and one margin in
-§19's ≤640 block (§3.4) — the component itself is shell-agnostic, so it cannot drift into
-two components.
+shell-specific CSS is one alignment rule inside §18's ≤900 block (§3.3) and, in §19, one
+`justify-content` on `.sm-head__inner` plus a two-rule override at ≤640 (§3.2, §3.4) — the
+component itself is shell-agnostic, so it cannot drift into two components.
 
 Sketch (12px caps, 0.12em tracking, 1px `--rule-strong` pill, 1px `--rule` divider):
 
@@ -319,12 +319,26 @@ Why each non-obvious declaration is there:
 * `text-decoration-thickness: var(--rule-accent)` + `text-underline-offset: 4px`: "EN" has
   no descenders, so a 2px rule 4px under 12px caps sits cleanly inside the 32px cell.
 
-### 3.2 §19 — the standalone masthead (no base rule needed)
+### 3.2 §19 — the standalone masthead: one alignment property at base
 
-**Nothing is added to §19 at base width.** `.sm-head__inner` is `align-items: baseline`, and
-the pill's baseline is its own text baseline, so `EN`/`DE` sit on the same baseline as the
-serif brand, the caps note and the three nav links. That shared baseline is as close to
-correct as this masthead gets; a variant rule would only move existing text.
+Add `justify-content: flex-end;` to the existing `.sm-head__inner` rule (after
+`flex-wrap: wrap`).
+
+The masthead is one wrapping flex row: brand, caps note, nav, switch. The note already
+carries `margin-left: auto`, so on any line that holds the note the free space is absorbed
+before `justify-content` applies — the property is inert whenever the note shares the line.
+It only acts when the switch does not fit and wraps to a line of its own (or beside the
+nav): that line has no auto margin, and `flex-end` puts the switch at the right content
+edge instead of stranding a 72px pill at the left. The wrap point is page-dependent and
+well above the ≤900 navigation breakpoint: measured, it lies between 1000 and 901px for the
+English pages and between 1120 and 950px for the German ones.
+
+This replaces the first attempt at `margin-left: auto` on the switch inside the ≤900 block:
+that rule only covered ≤900 while the wrap starts ~100px earlier, and a second auto margin
+on an unwrapped line would split the free space with the note (~74px at 1440) and pull the
+note/nav group left. `justify-content` cannot take space from a line whose auto margin has
+already absorbed it.
+
 Consequence to accept: the masthead's single line box grows from ~27.6px to 34px once, i.e.
 each standalone masthead becomes ~6px taller. No breakpoint changes.
 
@@ -345,14 +359,23 @@ Insert immediately after `html.nav-ready .nav__cta { width: 100%; }` (ends line 
 `align-self: flex-end` (not `stretch`) is what stops the segment from becoming a 100%-wide
 bar in the column panel.
 
-### 3.4 §19 — `@media (max-width: 640px)`, after `.sm-head__nav { width: 100%; }`
+### 3.4 §19 — `@media (max-width: 640px)`, at the top of the block
 
-Insert after `.sm-head__nav { width: 100%; }` (ends line 4125):
+At ≤640 the brand can sit alone on its line (measured at 360 and 320), where `flex-end`
+would push it right — and `.sm-head__nav { width: 100%; }` guarantees the switch a line of
+its own, so its own auto margin can hold the right edge without competing with the note.
+
+Insert immediately inside `@media (max-width: 640px) {`, before `.sm-head__nav`:
 
 ```css
-  /* The nav row is full width here, so the switch lands on its own line; the
-     caps note above already holds the right edge, so the pill joins it instead
-     of being stranded at the left. */
+  /* On phones the brand can end up alone on its line, so the masthead packs
+     from the start again; the note keeps its own right edge. The nav is full
+     width here, so the switch always lands on a line of its own, where its
+     auto margin holds the right edge. */
+  .sm-head__inner {
+    justify-content: flex-start;
+  }
+
   .sm-head__inner > .lang-switch {
     margin-left: auto;
   }
@@ -506,10 +529,17 @@ switch + 3 × 32):
 | `ai-agents.html` | 178.2 | 331.3 | 939.0 → 165.0 spare | 881.8 → 38.2 spare | 881.8 → wraps (52.9 over) |
 | `ai-coding.html` | 178.5 | 263.6 | 871.6 → 232.4 spare | 814.4 → 105.6 spare | 814.4 → **14.5 spare** |
 
-At 901 two of the four are still one row (storymap 16.8px, ai-coding 14.5px spare) and two
-wrap — a wrap is the shell's designed behaviour, not a defect: §19 already wraps the
-masthead below 900. On the wrapped pages the switch stays on the nav's line, 32px after
-`Colophon`, and moves to its own right-aligned line only at ≤640 (§3.4).
+At 901 the table says two of the four are still one row (storymap 16.8px, ai-coding
+14.5px spare) and two wrap. It is optimistic twice: a browser reserves ~15px of
+scrollbar, so the real content width at 901 is ~814px, not 828.9; and the serif
+brand measures 219.4px there, not the ~204px the table implies. Measured, all
+four EN pages therefore wrap at 901; English `ai-agents.html` wraps at 960 while
+the other three still hold one row there. The German pages wrap at 1040
+(`de/storymap.html` and `de/ai-coding.html` already at 950) and all four fit at
+1120. A wrap is the shell's designed behaviour, not a defect — the masthead has
+always wrapped rather than overflowed. §3.2's `justify-content: flex-end` ends
+every wrapped line at the right content edge, and at ≤640 the nav is full width
+and the pill keeps that edge on its own line (§3.4).
 
 Absorbing the fallback-font case: +5% on every string in the 901 CV row ≈ +25px
 (≈ 8 links, 4.6 CTA, 1.9 switch, 10.6 brand) — still 93px of slack.
@@ -573,8 +603,9 @@ so it reads as a label in a landmark list.
 ## 8. Implementation checklist
 
 1. Create `de/` with the five German pages; the switch's `de/…` hrefs must resolve.
-2. Paste §3.1 into §6 (before the §7 banner), §3.3 into the ≤900 block, §3.4 into the §19
-   ≤640 block, §3.5 into the forced-colours block, §3.6 into both print blocks.
+2. Paste §3.1 into §6 (before the §7 banner), §3.2 into the base `.sm-head__inner` rule,
+   §3.3 into the ≤900 block, §3.4 into the §19 ≤640 block, §3.5 into the forced-colours
+   block, §3.6 into both print blocks.
 3. Paste the markup into all ten pages (five shells × two languages): §2.2/§2.3 for the CV,
    §2.4/§2.5 pattern for the eight standalone pages, hrefs from the §2.6 table.
 4. Add the §2.7 `rel="alternate"` pairs and the per-page `lang`/`title`/`canonical` plumbing.
@@ -586,7 +617,7 @@ grep -c 'class="lang-switch__item"' index.html        # 2
 grep -c 'nav__link.*lang-switch\|lang-switch.*nav__link' index.html   # 0: never the nav link
 grep -c 'aria-current="true"' index.html              # 1 (the scrollspy writes "location", not "true")
 grep -c '<script' storymap.html memor.html ai-agents.html ai-coding.html  # still 0 each
-grep -n 'lang-switch' css/custom-styles.css           # component (§6), ≤900, ≤640, forced colours, 2 print lists
+grep -n 'lang-switch' css/custom-styles.css           # component (§6), ≤900 CV disclosure, ≤640, forced colours, 2 print lists
 grep -n 'animation' css/custom-styles.css | grep lang-switch             # no output
 grep -c 'hreflang' index.html                         # 4: 1 in the switch + 3 head alternates (0 today)
 ```
@@ -607,6 +638,7 @@ Implemented as specified, with these deviations and additions:
 | Where | Deviation | Why |
 | --- | --- | --- |
 | §3 line numbers | The insertion anchors quote **pre-insertion** V15 line numbers (`line 721`, `723`, `3045`, …). They have shifted by the 109 lines this component added; locate the surrounding selectors, not the numbers. | The numbers were a review convenience, not a contract; renumbering them in a historical specification would only go stale again. |
+| §3.4 masthead alignment | The switch's right edge on the standalone pages is not a `margin-left: auto` on the pill. It is `justify-content: flex-end` on `.sm-head__inner` (base) plus `justify-content: flex-start` and the pill's auto margin inside `@media (max-width: 640px)`. The first build had the auto margin in the ≤900 block; the browser pass found the wrap starts at ~1045–960 — above that breakpoint — leaving the pill stranded at the left on `de/storymap.html` and `de/ai-coding.html` at 901, and a plain second auto margin would split the free space with the note (~74px at 1440). `justify-content` is inert on any line whose auto margin already took the space, so it only moves the wrapped line. | The original ≤640 rule assumed the switch needs its own line only on phones; the fix has to apply wherever the line wraps, without touching the unwrapped layout. |
 | §2.3 German nav copy | Built from the catalog, which follows `i18n/glossary.md`: `Projekte`, `Werdegang`, CTA `Projekt anfragen`, nav `aria-label="Hauptnavigation"`. The design's `Arbeit`, `Erfahrung`, `Projekt starten`, `Primäre Navigation` are illustrative only. | The glossary wins. The nav labels were already catalog strings in the translators' files and were not touched. |
 | §2.2–2.6 markup | The switch is **generator-owned** between `<!-- lang-switch:begin -->` and `<!-- lang-switch:end -->`, exactly like the head's `lang-alt` block. It is not hand-pasted per page. | Five pages × two languages is ten copies of one component; a single table in `tools/i18n/build_i18n.py` cannot drift. |
 | Rendering | `--render-markers` (or `--extract`) renders the English region; `--build` renders the German one into `de/*`; `--check` compares each region against the rendering for its language, line indentation aside. | The region has to be verifiable, not just present. |
