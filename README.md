@@ -31,8 +31,14 @@ python3 -m http.server 8000
 - `ai-coding.html` — the practice note “The assistant writes code. You sign
   it.”: the 2023–2025 coding-assistant workshop record, the UFBAS GPT-4 case
   and the FAIR-code limits. No JavaScript.
-- `tools/` — two offline map generators (DERLA, MEMOR) whose committed SVG
-  fragments are spliced into both hosts. Nothing runs at page load.
+- `tools/` — three offline generators (DERLA and MEMOR maps, plus the i18n
+  catalog build) whose committed output is spliced into or written to the pages.
+  Nothing runs at page load.
+- `de/` — the five German pages, generated from the English pages plus
+  `i18n/de.json` by `tools/i18n/build_i18n.py`; never edited by hand. The header
+  carries a plain EN | DE switch (one link plus the current label, no
+  JavaScript) and every page is
+  complete in German, including the four script-free standalone pages.
 - `css/custom-styles.css` — the only stylesheet: the V7 “Blue ink” design system
   on the V4 structure and V6 motion, plus the shared `sm-*` shell for the two
   storymaps and the two practice notes. White canvas, one ultramarine accent,
@@ -59,6 +65,11 @@ decorative: the first hero phrase is already in the HTML and is only re-typed by
 script, and `prefers-reduced-motion: reduce` removes every type, draw, spine fill
 and settle. The hero and footer graphs, header progress rule, caret, arrival
 rule and all motion classes are absent from print and forced-colours output.
+
+The German tree is generated, never edited by hand. After changing an English
+page, run `python3 tools/i18n/build_i18n.py --extract`, translate in
+`i18n/de.json`, then `--build` and `--check` (`i18n/README.md` has the full
+workflow). `--check` is the gate: exit 0 with `problems 0`.
 
 ## Motion
 
@@ -93,10 +104,11 @@ progress; under reduced motion every item above is static.
 The site is published from `master` via GitHub Pages. A push to `master`
 publishes immediately; keep working on `redesign` until cutover.
 
-Design rationale and history: `redesignv15.md` (proof-led outcomes, the approach
-note and the register at 23), `redesignv14.md` (the AI practice: two index routes
-and two practice notes), `redesignv13.md` (hero depth), `redesignv12.md` (the
-six-route index), `redesignv11.md` (the commissionable practice and profile
+Design rationale and history: `redesignv16.md` (the generated German tree, the
+EN | DE switch and the translation workflow), `redesignv15.md` (proof-led
+outcomes, the approach note and the register at 23), `redesignv14.md` (the AI
+practice: two index routes and two practice notes), `redesignv13.md` (hero
+depth), `redesignv12.md` (the six-route index), `redesignv11.md` (the commissionable practice and profile
 band), `redesignv10.md` (MEMOR plate and page, the data study and its
 limitations), `redesignv9.md` (DERLA plate on the CV), `redesignv7.md` (visual
 direction and implementation record), `redesignv6.md` (motion record),

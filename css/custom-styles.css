@@ -720,6 +720,73 @@ p {
   display: block;
 }
 
+/* Language switch (EN | DE). Navigation, not a control: two plain links, one
+   current item, no script and no html.* gate. Cells are 32px so the target
+   clears 32px inside a 72px (desktop) or 64px (mobile) header; the pill is
+   34px tall because of its 1px border. The pill's own baseline is the "EN"
+   text baseline, so §19's baseline-aligned masthead needs no override. */
+.lang-switch {
+  display: inline-flex;
+  align-items: stretch;
+  flex: none;
+  overflow: hidden; /* clips the hover wash to the pill's curve */
+  border: var(--rule-hair) solid var(--rule-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: var(--leading-dense);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.lang-switch__item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding-inline: var(--space-xs);
+  color: var(--ink-soft);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.lang-switch__item + .lang-switch__item {
+  border-left: var(--rule-hair) solid var(--rule);
+}
+
+/* The inactive half is the only interactive one, so it is the only one that
+   takes a pointer state. --surface-paper is the site's hover ground. */
+a.lang-switch__item:hover,
+a.lang-switch__item:focus-visible {
+  background: var(--surface-paper);
+  color: var(--ink);
+}
+
+/* The ring belongs to the cell, not to the pill: an inset ring cannot be
+   clipped by the wrapper and cannot be mistaken for "the switch" as a whole. */
+a.lang-switch__item:focus-visible {
+  outline-offset: -3px;
+}
+
+/* Current language: weight plus a 2px rule, never colour alone. No fill on
+   purpose — --surface-paper is already the hover ground, so a filled half
+   would read as a hovered half. */
+.lang-switch__item[aria-current="true"] {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--action);
+  text-decoration-thickness: var(--rule-accent);
+  text-underline-offset: 4px;
+}
+
+/* The hidden clarifier is a sentence, not a label: it must not inherit the
+   uppercase and the tracking, or some AT reads it as shouted. */
+.lang-switch__item .visually-hidden {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 /* --------------------------------------------------------------------------
    7. Hero and profile
    -------------------------------------------------------------------------- */
@@ -3044,6 +3111,14 @@ html.js-ready .work-more[hidden] {
     width: 100%;
   }
 
+  /* The switch is a row, not another full-width nav link: it keeps its own
+     width and sits on the CTA's right edge. Without JS the panel is in flow
+     and the switch is already a content-sized item after the CTA, so nothing
+     is needed there. */
+  html.nav-ready .nav__menu > .lang-switch {
+    align-self: flex-end;
+  }
+
   .hero__index {
     margin-top: var(--space-xl);
   }
@@ -4124,6 +4199,13 @@ html.js-ready .work-more[hidden] {
     width: 100%;
   }
 
+  /* The nav row is full width here, so the switch lands on its own line; the
+     caps note above already holds the right edge, so the pill joins it instead
+     of being stranded at the left. */
+  .sm-head__inner > .lang-switch {
+    margin-left: auto;
+  }
+
   .sm-steps--row {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -4199,6 +4281,31 @@ html.js-ready .work-more[hidden] {
   .filter-btn[aria-pressed="true"]::after,
   .nav__link::after {
     background: CanvasText;
+  }
+
+  /* The switch survives as borders, weight and a 2px rule — the same three
+     cues as in colour. The wash is removed with the colour it came from. */
+  .lang-switch {
+    background: Canvas;
+    border-color: CanvasText;
+  }
+
+  .lang-switch__item {
+    color: CanvasText;
+  }
+
+  .lang-switch__item + .lang-switch__item {
+    border-left-color: CanvasText;
+  }
+
+  .lang-switch__item[aria-current="true"] {
+    text-decoration-color: CanvasText;
+  }
+
+  a.lang-switch__item:hover,
+  a.lang-switch__item:focus-visible {
+    background: Canvas;
+    color: CanvasText;
   }
 
   .approach-note {
@@ -4719,6 +4826,7 @@ html.js-ready .work-more[hidden] {
   }
 
   .site-header,
+  .lang-switch,
   .nav-toggle,
   .skip-link,
   .hero__scene,
@@ -4999,6 +5107,7 @@ html.js-ready .work-more[hidden] {
      stays. Bars keep their shape as outlined columns so they print even when
      the browser drops background graphics. */
   .sm-head__nav,
+  .lang-switch,
   .sm-rail,
   .sm-foot,
   .sm-colophon__back {

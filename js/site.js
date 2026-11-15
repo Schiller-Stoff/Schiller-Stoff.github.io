@@ -32,6 +32,79 @@
   }
 
   /* ------------------------------------------------------------------
+     0. UI chrome strings
+     One JSON island per page (`script[data-ui-strings]`, inserted by the
+     i18n generator for the German pages). The English literals below are
+     the fallback when the island is missing or a key is absent, so the
+     page reads the same without it. `{n}` and `{total}` are the only
+     placeholders; there is no templating engine here.
+     ------------------------------------------------------------------ */
+  var UI_FALLBACK = {
+    showing: "Showing {n} of {total} projects",
+    showingOne: "Showing {n} of {total} project",
+    loadMore: "Load {n} more projects",
+    loadMoreOne: "Load 1 more project",
+    formSuccess: "Thank you — your message has been sent.",
+    formSuccessLong:
+      "Thank you — your message has been sent. I will reply within a few working days.",
+    formError:
+      "Sorry, the message could not be sent. Please email sebi.stoff@gmail.com directly.",
+    formInvalid: "Please check the highlighted fields.",
+    formSending: "Sending…",
+    formSubject: "Website enquiry",
+    copy: "Copy",
+    copied: "Copied",
+    pause: "Pause",
+    resume: "Resume",
+    pauseLabel: "Pause rotating text",
+    resumeLabel: "Resume rotating text"
+  };
+
+  var uiStrings = (function () {
+    var values = {};
+    var key;
+
+    for (key in UI_FALLBACK) {
+      if (Object.prototype.hasOwnProperty.call(UI_FALLBACK, key)) {
+        values[key] = UI_FALLBACK[key];
+      }
+    }
+
+    var source = document.querySelector("[data-ui-strings]");
+    if (!source) return values;
+
+    try {
+      var parsed = JSON.parse(source.textContent);
+      if (parsed && typeof parsed === "object") {
+        for (key in values) {
+          if (
+            Object.prototype.hasOwnProperty.call(values, key) &&
+            typeof parsed[key] === "string" &&
+            parsed[key] !== ""
+          ) {
+            values[key] = parsed[key];
+          }
+        }
+      }
+    } catch (error) {
+      /* A broken island leaves the English strings in place. */
+    }
+
+    return values;
+  })();
+
+  function ui(key, vars) {
+    var template = Object.prototype.hasOwnProperty.call(uiStrings, key)
+      ? uiStrings[key]
+      : UI_FALLBACK[key];
+    if (typeof template !== "string") return "";
+    if (!vars) return template;
+    return template.replace(/\{(n|total)\}/g, function (match, name) {
+      return vars[name] != null ? String(vars[name]) : match;
+    });
+  }
+
+  /* ------------------------------------------------------------------
      1. Footer year
      ------------------------------------------------------------------ */
   function initYear() {
@@ -260,8 +333,10 @@
       });
 
       if (count) {
-        count.textContent =
-          "Showing " + visible + " of " + total + (total === 1 ? " project" : " projects");
+        count.textContent = ui(total === 1 ? "showingOne" : "showing", {
+          n: visible,
+          total: total
+        });
       }
 
       if (more) {
@@ -283,8 +358,10 @@
 
         if (moreLabel) {
           var remaining = Math.min(pageSize, total - visible);
-          moreLabel.textContent =
-            "Load " + remaining + (remaining === 1 ? " more project" : " more projects");
+          moreLabel.textContent = ui(
+            remaining === 1 ? "loadMoreOne" : "loadMore",
+            { n: remaining }
+          );
         }
       }
     }
@@ -399,7 +476,7 @@
       var honey = form.querySelector('[name="_gotcha"]');
       if (honey && honey.value) {
         event.preventDefault();
-        setStatus("Thank you — your message has been sent.", "success");
+        setStatus(ui("formSuccess"), "success");
         form.reset();
         return;
       }
@@ -407,7 +484,7 @@
       if (!form.checkValidity()) {
         event.preventDefault();
         form.reportValidity();
-        setStatus("Please check the highlighted fields.", "error");
+        setStatus(ui("formInvalid"), "error");
         return;
       }
 
@@ -415,10 +492,10 @@
 
       if (submit) submit.disabled = true;
       setSending(true);
-      setStatus("Sending…");
+      setStatus(ui("formSending"));
 
       var data = new FormData(form);
-      data.append("_subject", "Website enquiry");
+      data.append("_subject", ui("formSubject"));
 
       window
         .fetch(form.action, {
@@ -429,16 +506,10 @@
         .then(function (response) {
           if (!response.ok) throw new Error("Formspree responded " + response.status);
           form.reset();
-          setStatus(
-            "Thank you — your message has been sent. I will reply within a few working days.",
-            "success"
-          );
+          setStatus(ui("formSuccessLong"), "success");
         })
         .catch(function () {
-          setStatus(
-            "Sorry, the message could not be sent. Please email sebi.stoff@gmail.com directly.",
-            "error"
-          );
+          setStatus(ui("formError"), "error");
         })
         .then(function () {
           setSending(false);
@@ -586,14 +657,12 @@
       if (!toggle) return;
       focus.classList.toggle("is-paused", paused);
       if (toggleLabel) {
-        toggleLabel.textContent = paused
-          ? "Resume rotating text"
-          : "Pause rotating text";
+        toggleLabel.textContent = ui(paused ? "resumeLabel" : "pauseLabel");
       }
       if (toggleIcon) {
         toggleIcon.setAttribute("href", paused ? "#i-play" : "#i-pause");
       }
-      toggle.setAttribute("title", paused ? "Resume" : "Pause");
+      toggle.setAttribute("title", ui(paused ? "resume" : "pause"));
     }
 
     /* Pause completes the current phrase, so a half-written word is never
@@ -837,7 +906,7 @@
 
       function state(copied) {
         button.classList.toggle("is-copied", copied);
-        if (label) label.textContent = copied ? "Copied" : "Copy";
+        if (label) label.textContent = ui(copied ? "copied" : "copy");
         if (icon) icon.setAttribute("href", copied ? "#i-check" : "#i-copy");
       }
 
