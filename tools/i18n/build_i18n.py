@@ -93,6 +93,7 @@ PAGES = (
     ("index", "index.html", ""),
     ("storymap", "storymap.html", "storymap.html"),
     ("memor", "memor.html", "memor.html"),
+    ("globe", "globe.html", "globe.html"),
     ("ai-agents", "ai-agents.html", "ai-agents.html"),
     ("ai-coding", "ai-coding.html", "ai-coding.html"),
     ("writing", "writing.html", "writing.html"),
@@ -140,6 +141,7 @@ SKIP_SCRIPTS = frozenset({"application/ld+json"})
 ASSET_PREFIXES = (
     "css/",
     "js/",
+    "data/",
     "images/",
     "fonts/",
     "favicon.png",
