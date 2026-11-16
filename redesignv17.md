@@ -1,0 +1,412 @@
+# V17 — "Selected writing"
+
+Status: **implemented on `redesign`, uncommitted** (15 Nov 2026). V16 is
+untouched in structure. V17 adds no section to the CV, no script, no font, no
+new image, no colour, size or radius token. It adds six English pages, six
+generated German twins, one list component, one CV line and one sentence in
+each practice note. See §5 and §7 for the integration and verification record.
+
+Content source: `writing-series-draft.md` (owner-settled selection, figures,
+English prose and German vocabulary). This record explains the *decisions*;
+that file holds the *copy*.
+
+---
+
+## 1. The thesis
+
+> The CV says what was deposited. A series says what it argued.
+
+The training list already carries 21 records and the practice notes carry the
+method. Neither states what a deposit claimed, whether the claim still holds
+years later, and what its author would now write differently. Five
+readings close that gap — one per line of work, each on a preserved Zenodo
+deposit, each with the record's own metadata printed beside the argument.
+
+Three boundaries keep the series from becoming a portfolio:
+
+1. **A reading, not a reprint.** A post describes the deposit, restates its
+   argument and then says what has changed. No deposit text is reproduced.
+2. **A record, not a metric.** Download figures appear once, date-stamped
+   (`Zenodo, 15 November 2026`), as evidence of use. There is no live counter
+   and deliberately no refresh script.
+3. **A post defers to the note.** Where a post overlaps a practice note, the
+   note owns the method and the post links to it. No post points back.
+
+The series also fixes a discovery problem V14 created: two practice notes were
+reachable only from the hero index and card 04. The posts give their deposits a
+second route and give the notes a longer reading.
+
+---
+
+## 2. Selection: reach, then distinctness
+
+The rule is public on the index page, because a selection without a rule is a
+preference.
+
+| # | Post | Zenodo record | Type | Deposited | Downloads | Unique |
+|---|---|---|---:|---|---:|---:|
+| 1 | Agents are roles, not robots | `10.5281/zenodo.14999965` | Lesson | 10 Mar 2025 | 3,154 | 2,760 |
+| 2 | Autocomplete was never the point | `10.5281/zenodo.10288101` | Presentation | 7 Dec 2023 | 862 | 770 |
+| 3 | A shared language for systems | `10.5281/zenodo.15421823` | Presentation | 15 May 2025 | 227 | 170 |
+| 4 | FAIR is a gate, not a badge | `10.5281/zenodo.17178206` | Conference paper | 22 Sep 2025 | 103 | 95 |
+| 5 | Organisation determines technology | `10.5281/zenodo.8386446` | Conference paper | 29 Sep 2023 | 140 | 131 |
+
+Reach is Zenodo's, read on 15 November 2026.
+
+**Omitted on purpose** — each repeats the argument of post 1 or 2:
+`14943178` (277/264), `10698240` (281/260), `14234115` (289/251),
+`14195629` (242/151), `13751610` (229/147), `11196383` (193/167). They stay in
+the teaching list and in the practice notes; the index names the first three as
+workshops it does not reprint.
+
+**Rejected alternatives:** strict download ranking (four of five posts would be
+AI-coding workshops, so the series would argue one thesis five times);
+preservation-weighted selection (it would drop a first-author FORGE paper for a
+ten-author iPRES paper). Both are recorded in the draft's §2.
+
+Note that the ranking is not monotonic in the table: post 4 (103) sits before
+post 5 (140). That is intentional — the series is ordered by line of work
+(agents → coding → architecture → FAIR → preservation), and reach only picks
+*which* record represents each line. Sorting the rows by downloads would break
+the reading order and is not a bug to fix.
+
+---
+
+## 3. The six-page contract
+
+Flat root, like the two practice notes, so the generator's `../` asset rule and
+the `de/` sibling links work unchanged.
+
+| English | German | `<h1>` | Chapters | Argument block |
+|---|---|---:|---:|---|
+| `writing.html` | `de/writing.html` | 1 | 2 + colophon | — (the list) |
+| `writing-agents.html` | `de/writing-agents.html` | 1 | 4 + colophon | `sm-split` |
+| `writing-copilot.html` | `de/writing-copilot.html` | 1 | 4 + colophon | `sm-steps` |
+| `writing-architecture.html` | `de/writing-architecture.html` | 1 | 4 + colophon | `sm-split` |
+| `writing-fair-code.html` | `de/writing-fair-code.html` | 1 | 4 + colophon | `sm-steps` |
+| `writing-organisation.html` | `de/writing-organisation.html` | 1 | 4 + colophon | `sm-steps` |
+
+Every page reuses the `sm-*` shell of `ai-agents.html` verbatim — masthead,
+hero, sticky chapter rail, alternating white/paper chapters, colophon, small
+footer, skip link, inline sprite. Nothing new was invented for the shell, and
+no `sm-*` class was renamed.
+
+**The five posts share four chapter titles:** `Why it exists` · `The argument` ·
+`What holds in 2026` · `The record`, plus `Colophon`. That is a series signature
+and a translation decision — the catalogue stores each shared string once
+instead of five times, and a reader moving between posts lands in the same
+places.
+
+Each post then carries:
+
+- one hero: kicker `Selected writing · <discipline>`, the deposit's claim as
+  `<h1>`, a standfirst, and a meta line naming the deposit (`Source record ·
+  10 March 2025 · CC BY 4.0`);
+- exactly one argument block — `sm-split` when the argument is a two-way
+  contrast (what the workshop requires / what it does not; what the deck gives
+  you / what it leaves out), `sm-steps` when the argument is a sequence;
+- one record card, `dl.sm-meta`, eight rows, verbatim from Zenodo: Title, Type,
+  Deposited (`<time datetime>`), DOI as text, Co-author(s), Licence, Reach,
+  Contents;
+- one `ul.sm-links` row with a single outbound `text-link` to `doi.org`;
+- a five-row colophon: Method, Sources, Authorship, JavaScript, Licence;
+- cross-links: brand and the footer's `Imprint` → `index.html`, `writing.html`
+  twice (masthead nav and one colophon button), `index.html#services-section`
+  twice (masthead nav and the primary colophon button).
+
+**Contract, not preference:** no `<script>`, no image beyond the social meta,
+one `<h1>`, no map, figure, chart, legend or dataset citation. All six pages
+are complete without JavaScript and there is nothing to gate: no `html.*`
+class is used, no reveal, no motion beyond the rail's existing CSS
+scroll-driven progress rule, which the shell already provided.
+
+Metadata: `og:type` is `website` on the index and `article` on the five posts.
+`meta description`, `og:description` and `twitter:description` are one identical
+string per page (the standfirst, trimmed to one sentence), so the three can
+never drift. The social card is the square portrait, not `og-cover.jpg` — that
+file is a DERLA memorial screenshot and would be the wrong image for an
+argument about software.
+
+**German deposit titles** stay `lang="de"` inside the English pages; the German
+pages carry no `lang` attribute at all, because the whole page is German.
+
+---
+
+## 4. The index list — the one new component
+
+`writing.html` is hero, rail (`01 The five`, `02 How I chose`, `Colophon`), the
+list, the selection note, the colophon.
+
+```html
+<ol class="sm-posts" role="list">
+  <li class="sm-post">
+    <a class="sm-post__link" href="writing-agents.html">
+      <span class="label" aria-hidden="true">01</span>
+      <div class="sm-post__body">
+        <h3 class="sm-post__title">Agents are roles, not robots.</h3>
+        <p class="sm-post__standfirst">…</p>
+        <p class="sm-post__meta">AI agent engineering · 2025 · 3,154 downloads</p>
+      </div>
+      <span class="sm-post__arrow" aria-hidden="true">…</span>
+    </a>
+  </li>
+  …
+</ol>
+```
+
+Decisions:
+
+- **The row is the target, not the title.** One `<a class="sm-post__link">` per
+  `<li>`; the hairline sits on `.sm-post__link`, so the whole band is clickable
+  and focusable. The register made the opposite choice (one link per card, not
+  the card) because a card has a thumbnail; a text row does not.
+- **Three columns, no card.** `3.5rem | minmax(0, 1fr) | 1.5rem` at
+  `var(--space-lg)` inline / `var(--space-sm)` block gap, baseline-aligned. The
+  ordinal is the existing `.label` voice — no new rule; the arrow is the
+  register's `--shift-sm` 3px nudge without its circle.
+- **One 2px accent rule above, one 1px hairline per row, no outer border.**
+  Distinction is shape, as everywhere else on this site.
+- **The meta line wraps, never truncates.** Tabular figures so the five reach
+  numbers align.
+- **Order is the published selection rule.** The index is not re-sortable, has
+  no filter and no "see all": five rows are the whole series.
+- **Hover/focus** turn the title `--action` and underline it at `--rule-hair`
+  with a 3px offset, and colour the arrow `--action`; the arrow's 3px transform
+  sits inside `prefers-reduced-motion: no-preference`, so the underline and the
+  colour still carry the state under reduce.
+- **≤640px:** one column, the arrow is dropped (it would be stranded under the
+  meta line), gaps tighten to `--space-xs`. Nothing overflows at 360.
+- **Forced colours:** `.sm-posts` and `.sm-post__link` borders and the arrow go
+  `CanvasText`; the 2px/1px shape distinction survives without the accent.
+- **Print:** a plain list of five — the accent rule prints `#000`, hairlines
+  `#999`, the arrow is dropped, the title prints 12 pt serif,
+  standfirst and meta `#000`, each row `break-inside: avoid`, and the posts'
+  DOI links get an underline so the record reads as a link on paper. The index
+  is a screen artefact that happens to print well; making it print-hidden (like
+  the register) would have cost the reader the table of contents in the printed
+  CV.
+
+Three CSS blocks, no tokens:
+
+1. §19, immediately before `/* Links and colophon */` — `.sm-posts`,
+   `.sm-post__link`, `.sm-post__title`, `.sm-post__standfirst`, `.sm-post__meta`,
+   `.sm-post__arrow`, the hover/focus pair, the reduced-motion arrow, the ≤640
+   rule.
+2. §20, immediately after the `.sm-record a` rule — the forced-colours group.
+3. §22, immediately before the print block's closing brace — the print group
+   above, after the practice notes' print declarations.
+
+`.sm-post` itself carries no rule: it is a semantic hook for the five rows and
+for the print/forced-colours descendants. The row's geometry lives on the link,
+which is the only visible box, so a rule on the `li` would have been a second
+source of truth for the same padding.
+
+---
+
+## 5. Integration
+
+Three edits, no layout risk, no new section:
+
+1. **`index.html`, training section.** One
+   `article.publication-highlight.publication-highlight--text` — label
+   `Selected writing · 2026`, `h3` "Five records, read again", one paragraph,
+   one `text-link` "Read the five readings" — inserted directly after the MEMOR
+   dataset line and before `<div class="teaching-list">`. It reuses the
+   text-only treatment V10 built for the dataset line, so it adds no CSS and
+   inherits print. `article class="publication-highlight` goes 2 → 3; AGENTS.md's
+   verify line was updated and no other invariant moved.
+2. **`ai-agents.html`** — one sentence appended to the colophon `Sources` row:
+   "Its longer reading is *Agents are roles, not robots*."
+3. **`ai-coding.html`** — one sentence appended to `Sources`: "The longer
+   readings are *Autocomplete was never the point* and *FAIR is a gate, not a
+   badge*."
+
+The CV's header nav and the hero index are untouched. The index has six panes
+that divide evenly at 2-up and 3-up; a seventh would create a ragged 4+2 row,
+whose empty cells print as a lighter patch rather than a gap.
+
+Direction of links is one-way by design: practice note → post, post → the index
+and the CV, post → DOI. No post links back to a practice note, and no post
+links another post — the index is the hub, and each post's "All writing" button
+returns to it. A post that chained to its neighbours would read as a blog
+archive; a hub keeps the five readings a series and keeps the sitemap flat.
+
+---
+
+## 6. The German catalogue
+
+`de/writing*.html` is generated, never edited. Work order: six rows added to
+`PAGES` in `tools/i18n/build_i18n.py` → `--render-markers` → `--extract` →
+translate `i18n/de.json` → `--build` → `--check`. (`--render-markers` and
+`--extract` each ran twice while the six pages settled: markers first, then the
+string scan over the final markup.)
+
+The catalog grew from 862 to 1,109 strings: **249 added, two superseded
+`Sources` keys deleted, +247 net**. The two deleted keys were the
+sentence-only `Sources` values that the §5 cross-link sentences replaced; leaving
+them would have passed `--check` and put dead German in the file.
+
+`i18n/pending/` was used as a working set and deleted after folding, as the
+mechanism requires. No `de/*` file was hand-edited; `--check` compares every
+German page byte for byte against a fresh build.
+
+### 6.1 One constraint the catalogue cannot solve
+
+`Co-author` and `Co-authors` are **two shared keys**, and a shared key can hold
+only one German value. The three singular record cards (Tosques, Martin, Münzer)
+therefore all print `Mitautor:in`, and the two plural cards print
+`Mitautor:innen`. `Oberhoffer`, `Mitverfasserin`, `Mitverfasser` and
+`Mitautor*in` were each considered and rejected:
+
+- the catalog is the only place German is edited, so a per-page gender form
+  would need three duplicate keys (`Co-author (m)`, `Co-author (f)`, …) and a
+  translator instruction for each — four more strings to keep aligned than the
+  problem is worth, and the parser would have to be told why they exist;
+- the record card prints metadata, not prose. `Mitautor:in` is a label, and the
+  colon form is the standard German neutral label in bibliographic and
+  institutional use;
+- the alternative that keeps gendered prose — naming the person — does not fit
+  a `dt`/`dd` record row.
+
+This is a **known departure from German prose style inside a metadata label** and
+is recorded here rather than hidden in the catalog. If the owner wants gendered
+forms, the cost is three keys and a `PAGES`-level variant, not a rewrite of the
+posts.
+
+### 6.2 Other German decisions
+
+- Masthead theme is the short word, the hero kicker the full discipline:
+  `Texte` / `KI-Agenten` / `KI-Coding` / `Architektur` / `FAIR-Code` /
+  `Archivierung`, while the preservation kicker still says
+  `Digitale Langzeitarchivierung`. `Archivierung` alone because the full word
+  takes a second masthead line at 1120px.
+- `reading` → `Lesart`, `record` → `Eintrag`, `reach` → `Abrufe`, matching the
+  glossary's existing choices (`Ausgewählte Ergebnisse`, `Titel der Einträge`).
+- `human review` in the English prose → `menschliche Nacharbeit`; the paper's
+  own term `Human-in-the-loop` is never quoted, so no mixed-language jargon
+  ships.
+- One obvious draft typo was corrected in the German only:
+  `Bildungslicenz` → `Bildungslizenz`.
+- **The three English-language record titles are translated on the German
+  pages** (`Einführung in das KI-Agenten-Engineering`, `Copilot-Technologien in
+  den Digital Humanities`, `Softwarearchitektur für Data Librarians`), while
+  the two German-language ones stay verbatim and say so in the lede. The
+  generator's gate rejects a `lang="en"` on a German page outside the switch,
+  so a verbatim English title is not available to the German tree without
+  changing a rule that protects every other page. Library practice (`original
+  title` plus optional translation) would be the better answer; until the gate
+  supports a translated-title exception, the DOI link one row below is the
+  authoritative string.
+- Thousands are `.` (`3.154`), dates `D. Month YYYY`, quotes `„…“`, no space
+  before punctuation — all enforced by `--check`'s `typography` section.
+
+---
+
+## 7. Verification record
+
+Static counts (`--check` green, `gjs js/site.js` unchanged):
+
+```
+<script>          writing*.html 0 each · de/writing*.html 0 each
+<h1>              1 per page, EN and DE
+sm-chapter        <section class="sm-chapter  4 per post, 2 in the index
+argument block    sm-steps|sm-split 1 per post
+sm-post rows      5 · sm-post__link 5 (one target per row)
+lang-switch:begin 1 on each of the twelve writing pages
+publication-highlight index.html 3 (volume + MEMOR dataset + Selected writing)
+outcome__figure   index.html 2 (unchanged)
+font-family: var(--font-serif)  9 (the .sm-post__title reuses the sm rule)
+space before punctuation in de/writing*.html  none
+```
+
+`i18n check: OK` — pages 11, strings 1,109, translated 1,109, ignored 0,
+rich 0, `problems 0`. Per-page: 0 untranslated, 0 without an entry; `lang="de"`
+placeholders unchanged on the five older pages, and 1 each on
+`writing-fair-code.html` / `writing-organisation.html` (the German deposit
+titles).
+
+Gzip transfer size:
+
+| page | EN | DE |
+|---|---:|---:|
+| `writing.html` | 3,288 B | 3,497 B |
+| `writing-agents.html` | 4,316 B | 4,566 B |
+| `writing-copilot.html` | 4,124 B | 4,367 B |
+| `writing-architecture.html` | 4,329 B | 4,560 B |
+| `writing-fair-code.html` | 4,278 B | 4,557 B |
+| `writing-organisation.html` | 4,271 B | 4,502 B |
+
+The index is the budget case (target ≈ 6 KB); the posts are 4.1–4.6 KB, i.e.
+smaller than `memor.html` and roughly the size of the practice notes. The
+German pages are consistently 200–300 B larger, as V16's pages were.
+
+Links: every local `src`/`href`/`url()` target and every fragment resolves from
+both languages, and no target is missing. All five DOIs are distinct; each
+appears exactly twice inside its own post — once as record-card text and once as
+the `doi.org` link — and never on another page.
+
+Determinism: `--check` re-builds all eleven German pages in memory and compares
+them byte for byte against the committed files, so a rebuild cannot change
+anything; it exits 0.
+
+### 7.1 The editorial pass on the German
+
+Three pairs (`architecture`, `organisation`, `copilot`) were read against their
+English source after the build. Eight defects were found, all prose, none in data:
+metadata, DOIs, dates, reach figures, co-authors and contents matched exactly, and
+`--check` was green throughout. All eight were corrected **in the catalog** and
+regenerated, never in `de/*`:
+
+| page | German before | German after |
+| --- | --- | --- |
+| architecture | `was es kostet, es weiter zu tun` | `was es kostet, das weiter zu tun` |
+| architecture | `schwer über Teams zu teilen` | `schwer auf mehrere Teams aufzuteilen` |
+| copilot | `Slash-Befehle auf die geöffnete Datei` | `Slash-Befehle, die auf die geöffnete Datei … wirken` |
+| copilot | `Eine Aktion auf der geöffneten Datei` | `Eine Aktion an der geöffneten Datei oder Auswahl` |
+| copilot | `mit dem Repository im Blick` | `mit dem Repository als Kontext` |
+| copilot | `entlasten von wiederholender Arbeit` | `nehmen repetitive Arbeit ab` |
+| copilot | `ein Produkt mit Preis` | `ein kostenpflichtiges Produkt` |
+| organisation | `eine Infrastruktur ihre Anforderungen verliert` | `eine Infrastruktur nicht mehr zu ihren Anforderungen passt` |
+
+One punctuation divergence was made on purpose: the English lede keeps
+`can that code be FAIR.` (a declarative question, the essay's voice), the German
+gets a real question mark, because `Kann dieser Code FAIR sein.` reads as a typo.
+Two data claims were tightened in the same pass: the architecture record card no
+longer states a file size (the deposit is 2.33 MiB, so `2.4 MB` was a near-miss
+that added nothing), and the contents rows were checked against the deposits —
+both FORGE PDFs are full papers, not slide decks, so `paper (PDF)` stands.
+
+Verified against the Zenodo API on 15 November 2026: record type, publication
+date, title, file list, creators, licence and `stats.unique_downloads` for all
+five DOIs. Every number in the record cards matches.
+
+**Not verified here: print and forced colours in a real browser.** The chrome
+tooling available exposes no print media, so §4's print declarations, the
+index's five-row stack and the CV's third `publication-highlight` are covered by
+reading the rules, and the widths (1440/1000/900/640/375) stay in AGENTS.md's
+manual pass. What *is* verified is that nothing in the six pages depends on
+script, colour or motion to be readable.
+
+---
+
+## 8. Open for the owner
+
+1. **The CV block is the one reversible edit.** Delete one
+   `article.publication-highlight` and one catalogue group and the series is
+   reachable only from the practice notes — worse for discovery, one translated
+   block cheaper.
+2. **`Mitautor:in`** (§6.1). Gendered forms cost three keys.
+3. **The index prints.** If it should be screen-only, the print group becomes
+   one `display: none`.
+4. **Figures are date-stamped, not live.** A `tools/zenodo/stats.py` refresh was
+   deliberately not built: it adds a network dependency, a second source of
+   truth and a new failure mode for a number that is evidence.
+5. **The rail takes three rows at 360px** in German. That is existing
+   standalone behaviour, identical in both languages and without overflow;
+   fixing it would change all ten standalone pages.
+6. **`writing-series-draft.md`** stays in the repo as the content, selection,
+   translation and verification record for the series. It is not part of the
+   published site.
+7. **Translated record titles on the German tree** (§6.2). If verbatim English
+   titles matter more than the gate's `lang` rule, the change is one exception
+   in `tools/i18n/build_i18n.py` plus three catalogue entries — not a rewrite.
