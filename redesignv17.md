@@ -498,3 +498,59 @@ no nav is rendered there.
 
 Print is untouched: the site header and footer are already in the print hide
 list, so the new route prints nowhere.
+
+## 10. The favicon, at last
+
+The V7 open-decisions table ended with one off-palette asset: a 30px green
+tree `favicon.png` on white, the only element in the page that did not come
+from the V7–V17 palette. This change replaces it with the identity reduced to
+its two colours.
+
+**The mark.** A single `S`, built as one 4-unit stroke on a 32-unit grid
+(`M21 12 A5 4 … A5 4 …`): at 16px that is a 2px stroke with 3×2px counters,
+14×20 units of ink, optically centred. Its edges fall on half-pixels, so
+Chrome's 16px raster is antialiased rather than pixel-snapped; the integral
+stroke width is what keeps the counters open. It is the
+initial of the wordmark, so it needs no reading of the name, and it is the only
+candidate that survives the tab: a Source Serif `S` loses its contraforma at
+16px (and no font may be referenced anyway), the ledger grid and the
+registration cross close into a `#`-like mush, and the DERLA/MEMOR dot field
+becomes a blob. The squared stroke is a 16px concession, not a typeface claim.
+No gradient, no shadow, no `<text>`, no external reference, 259 bytes.
+
+**Why the tile is white, not ultramarine.** Ultramarine `#1a0de0` has a WCAG
+relative luminance of 0.0589, close to the grey of a dark tab bar; a
+white-on-ultramarine chip measures 1.67:1 on Chrome's `#202124` and 1.25:1 on
+`#35363a`, so its edge disappears in dark mode. White ground inverts the problem:
+the ink carries the letterform on light chrome (9.64:1 on white, 8.68:1 on
+`--surface-paper`) and the tile carries the silhouette on dark chrome
+(16.10:1 on `#202124`, 12.07:1 on `#35363a`, 21:1 on black). Ink on its own
+tile is always 9.64:1, shape survives greyscale, and no asset has to know the
+scheme. A `prefers-color-scheme` pair was rejected: it doubles the cache
+entries, is applied inconsistently across engines, and buys nothing the
+contrast table does not already give.
+
+**Assets shipped.** `favicon.svg` (primary, any DPR), `favicon-32.png` (RGB,
+no alpha; the fallback for engines without SVG icons and the 2× asset for a
+16px slot), `apple-touch-icon.png` (180×180 RGB, opaque, because iOS
+composites alpha onto black). Derivatives are rendered once from the SVG with
+headless Chrome and stripped to RGB with Pillow — committed, never generated at
+page load. No `.ico` (a second encode for IE11 and old Windows pinning), no
+16px PNG, no 96/192/512, no manifest and no maskable or pinned-tab variant: the
+mark sits inside a 12.8-unit safe circle, so one source would serve a manifest
+if one ever appears.
+
+**Integration.** The English head swaps one line for three, in this order:
+32px PNG, SVG, apple-touch. The German tree is generated, so `de/*` was not
+edited; `ASSET_PREFIXES` in `tools/i18n/build_i18n.py` gained the three names
+and `--build` wrote the `../`-prefixed links into all eleven pages, with
+`--check` printing `problems 0`. The 30px `favicon.png` stays in the repo for
+one release, unreferenced, so HTML still in browser caches does not 404 in the
+icon slot; it should be deleted after the next publish.
+
+**Verification.** The SVG was rendered at 16/32/180 and inspected as a
+nearest-neighbour zoom plus on white and on `#202124`: the `S` resolves at 16
+with no fused counter. Served over HTTP, all three assets return 200 with
+`image/svg+xml` / `image/png` on both the English and the German page, the
+`<link>` list resolves to the root files from `/de/`, and the browser Network
+pane shows no 404 and no console message. Size: 259 B + 579 B + 3,366 B.
