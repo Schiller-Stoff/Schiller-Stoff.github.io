@@ -4879,7 +4879,21 @@ html.js-ready .work-more[hidden] {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  }
+
+  /* A reduced-motion request removes motion, not feedback. Colour, fill,
+     stroke and opacity still answer a pointer, a focus ring, a copied address
+     or a filter — at the fast token speed — so a desktop that asks for less
+     motion is not a dead page. Anything that travels (transform, translate,
+     scale, height, outline-offset) is dropped from the property list and
+     therefore lands instantly. Nothing here re-introduces movement. */
+  *,
+  *::before,
+  *::after {
+    transition-property: color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, opacity !important;
+    transition-duration: var(--dur-fast) !important;
+    transition-timing-function: var(--ease-standard) !important;
   }
 
   ::view-transition-group(*),
