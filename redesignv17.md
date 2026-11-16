@@ -410,3 +410,91 @@ script, colour or motion to be readable.
 7. **Translated record titles on the German tree** (§6.2). If verbatim English
    titles matter more than the gate's `lang` rule, the change is one exception
    in `tools/i18n/build_i18n.py` plus three catalogue entries — not a rewrite.
+
+---
+
+## 9. The writing route, added after publication
+
+The series shipped reachable from one place: the CV's
+`publication-highlight--text` line in `#teaching-section`, plus the two
+practice notes that point in. The owner then asked for the posts "in the
+navigation". The entry is **one link, not a menu**: `Writing` →
+`writing.html` sits third in the primary nav (after Work, before Experience),
+and the footer's Explore list repeats it after Work.
+
+The index is the list of posts. It states the selection rule, carries the
+standfirsts and the five figures, and is the only thing that has to change when
+a sixth post arrives. A header dropdown would copy that list into two
+languages, nest a second disclosure inside the ≤900px navigation disclosure,
+and need Esc, light-dismiss, `aria-expanded` and a current state for five rows
+that are one click away. It is also a format claim the series refuses: no
+chronology, no feed, no comments.
+
+**The label.** `Writing`, not `Blog` — every surface of the series says
+writing: *Selected writing*, *All writing*, `Ausgewählte Texte`, `Alle Texte`.
+German is `Texte`, the shortest accurate noun (35.0px; `Schriften` 58.4,
+`Notizen` 49.2) and the one the series already uses. The pair is now recorded
+in `i18n/glossary.md` (`writing (nav, series) | Texte`), so the next translator
+inherits it instead of re-deciding.
+
+**The width problem and how it is paid.** A fourth item costs ~55px. The
+German header — `Leistungen Projekte Werdegang` plus the 163.8px
+`Projekt anfragen` pill and the 72px switch — had ~45px of slack at 901px, so
+the item alone would have been ~10px short just above the disclosure
+breakpoint: the flex row does not scroll, it squeezes `.brand` and the
+wordmark wraps inside the 72px header. No German label or CTA was shortened;
+the layout pays instead. In the existing `@media (max-width: 1120px)` block the
+two header gaps drop to their token floors: `.nav__links` to `--space-sm`
+(12px) and `.nav__menu` to `--space-lg` (24px). Above 1120px the published
+`clamp()` gaps return.
+
+| Header, four links | 1440 | 1121 | 1120 | 1000 | 901 |
+|---|---|---|---|---|---|
+| EN slack | 217.0 | 178.7 | 235.1 | 151.3 | 60.3 |
+| DE slack | 176.2 | 138.0 | 194.3 | 110.4 | 19.4 |
+
+No sideways scroll at any width, the CTA stays 38px high (it never wraps), and
+the nav stays one row down to 901px. The cost of paying in layout is one
+visible seam: at 1120→1121 the nav block widens by ~57px. That boundary already
+restructures the hero, the section heads and the feature plates, so the seam
+joins existing ones rather than creating a new kind. If it reads badly in
+review, the fallback is `links 14px / menu 24px`, which still leaves 13.4px in
+German at 901px.
+
+The band buys width with text-size headroom: at 901px, a browser default font
+of 17px rather than 16px wraps the wordmark inside the fixed header (the
+three-link header held to 18px). Nothing scrolls sideways and nothing is
+hidden, and the failure predates this change — the flex row has always paid a
+deficit by squeezing `.brand` — but the margin is now one step thinner. The
+honest fixes, if the owner wants them, are a shorter German CTA or an
+intentional two-line header below 1120; neither is in this change.
+
+**Not the hero index.** The series is deliberately absent from the six-pane
+`nav.hero__index`: six panes divide evenly into 3-up and 2-up, and a seventh
+would leave the ragged row whose empty cell prints as a lighter
+`--on-dark-rule` patch. The header carries the route; the fold stays as
+shipped.
+
+**No current state, deliberately.** `initScrollspy` selects
+`.nav__links a[href^="#"]` only, so the cross-page link never gets
+`aria-current` — verified by scrolling to `#cv-section`: Experience carries
+`location`, Writing carries nothing. The writing pages name themselves in their
+masthead note (`Selected writing 2023–2026`, `Selected writing AI agents`),
+and the primary header is not duplicated onto them.
+
+**Verification.** Real browser, this repo: EN/DE at 1440/1121/1120/1000/901
+(one row, no overflow, CTA 38px, brand 219.4–280.7); the disclosure open and
+closed at 900/640/375/360 (four full-width rows above the CTA and the switch,
+menu 312px, no overflow); the same four widths with `html.nav-ready` and
+`js-ready` stripped to simulate no JavaScript (header in flow, four links on
+one row, header height unchanged — 165px at 375/360, 139px at 900, 121px at
+640 — so the extra link costs no height); forced colours at 1120 DE (`Texte`
+visible, `CanvasText` border and underline, 2px focus outline, no accent
+dependency); focus order brand → Services → Work → Writing → Experience → CTA
+→ DE (the current-language cell is a `<span>`, so it is not a tab stop).
+`tools/i18n/build_i18n.py --check` prints `problems 0`, and `--build` rewrites
+only `de/index.html` — the ten other German pages are byte-identical, because
+no nav is rendered there.
+
+Print is untouched: the site header and footer are already in the print hide
+list, so the new route prints nowhere.

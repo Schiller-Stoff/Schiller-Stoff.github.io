@@ -2987,6 +2987,19 @@ html.js-ready .work-more[hidden] {
 }
 
 @media (max-width: 1120px) {
+  /* Four primary links plus the CTA and the switch: the three-link German
+     header had ~45px of slack at 901px and "Texte" costs ~55px, so the two
+     inner gaps drop to their token floors in this band. Without this the row
+     squeezes .brand and the wordmark wraps inside the 72px header. Above
+     1120px the slack is ≥138px and the published gaps are unchanged. */
+  .nav__links {
+    gap: var(--space-sm);
+  }
+
+  .nav__menu {
+    gap: var(--space-lg);
+  }
+
   /* The asymmetric head collapses before the title column gets too narrow. */
   .section-head {
     display: block;
