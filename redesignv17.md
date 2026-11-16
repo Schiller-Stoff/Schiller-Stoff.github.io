@@ -410,3 +410,147 @@ script, colour or motion to be readable.
 7. **Translated record titles on the German tree** (§6.2). If verbatim English
    titles matter more than the gate's `lang` rule, the change is one exception
    in `tools/i18n/build_i18n.py` plus three catalogue entries — not a rewrite.
+
+---
+
+## 9. The writing route, added after publication
+
+The series shipped reachable from one place: the CV's
+`publication-highlight--text` line in `#teaching-section`, plus the two
+practice notes that point in. The owner then asked for the posts "in the
+navigation". The entry is **one link, not a menu**: `Writing` →
+`writing.html` sits third in the primary nav (after Work, before Experience),
+and the footer's Explore list repeats it after Work.
+
+The index is the list of posts. It states the selection rule, carries the
+standfirsts and the five figures, and is the only thing that has to change when
+a sixth post arrives. A header dropdown would copy that list into two
+languages, nest a second disclosure inside the ≤900px navigation disclosure,
+and need Esc, light-dismiss, `aria-expanded` and a current state for five rows
+that are one click away. It is also a format claim the series refuses: no
+chronology, no feed, no comments.
+
+**The label.** `Writing`, not `Blog` — every surface of the series says
+writing: *Selected writing*, *All writing*, `Ausgewählte Texte`, `Alle Texte`.
+German is `Texte`, the shortest accurate noun (35.0px; `Schriften` 58.4,
+`Notizen` 49.2) and the one the series already uses. The pair is now recorded
+in `i18n/glossary.md` (`writing (nav, series) | Texte`), so the next translator
+inherits it instead of re-deciding.
+
+**The width problem and how it is paid.** A fourth item costs ~55px. The
+German header — `Leistungen Projekte Werdegang` plus the 163.8px
+`Projekt anfragen` pill and the 72px switch — had ~45px of slack at 901px, so
+the item alone would have been ~10px short just above the disclosure
+breakpoint: the flex row does not scroll, it squeezes `.brand` and the
+wordmark wraps inside the 72px header. No German label or CTA was shortened;
+the layout pays instead. In the existing `@media (max-width: 1120px)` block the
+two header gaps drop to their token floors: `.nav__links` to `--space-sm`
+(12px) and `.nav__menu` to `--space-lg` (24px). Above 1120px the published
+`clamp()` gaps return.
+
+| Header, four links | 1440 | 1121 | 1120 | 1000 | 901 |
+|---|---|---|---|---|---|
+| EN slack | 217.0 | 178.7 | 235.1 | 151.3 | 60.3 |
+| DE slack | 176.2 | 138.0 | 194.3 | 110.4 | 19.4 |
+
+No sideways scroll at any width, the CTA stays 38px high (it never wraps), and
+the nav stays one row down to 901px. The cost of paying in layout is one
+visible seam: at 1120→1121 the nav block widens by ~57px. That boundary already
+restructures the hero, the section heads and the feature plates, so the seam
+joins existing ones rather than creating a new kind. If it reads badly in
+review, the fallback is `links 14px / menu 24px`, which still leaves 13.4px in
+German at 901px.
+
+The band buys width with text-size headroom: at 901px, a browser default font
+of 17px rather than 16px wraps the wordmark inside the fixed header (the
+three-link header held to 18px). Nothing scrolls sideways and nothing is
+hidden, and the failure predates this change — the flex row has always paid a
+deficit by squeezing `.brand` — but the margin is now one step thinner. The
+honest fixes, if the owner wants them, are a shorter German CTA or an
+intentional two-line header below 1120; neither is in this change.
+
+**Not the hero index.** The series is deliberately absent from the six-pane
+`nav.hero__index`: six panes divide evenly into 3-up and 2-up, and a seventh
+would leave the ragged row whose empty cell prints as a lighter
+`--on-dark-rule` patch. The header carries the route; the fold stays as
+shipped.
+
+**No current state, deliberately.** `initScrollspy` selects
+`.nav__links a[href^="#"]` only, so the cross-page link never gets
+`aria-current` — verified by scrolling to `#cv-section`: Experience carries
+`location`, Writing carries nothing. The writing pages name themselves in their
+masthead note (`Selected writing 2023–2026`, `Selected writing AI agents`),
+and the primary header is not duplicated onto them.
+
+**Verification.** Real browser, this repo: EN/DE at 1440/1121/1120/1000/901
+(one row, no overflow, CTA 38px, brand 219.4–280.7); the disclosure open and
+closed at 900/640/375/360 (four full-width rows above the CTA and the switch,
+menu 312px, no overflow); the same four widths with `html.nav-ready` and
+`js-ready` stripped to simulate no JavaScript (header in flow, four links on
+one row, header height unchanged — 165px at 375/360, 139px at 900, 121px at
+640 — so the extra link costs no height); forced colours at 1120 DE (`Texte`
+visible, `CanvasText` border and underline, 2px focus outline, no accent
+dependency); focus order brand → Services → Work → Writing → Experience → CTA
+→ DE (the current-language cell is a `<span>`, so it is not a tab stop).
+`tools/i18n/build_i18n.py --check` prints `problems 0`, and `--build` rewrites
+only `de/index.html` — the ten other German pages are byte-identical, because
+no nav is rendered there.
+
+Print is untouched: the site header and footer are already in the print hide
+list, so the new route prints nowhere.
+
+## 10. The favicon, at last
+
+The V7 open-decisions table ended with one off-palette asset: a 30px green
+tree `favicon.png` on white, the only element in the page that did not come
+from the V7–V17 palette. This change replaces it with the identity reduced to
+its two colours.
+
+**The mark.** A single `S`, built as one 4-unit stroke on a 32-unit grid
+(`M21 12 A5 4 … A5 4 …`): at 16px that is a 2px stroke with 3×2px counters,
+14×20 units of ink, optically centred. Its edges fall on half-pixels, so
+Chrome's 16px raster is antialiased rather than pixel-snapped; the integral
+stroke width is what keeps the counters open. It is the
+initial of the wordmark, so it needs no reading of the name, and it is the only
+candidate that survives the tab: a Source Serif `S` loses its contraforma at
+16px (and no font may be referenced anyway), the ledger grid and the
+registration cross close into a `#`-like mush, and the DERLA/MEMOR dot field
+becomes a blob. The squared stroke is a 16px concession, not a typeface claim.
+No gradient, no shadow, no `<text>`, no external reference, 259 bytes.
+
+**Why the tile is white, not ultramarine.** Ultramarine `#1a0de0` has a WCAG
+relative luminance of 0.0589, close to the grey of a dark tab bar; a
+white-on-ultramarine chip measures 1.67:1 on Chrome's `#202124` and 1.25:1 on
+`#35363a`, so its edge disappears in dark mode. White ground inverts the problem:
+the ink carries the letterform on light chrome (9.64:1 on white, 8.68:1 on
+`--surface-paper`) and the tile carries the silhouette on dark chrome
+(16.10:1 on `#202124`, 12.07:1 on `#35363a`, 21:1 on black). Ink on its own
+tile is always 9.64:1, shape survives greyscale, and no asset has to know the
+scheme. A `prefers-color-scheme` pair was rejected: it doubles the cache
+entries, is applied inconsistently across engines, and buys nothing the
+contrast table does not already give.
+
+**Assets shipped.** `favicon.svg` (primary, any DPR), `favicon-32.png` (RGB,
+no alpha; the fallback for engines without SVG icons and the 2× asset for a
+16px slot), `apple-touch-icon.png` (180×180 RGB, opaque, because iOS
+composites alpha onto black). Derivatives are rendered once from the SVG with
+headless Chrome and stripped to RGB with Pillow — committed, never generated at
+page load. No `.ico` (a second encode for IE11 and old Windows pinning), no
+16px PNG, no 96/192/512, no manifest and no maskable or pinned-tab variant: the
+mark sits inside a 12.8-unit safe circle, so one source would serve a manifest
+if one ever appears.
+
+**Integration.** The English head swaps one line for three, in this order:
+32px PNG, SVG, apple-touch. The German tree is generated, so `de/*` was not
+edited; `ASSET_PREFIXES` in `tools/i18n/build_i18n.py` gained the three names
+and `--build` wrote the `../`-prefixed links into all eleven pages, with
+`--check` printing `problems 0`. The 30px `favicon.png` stays in the repo for
+one release, unreferenced, so HTML still in browser caches does not 404 in the
+icon slot; it should be deleted after the next publish.
+
+**Verification.** The SVG was rendered at 16/32/180 and inspected as a
+nearest-neighbour zoom plus on white and on `#202124`: the `S` resolves at 16
+with no fused counter. Served over HTTP, all three assets return 200 with
+`image/svg+xml` / `image/png` on both the English and the German page, the
+`<link>` list resolves to the root files from `/de/`, and the browser Network
+pane shows no 404 and no console message. Size: 259 B + 579 B + 3,366 B.
