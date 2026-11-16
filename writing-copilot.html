@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autocomplete was never the point — Selected writing</title>
+
+  <meta name="description" content="The 2023 Copilot workshop began with completions and ended with domain modelling. That order still explains what these tools cannot decide for you.">
+  <meta name="author" content="Sebastian David Schiller-Stoff">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="canonical" href="https://schiller-stoff.github.io/writing-copilot.html">
+  <!-- lang-alt:begin -->
+    <link rel="alternate" hreflang="en" href="https://schiller-stoff.github.io/writing-copilot.html">
+    <link rel="alternate" hreflang="de" href="https://schiller-stoff.github.io/de/writing-copilot.html">
+    <link rel="alternate" hreflang="x-default" href="https://schiller-stoff.github.io/writing-copilot.html">
+  <!-- lang-alt:end -->
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Autocomplete was never the point — Selected writing">
+  <meta property="og:description" content="The 2023 Copilot workshop began with completions and ended with domain modelling. That order still explains what these tools cannot decide for you.">
+  <meta property="og:url" content="https://schiller-stoff.github.io/writing-copilot.html">
+  <meta property="og:image" content="https://schiller-stoff.github.io/images/profile/sebastian-stoff.webp">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Portrait of Sebastian David Schiller-Stoff">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Autocomplete was never the point — Selected writing">
+  <meta name="twitter:description" content="The 2023 Copilot workshop began with completions and ended with domain modelling. That order still explains what these tools cannot decide for you.">
+  <meta name="twitter:image" content="https://schiller-stoff.github.io/images/profile/sebastian-stoff.webp">
+  <meta name="twitter:image:alt" content="Portrait of Sebastian David Schiller-Stoff">
+
+  <link rel="preload" href="fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/custom-styles.css">
+</head>
+
+<body class="sm-body">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="sm-head">
+    <div class="container sm-head__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Sebastian Schiller-Stoff</span>
+      </a>
+      <p class="sm-head__note"><span class="label">Selected writing</span> AI coding</p>
+      <nav class="sm-head__nav" aria-label="Selected writing">
+        <a href="writing.html">All writing</a>
+        <a href="index.html#services-section">Back to the CV</a>
+        <a href="#colophon">Colophon</a>
+      </nav>
+      <!-- lang-switch:begin -->
+      <div class="lang-switch" role="group" aria-label="Language">
+        <span class="lang-switch__item" lang="en" aria-current="true">EN<span class="visually-hidden"> — current language</span></span>
+        <a class="lang-switch__item" href="de/writing-copilot.html" hreflang="de" lang="de">DE<span class="visually-hidden"> — Deutsch</span></a>
+      </div>
+      <!-- lang-switch:end -->
+    </div>
+  </header>
+
+  <main class="sm-main" id="main">
+    <!-- ==================================================================
+         Hero
+         ================================================================== -->
+    <section class="sm-hero" aria-labelledby="sm-title">
+      <div class="container">
+        <p class="label sm-hero__kicker">Selected writing &middot; AI coding</p>
+        <h1 class="sm-hero__title" id="sm-title">Autocomplete was never the point.</h1>
+        <p class="sm-hero__standfirst">
+          The 2023 Copilot workshop began with completions and ended with domain
+          modelling. That order still explains why the tools work &mdash; and what
+          they cannot decide for you.
+        </p>
+        <p class="sm-hero__meta">
+          Source record &middot; 7 December 2023 &middot; CC BY 4.0
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Chapter rail
+         ================================================================== -->
+    <nav class="sm-rail" aria-label="Chapters">
+      <div class="container sm-rail__inner">
+        <ol class="sm-rail__list" role="list">
+          <li><a href="#ch-01"><span aria-hidden="true">01</span> Why it exists</a></li>
+          <li><a href="#ch-02"><span aria-hidden="true">02</span> The argument</a></li>
+          <li><a href="#ch-03"><span aria-hidden="true">03</span> What holds in 2026</a></li>
+          <li><a href="#ch-04"><span aria-hidden="true">04</span> The record</a></li>
+          <li><a href="#colophon"><span aria-hidden="true">05</span> Colophon</a></li>
+        </ol>
+        <span class="sm-rail__progress" aria-hidden="true"></span>
+      </div>
+    </nav>
+
+    <!-- ==================================================================
+         01 Why it exists
+         ================================================================== -->
+    <section class="sm-chapter" id="ch-01" aria-labelledby="ch-01-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">01</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="ch-01-title">Why it exists</h2>
+          <p class="sm-lede">
+            In December 2023, Copilot had just become a product with a price.
+          </p>
+          <p>
+            The workshop at the Centre for Information Modelling in Graz was split
+            in two: a theory part by Julia Martin on what Copilot is, what it costs
+            and what is behind it; a hands-on part by me in Visual Studio Code. The
+            room held people who had never installed an extension and people who
+            wrote code daily.
+          </p>
+          <p>
+            The question was not whether the tool was impressive. It was whether a
+            research group could adopt it without losing the ability to explain its
+            own software.
+          </p>
+          <p>
+            The workshop&rsquo;s answer was structural: these tools do not remove
+            design. They move it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         02 The argument
+         ================================================================== -->
+    <section class="sm-chapter sm-chapter--paper" id="ch-02" aria-labelledby="ch-02-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">02</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="ch-02-title">The argument</h2>
+          <p class="sm-lede">
+            Four surfaces, one shift.
+          </p>
+          <p>
+            Copilot in 2023 was four things in an editor: autocomplete, a
+            completions panel, slash commands that operate on the open file or the
+            selection, and a chat. The workshop demonstrated all four, then spent
+            the rest of its time on what they change.
+          </p>
+          <p>
+            The first change is speed on introductory problems: boilerplate, a
+            class, an explanation of unfamiliar code. The second is risk: the
+            training material is opaque, and the tool is confident about code it
+            has not verified.
+          </p>
+          <p>
+            The third change is the interesting one. If the assistant writes the
+            technical layer, the human work moves to the domain layer. The workshop
+            called it a comeback of object-oriented modelling: name the real
+            problem, not the technology. A class called Student is a claim about
+            the domain; a class called ServiceLayer is a claim about the framework.
+          </p>
+          <p>
+            Two theses followed. First, code that follows the domain produces
+            better results with these tools. Second, assistants shift software
+            design toward domain modelling and relieve repetitive work &mdash;
+            provided the domain is modelled adequately. The proviso is the whole
+            sentence.
+          </p>
+
+          <ol class="sm-steps" role="list">
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">01</span>
+              <div>
+                <p class="sm-steps__name">Autocomplete</p>
+                <p class="sm-steps__note">A suggestion at the cursor.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">02</span>
+              <div>
+                <p class="sm-steps__name">Completions</p>
+                <p class="sm-steps__note">A panel of alternatives to review.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">03</span>
+              <div>
+                <p class="sm-steps__name">Commands</p>
+                <p class="sm-steps__note">An action on the open file or selection.</p>
+              </div>
+            </li>
+            <li class="sm-steps__item">
+              <span class="sm-steps__num" aria-hidden="true">04</span>
+              <div>
+                <p class="sm-steps__name">Chat</p>
+                <p class="sm-steps__note">A conversation with the repository in scope.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         03 What holds in 2026
+         ================================================================== -->
+    <section class="sm-chapter" id="ch-03" aria-labelledby="ch-03-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">03</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="ch-03-title">What holds in 2026</h2>
+          <p class="sm-lede">
+            The surfaces survived; the centre moved.
+          </p>
+          <p>
+            Autocomplete is still there, but the interesting unit is now the change
+            set: a diff across files that a person reviews. The 2023 deck treated
+            completion as the centre because that was the product. By 2026 the
+            product is the edit.
+          </p>
+          <p>
+            The pricing slide is obsolete &mdash; the numbers changed, the education
+            licence stayed. The lineage held: search, then completion, then chat,
+            then the command line.
+          </p>
+          <p>
+            The domain-modelling thesis held better than the productivity claim. A
+            tool that writes the technical layer makes a bad domain model more
+            expensive, not less.
+          </p>
+          <p>
+            What I would change: start with the diff, not the completion. And spend
+            more time on the review gate, which in 2023 was a slide and in 2026 is
+            the job.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         04 The record
+         ================================================================== -->
+    <section class="sm-chapter sm-chapter--paper" id="ch-04" aria-labelledby="ch-04-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">04</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="ch-04-title">The record</h2>
+          <p class="sm-lede">
+            The deposit is the workshop deck: one PDF, with the tool comparison and
+            the modelling argument.
+          </p>
+
+          <dl class="sm-meta">
+            <div class="sm-meta__row">
+              <dt>Title</dt>
+              <dd>Copilot technologies in the digital humanities</dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Type</dt>
+              <dd>Presentation</dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Deposited</dt>
+              <dd><time datetime="2023-12-07">7 December 2023</time></dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>DOI</dt>
+              <dd>10.5281/zenodo.10288101</dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Co-author</dt>
+              <dd>Julia Martin</dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Licence</dt>
+              <dd>CC BY 4.0</dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Reach</dt>
+              <dd>862 downloads, 770 of them unique (Zenodo, 15 November 2026)</dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Contents</dt>
+              <dd>workshop slides (PDF)</dd>
+            </div>
+          </dl>
+
+          <ul class="sm-links" role="list">
+            <li>
+              <a class="text-link" href="https://doi.org/10.5281/zenodo.10288101" target="_blank" rel="noopener">
+                Open the record on Zenodo
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Colophon
+         ================================================================== -->
+    <section class="sm-colophon" id="colophon" aria-labelledby="colophon-title">
+      <div class="container sm-chapter__grid">
+        <p class="sm-chapter__num" aria-hidden="true">05</p>
+        <div class="sm-chapter__body">
+          <h2 class="sm-chapter__title" id="colophon-title">Colophon</h2>
+          <dl class="sm-meta">
+            <div class="sm-meta__row">
+              <dt>Method</dt>
+              <dd>
+                A reading, 15 November 2026. It describes what the workshop
+                demonstrated and what I would teach differently now; it is not a
+                reprint.
+              </dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Sources</dt>
+              <dd>
+                The 2023 workshop deposit and its slides, read against the 2025
+                FAIR-code paper and the 2025 AI-coding workshop.
+              </dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Authorship</dt>
+              <dd>
+                Sebastian David Schiller-Stoff. The workshop was co-authored with
+                Julia Martin. The reading is mine.
+              </dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>JavaScript</dt>
+              <dd>None. The page is text, CSS and a small inline sprite.</dd>
+            </div>
+            <div class="sm-meta__row">
+              <dt>Licence</dt>
+              <dd>
+                Text and layout: CC BY-NC 4.0. The cited record keeps its own
+                CC BY 4.0.
+              </dd>
+            </div>
+          </dl>
+          <p class="sm-colophon__back btn-row">
+            <a class="btn btn--outline" href="writing.html">
+              All writing
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+            </a>
+            <a class="btn btn--outline" href="index.html#services-section">
+              Back to the CV
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sm-foot">
+    <div class="container sm-foot__inner">
+      <p>&copy; <span>2026</span> Sebastian David Schiller-Stoff</p>
+      <p>
+        <a href="mailto:sebi.stoff@gmail.com">sebi.stoff@gmail.com</a>
+        &middot;
+        <a href="index.html#imprint-section">Imprint</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Icon sprite: same drawing as the CV's, three symbols only. -->
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12h15M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 12H5M11 6l-6 6 6 6"/>
+    </symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 17 17 7M8 7h9v9"/>
+    </symbol>
+  </svg>
+</body>
+</html>
