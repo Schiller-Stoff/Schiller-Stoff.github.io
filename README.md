@@ -31,18 +31,27 @@ python3 -m http.server 8000
 - `ai-coding.html` — the practice note “The assistant writes code. You sign
   it.”: the 2023–2025 coding-assistant workshop record, the UFBAS GPT-4 case
   and the FAIR-code limits. No JavaScript.
+- `writing.html` — the index of the V17 series, “Five records, read again”: the
+  selection rule stated in public and five rows in reach order, each opening one
+  reading. No JavaScript.
+- `writing-agents.html`, `writing-copilot.html`, `writing-architecture.html`,
+  `writing-fair-code.html`, `writing-organisation.html` — the five readings: one
+  preserved Zenodo deposit per line of work, each in four chapters (why it
+  exists, the argument, what holds in 2026, the record) with an eight-row record
+  card and a five-row colophon. No JavaScript, no data-study furniture, no
+  images beyond the social card.
 - `tools/` — three offline generators (DERLA and MEMOR maps, plus the i18n
   catalog build) whose committed output is spliced into or written to the pages.
   Nothing runs at page load.
-- `de/` — the five German pages, generated from the English pages plus
+- `de/` — the eleven German pages, generated from the English pages plus
   `i18n/de.json` by `tools/i18n/build_i18n.py`; never edited by hand. The header
   carries a plain EN | DE switch (one link plus the current label, no
   JavaScript) and every page is
-  complete in German, including the four script-free standalone pages.
+  complete in German, including the ten script-free standalone pages.
 - `css/custom-styles.css` — the only stylesheet: the V7 “Blue ink” design system
-  on the V4 structure and V6 motion, plus the shared `sm-*` shell for the two
-  storymaps and the two practice notes. White canvas, one ultramarine accent,
-  serif statements (wordmark, `h1`, `h2`, two editorial `h3` roles), pill
+  on the V4 structure and V6 motion, plus the shared `sm-*` shell for the ten
+  standalone pages. White canvas, one ultramarine accent,
+  serif statements (wordmark, `h1`, `h2`, three editorial `h3` roles), pill
   controls, circle nodes and arrows, a rule-bounded evidence line, a rotating
   typed focus line, a six-route hero index, a finite printed-sheet hero scene,
   one-pass rule draws, a scroll-drawn CV spine, restrained hover/focus feedback,
@@ -96,15 +105,16 @@ Motion is finite and answers an action:
   where available and reduced motion is not requested; "load more" settles the
   new cards once.
 
-The storymaps and practice notes add no motion beyond the rail's reading
-progress; under reduced motion every item above is static.
+The storymaps, practice notes and writing pages add no motion beyond the rail's
+reading progress; under reduced motion every item above is static.
 
 ## Deploy
 
 The site is published from `master` via GitHub Pages. A push to `master`
 publishes immediately; keep working on `redesign` until cutover.
 
-Design rationale and history: `redesignv16.md` (the generated German tree, the
+Design rationale and history: `redesignv17.md` (the Selected writing series and
+its German catalogue), `redesignv16.md` (the generated German tree, the
 EN | DE switch and the translation workflow), `redesignv15.md` (proof-led
 outcomes, the approach note and the register at 23), `redesignv14.md` (the AI
 practice: two index routes and two practice notes), `redesignv13.md` (hero

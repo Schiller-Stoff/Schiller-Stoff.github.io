@@ -95,6 +95,12 @@ PAGES = (
     ("memor", "memor.html", "memor.html"),
     ("ai-agents", "ai-agents.html", "ai-agents.html"),
     ("ai-coding", "ai-coding.html", "ai-coding.html"),
+    ("writing", "writing.html", "writing.html"),
+    ("writing-agents", "writing-agents.html", "writing-agents.html"),
+    ("writing-copilot", "writing-copilot.html", "writing-copilot.html"),
+    ("writing-architecture", "writing-architecture.html", "writing-architecture.html"),
+    ("writing-fair-code", "writing-fair-code.html", "writing-fair-code.html"),
+    ("writing-organisation", "writing-organisation.html", "writing-organisation.html"),
 )
 
 VOID_TAGS = frozenset(

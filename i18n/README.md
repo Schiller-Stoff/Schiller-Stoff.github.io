@@ -6,15 +6,17 @@ catalog, `i18n/de.json`. Generated files are committed, exactly like the two map
 fragments: one offline script, deterministic output, never touched by hand.
 
 ```
-index.html  storymap.html  memor.html  ai-agents.html  ai-coding.html   ← edited by hand
+index.html  storymap.html  memor.html  ai-agents.html  ai-coding.html
+writing.html and the five writing-*.html                              ← edited by hand
         │
         │  tools/i18n/build_i18n.py --build
         ▼
 i18n/de.json (German only)  ──────────►  de/index.html  de/storymap.html  de/memor.html
 i18n/glossary.md                          de/ai-agents.html  de/ai-coding.html
+                                          de/writing.html and de/writing-*.html
 ```
 
-Why not a runtime switch: the four standalone pages load **no JavaScript at all**, and
+Why not a runtime switch: the ten standalone pages load **no JavaScript at all**, and
 the site's hardest invariant is "content is never hidden pending JavaScript". A static
 German tree keeps both promises, keeps print and forced colours working, and gives the
 German pages a real URL, a real `<html lang="de">` and real `hreflang` pairs.
@@ -106,7 +108,7 @@ that language (line indentation aside). Nothing inside a region can become a cat
 
 The switch is two cells — one link plus the current label (a `<span>`) — `EN` first and
 `DE` second in both languages so a label never moves. It is the last child of `.nav__menu` on the CV and
-of `.sm-head__inner` on the four standalone pages.
+of `.sm-head__inner` on the ten standalone pages.
 
 | page | group label | current cell | the other cell | its `href` |
 | --- | --- | --- | --- | --- |
@@ -114,7 +116,7 @@ of `.sm-head__inner` on the four standalone pages.
 | `de/index.html` | `Sprache` | `DE` (span, `aria-current="true"`) | `EN` | `../index.html` |
 | `storymap.html` | `Language` | `EN` | `DE` | `de/storymap.html` |
 | `de/storymap.html` | `Sprache` | `DE` | `EN` | `../storymap.html` |
-| `memor.html`, `ai-agents.html`, `ai-coding.html` and `de/` twins | as above | as above | as above | `de/<file>` / `../<file>` |
+| `memor.html`, `ai-agents.html`, `ai-coding.html`, `writing.html`, `writing-*.html` and their `de/` twins | as above | as above | as above | `de/<file>` / `../<file>` |
 
 The six natural-language strings (`Language`, `Sprache`, `— current language`,
 `— aktuelle Sprache`, `— English`, `— Deutsch`) live in `SWITCH_TEXT` in
@@ -143,11 +145,11 @@ pending files; an empty `i18n/pending/` means translation is complete.
 
 ```bash
 python3 tools/i18n/build_i18n.py --check                     # exit 0 with `problems             0`
-grep -c 'lang-switch:begin' index.html storymap.html memor.html ai-agents.html ai-coding.html  # 1 each
+grep -c 'lang-switch:begin' index.html storymap.html memor.html ai-agents.html ai-coding.html writing*.html  # 1 each
 grep -c 'lang-switch:begin' de/*.html                        # 1 each
 grep -c 'class="lang-switch__item"' index.html               # 2 (EN span + DE link)
 grep -c 'aria-current="true"' index.html                     # 1 (scrollspy writes "location")
-grep -c '<script' de/storymap.html de/memor.html de/ai-agents.html de/ai-coding.html  # 0
+grep -c '<script' de/storymap.html de/memor.html de/ai-agents.html de/ai-coding.html de/writing*.html  # 0
 grep -c 'site\.js' de/index.html                             # 1 (the only German page with JS)
 diff <(sed -n '/map:begin/,/map:end/p' de/index.html | sed 's/^ *//') \
      <(sed -n '/map:begin/,/map:end/p' de/storymap.html | sed 's/^ *//')  # no output: the DE maps match too
