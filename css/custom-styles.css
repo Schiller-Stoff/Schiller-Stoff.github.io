@@ -1390,6 +1390,10 @@ html.typed-ready .typewriter__caret {
 }
 
 .storymap-feature__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
   margin-top: var(--space-lg);
 }
 
@@ -3632,7 +3636,8 @@ html.js-ready .work-more[hidden] {
   text-transform: uppercase;
 }
 
-.sm-chapter__title {
+.sm-chapter__title,
+.globe-section__title {
   max-width: 24ch;
   color: var(--action);
   font-family: var(--font-serif);
@@ -4355,6 +4360,947 @@ html.js-ready .work-more[hidden] {
   }
 }
 
+/* --- globe.html: the memory globe ---------------------------------------
+   The atlas is one instrument above the fold: a stage that draws a globe and
+   a sheet that reads the selection, then two indexes of the same extract —
+   nine states, every record. The stage, the fallback map and the state table
+   are complete without JavaScript; only the canvas, the controls, the record
+   list and the sheet are gated by `html.globe-ready`, so a failed module
+   leaves a static page, never a blank frame. Everything is `globe-` scoped.
+   -------------------------------------------------------------------------- */
+
+.globe-section {
+  padding-block: clamp(56px, 8vw, 112px);
+}
+
+.globe-section--paper {
+  background: var(--surface-paper);
+}
+
+.globe-section__title {
+  margin-top: var(--space-sm);
+}
+
+.globe-section__lede {
+  max-width: 62ch;
+  margin-top: var(--space-md);
+  color: var(--ink);
+  font-size: var(--text-xl);
+  line-height: var(--leading-body);
+}
+
+.globe-section__body {
+  max-width: 62ch;
+  margin-top: var(--space-lg);
+  color: var(--ink-soft);
+  line-height: var(--leading-prose);
+}
+
+/* The plate: one bar of legend and controls, one stage, one caption. */
+.globe-plate {
+  --globe-stage-h: clamp(420px, 54vh, 560px);
+  margin: var(--space-2xl) 0 0;
+}
+
+.globe-plate__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-lg);
+  padding-block: var(--space-sm);
+  border-top: var(--rule-accent) solid var(--action);
+  border-bottom: var(--rule-hair) solid var(--rule);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
+.globe-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-lg);
+}
+
+.globe-legend__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+}
+
+.globe-legend__dot,
+.globe-legend__square {
+  width: 7px;
+  height: 7px;
+  transform: translateY(-1px);
+}
+
+.globe-legend__dot {
+  border-radius: var(--radius-circle);
+  background: var(--action);
+}
+
+.globe-legend__square {
+  background: var(--ink);
+}
+
+.globe-legend b {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The hint is advice, not a control: it disappears with the script that would
+   make the advice true, and names the gesture the device actually has. */
+.globe-hint {
+  display: none;
+}
+
+html.globe-ready .globe-hint {
+  display: inline;
+}
+
+.globe-hint__touch {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .globe-hint__pointer {
+    display: none;
+  }
+
+  .globe-hint__touch {
+    display: inline;
+  }
+}
+
+.globe-controls {
+  display: none;
+  align-items: center;
+  /* 8px apart so the 44px hit areas below meet without overlapping. */
+  gap: var(--space-xs);
+  margin-left: auto;
+}
+
+html.globe-ready .globe-controls {
+  display: inline-flex;
+}
+
+.globe-control {
+  position: relative;
+  min-height: 36px;
+  padding: 0 var(--space-sm);
+  border: var(--rule-hair) solid var(--rule-strong);
+  border-radius: var(--radius-pill);
+  background: var(--canvas);
+  color: var(--ink-soft);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: var(--leading-dense);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+/* 36px visual, 44px hit area. `inset` is measured from the padding box, so
+   -5px reaches 4px past the 1px border on each side; with the 8px gap the
+   neighbouring hit areas meet without overlapping. */
+.globe-control::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+}
+
+.globe-control:hover,
+.globe-control:focus-visible {
+  color: var(--action);
+  border-color: var(--action);
+}
+
+.globe-control--round {
+  width: 36px;
+  padding: 0;
+  border-radius: var(--radius-circle);
+  font-size: var(--text-base);
+}
+
+.globe-control--view[aria-pressed="true"] {
+  background: var(--action);
+  border-color: var(--action);
+  color: var(--on-dark);
+}
+
+.globe-control:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.globe-control:disabled:hover {
+  color: var(--ink-soft);
+  border-color: var(--rule-strong);
+}
+
+/* Stage and sheet share one hairline frame. The sheet docks at 1121px and
+   sits under the stage below it; both states are the same panel. */
+.globe-plate__body {
+  border: var(--rule-hair) solid var(--rule);
+}
+
+.globe-stage {
+  position: relative;
+  height: var(--globe-stage-h);
+  overflow: hidden;
+  background: var(--canvas);
+}
+
+.globe-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html.globe-ready .globe-fallback {
+  display: none;
+}
+
+.globe-fallback__state {
+  fill: var(--surface-paper);
+  stroke: var(--rule-strong);
+  stroke-width: 0.8;
+}
+
+.globe-fallback__outline {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.2;
+}
+
+.globe-fallback__dots {
+  fill: none;
+  stroke: var(--action);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.7;
+}
+
+.globe-fallback__terror {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.6;
+  stroke-linecap: square;
+  opacity: 0.85;
+}
+
+/* The canvas is unpainted until the first frame lands: keep it out of the
+   layout until `globe-ready` proves there is something to show. */
+.globe-canvas {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+html.globe-ready .globe-canvas {
+  display: block;
+}
+
+.globe-canvas.is-dragging {
+  cursor: grabbing;
+}
+
+/* Hover name and selected-state pin: labels, never dot tooltips. */
+.globe-tip,
+.globe-pin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 18ch;
+  margin: 0;
+  padding: 2px var(--space-2xs);
+  border: var(--rule-hair) solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--canvas);
+  color: var(--ink);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  line-height: var(--leading-dense);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -150%);
+}
+
+.globe-tip.is-visible,
+.globe-pin.is-visible {
+  opacity: 1;
+}
+
+.globe-pin {
+  border-color: var(--action);
+  color: var(--action);
+  transform: translate(-50%, -100%);
+}
+
+/* The sheet */
+.globe-sheet {
+  display: none;
+  position: relative;
+  padding: var(--space-lg);
+  border-top: var(--rule-hair) solid var(--rule);
+  background: var(--canvas);
+}
+
+html.globe-ready .globe-sheet.is-open,
+html.globe-failed .globe-sheet {
+  display: block;
+}
+
+.globe-sheet:focus-visible {
+  outline: var(--rule-accent) solid var(--action);
+  outline-offset: calc(var(--rule-accent) * -1);
+}
+
+.globe-sheet__label {
+  color: var(--action);
+}
+
+.globe-sheet__title {
+  margin-top: var(--space-xs);
+  /* 36px close + 12px inset: keep a long title clear of the button. */
+  padding-right: var(--space-2xl);
+  color: var(--ink);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: var(--leading-title);
+  letter-spacing: var(--tracking-title);
+}
+
+.globe-sheet__summary {
+  margin-top: var(--space-xs);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+  font-variant-numeric: tabular-nums;
+}
+
+.globe-sheet__facts {
+  margin: var(--space-md) 0 0;
+  border-top: var(--rule-hair) solid var(--rule);
+}
+
+.globe-sheet__fact {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: var(--space-sm);
+  padding-block: var(--space-xs);
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.globe-sheet__fact dt {
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  line-height: var(--leading-body);
+  text-transform: uppercase;
+}
+
+.globe-sheet__fact dd {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+  overflow-wrap: anywhere;
+}
+
+.globe-sheet__near {
+  margin-top: var(--space-md);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
+.globe-sheet__near:empty,
+.globe-sheet__nearlist:empty,
+.globe-sheet__summary:empty {
+  display: none;
+}
+
+.globe-sheet__nearlist {
+  display: grid;
+  margin-top: var(--space-2xs);
+}
+
+.globe-sheet__nearlink {
+  width: 100%;
+  padding: var(--space-2xs) 0;
+  border: 0;
+  border-bottom: var(--rule-hair) solid var(--rule);
+  background: none;
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  text-align: left;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.globe-sheet__nearlink:hover,
+.globe-sheet__nearlink:focus-visible {
+  color: var(--action);
+  border-bottom-color: var(--action);
+}
+
+.globe-sheet__link {
+  margin-top: var(--space-md);
+}
+
+.globe-sheet__nolink {
+  margin-top: var(--space-md);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+}
+
+.globe-sheet__close {
+  display: none;
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: var(--rule-hair) solid var(--rule);
+  border-radius: var(--radius-circle);
+  background: var(--canvas);
+  color: var(--ink-muted);
+  font-size: var(--text-lg);
+  line-height: 1;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+/* 36px visual / 44px hit area, as the stage controls; the button sits alone,
+   so the box has no neighbour to meet. */
+.globe-sheet__close::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+}
+
+html.globe-ready .globe-sheet.is-open .globe-sheet__close {
+  display: grid;
+}
+
+.globe-sheet__close:hover,
+.globe-sheet__close:focus-visible {
+  color: var(--action);
+  border-color: var(--action);
+}
+
+/* Caption and locator */
+.globe-plate__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md) var(--space-xl);
+  margin-top: var(--space-sm);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+}
+
+.globe-plate__caption-text {
+  max-width: 68ch;
+}
+
+.globe-plate__noscript {
+  display: block;
+  margin-top: var(--space-xs);
+  color: var(--ink-soft);
+}
+
+.globe-plate__locator {
+  flex: none;
+  width: 72px;
+}
+
+.globe-locator {
+  width: 100%;
+  height: auto;
+}
+
+.globe-locator__limb {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 0.8;
+}
+
+.globe-locator__land {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 0.8;
+}
+
+.globe-locator__austria {
+  fill: var(--action);
+}
+
+/* The state table is the map's index. Plain text without a script; with one,
+   each row becomes a control and gains a share bar. */
+.globe-states {
+  width: 100%;
+  margin-top: var(--space-xl);
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.globe-states th,
+.globe-states td {
+  padding: var(--space-xs) var(--space-sm);
+  border-bottom: var(--rule-hair) solid var(--rule);
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+
+.globe-states thead th {
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  border-bottom-color: var(--rule-strong);
+}
+
+.globe-states thead th:not(:first-child),
+.globe-states td:not(:first-child) {
+  text-align: right;
+}
+
+.globe-states tbody th {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.globe-states__row.is-hover,
+.globe-states__row.is-selected {
+  background: var(--action-soft);
+}
+
+.globe-states__pick {
+  padding: 0;
+  border: 0;
+  border-bottom: var(--rule-hair) solid transparent;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: left;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.globe-states__pick:hover,
+.globe-states__pick:focus-visible {
+  color: var(--action);
+  border-bottom-color: var(--action);
+}
+
+.globe-states__pick[aria-pressed="true"] {
+  color: var(--action);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: var(--rule-hair);
+  text-underline-offset: 4px;
+}
+
+/* The per-row summary only exists on phones, where the numeric columns are
+   gone: it carries the same numbers as the row it replaced. */
+.globe-states__meta {
+  display: none;
+  margin-top: var(--space-2xs);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.globe-states__share {
+  display: inline-block;
+  width: 56px;
+  height: 4px;
+  margin-right: var(--space-xs);
+  border-radius: var(--radius-pill);
+  background: var(--rule);
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.globe-states__share-fill {
+  display: block;
+  width: calc(var(--v, 0) * 1%);
+  height: 100%;
+  background: var(--action);
+}
+
+.globe-states__pct {
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+}
+
+/* One sentence replaces the screen-only record list on paper. */
+.globe-records-printnote {
+  display: none;
+}
+
+/* Record filters, search and list */
+.globe-filters,
+.globe-search,
+.globe-count,
+.globe-list,
+.globe-more-row {
+  display: none;
+}
+
+html.globe-ready .globe-filters,
+html.globe-ready .globe-search,
+html.globe-ready .globe-count,
+html.globe-ready .globe-list,
+html.globe-ready .globe-more-row {
+  display: block;
+}
+
+/* Author `display: block` beats the UA `[hidden]` rule, so the empty
+   "Show more" row would stay visible after a filter shrinks the list. */
+html.globe-ready .globe-more-row[hidden] {
+  display: none;
+}
+
+.globe-filters {
+  margin-top: var(--space-md);
+}
+
+.globe-filters__label {
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.globe-filters__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-2xs);
+}
+
+.globe-filter {
+  position: relative;
+  min-height: 36px;
+  padding: var(--space-2xs) var(--space-sm);
+  border: var(--rule-hair) solid var(--rule-strong);
+  border-radius: var(--radius-pill);
+  background: var(--canvas);
+  color: var(--ink-soft);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: var(--leading-dense);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+/* Same 36px visual / 44px hit area as a stage control: -5px from the
+   padding box reaches 4px past the 1px border, and the 8px row gap keeps
+   neighbouring hit areas from overlapping. */
+.globe-filter::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+}
+
+.globe-filter:hover,
+.globe-filter:focus-visible {
+  color: var(--action);
+  border-color: var(--action);
+}
+
+.globe-filter[aria-pressed="true"] {
+  background: var(--action);
+  border-color: var(--action);
+  color: var(--on-dark);
+}
+
+.globe-search {
+  margin-top: var(--space-md);
+}
+
+.globe-search__label {
+  display: block;
+  color: var(--ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.globe-search__input {
+  width: 100%;
+  max-width: 360px;
+  margin-top: var(--space-2xs);
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-hair) solid var(--rule-strong);
+  border-radius: var(--radius-sm);
+  background: var(--canvas);
+  color: var(--ink);
+  font-size: var(--text-sm);
+}
+
+.globe-count {
+  margin-top: var(--space-md);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.globe-empty {
+  display: none;
+  margin-top: var(--space-sm);
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}
+
+.globe-empty.is-visible {
+  display: block;
+}
+
+.globe-list {
+  margin-top: var(--space-sm);
+  border-top: var(--rule-hair) solid var(--rule);
+}
+
+.globe-row__item {
+  border-bottom: var(--rule-hair) solid var(--rule);
+}
+
+.globe-row__item.is-selected {
+  background: var(--action-soft);
+}
+
+.globe-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18px;
+  grid-template-rows: auto auto;
+  gap: 2px var(--space-md);
+  align-items: baseline;
+  width: 100%;
+  padding: var(--space-sm);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  text-align: left;
+}
+
+.globe-row__title {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: var(--leading-body);
+  transition: color var(--dur) var(--ease);
+}
+
+.globe-row__meta {
+  grid-column: 1;
+  grid-row: 2;
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+  font-variant-numeric: tabular-nums;
+}
+
+.globe-row__arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  width: 18px;
+  height: 18px;
+  color: var(--ink-muted);
+  transition: color var(--dur) var(--ease);
+}
+
+.globe-row:hover .globe-row__title,
+.globe-row:focus-visible .globe-row__title,
+.globe-row:hover .globe-row__arrow,
+.globe-row:focus-visible .globe-row__arrow {
+  color: var(--action);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .globe-row:hover .globe-row__arrow,
+  .globe-row:focus-visible .globe-row__arrow {
+    transform: translateX(var(--shift-sm));
+  }
+}
+
+.globe-more {
+  padding: var(--space-xs) var(--space-md);
+  border: var(--rule-hair) solid var(--rule-strong);
+  border-radius: var(--radius-pill);
+  background: var(--canvas);
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.globe-more:hover,
+.globe-more:focus-visible {
+  color: var(--action);
+  border-color: var(--action);
+}
+
+/* The canvas fades in once, on the frame that proves it painted. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes globe-mount {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  html.globe-ready .globe-canvas {
+    animation: globe-mount var(--dur-base) var(--ease-enter) both;
+  }
+}
+
+/* Above 1121 the sheet is docked beside the stage; below it, the same panel
+   opens under the stage. One component, two positions. */
+@media (min-width: 1121px) {
+  html.globe-ready .globe-plate__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+
+  html.globe-ready .globe-sheet {
+    display: block;
+    max-height: var(--globe-stage-h);
+    overflow-y: auto;
+    border-top: 0;
+    border-left: var(--rule-hair) solid var(--rule);
+  }
+}
+
+@media (max-width: 900px) {
+  .globe-plate {
+    --globe-stage-h: clamp(360px, 50vh, 480px);
+  }
+
+  .globe-states th,
+  .globe-states td {
+    padding-inline: var(--space-xs);
+  }
+}
+
+@media (max-width: 640px) {
+  .globe-plate {
+    --globe-stage-h: clamp(320px, 52vh, 420px);
+  }
+
+  .globe-plate__bar {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .globe-legend {
+    justify-content: space-between;
+  }
+
+  .globe-controls {
+    margin-left: 0;
+  }
+
+  /* With a script the numbers live in the sheet, so the table becomes a list
+     of state names; the row summary keeps the counts the columns carried. */
+  html.globe-ready .globe-states thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  html.globe-ready .globe-states,
+  html.globe-ready .globe-states tbody,
+  html.globe-ready .globe-states__row,
+  html.globe-ready .globe-states tbody th {
+    display: block;
+    width: 100%;
+  }
+
+  html.globe-ready .globe-states td {
+    display: none;
+  }
+
+  html.globe-ready .globe-states tbody th {
+    padding: var(--space-sm);
+    border-bottom: var(--rule-hair) solid var(--rule);
+  }
+
+  html.globe-ready .globe-states__pick {
+    display: block;
+    width: 100%;
+    font-size: var(--text-base);
+  }
+
+  html.globe-ready .globe-states__meta {
+    display: block;
+  }
+
+  .globe-plate__caption {
+    gap: var(--space-sm);
+  }
+
+  .globe-plate__locator {
+    width: 56px;
+  }
+
+  .globe-pin {
+    display: none;
+  }
+
+  .globe-search__input {
+    max-width: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .globe-plate {
+    --globe-stage-h: 300px;
+  }
+
+  .globe-control {
+    min-height: 36px;
+  }
+
+  .globe-control--round {
+    width: 36px;
+  }
+
+  /* The pill keeps its label and takes its own row, so it can be tapped
+     without competing with the two circles for the 80 px they occupy. */
+  .globe-controls {
+    flex-wrap: wrap;
+  }
+
+  .globe-control--view {
+    flex: 1 0 100%;
+  }
+}
+
 /* --------------------------------------------------------------------------
    20. Forced colours — states must not depend on colour alone
    -------------------------------------------------------------------------- */
@@ -4597,6 +5543,99 @@ html.js-ready .work-more[hidden] {
 
   .delivery-path::before {
     background: CanvasText;
+  }
+
+  /* The globe: the canvas repaints itself from the same probe, so forced
+     colours only need the static layers, the controls and the index. Shape is
+     the distinction here too — the fallback keeps dots versus squares. */
+  .globe-plate__bar,
+  .globe-plate__body,
+  .globe-stage,
+  .globe-sheet,
+  .globe-sheet__facts,
+  .globe-sheet__fact,
+  .globe-states th,
+  .globe-states td,
+  .globe-list,
+  .globe-row__item {
+    border-color: CanvasText;
+  }
+
+  .globe-legend__dot,
+  .globe-legend__square,
+  .globe-states__share-fill {
+    background: CanvasText;
+  }
+
+  .globe-states__share {
+    border: var(--rule-hair) solid CanvasText;
+    background: Canvas;
+  }
+
+  .globe-states__row.is-selected,
+  .globe-states__row.is-hover,
+  .globe-row__item.is-selected {
+    background: Canvas;
+    outline: var(--rule-accent) solid CanvasText;
+  }
+
+  .globe-control,
+  .globe-filter,
+  .globe-more,
+  .globe-search__input,
+  .globe-sheet__close {
+    border-color: CanvasText;
+    color: CanvasText;
+    background: Canvas;
+  }
+
+  .globe-control--view[aria-pressed="true"],
+  .globe-filter[aria-pressed="true"] {
+    background: Highlight;
+    color: HighlightText;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .globe-states__pick,
+  .globe-states__pick[aria-pressed="true"],
+  .globe-row__title,
+  .globe-row__arrow,
+  .globe-sheet__nearlink {
+    color: CanvasText;
+  }
+
+  .globe-states__pick[aria-pressed="true"] {
+    text-decoration-color: CanvasText;
+  }
+
+  .globe-tip,
+  .globe-pin {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .globe-fallback__state {
+    fill: Canvas;
+    stroke: CanvasText;
+  }
+
+  .globe-fallback__outline,
+  .globe-fallback__dots,
+  .globe-fallback__terror {
+    fill: none;
+    stroke: CanvasText;
+    opacity: 1;
+  }
+
+  .globe-locator__limb,
+  .globe-locator__land {
+    stroke: CanvasText;
+  }
+
+  .globe-locator__austria {
+    fill: CanvasText;
   }
 }
 
@@ -5448,5 +6487,149 @@ html.js-ready .work-more[hidden] {
   /* The record link must read as a link on paper. */
   .sm-links .text-link {
     text-decoration: underline;
+  }
+
+  /* globe.html on paper: the static map, the nine-state table and, if one is
+     open, the selected sheet. The canvas, the controls and the record list
+     are screen instruments and do not print. */
+  .globe-plate__bar {
+    border-top-color: #000;
+    border-bottom-color: #999;
+  }
+
+  .globe-records-printnote {
+    display: block;
+  }
+
+  .globe-hint,
+  .globe-controls,
+  .globe-tip,
+  .globe-pin,
+  .globe-plate__locator,
+  .globe-filters,
+  .globe-search,
+  .globe-count,
+  .globe-empty,
+  .globe-list,
+  .globe-more-row,
+  .globe-sheet__close,
+  .globe-canvas {
+    display: none !important;
+  }
+
+  .globe-stage {
+    height: auto !important;
+    border: 0;
+  }
+
+  /* The fallback is the printed map: give it its intrinsic height, not the
+     stage's screen height, so the paper carries the drawing complete. */
+  .globe-fallback {
+    position: static;
+    display: block !important;
+    width: 100%;
+    height: auto;
+  }
+
+  .globe-fallback__state {
+    fill: none;
+    stroke: #000;
+  }
+
+  .globe-fallback__outline,
+  .globe-fallback__dots,
+  .globe-fallback__terror {
+    fill: none;
+    stroke: #000;
+    opacity: 1;
+  }
+
+  .globe-plate__body {
+    display: block;
+    border: 0;
+  }
+
+  .globe-sheet {
+    display: none !important;
+  }
+
+  html.globe-ready .globe-sheet.is-open {
+    display: block !important;
+    max-height: none;
+    overflow: visible;
+    margin-top: 8pt;
+    padding: 8pt 10pt;
+    border: 0;
+    border-top: var(--rule-hair) solid #999;
+    outline: 0;
+    break-inside: avoid;
+  }
+
+  .globe-legend__dot,
+  .globe-legend__square {
+    background: #000;
+  }
+
+  .globe-sheet__label,
+  .globe-sheet__title,
+  .globe-sheet__summary,
+  .globe-sheet__fact dd,
+  .globe-sheet__near,
+  .globe-sheet__nearlink,
+  .globe-sheet__nolink {
+    color: #000 !important;
+    max-width: none;
+  }
+
+  .globe-sheet__facts,
+  .globe-sheet__fact {
+    border-color: #999;
+  }
+
+  .globe-section,
+  .globe-section--paper {
+    padding-block: 10pt;
+    border-top: var(--rule-hair) solid #999;
+    background: #fff !important;
+  }
+
+  .globe-section__title {
+    max-width: none;
+    color: #000 !important;
+    font-size: 14pt;
+  }
+
+  .globe-section__lede,
+  .globe-section__body {
+    max-width: none;
+    color: #000 !important;
+  }
+
+  .globe-states {
+    font-size: 10pt;
+  }
+
+  .globe-states th,
+  .globe-states td {
+    border-color: #999;
+  }
+
+  .globe-states__row.is-selected {
+    background: #fff !important;
+  }
+
+  .globe-states__pick,
+  .globe-states__pick[aria-pressed="true"],
+  .globe-states__pct {
+    color: #000 !important;
+    text-decoration: none;
+  }
+
+  .globe-states__share {
+    display: none !important;
+  }
+
+  .globe-plate__caption {
+    color: #000 !important;
   }
 }
