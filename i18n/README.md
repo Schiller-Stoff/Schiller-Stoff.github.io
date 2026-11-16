@@ -85,7 +85,7 @@ is **`i18n check: OK` with `problems             0` and exit 0**, not silence.
 | `<meta property="og:locale">` | forced to `de_DE` |
 | `<meta lang="en">` (Dublin Core) | forced to `lang="de"` |
 | `<link rel="canonical">`, `og:url` | host + `/de/` + path |
-| `href`/`src`/`srcset` starting with `css/ js/ images/ fonts/ favicon.png` | prefixed `../` |
+| `href`/`src`/`srcset` starting with `css/ js/ images/ fonts/ favicon.svg favicon-32.png apple-touch-icon.png` (and `favicon.png` while the old file is retained for the cache window) | prefixed `../` |
 | `*.html` links, `#fragment`, absolute URLs | unchanged (the German page sits beside its peers) |
 | `<script type="application/ld+json">`, `<meta name="keywords">` | **not** translated (structured data and keyword lists stay canonical) |
 | `data-i18n` subtrees | the whole inner HTML comes from the catalog's `rich`; parity therefore skips the inner elements, classes, `lang` placements, external hrefs and data hooks and compares only the element that carries `data-i18n` |

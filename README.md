@@ -19,6 +19,11 @@ python3 -m http.server 8000
   selected outcomes (DERLA, MEMOR, GAMS), capabilities, working method with its
   sustain note, project register, training (21 items), CV, contact, imprint and
   footer.
+- `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` — the icon: an
+  ultramarine `S` on a white tile, drawn in the site's own two colours. The SVG
+  is primary, the 32px PNG is the fallback (and the 2× asset for a 16px slot),
+  and the 180px touch icon is opaque because iOS composites alpha onto black.
+  No `.ico`, no manifest, no script, no dark-mode variant.
 - `storymap.html` — a dependency-free data study of DERLA, “The Memory
   Landscape”: a national inline map of 4,393 records and four chapters. No
   JavaScript.

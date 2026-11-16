@@ -137,7 +137,16 @@ TRANSLATABLE_META = frozenset(
 SKIP_META = frozenset({"name:keywords", "name:schema_org:keywords"})
 SKIP_SCRIPTS = frozenset({"application/ld+json"})
 
-ASSET_PREFIXES = ("css/", "js/", "images/", "fonts/", "favicon.png")
+ASSET_PREFIXES = (
+    "css/",
+    "js/",
+    "images/",
+    "fonts/",
+    "favicon.png",
+    "favicon.svg",
+    "favicon-32.png",
+    "apple-touch-icon.png",
+)
 
 WHITESPACE = re.compile(r"\s+")
 LANG_ALT = re.compile(

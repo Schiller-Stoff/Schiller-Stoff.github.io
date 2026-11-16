@@ -2987,6 +2987,19 @@ html.js-ready .work-more[hidden] {
 }
 
 @media (max-width: 1120px) {
+  /* Four primary links plus the CTA and the switch: the three-link German
+     header had ~45px of slack at 901px and "Texte" costs ~55px, so the two
+     inner gaps drop to their token floors in this band. Without this the row
+     squeezes .brand and the wordmark wraps inside the 72px header. Above
+     1120px the slack is ≥138px and the published gaps are unchanged. */
+  .nav__links {
+    gap: var(--space-sm);
+  }
+
+  .nav__menu {
+    gap: var(--space-lg);
+  }
+
   /* The asymmetric head collapses before the title column gets too narrow. */
   .section-head {
     display: block;
@@ -4879,7 +4892,21 @@ html.js-ready .work-more[hidden] {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  }
+
+  /* A reduced-motion request removes motion, not feedback. Colour, fill,
+     stroke and opacity still answer a pointer, a focus ring, a copied address
+     or a filter — at the fast token speed — so a desktop that asks for less
+     motion is not a dead page. Anything that travels (transform, translate,
+     scale, height, outline-offset) is dropped from the property list and
+     therefore lands instantly. Nothing here re-introduces movement. */
+  *,
+  *::before,
+  *::after {
+    transition-property: color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, opacity !important;
+    transition-duration: var(--dur-fast) !important;
+    transition-timing-function: var(--ease-standard) !important;
   }
 
   ::view-transition-group(*),

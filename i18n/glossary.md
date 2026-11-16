@@ -53,6 +53,7 @@ only when the value needs one; `--check` fails on a stray ` .`, ` ,`, ` ;`, ` :`
 | work with public impact | Arbeit mit öffentlicher Wirkung. | |
 | services | Leistungen | |
 | work (nav, register) | Projekte | the nav item and the index pane use the same word |
+| writing (nav, series) | Texte | the nav item; the series says `Ausgewählte Texte` / `Alle Texte`; never «Blog» |
 | experience (nav) | Werdegang | |
 | training / teaching | Schulungen / Lehre | section eyebrow `Schulungen`, filter `Lehre` |
 | project register | Projektregister | heading: `Projekte und Beiträge.` |
